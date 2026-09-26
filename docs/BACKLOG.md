@@ -16,12 +16,10 @@ See `docs/REVIEW_2026-09-26.md` section 3. Short form:
 
 ## Engineering
 
-- [ ] Split `engine.py` (2.9k lines) into a package: `costbot/data.py`,
-      `costbot/models/<model>.py`, `costbot/ensemble.py`, `costbot/escalation.py`,
-      `costbot/report.py`; keep `engine.py` as a thin facade so app and tests keep
-      working. Split `app.py` into `app_pages/` (estimator, data, code, deps, specs)
-      plus `ui/components.py`. Do this BEFORE the UX redesign so the UI is only
-      rewritten once.
+- [x] Split `engine.py` into the `costbot/` package (one module per model,
+      constants, data, escalation, ensemble, screening, report) with `engine.py`
+      as a facade; split `app.py` into `app_pages/` + `ui/` with `st.navigation`.
+      Done 2026-09-26, all four test layers unchanged.
 - [ ] Cache the Benchmark one-hot matrix and scaler per DataStore (recomputed every call).
 - [ ] Pre-parse `ref_equipment_vectors.csv` JSON vectors into a numpy matrix once.
 - [ ] Composite: vectorize chip scoring (DataFrame.apply with Python scorer per scope item).

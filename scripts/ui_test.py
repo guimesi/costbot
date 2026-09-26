@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Headless UI test using streamlit.testing.v1.AppTest.
-Runs app.py, fills DEMO_SCRIPT scenario 1, clicks Run, checks for exceptions.
+Runs app.py (st.navigation entry), fills DEMO_SCRIPT scenario 1 on the
+estimator page, exercises the list cards, clicks Run, then renders every other
+page and checks that nothing raised.
 
     .venv/bin/python scripts/ui_test.py
 """
@@ -60,6 +62,17 @@ def main():
     assert ens.get('best_estimate_musd'), ens
     fired = {m for m, r in results['models'].items() if r.get('can_fire')}
     assert {'Benchmark', 'Calculator_Onshore', 'OSBL_Estimate', 'EquipmentVector', 'Composite'} <= fired, fired
+
+    # Every other page must render without exceptions or error elements
+    for page in ['app_pages/data_package.py', 'app_pages/code_inventory.py',
+                 'app_pages/dependencies.py', 'app_pages/model_specs.py']:
+        at.switch_page(page)
+        at.run()
+        assert not at.exception, (page, at.exception)
+        assert not at.error, (page, [e.value for e in at.error])
+    at.switch_page('app_pages/estimator.py')
+    at.run()
+    results = at.session_state['last_results']  # survives page switches
 
     metrics = [m.label for m in at.metric]
     assert 'Best Estimate (P50)' in metrics, metrics

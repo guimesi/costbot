@@ -52,16 +52,17 @@ assessment.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ app.py (Streamlit UI)                                               │
-│ • 5 tabs: Estimator, Data Package, Code, Dependencies, Specs        │
-│ • Collects scope dict, calls screen_project(), renders              │
+│ app.py (entry) + app_pages/*.py (5 pages) + ui/ (cards, common)     │
+│ • st.navigation: Estimator, Data Package, Code, Dependencies, Specs │
+│ • Estimator collects scope dict, calls screen_project(), renders    │
 └──────────────────────────────────────────────────────────────────────┘
                               │
                     scope dict (Python dict)
                               ▼
 ┌──────────────────────────────────────────────────────────────────────┐
-│ engine.py (Estimation Engine)                                       │
-│                                                                      │
+│ costbot/ package (engine.py is a compatibility facade)              │
+│   constants.py data.py escalation.py models/*.py ensemble.py         │
+│   screening.py report.py                                             │
 │ screen_project(scope, data)                                         │
 │   ├─ ARCHETYPE_MODELS routing → eligible models                     │
 │   ├─ ARCHETYPE_EXCLUSIONS → pre-excluded models                     │
@@ -495,8 +496,18 @@ The JSON in this repo is a MOCK snapshot of the engine's own output (14 cases, 1
 
 ```
 costbot/
-├── app.py                  # Streamlit UI
-├── engine.py               # Estimation engine (all models, ensemble, report)
+├── app.py                  # Streamlit entry point (st.navigation)
+├── app_pages/              # estimator, data_package, code_inventory, dependencies, model_specs
+├── ui/                     # common.py (cached data, CSS), cards.py (fragment cards)
+├── costbot/                # Engine package
+│   ├── constants.py        # routing, exclusions, correlations, location maps, UI option lists
+│   ├── data.py             # DataStore (COSTBOT_DATA_DIR aware)
+│   ├── escalation.py       # CP30 + EMMA
+│   ├── models/             # one file per model runner
+│   ├── ensemble.py         # _assess_confidence
+│   ├── screening.py        # screen_project, analogues, validate_bid
+│   └── report.py           # HTML report
+├── engine.py               # Facade re-exporting costbot.* (kept for compatibility)
 ├── test_golden_baseline.py # Calculator regression vs _golden_baseline.json
 ├── app.yaml                # Databricks App config (streamlit on port 8000)
 ├── requirements.txt        # Runtime dependencies

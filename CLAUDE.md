@@ -22,17 +22,21 @@ changing them.
 
 | Path | Role |
 |---|---|
-| `app.py` | Streamlit UI, 5 tabs. Builds a `scope` dict and calls `screen_project`. |
-| `engine.py` | All models, ensemble, CP30 escalation, bid validation, HTML report. Single module by design. |
+| `app.py` | Streamlit entry point: page config, CSS, session-state init, header, `st.navigation` over `app_pages/`. |
+| `app_pages/*.py` | One script per page (estimator, data_package, code_inventory, dependencies, model_specs). Direct scripts, no `main()`. |
+| `ui/common.py` | `load_data()` (cached DataStore), CSS, app title/version. |
+| `ui/cards.py` | Fragment cards that edit lists in session_state (equipment, scope items) and their callbacks. |
+| `costbot/` | The engine as a package. `constants.py`, `data.py`, `escalation.py`, `models/<one file per model>.py`, `ensemble.py`, `screening.py`, `report.py`. |
+| `engine.py` | Compatibility facade re-exporting every `costbot` name. Tests and scripts still import from it; new code imports from `costbot.*`. |
 | `test_golden_baseline.py` | Runs the 4 calculators against `data/extracted_files/_golden_baseline.json`. |
 | `scripts/generate_mock_data.py` | Writes the synthetic `data/` package (seed 42). |
 | `scripts/smoke_test.py` | Runs the DEMO_SCRIPT scenarios through the engine, no UI. |
-| `scripts/ui_test.py` | Headless Streamlit `AppTest`: fills scenario 1, exercises the list cards, clicks Run. |
+| `scripts/ui_test.py` | Headless Streamlit `AppTest`: fills scenario 1, exercises the list cards, clicks Run, renders every page. |
 | `scripts/evaluate_truth.py` | LOOCV hit rate at +/-30% per archetype from `project_truth.csv`. Meaningless on mock data. |
 | `tests/` | pytest unit tests for ensemble rules, CP30, bid validation, equipment vector. |
 | `docs/` | Review of spec vs implementation and the backlog. |
-| `data/` | Mock data package (tracked). Real data goes in `data/_real/` (gitignored). |
-| `APP_DOCUMENTATION.md`, `DEMO_SCRIPT.md` | AI-written docs from the first build; accuracy numbers in them are unverified. |
+| `data/` | Mock data package (tracked). Real data goes in `data/_real/` (gitignored) or wherever `COSTBOT_DATA_DIR` points. |
+| `APP_DOCUMENTATION.md`, `DEMO_SCRIPT.md` | Docs from the first build, aligned on 2026-09-26; accuracy numbers in them are unverified. |
 
 ## Run and test
 
@@ -65,6 +69,13 @@ before `streamlit run` or any script; no code edit needed.
 
 ## Engine conventions
 
+- Add a model as `costbot/models/<name>.py` exposing `run_<name>(scope, data)`,
+  register it in `_MODEL_FN_MAP` (`costbot/screening.py`) and in
+  `ARCHETYPE_MODELS` (`costbot/constants.py`), and add its name to the
+  facade list in `engine.py`.
+- Cross-module imports inside the package are explicit (`from costbot.constants import X`);
+  no star imports, no imports from `engine`.
+
 - Every model runner is `run_<model>(scope, data) -> dict` with `can_fire`,
   `model_id`, `estimate_musd`, `estimate_low_musd`, `estimate_high_musd`,
   and `no_fire_reason` when it cannot fire. Component models set
@@ -83,6 +94,10 @@ before `streamlit run` or any script; no code edit needed.
 - Models may return a `warning` string; the UI and the HTML report surface it.
 
 ## UI conventions
+
+- Pages are direct scripts under `app_pages/`; shared logic goes in `ui/` or `costbot/`,
+  never copied between pages. Each page that needs data calls `ui.common.load_data()`.
+- Navigation is `st.navigation(..., position="top")` in `app.py`; add a page there.
 
 - List-editing cards (equipment, scope items) are `st.fragment`s with
   `on_click` callbacks. Never call `st.rerun()` after a button click; it
