@@ -4,16 +4,10 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-from costbot.report import generate_html_report
-from costbot.screening import screen_project, validate_bid
+from costbot.labels import ROLE_COLORS
+from costbot.report import flatten_detail, generate_html_report
+from costbot.screening import model_rows, screen_project, validate_bid
 from ui.common import DISCLAIMER, model_label, musd, musd_md
-
-_ROLE_COLORS = {
-    'In ensemble': '#1F3A5F',
-    'Gated out': '#9AA5B1',
-    'Component': '#2A9D8F',
-    'Indirect overlay': '#E9A23B',
-}
 
 _STATUS_ICON = {
     'ready': ':material/check_circle:',
@@ -48,40 +42,14 @@ def render_readiness(rows, core_ready: bool) -> None:
                 st.markdown(f"{_STATUS_ICON[s]} {label} {badge}")
 
 
-def _model_rows(results):
-    ens = results['ensemble']
-    included = set(ens.get('models_included') or [])
-    if 'GeometricBlend' in included:
-        included |= {'Calculator_Onshore', 'Benchmark'}
-    gated = {g[0] for g in ens.get('models_gated_out') or []}
-    rows = []
-    for mid, mr in results['models'].items():
-        if not mr.get('can_fire') or mr.get('excluded_by_rule') or not mr.get('estimate_musd'):
-            continue
-        if mr.get('is_component'):
-            role = 'Component'
-        elif mr.get('is_indirect'):
-            role = 'Indirect overlay'
-        elif mid in gated:
-            role = 'Gated out'
-        elif mid in included:
-            role = 'In ensemble'
-        else:
-            role = 'In ensemble'
-        rows.append({'model_id': mid, 'model': model_label(mid), 'estimate': mr['estimate_musd'],
-                     'low': mr.get('estimate_low_musd') or mr['estimate_musd'],
-                     'high': mr.get('estimate_high_musd') or mr['estimate_musd'], 'role': role})
-    return rows
-
-
 def _model_chart(rows, p50):
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame([{**r, 'model': model_label(r['model_id'])} for r in rows])
     order = df.sort_values('estimate', ascending=False)['model'].tolist()
     base = alt.Chart(df).encode(y=alt.Y('model:N', sort=order, title=None, axis=alt.Axis(labelLimit=220)))
     bars = base.mark_bar(size=18).encode(
         x=alt.X('estimate:Q', title='TEC ($M)', axis=alt.Axis(format='$,.0f')),
         color=alt.Color('role:N', title=None,
-                        scale=alt.Scale(domain=list(_ROLE_COLORS), range=list(_ROLE_COLORS.values())),
+                        scale=alt.Scale(domain=list(ROLE_COLORS), range=list(ROLE_COLORS.values())),
                         legend=alt.Legend(orient='bottom')),
         tooltip=[alt.Tooltip('model:N', title='Model'), alt.Tooltip('estimate:Q', title='Estimate ($M)', format=',.0f'),
                  alt.Tooltip('low:Q', title='Low ($M)', format=',.0f'), alt.Tooltip('high:Q', title='High ($M)', format=',.0f'),
@@ -96,10 +64,10 @@ def _model_chart(rows, p50):
 
 
 def _detail_table(detail: dict):
-    rows = [{'Field': k, 'Value': (', '.join(f'{a}: {b}' for a, b in v.items()) if isinstance(v, dict) else v)}
-            for k, v in detail.items() if not isinstance(v, (list,)) and v is not None]
+    rows = flatten_detail(detail)
     if rows:
-        st.dataframe(pd.DataFrame(rows).astype(str), hide_index=True, height=min(400, 38 + 35 * len(rows)))
+        st.dataframe(pd.DataFrame(rows, columns=['Field', 'Value']), hide_index=True,
+                     height=min(420, 38 + 35 * len(rows)))
 
 
 def _render_model_detail(mid, mr):
@@ -170,12 +138,12 @@ def render_results(results, data, stale: bool) -> None:
         st.caption("Gated out of the ensemble: " + '; '.join(f"{model_label(g[0])} at {musd_md(g[1])} ({g[2]})" for g in ens['models_gated_out']))
 
     # --- Model comparison ---
-    rows = _model_rows(results)
+    rows = model_rows(results)
     if rows:
         with st.container(border=True):
             st.markdown("**:material/bar_chart: Model estimates**")
             st.altair_chart(_model_chart(rows, best))
-            tabs = st.tabs([r['model'] for r in rows])
+            tabs = st.tabs([model_label(r['model_id']) for r in rows])
             for tab, r in zip(tabs, rows):
                 with tab:
                     _render_model_detail(r['model_id'], models[r['model_id']])

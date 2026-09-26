@@ -321,6 +321,32 @@ def _get_analogues(scope: Dict, data: DataStore, limit: int = 10) -> List[Dict]:
     return scored[:limit]
 
 
+def model_rows(results: Dict) -> List[Dict]:
+    """Fired, non-excluded models with their role in the ensemble, for charts
+    and tables (UI and HTML report share this)."""
+    ens = results.get('ensemble', {})
+    included = set(ens.get('models_included') or [])
+    if 'GeometricBlend' in included:
+        included |= {'Calculator_Onshore', 'Benchmark'}
+    gated = {g[0] for g in ens.get('models_gated_out') or []}
+    rows = []
+    for mid, mr in results.get('models', {}).items():
+        if not mr.get('can_fire') or mr.get('excluded_by_rule') or not mr.get('estimate_musd'):
+            continue
+        if mr.get('is_component'):
+            role = 'Component'
+        elif mr.get('is_indirect'):
+            role = 'Indirect overlay'
+        elif mid in gated:
+            role = 'Gated out'
+        else:
+            role = 'In ensemble'
+        rows.append({'model_id': mid, 'estimate': mr['estimate_musd'],
+                     'low': mr.get('estimate_low_musd') or mr['estimate_musd'],
+                     'high': mr.get('estimate_high_musd') or mr['estimate_musd'], 'role': role})
+    return rows
+
+
 def validate_bid(results: Dict, bid_musd: float, bid_type: str = 'TEC') -> Dict:
     ens = results.get('ensemble', {})
     if ens.get('best_estimate_musd') is None:

@@ -112,6 +112,7 @@ from costbot.screening import (
     _MODEL_FN_MAP,
     MODEL_ORDER,
     model_readiness,
+    model_rows,
     screen_project,
     _get_analogues,
     validate_bid,
