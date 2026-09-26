@@ -52,9 +52,10 @@ assessment.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ app.py (entry) + app_pages/*.py (5 pages) + ui/ (cards, common)     │
-│ • st.navigation: Estimator, Data Package, Code, Dependencies, Specs │
-│ • Estimator collects scope dict, calls screen_project(), renders    │
+│ app.py (entry) + app_pages/{estimator,models,data}.py + ui/         │
+│ • st.navigation (top): Estimator, Models, Data                      │
+│ • Estimator builds the scope dict on every rerun, shows live         │
+│   model_readiness(), calls screen_project() on Run, renders results │
 └──────────────────────────────────────────────────────────────────────┘
                               │
                     scope dict (Python dict)
@@ -86,7 +87,7 @@ assessment.
 Set `COSTBOT_DATA_DIR=/path/to/real/data` to point the engine at the real
 package; the repo's `data/` is a synthetic mock with the same schema.
 
-**Dependencies:** `streamlit`, `pandas`, `numpy`, `plotly`, `scikit-learn` (for cosine similarity in Benchmark model).
+**Dependencies:** `streamlit` (>= 1.52), `pandas`, `numpy`, `altair`, `scikit-learn` (for cosine similarity in Benchmark model).
 
 ---
 
@@ -322,33 +323,35 @@ geometric_mean = sqrt(estimate_A × estimate_B)
 
 ## 8. User Interface
 
-The app has 5 tabs:
+Three pages in a top navigation bar. Theme is `.streamlit/config.toml` (light,
+navy primary, Inter); no CSS or HTML is injected. Every element is native
+Streamlit: bordered containers as cards, `st.metric(border=True)` KPI cards,
+inline badges, Material icons, sentence-case labels.
 
-### Tab 1: Estimator
-The main estimation interface. Split into:
-- **Left panel (Input):** 5 progressive input cards (Core Inputs → Equipment → Facility & Capacity → SURF → Scope Items)
-- **Right panel (Results):** Model Readiness indicators (fixed order), 3-Up Hero Cards (P50, Range, Confidence), model warning banners (e.g. pipeline UNVERIFIED), bar chart with error bars, per-model detail expanders, analogues table,
-bid validation, what-if sensitivity, HTML report download button
+### Estimator page
+- **Left column, input cards:** Project (archetype, location, basis year and
+  scope type as button groups, project name, optional process domain),
+  Equipment list (fragment; duplicate types merge), Facility and capacity
+  (facility type is a dropdown the user can also type into; pipeline, offshore
+  and LNG fields appear per archetype), Subsea scope (offshore only), Scope
+  items (fragment), and the **Run screening estimate** button.
+- **Right column:** **Model readiness** is computed on every rerun by
+  `costbot.screening.model_readiness()` without running any model, so the user
+  sees Ready / Needs … / Excluded per eligible model while typing. After Run:
+  KPI row (P50, range, confidence), warnings (screening floor, model warnings,
+  CP30 note), the **Model estimates** Altair chart (bars, range whiskers,
+  ensemble P50 rule, colour by role), one tab per fired model with its detail
+  table and analogues, **Comparable projects**, **Bid check**, **What-if** and
+  **Download HTML report**. Changing an input after a Run shows a stale notice.
 
-The Equipment List and Scope Items cards are `st.fragment`s: adding or removing an item reruns only that card.
+### Models page
+Tabs: Model specs (one card per model with badges), Routing and inputs
+(archetype routing and exclusions from the engine tables, dependency table,
+ensemble rules), Reported accuracy (reference figures, marked unverified).
 
-Conditional UI:
-- Pipeline fields (Length, Diameter) appear only when archetype contains "pipeline"
-- Offshore fields (Topsides Weight, Water Depth, Hull Type) appear only when archetype contains "offshore"
-- SURF card appears only for offshore archetypes
-- LNG capacity field appears only when archetype contains "lng"
-
-### Tab 2: Data Package
-Manifest of all loaded CSVs with row counts, model mapping, and data preview (first 50 rows of any table). Includes an archetype distribution bar chart of the 503-project pool.
-
-### Tab 3: Code Inventory
-Table of all 16 reference Python modules from the spec folder, with line counts, model mapping, and descriptions.
-
-### Tab 4: Dependencies
-Input → Model dependency graph, progressive unlock sequence, and archetype → model routing table.
-
-### Tab 5: Model Specs
-Expandable cards for each model with algorithm details, calibration source, LOOCV accuracy, and library dependencies. Includes accuracy summary table and bar chart by archetype.
+### Data page
+Mock-package warning and data directory, loaded tables with live counts and
+usage, table preview, analogue pool by archetype.
 
 ---
 
@@ -496,9 +499,10 @@ The JSON in this repo is a MOCK snapshot of the engine's own output (14 cases, 1
 
 ```
 costbot/
-├── app.py                  # Streamlit entry point (st.navigation)
-├── app_pages/              # estimator, data_package, code_inventory, dependencies, model_specs
-├── ui/                     # common.py (cached data, CSS), cards.py (fragment cards)
+├── app.py                  # Streamlit entry point (st.navigation, top)
+├── .streamlit/config.toml  # Theme (light, navy accent). No CSS in code.
+├── app_pages/              # estimator.py, models.py, data.py
+├── ui/                     # common.py (data, labels, formatters), cards.py (fragment cards), results.py (results panel)
 ├── costbot/                # Engine package
 │   ├── constants.py        # routing, exclusions, correlations, location maps, UI option lists
 │   ├── data.py             # DataStore (COSTBOT_DATA_DIR aware)

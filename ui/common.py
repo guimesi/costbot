@@ -1,10 +1,13 @@
-"""Shared UI helpers: cached data store, CSS, page list."""
+"""Shared UI helpers: cached data store, labels, page metadata."""
+import os
+
 import streamlit as st
 
 from costbot.data import DataStore
 
-APP_TITLE = "GP Screening Cost Estimator"
-APP_VERSION = "POC v1.0"
+APP_TITLE = "GP screening cost estimator"
+APP_VERSION = "POC v1.1"
+DISCLAIMER = "Class 5 screening estimate (±50% target). Deterministic models, no AI. Not a basis of estimate."
 
 
 @st.cache_resource
@@ -13,31 +16,68 @@ def load_data() -> DataStore:
     return DataStore()
 
 
-_CSS = """
-<style>
-    .main .block-container { padding-top: 1rem; max-width: 1400px; }
-    div[data-testid="stMetric"] {
-        background: #f8f9fa; border: 1px solid #dee2e6;
-        border-radius: 8px; padding: 12px 16px;
-    }
-    .model-ready { background: #d1e7dd; border-radius: 6px; padding: 8px 12px;
-                   margin-bottom: 6px; font-size: 0.85em; color: #0f5132; }
-    .model-not-ready { background: #f5f5f5; border-radius: 6px; padding: 8px 12px;
-                       margin-bottom: 6px; font-size: 0.85em; color: #6c757d; }
-    .conf-high { background: #d1e7dd; color: #0f5132; padding: 2px 10px;
-                 border-radius: 4px; font-weight: 600; font-size: 0.8em; }
-    .conf-med { background: #fff3cd; color: #664d03; padding: 2px 10px;
-                border-radius: 4px; font-weight: 600; font-size: 0.8em; }
-    .conf-low { background: #f8d7da; color: #842029; padding: 2px 10px;
-                border-radius: 4px; font-weight: 600; font-size: 0.8em; }
-    .disclaimer { background: #fff3cd; padding: 12px 16px; border-radius: 8px;
-                  border-left: 4px solid #ffc107; font-size: 0.85em; margin-top: 12px; }
-    .stTabs [data-baseweb="tab-list"] { gap: 0px; }
-    .stTabs [data-baseweb="tab"] { padding: 10px 24px; font-weight: 500; }
-</style>
-"""
+def data_is_mock(data: DataStore) -> bool:
+    """True when the loaded package is the synthetic one shipped in the repo."""
+    readme = os.path.join(data.data_dir, 'README.md')
+    try:
+        with open(readme) as f:
+            return 'MOCK' in f.read(200)
+    except OSError:
+        return False
 
 
-def inject_css() -> None:
-    """Custom CSS from the first build. To be replaced by config.toml theming in the UX pass."""
-    st.markdown(_CSS, unsafe_allow_html=True)
+ARCHETYPE_LABELS = {
+    'refinery_bf': 'Refinery brownfield',
+    'refinery_gf': 'Refinery greenfield',
+    'onshore_petchem': 'Petrochemical (onshore)',
+    'integrated_petchem': 'Integrated petrochemical',
+    'offshore_fpso': 'Offshore FPSO',
+    'offshore_platform': 'Offshore platform',
+    'pipeline_mainline': 'Pipeline (mainline)',
+    'pipeline_gathering': 'Pipeline (gathering)',
+    'pipeline_complex': 'Pipeline (complex)',
+    'lng_onshore': 'LNG (onshore)',
+    'lng_terminal': 'LNG terminal',
+    'oil_sands': 'Oil sands',
+    'onshore_conventional': 'Onshore conventional',
+    'onshore_unconventional': 'Onshore unconventional',
+    'ccs': 'Carbon capture (CCS)',
+    'ccs_gas_processing': 'CCS / gas processing',
+    'renewable_diesel': 'Renewable diesel',
+    'gas_processing': 'Gas processing',
+    'power_generation': 'Power generation',
+}
+ARCHETYPE_OPTIONS = list(ARCHETYPE_LABELS)
+
+MODEL_LABELS = {
+    'Benchmark': 'Benchmark (analogues)',
+    'EquipmentVector': 'Equipment vector',
+    'Calculator_Onshore': 'Onshore calculator',
+    'Calculator_Offshore': 'Offshore calculator',
+    'Calculator_Pipeline': 'Pipeline calculator',
+    'Calculator_LNG': 'LNG calculator',
+    'Unconventional': 'Unconventional lookup',
+    'Composite': 'Composite (scope chips)',
+    'SURF_User': 'SURF subsea (component)',
+    'OSBL_Estimate': 'OSBL overlay (indirect)',
+}
+
+
+def model_label(model_id: str) -> str:
+    return MODEL_LABELS.get(model_id, model_id)
+
+
+def musd(value, fallback='n/a') -> str:
+    """$1,234M formatting for widget values (st.metric etc.), with a fallback for None/NaN."""
+    try:
+        if value is None or value != value:
+            return fallback
+        return f"${float(value):,.0f}M"
+    except (TypeError, ValueError):
+        return fallback
+
+
+def musd_md(value, fallback='n/a') -> str:
+    """Same, for markdown/caption text: the dollar sign is escaped, otherwise
+    Streamlit treats `$...$` as LaTeX."""
+    return musd(value, fallback).replace('$', '\\$')

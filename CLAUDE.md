@@ -22,10 +22,13 @@ changing them.
 
 | Path | Role |
 |---|---|
-| `app.py` | Streamlit entry point: page config, CSS, session-state init, header, `st.navigation` over `app_pages/`. |
-| `app_pages/*.py` | One script per page (estimator, data_package, code_inventory, dependencies, model_specs). Direct scripts, no `main()`. |
-| `ui/common.py` | `load_data()` (cached DataStore), CSS, app title/version. |
+| `app.py` | Streamlit entry point: page config, session-state init, header, `st.navigation` (top) over `app_pages/`. |
+| `app_pages/estimator.py` | Inputs (left) + live readiness and results (right). Direct script, no `main()`. |
+| `app_pages/models.py`, `app_pages/data.py` | Reference pages: model specs / routing / reported accuracy, and the loaded data package. |
+| `ui/common.py` | `load_data()` (cached DataStore), labels, `musd`/`musd_md` formatters, mock detection. |
 | `ui/cards.py` | Fragment cards that edit lists in session_state (equipment, scope items) and their callbacks. |
+| `ui/results.py` | Readiness checklist, KPI row, Altair model chart, per-model tabs, analogues, bid check, what-if, download. |
+| `.streamlit/config.toml` | Theme (light, navy accent, Inter). The only place looks are defined; no CSS in code. |
 | `costbot/` | The engine as a package. `constants.py`, `data.py`, `escalation.py`, `models/<one file per model>.py`, `ensemble.py`, `screening.py`, `report.py`. |
 | `engine.py` | Compatibility facade re-exporting every `costbot` name. Tests and scripts still import from it; new code imports from `costbot.*`. |
 | `test_golden_baseline.py` | Runs the 4 calculators against `data/extracted_files/_golden_baseline.json`. |
@@ -98,6 +101,16 @@ before `streamlit run` or any script; no code edit needed.
 - Pages are direct scripts under `app_pages/`; shared logic goes in `ui/` or `costbot/`,
   never copied between pages. Each page that needs data calls `ui.common.load_data()`.
 - Navigation is `st.navigation(..., position="top")` in `app.py`; add a page there.
+- No injected CSS or HTML for styling; theme lives in `.streamlit/config.toml`. Use native
+  elements: `st.container(border=True)` cards, `st.metric(border=True)`, `st.badge` and
+  `:green-badge[...]` inline badges, Material icons (`:material/name:`), sentence case labels.
+- Charts are Altair (or `st.bar_chart`), not Plotly.
+- Any `$` inside `st.markdown`/`st.caption` text must be escaped (`musd_md`), otherwise
+  Streamlit renders `$...$` as LaTeX. Widget values (`st.metric`) are not markdown.
+- The readiness checklist is `costbot.screening.model_readiness(scope)`: it predicts firing
+  without computing. Keep its gates in sync with the runners; `tests/test_readiness.py`
+  asserts it matches `screen_project` on the smoke scenarios.
+- `scripts/ui_test.py` drives the real widgets by `key`; keep keys stable or update the test.
 
 - List-editing cards (equipment, scope items) are `st.fragment`s with
   `on_click` callbacks. Never call `st.rerun()` after a button click; it
@@ -118,7 +131,7 @@ before `streamlit run` or any script; no code edit needed.
 
 ## Style
 
-- Python 3.13, pandas/numpy/sklearn/plotly/streamlit only. No new deps
+- Python 3.13, pandas/numpy/sklearn/altair/streamlit only (Streamlit >= 1.52 for horizontal containers, badges, `width=`). No new deps
   without a reason in the PR.
 - Keep the engine pure: no Streamlit imports in `engine.py`.
 - Commit messages: imperative, one line summary, body explains why.

@@ -3,7 +3,8 @@ from datetime import datetime, timezone
 from typing import Dict, List, Optional, Any
 import math
 import pandas as pd
-from costbot.constants import ARCHETYPE_ALIASES_POOL, ARCHETYPE_EXCLUSIONS, ARCHETYPE_MODELS, SCREENING_FLOOR_MUSD
+from costbot.constants import (ARCHETYPE_ALIASES_POOL, ARCHETYPE_EXCLUSIONS, ARCHETYPE_MODELS,
+                               SCREENING_FLOOR_MUSD, ISBL_CORRELATIONS, _FACILITY_ALIASES)
 from costbot.data import DataStore
 from costbot.ensemble import _assess_confidence
 from costbot.escalation import _POOL_BASE_YEAR, _apply_cp30_escalation, _get_cp30_escalation_factor
@@ -34,6 +35,103 @@ _MODEL_FN_MAP = {
     'Composite':            run_composite,
     'SURF_User':            run_surf_user,
 }
+
+
+# Display order for the readiness panel and the report
+MODEL_ORDER = [
+    'Benchmark', 'EquipmentVector', 'Calculator_Onshore', 'Calculator_Offshore',
+    'Calculator_Pipeline', 'Calculator_LNG', 'Unconventional', 'Composite',
+    'SURF_User', 'OSBL_Estimate',
+]
+_DYNAMIC_MODELS = {'EquipmentVector': 'equipment_list', 'SURF_User': 'surf_scope', 'Composite': 'scope_items'}
+_OSBL_NOT_APPLICABLE = {'offshore_fpso', 'offshore_platform', 'pipeline_mainline', 'pipeline_gathering'}
+
+
+def _has(v) -> bool:
+    try:
+        return v is not None and v != '' and float(v) > 0
+    except (TypeError, ValueError):
+        return bool(v)
+
+
+def model_readiness(scope: Dict, data: Optional[DataStore] = None) -> List[Dict]:
+    """Cheap, compute-free preview of which models would fire for `scope`.
+
+    Mirrors the routing in screen_project() and each runner's input gate so
+    the UI can show a live checklist while the user types. Returns one dict
+    per model in MODEL_ORDER with:
+      status: 'ready' | 'needs' | 'excluded' | 'auto' | 'not_routed'
+      needs:  human-readable missing input (for 'needs' / 'auto')
+      routed: whether the archetype routes to this model (or it is dynamic)
+    It is a prediction, not a guarantee: data-dependent failures (e.g. no
+    analogue above threshold) only show up when the models actually run.
+    """
+    archetype = scope.get('archetype') or ''
+    routed = list(ARCHETYPE_MODELS.get(archetype, ['Calculator_Onshore', 'Benchmark'])) if archetype else []
+    exclusions = set(ARCHETYPE_EXCLUSIONS.get(archetype, []))
+    is_offshore = 'offshore' in archetype
+    sp = scope.get('secondary_params') or {}
+    if not isinstance(sp, dict):
+        sp = {}
+    surf = scope.get('surf_scope') or {}
+    if not isinstance(surf, dict):
+        surf = {}
+    trees = surf.get('subsea_trees')
+    n_trees = sum(trees.values()) if isinstance(trees, dict) else (surf.get('n_trees') or 0)
+    n_flowlines = len(surf.get('flowlines') or [])
+
+    facility = (scope.get('facility_type') or '').strip()
+    facility_known = _FACILITY_ALIASES.get(facility, facility) in ISBL_CORRELATIONS if facility else False
+    capacity_ok = _has(scope.get('primary_capacity') or scope.get('capacity'))
+
+    gates = {
+        'Benchmark': (bool(archetype), 'an archetype'),
+        'EquipmentVector': (bool(scope.get('equipment_list')), 'at least one equipment item'),
+        'Calculator_Onshore': (
+            facility_known and capacity_ok,
+            'facility type + capacity' if not facility else
+            ('capacity' if facility_known else f"a facility type the calculator knows ('{facility}' is not one)")),
+        'Calculator_Offshore': (
+            _has(scope.get('topsides_weight_te')) or _has(sp.get('topsides_weight_te')) or capacity_ok,
+            'topsides weight or production (KBPD)'),
+        'Calculator_Pipeline': (_has(scope.get('length_km') or scope.get('pipeline_length_km')), 'pipeline length (km)'),
+        'Calculator_LNG': (_has(scope.get('lng_capacity_mtpa')) or capacity_ok, 'LNG capacity (MTPA)'),
+        'Unconventional': (bool(facility), 'facility type'),
+        'Composite': (bool(scope.get('scope_items')), 'at least one scope item'),
+        'SURF_User': (n_trees > 0 or n_flowlines > 0, 'subsea trees or flowlines'),
+    }
+
+    out = []
+    onshore_ready = False
+    for mid in MODEL_ORDER:
+        if mid == 'OSBL_Estimate':
+            applicable = bool(archetype) and archetype not in _OSBL_NOT_APPLICABLE
+            if not applicable:
+                out.append({'model_id': mid, 'status': 'not_routed', 'needs': '', 'routed': False})
+            elif onshore_ready:
+                out.append({'model_id': mid, 'status': 'ready', 'needs': '', 'routed': True, 'auto': True})
+            else:
+                out.append({'model_id': mid, 'status': 'auto', 'needs': 'an ISBL from Calculator_Onshore (automatic)',
+                            'routed': True, 'auto': True})
+            continue
+        is_routed = mid in routed
+        is_dynamic = mid in _DYNAMIC_MODELS and bool(archetype)
+        if mid == 'SURF_User' and not is_offshore:
+            is_dynamic = False  # the card only exists for offshore archetypes
+        if not is_routed and not is_dynamic:
+            out.append({'model_id': mid, 'status': 'not_routed', 'needs': '', 'routed': False})
+            continue
+        ok, needs = gates[mid]
+        if mid in exclusions:
+            status = 'excluded'
+        elif ok:
+            status = 'ready'
+        else:
+            status = 'needs'
+        if mid == 'Calculator_Onshore' and status == 'ready':
+            onshore_ready = True
+        out.append({'model_id': mid, 'status': status, 'needs': '' if ok else needs, 'routed': True})
+    return out
 
 
 def screen_project(scope: Dict, data: DataStore) -> Dict:

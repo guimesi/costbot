@@ -21,9 +21,9 @@
 | Credentials | Any user with workspace access can view the app |
 
 When the app opens you will see:
-- **Header:** "GP Screening Cost Estimator" with a blue "POC v1.0" badge
-- **5 tabs** across the top: Estimator · Data Package · Code Inventory · Dependencies · Model Specs
-- The **Estimator** tab is active by default, with a left-side input panel and a right-side results area showing the "Progressive Unlock" table
+- **Header:** "GP screening cost estimator" with a "POC v1.1" badge and the disclaimer line
+- **3 pages** in the top navigation: Estimator · Models · Data
+- The **Estimator** page is active by default: input cards on the left, and on the right a **Model readiness** card plus a short "How it unlocks" guide
 
 ---
 
@@ -31,19 +31,21 @@ When the app opens you will see:
 
 The Estimator tab is split into two columns:
 
-**Left Column — Input Panel (5 cards, top to bottom):**
+**Left column, input cards (top to bottom):**
 
-| Card | What It Does |
+| Card | What it does |
 |---|---|
-| **1. Core Inputs** | Project archetype, location, basis year, scope type, project name. *Required* — nothing runs without archetype + location. |
-| **2. Equipment List** | Add equipment items (type + count) for the EquipmentVector model. This is the best broad model (66% ±30% accuracy). |
-| **3. Facility & Capacity** | Facility type, primary capacity, and units. Unlocks calculator models. Also shows pipeline / offshore / LNG-specific fields when those archetypes are selected. |
-| **4. SURF Subsea Scope** | Only appears for offshore archetypes. Subsea trees, flowlines, risers, manifolds, umbilicals. Unlocks the SURF_User model. |
-| **5. Scope Items (Composite)** | Multi-item scope builder for the Composite chip-matching model. |
+| **Project** | Archetype, location, basis year (2024/2025/2026 buttons), scope type buttons, project name. *Required*: archetype + location. "Optional details" holds process domain. |
+| **Equipment list** | Type + count + Add. Same type added twice merges the counts. Unlocks the equipment vector model (best broad model). |
+| **Facility and capacity** | Facility type (dropdown you can also type into), capacity + unit. Pipeline / offshore / LNG fields appear for those archetypes. |
+| **Subsea scope (SURF)** | Offshore archetypes only. Trees, flowlines, risers, manifolds, umbilicals. |
+| **Scope items** | Type + facility name + Add. Unlocks the composite chip model. |
+| **Run screening estimate** | Primary button at the bottom. |
 
-**Right Column — Results Panel:**
-- Before running: shows the "Progressive Unlock" guide
-- After running: shows Model Readiness indicators, 3-Up Hero Cards (P50, Range, Confidence), bar chart, model details, analogues, bid validation, what-if sensitivity, and a downloadable HTML report
+**Right column:**
+- **Model readiness** updates live as you type, before any Run: each eligible model shows *Ready*, *Needs …*, or *Excluded for this archetype*. This is the "progressive disclosure" from the task brief.
+- After Run: three KPI cards (P50, range, confidence), warnings, the **Model estimates** chart (bars = estimates, whiskers = each model's range, dashed line = ensemble P50, colour = role in the ensemble), one tab per model with its detail, **Comparable projects**, **Bid check**, **What-if**, and **Download HTML report**.
+- If you change any input after a Run, a notice says the results are stale until you Run again.
 
 ---
 
@@ -80,25 +82,25 @@ The Estimator tab is split into two columns:
 
 ### What You Should See
 
-**Model Readiness Panel (right side, top):**
-- 🟢 **Benchmark** — shows a dollar estimate (e.g. ~$600–800M)
-- 🟢 **Calculator_Onshore** — shows a dollar estimate (e.g. ~$350–400M)
-- 🟡 EquipmentVector **Needs:** equipment list
-- 🟡 Composite — **Needs: at least 1 scope item**
-- ⚪ Others — gray, showing what inputs they need
+**Model readiness (right side, top), already visible before you press Run:**
+- Benchmark (analogues) **Ready**
+- Onshore calculator **Ready**, OSBL overlay **Ready** (automatic)
+- Equipment vector *Needs at least one equipment item*
+- Composite *Needs at least one scope item*
 
-**3-Up Hero Cards:**
+**KPI cards:**
 
 | Card | What It Shows | What It Means |
 |---|---|---|
-| **Best Estimate (P50)** | e.g. ~$500M | The median of surviving model estimates after spread gating. This is the single-number screening estimate. |
+| **Best estimate (P50)** | e.g. ~$500M | The median of surviving model estimates after spread gating. This is the single-number screening estimate. |
 | **Range (P20-P80)** | e.g. $300M — $800M | The uncertainty band. P20 = "there's a 20% chance it's below this." P80 = "80% chance it's below this." |
 | **Confidence** | MEDIUM or MEDIUM-HIGH | How many models agree. HIGH = 3+ models within ±30%. MEDIUM = 2 models, some disagreement. LOW = 1 model only. |
 
-**Bar Chart:**
-- Colored bars for each model that fired, with error bars showing each model's own range
-- A dashed red horizontal line = the ensemble P50
-- You can hover over bars to see exact values
+**Model estimates chart:**
+- One horizontal bar per model that fired, whiskers show each model's own range
+- Colour = role: in ensemble, gated out, component (SURF), indirect overlay (OSBL)
+- Dashed red vertical line = the ensemble P50; hover for exact values
+- Below the chart, one tab per model with the calculation detail and the analogues or equipment matches it used
 
 **Analogues Table:**
 - Shows the top 10 most similar projects from the 503-project pool
@@ -132,7 +134,7 @@ The Estimator tab is split into two columns:
 > 1. Card 3 shows **Offshore Parameters** (Topsides Weight, Water Depth, Hull Type)
 > 2. Card 4 (SURF Subsea Scope) appears
 
-### Step 2 — Equipment List (Card 2)
+### Step 2 — Equipment list card
 
 Add the following equipment items one at a time (select type → set count → click "+ Add Equipment"). Only the card refreshes; the rest of the page stays put.
 
@@ -150,7 +152,7 @@ Add the following equipment items one at a time (select type → set count → c
 > Only the 17 process equipment types count — valves, instruments, etc. are
 > zeroed out to prevent inflation by ancillary counts.
 
-### Step 3 — Facility & Capacity (Card 3)
+### Step 3 — Facility and capacity card
 
 | Field | Value |
 |---|---|
@@ -162,9 +164,9 @@ Add the following equipment items one at a time (select type → set count → c
 > 1,800m water depth puts us in the deepwater regime. The Calculator_Offshore
 > model uses topsides weight as its primary cost driver.
 
-### Step 4 — SURF Subsea Scope (Card 4)
+### Step 4 — Subsea scope (SURF) card
 
-Expand **"Define subsea scope for SURF estimate"** and enter:
+The card appears only for offshore archetypes. Enter:
 
 | Field | Value | What It Means |
 |---|---|---|
@@ -174,21 +176,21 @@ Expand **"Define subsea scope for SURF estimate"** and enter:
 | Manifolds | **2** | 2 subsea manifolds |
 | Umbilicals | **3** | 3 control/power umbilicals |
 
-> **Water Depth** is inherited from Card 3 (shown as a metric at bottom of Card 4).
+> **Water depth** is inherited from the facility card (shown as a caption at the bottom).
 
 ### Step 5 — Click "Run Screening Estimate"
 
 ### What You Should See
 
-**Model Readiness:**
-- 🟢 **Benchmark** — analogue estimate
-- 🟢 **Calculator_Offshore** — topsides weight curve estimate
-- 🟢 **EquipmentVector** — equipment fingerprint estimate
-- 🟢 **SURF_User** — subsea component estimate (shown separately as a component)
+**Model readiness:**
+- Benchmark (analogues) **Ready**
+- Offshore calculator **Ready**
+- Equipment vector **Ready**
+- SURF subsea (component) **Ready**
 
 **Key Result Distinctions:**
-- The **3-Up Hero Cards** show the TEC ensemble (from Benchmark + Calculator_Offshore + EquipmentVector)
-- **SURF_User** appears separately under "Component Estimates" — it's an *additive* component (subsea scope only), not a total project TEC
+- The **KPI cards** show the TEC ensemble (from Benchmark + Calculator_Offshore + EquipmentVector)
+- **SURF** appears in the chart in the *Component* colour and in its own tab; it is an *additive* component (subsea scope only), not a total project TEC
 - The ensemble does NOT include SURF in the P50 median — it's a breakout line item
 
 > **Talking Point:** "For offshore, we get three independent TEC estimates plus
@@ -216,8 +218,8 @@ Click **Run Screening Estimate**.
 
 ### What You Should See
 
-- 🟢 **Calculator_Pipeline** — rate × length estimate (includes mainline + linepipe + HDD crossings + stations + indirects)
-- A yellow **warning banner**: the pipeline calculator is flagged UNVERIFIED because pipeline truth values differ between sources (per the task brief). Say so out loud; it is a feature, not a bug.
+- Pipeline calculator **Ready** and Benchmark **Ready** before you press Run
+- After Run, a yellow **warning banner**: the pipeline calculator is flagged UNVERIFIED because pipeline truth values differ between sources (per the task brief). Say so out loud; it is a feature, not a bug.
 - 🟢 **Benchmark** — analogue matching against pool pipelines
 - P50 estimate in the ~$250–350M range for a 200km / 24" oil pipeline on the Gulf Coast
 
@@ -245,8 +247,8 @@ Click **Run Screening Estimate**.
 
 ### What You Should See
 
-- 🟢 **Benchmark** — fires and produces an estimate
-- ⚪ **Calculator_Onshore** — shows as "Excluded (known failure for refinery_bf)"
+- Benchmark (analogues) **Ready**
+- Onshore calculator **Excluded for this archetype** (red badge, visible before Run)
 
 > **What this means:** Calculator_Onshore is pre-excluded for refinery brownfield
 > projects because the ISBL + TEC multiplier chain produced a 7.0× overshoot in
@@ -257,14 +259,14 @@ Click **Run Screening Estimate**.
 
 ## 5. Bid Validation (Post-Estimate Feature)
 
-After running any scenario, scroll down in the results panel to find
-**"Bid / Quote Validation"**.
+After running any scenario, scroll down in the results panel to the
+**Bid check** card.
 
 | Field | Value |
 |---|---|
-| Bid Amount ($M) | Enter a number (e.g. **500**) |
-| Bid Type | **TEC** |
-| Click | **Validate Bid** |
+| Bid amount ($M) | Enter a number (e.g. **500**) |
+| Bid type | **TEC** |
+| Click | **Check bid** |
 
 ### Possible Verdicts
 
@@ -282,12 +284,11 @@ After running any scenario, scroll down in the results panel to find
 
 ## 6. What-If Sensitivity (Post-Estimate Feature)
 
-After running any scenario, scroll to **"What-If Sensitivity"**.
+After running any scenario, scroll to the **What-if** card.
 
-1. Expand "Run sensitivity scenario"
-2. **Parameter to change:** select a numeric input that was filled (e.g. Primary Capacity)
-3. **Alternate value:** enter a different number (e.g. change 450 KTA to 600 KTA)
-4. Click **Run What-If**
+1. **Parameter:** select a numeric input that was filled (e.g. Primary capacity)
+2. **New value:** enter a different number (e.g. change 450 KTA to 600 KTA)
+3. Click **Run what-if**
 
 ### What You Should See
 
@@ -302,34 +303,20 @@ After running any scenario, scroll to **"What-If Sensitivity"**.
 
 ## 7. Exploring the Other Tabs
 
-### Tab 2: Data Package
+### Models page
 
-- Shows the **Data Package Manifest** — all 10 CSV files loaded, with row counts, which models use them, and descriptions
-- **Data Preview:** dropdown to inspect the first 50 rows of any table (useful for auditors who want to see the raw pool data)
-- **Archetype distribution chart:** horizontal bar chart showing how many projects in the 503-project pool belong to each archetype
+- **Model specs:** one card per model with method, algorithm, reported accuracy and a status badge (best broad model, unverified, miscalibrated, component, automatic)
+- **Routing and inputs:** which models each archetype can use and which are excluded, the input to model dependency table, and the ensemble rules in plain words
+- **Reported accuracy:** per-archetype hit rate from the reference evaluation, clearly marked as not yet reproduced on this engine
+
+### Data page
+
+- Warning banner when the loaded package is the synthetic one, and the data directory in use
+- **Loaded tables:** every CSV with live row and column counts and which model uses it
+- **Preview** of any table and the analogue pool distribution by archetype
 
 > **Talking Point:** "Full data provenance. Every table is traceable, every row
 > count is live from the loaded CSVs."
-
-### Tab 3: Code Inventory
-
-- Lists all 16 reference Python modules with line counts, model mapping, and descriptions
-- Shows excluded modules (LLM persona files, stale notebooks, deprecated orchestrators)
-
-> **Talking Point:** "This POC reimplements 16 production Python modules as a
-> single 2,857-line engine. The reference code is available for validation."
-
-### Tab 4: Dependencies
-
-- **Input → Model Dependency Graph:** which inputs each model requires vs. uses optionally
-- **Progressive Unlock Sequence:** the 5-step path from minimal to maximum model coverage
-- **Model Routing by Archetype:** which models are eligible for each of the 18 archetypes (from ARCHETYPE_MODELS)
-
-### Tab 5: Model Specs
-
-- **Expandable cards for each model with:** algorithm description, calibration method, LOOCV accuracy, libraries used
-- **Accuracy Summary table:** per-archetype accuracy at ±30% tolerance with color-coded bar chart
-- Shows the 77% overall accuracy threshold line
 
 > **Talking Point:** "Full transparency on how each model works, how it was
 > tested, and where it's strong or weak."
@@ -338,7 +325,7 @@ After running any scenario, scroll to **"What-If Sensitivity"**.
 
 ## 8. Downloading the Report
 
-At the bottom of the results panel, click **"Download HTML Report"**.
+At the bottom of the results panel, click **Download HTML report**.
 
 This generates a standalone HTML file containing:
 - Project scope summary

@@ -47,12 +47,18 @@ See `docs/REVIEW_2026-09-26.md` section 3. Short form:
 - [ ] Confirm CP30 table has `location`, `year`, `combined_idx` columns and the
       `Texas-BTN (GOM)` row; the 2026 extrapolation depends on it.
 
-## Layout / UX / UI (not started, parked on purpose)
+## Layout / UX / UI
 
-- [ ] Full pass on layout, visual hierarchy and flow. Candidates: `st.navigation`
-      multipage instead of 5 tabs; results in a stable slot so the page does not jump;
-      inputs in `st.form` per card; theme via `.streamlit/config.toml`; native
-      elements instead of the custom CSS/HTML blocks; Material icons; Vega charts
-      instead of Plotly for the comparison bar.
-- [ ] Readiness panel as a live checklist that updates as inputs are filled (fragment),
-      before the user presses Run.
+- [x] UX pass 2026-09-26: 3 pages (Estimator, Models, Data) with top navigation;
+      theme in `.streamlit/config.toml`, all injected CSS removed; cards as bordered
+      containers; live **Model readiness** checklist from `model_readiness()`;
+      KPI metrics; Altair chart with range whiskers and P50 rule; per-model tabs;
+      column-configured tables; bid check and what-if as cards; stale-results notice;
+      facility type dropdown that accepts typed values; equipment duplicates merge.
+      Screenshots verified with Playwright + Chrome.
+- [ ] Input panel as `st.form` if per-widget reruns ever feel slow on Databricks
+      (would remove the live readiness; measure first).
+- [ ] Offshore/pipeline/LNG specific fields could move into their own cards with icons.
+- [ ] Empty-state illustration or example presets ("Load demo scenario" pills) for demos.
+- [ ] Print-friendly view of the results (or rely on the HTML report).
+- [ ] Mobile/narrow layout check (columns collapse; horizontal containers wrap).
