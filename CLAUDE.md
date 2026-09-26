@@ -27,6 +27,10 @@ changing them.
 | `test_golden_baseline.py` | Runs the 4 calculators against `data/extracted_files/_golden_baseline.json`. |
 | `scripts/generate_mock_data.py` | Writes the synthetic `data/` package (seed 42). |
 | `scripts/smoke_test.py` | Runs the DEMO_SCRIPT scenarios through the engine, no UI. |
+| `scripts/ui_test.py` | Headless Streamlit `AppTest`: fills scenario 1, exercises the list cards, clicks Run. |
+| `scripts/evaluate_truth.py` | LOOCV hit rate at +/-30% per archetype from `project_truth.csv`. Meaningless on mock data. |
+| `tests/` | pytest unit tests for ensemble rules, CP30, bid validation, equipment vector. |
+| `docs/` | Review of spec vs implementation and the backlog. |
 | `data/` | Mock data package (tracked). Real data goes in `data/_real/` (gitignored). |
 | `APP_DOCUMENTATION.md`, `DEMO_SCRIPT.md` | AI-written docs from the first build; accuracy numbers in them are unverified. |
 
@@ -34,14 +38,19 @@ changing them.
 
 ```bash
 /opt/anaconda3/bin/python3.13 -m venv .venv      # once (system 3.14 has no packages)
-.venv/bin/pip install -r requirements.txt
+.venv/bin/pip install -r requirements.txt -r requirements-dev.txt
 .venv/bin/python scripts/generate_mock_data.py   # only if data/ is missing or schema changed
 .venv/bin/python scripts/smoke_test.py           # engine end-to-end, must print SMOKE OK
 .venv/bin/python test_golden_baseline.py         # calculators vs snapshot, exit 0 required
+.venv/bin/python -m pytest tests -q              # unit tests
+.venv/bin/python scripts/ui_test.py              # headless UI, must print UI OK
 .venv/bin/streamlit run app.py                   # UI on http://localhost:8501
 ```
 
-Run both test scripts before every commit that touches `engine.py`.
+Run all four before every commit that touches `engine.py` or `app.py`.
+
+Production environment with the real package: `export COSTBOT_DATA_DIR=/path/to/data`
+before `streamlit run` or any script; no code edit needed.
 
 ## Data: mock vs real
 
@@ -69,6 +78,17 @@ Run both test scripts before every commit that touches `engine.py`.
   location via `resolve_country`. Keep both in sync when adding locations.
 - Archetype exclusions live in `ARCHETYPE_EXCLUSIONS`; the HTML report reads
   from it, do not hard-code rule lists elsewhere.
+- UI dropdown contents (`FACILITY_TYPE_OPTIONS`, `LOCATION_OPTIONS`) are
+  defined in the engine next to the tables they must match. Add there, not in app.py.
+- Models may return a `warning` string; the UI and the HTML report surface it.
+
+## UI conventions
+
+- List-editing cards (equipment, scope items) are `st.fragment`s with
+  `on_click` callbacks. Never call `st.rerun()` after a button click; it
+  doubles the rerun and shows as a page reload on slow links.
+- Session state keys are initialised once at the top of `app.py` with `setdefault`.
+- Use `width='stretch'`, never `use_container_width`.
 
 ## Known deviations from the README (need manager sign-off, do not "fix")
 

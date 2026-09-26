@@ -25,11 +25,28 @@ def main():
     at.run()
     assert not at.exception, at.exception
 
-    at.text_input(key='facility_type').input('polypropylene')
+    at.selectbox(key='facility_type_choice').select('polypropylene')
     at.number_input(key='capacity').set_value(450.0)
     at.selectbox(key='cap_unit').select('KTA')
     at.run()
     assert not at.exception, at.exception
+
+    # Card 2 fragment: add two equipment items, remove one (callbacks, no rerun call)
+    at.selectbox(key='eq_type').select('pump')
+    at.number_input(key='eq_count').set_value(8)
+    at.button(key='eq_add').click().run()
+    assert not at.exception, at.exception
+    at.selectbox(key='eq_type').select('exchanger')
+    at.button(key='eq_add').click().run()
+    assert [e['type'] for e in at.session_state['equipment_items']] == ['pump', 'exchanger']
+    at.button(key='eqrm_0').click().run()
+    assert [e['type'] for e in at.session_state['equipment_items']] == ['exchanger']
+
+    # Card 5 fragment: add a scope item, input is cleared after add
+    at.text_input(key='si_facility').input('Utilities')
+    at.button(key='si_add').click().run()
+    assert at.session_state['scope_items'] == [{'type': 'process_unit', 'facility_type': 'Utilities'}]
+    assert at.session_state['si_facility'] == ''
 
     run_btn = [b for b in at.button if b.label == 'Run Screening Estimate']
     assert run_btn, 'Run button not found'
@@ -42,7 +59,7 @@ def main():
     ens = results['ensemble']
     assert ens.get('best_estimate_musd'), ens
     fired = {m for m, r in results['models'].items() if r.get('can_fire')}
-    assert {'Benchmark', 'Calculator_Onshore', 'OSBL_Estimate'} <= fired, fired
+    assert {'Benchmark', 'Calculator_Onshore', 'OSBL_Estimate', 'EquipmentVector', 'Composite'} <= fired, fired
 
     metrics = [m.label for m in at.metric]
     assert 'Best Estimate (P50)' in metrics, metrics

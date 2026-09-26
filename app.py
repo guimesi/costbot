@@ -19,9 +19,90 @@ import plotly.graph_objects as go
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from engine import (
     DataStore, screen_project, validate_bid, generate_html_report,
-    resolve_country,
+    resolve_country, FACILITY_TYPE_OPTIONS, LOCATION_OPTIONS,
     ARCHETYPE_MODELS, EQUIPMENT_TYPES_52, _PROCESS_EQUIPMENT,
 )
+
+# ------------------------------------------------------------------------------
+# Session state (one place) and list-editing callbacks
+# ------------------------------------------------------------------------------
+st.session_state.setdefault('equipment_items', [])
+st.session_state.setdefault('scope_items', [])
+
+_OTHER_FACILITY = '__other__'
+
+
+def _add_equipment():
+    st.session_state.equipment_items.append(
+        {'type': st.session_state.eq_type, 'count': int(st.session_state.eq_count)}
+    )
+
+
+def _remove_equipment(i):
+    st.session_state.equipment_items.pop(i)
+
+
+def _add_scope_item():
+    name = (st.session_state.si_facility or '').strip()
+    if name:
+        st.session_state.scope_items.append(
+            {'type': st.session_state.si_type, 'facility_type': name}
+        )
+        st.session_state.si_facility = ''
+
+
+def _remove_scope_item(i):
+    st.session_state.scope_items.pop(i)
+
+
+# Cards 2 and 5 are fragments: adding or removing a list item reruns only the
+# card, not the whole page (the full-page rerun was the "page reload" users saw
+# on slower connections). Callbacks mutate session_state before the rerun, so
+# no explicit rerun call is needed.
+@st.fragment
+def equipment_card(core_ready: bool):
+    st.markdown("#### 2. Equipment List (EquipmentVector)")
+    st.caption("Best broad model (66% ±30%). What major equipment is involved?")
+    with st.expander("Add equipment for vector-based estimate",
+                     expanded=bool(st.session_state.equipment_items)):
+        eq_col1, eq_col2 = st.columns(2)
+        with eq_col1:
+            process_types = sorted(_PROCESS_EQUIPMENT)
+            other_types = sorted(set(EQUIPMENT_TYPES_52) - _PROCESS_EQUIPMENT)
+            st.selectbox("Equipment Type", process_types + other_types, key="eq_type")
+        with eq_col2:
+            st.number_input("Count", min_value=1, value=1, key="eq_count")
+        st.button("+ Add Equipment", disabled=not core_ready, on_click=_add_equipment, key="eq_add")
+
+    for i, eq in enumerate(st.session_state.equipment_items):
+        cols = st.columns([4, 1])
+        with cols[0]:
+            st.markdown(f"**{eq['type']}** x {eq['count']}")
+        with cols[1]:
+            st.button("X", key=f"eqrm_{i}", on_click=_remove_equipment, args=(i,))
+
+
+@st.fragment
+def scope_items_card(core_ready: bool):
+    st.markdown("#### 5. Scope Items (Composite)")
+    with st.expander("Add scope items for composite estimate", expanded=False):
+        si_col1, si_col2 = st.columns(2)
+        with si_col1:
+            st.selectbox(
+                "Scope Type",
+                ['process_unit', 'osbl', 'pipeline_segment', 'storage', 'marine', 'infrastructure'],
+                key="si_type",
+            )
+        with si_col2:
+            st.text_input("Facility Name", placeholder="e.g. Crude Unit, Utilities", key="si_facility")
+        st.button("+ Add Scope Item", disabled=not core_ready, on_click=_add_scope_item, key="si_add")
+
+    for i, item in enumerate(st.session_state.scope_items):
+        cols = st.columns([4, 1])
+        with cols[0]:
+            st.markdown(f"**{i+1}.** {item['type']} - {item['facility_type']}")
+        with cols[1]:
+            st.button("X", key=f"rm_{i}", on_click=_remove_scope_item, args=(i,))
 
 # ------------------------------------------------------------------------------
 # Page config
@@ -144,12 +225,7 @@ with tab_est:
             key="process_domain",
         )
 
-        location_options = [
-            '', 'US Gulf Coast', 'US West Coast', 'Canada', 'United Kingdom',
-            'China', 'Singapore', 'Australia', 'Brazil', 'Guyana',
-            'Nigeria', 'Qatar', 'New Mexico', 'Mexico', 'Mozambique',
-        ]
-        location = st.selectbox("Location (CP30 Region)", location_options, key="location")
+        location = st.selectbox("Location (CP30 Region)", [''] + LOCATION_OPTIONS, key="location")
         basis_year = st.selectbox("Basis Year", [2024, 2025, 2026], key="basis_year")
 
         bf_gf = st.selectbox(
@@ -164,46 +240,28 @@ with tab_est:
 
         st.divider()
 
-        # Card 2: Equipment List (step 2 per updated README - best broad model)
-        st.markdown("#### 2. Equipment List (EquipmentVector)")
-        st.caption("Best broad model (66% ±30%). What major equipment is involved?")
-        if 'equipment_items' not in st.session_state:
-            st.session_state.equipment_items = []
-
-        with st.expander("Add equipment for vector-based estimate", expanded=bool(st.session_state.equipment_items)):
-            eq_col1, eq_col2 = st.columns(2)
-            with eq_col1:
-                process_types = sorted(_PROCESS_EQUIPMENT)
-                other_types = sorted(set(EQUIPMENT_TYPES_52) - _PROCESS_EQUIPMENT)
-                eq_type = st.selectbox("Equipment Type", process_types + other_types, key="eq_type")
-            with eq_col2:
-                eq_count = st.number_input("Count", min_value=1, value=1, key="eq_count")
-            if st.button("+ Add Equipment", disabled=not core_ready):
-                st.session_state.equipment_items.append(
-                    {'type': eq_type, 'count': int(eq_count)}
-                )
-                st.rerun()
-
-        if st.session_state.equipment_items:
-            for i, eq in enumerate(st.session_state.equipment_items):
-                cols = st.columns([4, 1])
-                with cols[0]:
-                    st.markdown(f"**{eq['type']}** x {eq['count']}")
-                with cols[1]:
-                    if st.button("X", key=f"eqrm_{i}"):
-                        st.session_state.equipment_items.pop(i)
-                        st.rerun()
+        # Card 2: Equipment List (fragment, see top of file)
+        equipment_card(core_ready)
 
         st.divider()
 
         # Card 3: Facility & Capacity (step 3)
         st.markdown("#### 3. Facility & Capacity")
-        facility_type = st.text_input(
+        facility_choice = st.selectbox(
             "Facility Type",
-            placeholder="e.g. polypropylene, compressor_station, crude_unit",
-            key="facility_type",
+            [''] + FACILITY_TYPE_OPTIONS + [_OTHER_FACILITY],
+            format_func=lambda x: ('-- Select --' if x == '' else
+                                   'Other (type below)' if x == _OTHER_FACILITY else x),
+            key="facility_type_choice",
             disabled=not core_ready,
+            help="These are the facility types the calculators understand. "
+                 "'Other' lets you type a free name (Benchmark and Composite still run).",
         )
+        if facility_choice == _OTHER_FACILITY:
+            facility_type = st.text_input("Custom facility type", key="facility_type_custom",
+                                          disabled=not core_ready)
+        else:
+            facility_type = facility_choice
 
         cap_col1, cap_col2 = st.columns(2)
         with cap_col1:
@@ -303,42 +361,8 @@ with tab_est:
 
         st.divider()
 
-        # Card 5: Scope Items (Composite)
-        st.markdown("#### 5. Scope Items (Composite)")
-        if 'scope_items' not in st.session_state:
-            st.session_state.scope_items = []
-
-        with st.expander("Add scope items for composite estimate", expanded=False):
-            si_col1, si_col2 = st.columns(2)
-            with si_col1:
-                si_type = st.selectbox(
-                    "Scope Type",
-                    ['process_unit', 'osbl', 'pipeline_segment', 'storage',
-                     'marine', 'infrastructure'],
-                    key="si_type",
-                )
-            with si_col2:
-                si_facility = st.text_input(
-                    "Facility Name",
-                    placeholder="e.g. Crude Unit, Utilities",
-                    key="si_facility",
-                )
-            if st.button("+ Add Scope Item", disabled=not core_ready):
-                if si_facility:
-                    st.session_state.scope_items.append({
-                        'type': si_type, 'facility_type': si_facility,
-                    })
-                    st.rerun()
-
-        if st.session_state.scope_items:
-            for i, item in enumerate(st.session_state.scope_items):
-                cols = st.columns([4, 1])
-                with cols[0]:
-                    st.markdown(f"**{i+1}.** {item['type']} - {item['facility_type']}")
-                with cols[1]:
-                    if st.button("X", key=f"rm_{i}"):
-                        st.session_state.scope_items.pop(i)
-                        st.rerun()
+        # Card 5: Scope Items (fragment, see top of file)
+        scope_items_card(core_ready)
 
         st.divider()
 
@@ -472,6 +496,11 @@ with tab_est:
             # Basis-year escalation note
             if results.get('basis_year_note'):
                 st.info(results['basis_year_note'])
+
+            # Model-level warnings (e.g. unverified pipeline calculator)
+            for mid, mr in models.items():
+                if mr.get('can_fire') and not mr.get('excluded_by_rule') and mr.get('warning'):
+                    st.warning(f"**{mid}:** {mr['warning']}")
 
             st.divider()
 

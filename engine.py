@@ -18,7 +18,9 @@ from datetime import datetime, timezone
 # ============================================================================
 # Data paths
 # ============================================================================
-DATA_DIR = os.path.join(
+# Default: ./data (mock package). Override with COSTBOT_DATA_DIR to point the
+# engine at the real package in the production environment without editing code.
+DATA_DIR = os.environ.get("COSTBOT_DATA_DIR") or os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
     "data",
 )
@@ -159,6 +161,31 @@ _FACILITY_ALIASES = {
     'cs_conversion': 'compressor_station_conversion',
 }
 
+# Unconventional model: scope_inputs facility_type -> pool facility_type
+# source: ref_project_scope_inputs_v2.csv -> pool v3 onshore_unconventional
+UNCONVENTIONAL_FACILITY_ALIASES = {
+    'gas_compression_dehydration': 'central_delivery_point',
+    'gas_central_delivery_point': 'central_delivery_point',
+    'oil_central_delivery_point': 'central_delivery_point',
+    'cdp': 'central_delivery_point',
+    'compressor_station': 'cold_separation_train',             # CS Train -> cold separation train in pool
+    'compressor_station_conversion': 'train_cryogenic',        # Maverick conversions
+    'gas_plant_cryo': 'cryo_gas_processing',                  # Cowboy Cryo -> cryo in pool
+    'pipeline_oil_gathering': 'pipeline',                      # PU1 420 pipeline in pool
+    'pad': 'pad_facility',                                    # Pad -> Pad_facility in pool
+}
+UNCONVENTIONAL_POOL_FACILITY_TYPES = [
+    'central_delivery_point', 'cold_separation_train', 'train_cryogenic',
+    'cryo_gas_processing', 'pipeline', 'pad_facility',
+]
+
+# Every facility_type string some model understands. The UI builds its
+# dropdown from this so a typo can no longer silently disable a calculator.
+FACILITY_TYPE_OPTIONS = sorted(
+    set(ISBL_CORRELATIONS) | set(_FACILITY_ALIASES)
+    | set(UNCONVENTIONAL_FACILITY_ALIASES) | set(UNCONVENTIONAL_POOL_FACILITY_TYPES)
+)
+
 # TEC multipliers (ISBL -> TEC)
 TEC_MULTIPLIERS = {
     'greenfield':   2.58,
@@ -234,6 +261,16 @@ LOCATION_TO_COUNTRY = {
     'belgium': 'Belgium', 'india': 'India', 'saudi arabia': 'Saudi Arabia',
     'kazakhstan': 'Kazakhstan', 'papua new guinea': 'Papua New Guinea',
 }
+
+
+# Labels offered in the UI location dropdown. Each must resolve to a country.
+LOCATION_OPTIONS = [
+    'US Gulf Coast', 'US West Coast', 'US Midwest', 'New Mexico', 'Canada',
+    'United Kingdom', 'Netherlands', 'Belgium', 'Norway', 'China', 'Singapore',
+    'India', 'Australia', 'Saudi Arabia', 'Qatar', 'Nigeria', 'Angola',
+    'Mozambique', 'Guyana', 'Brazil', 'Mexico', 'Kazakhstan', 'Papua New Guinea',
+]
+assert all(l.lower() in LOCATION_TO_COUNTRY for l in LOCATION_OPTIONS), 'LOCATION_OPTIONS out of sync'
 
 
 def resolve_country(scope: Dict) -> str:
@@ -440,28 +477,37 @@ def _get_cp30_escalation_factor(cp30_df: pd.DataFrame, target_year: int,
     """
     if target_year == base_year:
         return 1.0
-    if cp30_df.empty:
+    if cp30_df.empty or 'combined_idx' not in cp30_df.columns:
         return 1.0
 
     idx_base = _get_cp30_index(cp30_df, ref_location, base_year)
-    idx_target = _get_cp30_index(cp30_df, ref_location, target_year)
+    if not idx_base:
+        return 1.0
 
-    if idx_base and idx_target:
+    # Years covered for the reference location (exact match, then substring;
+    # regex=False because the location name contains parentheses).
+    loc_mask = cp30_df['location'].str.lower() == ref_location.lower()
+    if not loc_mask.any():
+        loc_mask = cp30_df['location'].str.contains(ref_location, case=False, na=False, regex=False)
+    years = cp30_df.loc[loc_mask, 'year'].dropna()
+    if years.empty:
+        return 1.0
+    max_year = int(years.max())
+
+    if target_year <= max_year:
+        idx_target = _get_cp30_index(cp30_df, ref_location, target_year)
+        return idx_target / idx_base if idx_target else 1.0
+
+    # Beyond the table: extrapolate with the last observed annual growth.
+    # (_get_cp30_index would silently snap to the last year and flatten the
+    # escalation, e.g. 2026 == 2025.)
+    idx_prev = _get_cp30_index(cp30_df, ref_location, max_year - 1)
+    idx_last = _get_cp30_index(cp30_df, ref_location, max_year)
+    if idx_prev and idx_last and idx_prev > 0:
+        annual_growth = idx_last / idx_prev
+        idx_target = idx_last * (annual_growth ** (target_year - max_year))
         return idx_target / idx_base
-
-    # Extrapolate if target year is beyond data range
-    if idx_base:
-        max_year = int(cp30_df[cp30_df['location'].str.contains(ref_location, case=False, na=False)]['year'].max())
-        if target_year > max_year:
-            idx_prev = _get_cp30_index(cp30_df, ref_location, max_year - 1)
-            idx_last = _get_cp30_index(cp30_df, ref_location, max_year)
-            if idx_prev and idx_last:
-                annual_growth = idx_last / idx_prev
-                years_beyond = target_year - max_year
-                idx_target = idx_last * (annual_growth ** years_beyond)
-                return idx_target / idx_base
-
-    return 1.0
+    return idx_last / idx_base if idx_last else 1.0
 
 
 def _apply_cp30_escalation(model_results: Dict, analogues: List,
@@ -791,6 +837,8 @@ def run_calculator_pipeline(scope: Dict, data: DataStore) -> Dict:
         'estimate_musd': round(tec_musd, 1),
         'estimate_low_musd': round(range_low, 1),
         'estimate_high_musd': round(range_high, 1),
+        'warning': ('Pipeline calculator is UNVERIFIED: pipeline truth values differ '
+                    'between sources (README, MEASUREMENTS_LOG). Treat as directional.'),
         'detail': {
             'length_km': length_km, 'od_inches': od_in,
             'linepipe_M': round(linepipe_cost / 1e6, 1),
@@ -1465,20 +1513,7 @@ def run_unconventional(scope: Dict, data: DataStore) -> Dict:
     if uncon.empty:
         return {'can_fire': False, 'no_fire_reason': 'no_unconventional_in_pool', 'model_id': 'Unconventional'}
 
-    # Alias resolution: scope_inputs facility_type -> pool facility_type
-    # source: ref_project_scope_inputs_v2.csv -> pool v3 onshore_unconventional
-    aliases = {
-        'gas_compression_dehydration': 'central_delivery_point',
-        'gas_central_delivery_point': 'central_delivery_point',
-        'oil_central_delivery_point': 'central_delivery_point',
-        'cdp': 'central_delivery_point',
-        'compressor_station': 'cold_separation_train',             # CS Train → cold separation train in pool
-        'compressor_station_conversion': 'train_cryogenic',        # Maverick conversions
-        'gas_plant_cryo': 'cryo_gas_processing',                  # Cowboy Cryo → cryo in pool
-        'pipeline_oil_gathering': 'pipeline',                      # PU1 420 pipeline in pool
-        'pad': 'pad_facility',                                    # Pad → Pad_facility in pool
-    }
-    lookup_ft = aliases.get(facility_type, facility_type)
+    lookup_ft = UNCONVENTIONAL_FACILITY_ALIASES.get(facility_type, facility_type)
 
     # Match by facility_type
     if lookup_ft and 'facility_type' in uncon.columns:
