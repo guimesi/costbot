@@ -119,10 +119,11 @@ def render_results(results, data, stale: bool) -> None:
 
     # --- KPI row ---
     with st.container(horizontal=True):
-        st.metric("Best estimate (P50)", musd(best, 'Cannot estimate'), border=True,
+        st.metric("Best estimate (P50)", musd_md(best, 'Cannot estimate'), border=True,
                   help="Median of the model estimates that survived the spread gate.")
         lo, hi = ens.get('range_low_musd'), ens.get('range_high_musd')
-        st.metric("Range (P20 to P80)", f"{musd(lo)} to {musd(hi)}" if best else 'n/a', border=True,
+        # st.metric values are Markdown: two bare '$' would render as LaTeX
+        st.metric("Range (P20 to P80)", f"{musd_md(lo)} to {musd_md(hi)}" if best else 'n/a', border=True,
                   help="Widest span of the surviving models' own ranges, capped at 5x." + (" Range was capped." if ens.get('range_capped') else ''))
         st.metric("Confidence", conf.replace('_', ' ').title(), border=True, help=ens.get('reasoning', ''))
     st.caption(ens.get('reasoning', ''))
@@ -223,8 +224,8 @@ def render_results(results, data, stale: bool) -> None:
                 wi_best = wi['ensemble'].get('best_estimate_musd')
                 if best and wi_best:
                     with st.container(horizontal=True):
-                        st.metric("Base P50", musd(best), border=True)
-                        st.metric("What-if P50", musd(wi_best), delta=f"{wi_best - best:+,.0f}M ({(wi_best / best - 1) * 100:+.1f}%)", border=True)
+                        st.metric("Base P50", musd_md(best), border=True)
+                        st.metric("What-if P50", musd_md(wi_best), delta=f"{wi_best - best:+,.0f}M ({(wi_best / best - 1) * 100:+.1f}%)", border=True)
                         st.metric(active[wi_param][0], f"{wi_alt:,.1f} {active[wi_param][1]}",
                                   delta=f"{wi_alt - base_val:+,.1f} vs base", delta_color="off", border=True)
                     rows = []

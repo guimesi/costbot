@@ -10,9 +10,10 @@ deterministic models fire progressively as the user adds inputs; an ensemble
 combines them into P50, a P20 to P80 range and a confidence tier.
 No LLM, no database, no Spark. Everything runs from flat files in `data/`.
 
-The spec is the manager's brief in `README.md` (Sep 15, 2026) plus the
-update email in `LATEST_REQUIREMENT_UPDATE_EMAIL.md` (Sep 16). `wireframe.md`
-is an OLDER UX state and is superseded where they conflict. The reference
+The spec is the manager's brief in `docs/spec/task_brief_2026-09-15.md` plus
+the update email in `docs/spec/requirement_update_2026-09-16.md` (Sep 16).
+`docs/spec/wireframe_v1.md` is an OLDER UX state and is superseded where they
+conflict. `README.md` at the root is the repo's own readme, not the spec. The reference
 implementation (`cost_bot_api.py` and 15 other modules) is NOT in this repo;
 it lives in a confidential zip we do not have. Treat README/email as the
 source of truth for behaviour and flag deviations instead of silently
@@ -31,15 +32,17 @@ changing them.
 | `.streamlit/config.toml` | Theme (light, navy accent, Inter). The only place looks are defined; no CSS in code. |
 | `costbot/` | The engine as a package. `constants.py`, `data.py`, `escalation.py`, `models/<one file per model>.py`, `ensemble.py`, `screening.py`, `report.py`. |
 | `engine.py` | Compatibility facade re-exporting every `costbot` name. Tests and scripts still import from it; new code imports from `costbot.*`. |
-| `test_golden_baseline.py` | Runs the 4 calculators against `data/extracted_files/_golden_baseline.json`. |
+| `tests/test_golden_baseline.py` | Runs the 4 calculators against `data/extracted_files/_golden_baseline.json`; script and pytest. |
 | `scripts/generate_mock_data.py` | Writes the synthetic `data/` package (seed 42). |
 | `scripts/smoke_test.py` | Runs the DEMO_SCRIPT scenarios through the engine, no UI. |
 | `scripts/ui_test.py` | Headless Streamlit `AppTest`: fills scenario 1, exercises the list cards, clicks Run, renders every page. |
 | `scripts/evaluate_truth.py` | LOOCV hit rate at +/-30% per archetype from `project_truth.csv`. Meaningless on mock data. |
-| `tests/` | pytest unit tests for ensemble rules, CP30, bid validation, equipment vector. |
-| `docs/` | Review of spec vs implementation and the backlog. |
+| `tests/` | pytest: ensemble rules, CP30, bid validation, equipment vector, readiness, report, golden baseline. |
+| `docs/` | `spec/` (manager's brief, email, wireframe), app documentation, demo script, review, backlog. |
+| `Makefile` | `make install`, `make test`, `make run`, `make mock`, `make screenshots`, `make evaluate`. |
+| `scripts/screenshot.py` | Boots the app and captures the main screens with Playwright + local Chrome. |
 | `data/` | Mock data package (tracked). Real data goes in `data/_real/` (gitignored) or wherever `COSTBOT_DATA_DIR` points. |
-| `APP_DOCUMENTATION.md`, `DEMO_SCRIPT.md` | Docs from the first build, aligned on 2026-09-26; accuracy numbers in them are unverified. |
+| `docs/APP_DOCUMENTATION.md`, `docs/DEMO_SCRIPT.md` | Docs from the first build, aligned on 2026-09-26; accuracy numbers in them are unverified. |
 
 ## Run and test
 
@@ -48,13 +51,13 @@ changing them.
 .venv/bin/pip install -r requirements.txt -r requirements-dev.txt
 .venv/bin/python scripts/generate_mock_data.py   # only if data/ is missing or schema changed
 .venv/bin/python scripts/smoke_test.py           # engine end-to-end, must print SMOKE OK
-.venv/bin/python test_golden_baseline.py         # calculators vs snapshot, exit 0 required
-.venv/bin/python -m pytest tests -q              # unit tests
+.venv/bin/python -m pytest tests -q              # unit tests + golden baseline (exit 0 required)
+.venv/bin/python tests/test_golden_baseline.py   # same golden check with a readable report
 .venv/bin/python scripts/ui_test.py              # headless UI, must print UI OK
 .venv/bin/streamlit run app.py                   # UI on http://localhost:8501
 ```
 
-Run all four before every commit that touches `engine.py` or `app.py`.
+`make test` runs all of them. Run it before every commit that touches `costbot/`, `app_pages/` or `ui/`.
 
 Production environment with the real package: `export COSTBOT_DATA_DIR=/path/to/data`
 before `streamlit run` or any script; no code edit needed.

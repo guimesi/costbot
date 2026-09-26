@@ -16,3 +16,10 @@ venv/
 # Confidential real data package: never commit. Mock data in data/ is tracked.
 data/_real/
 *.zip
+
+# Local agent tooling (symlinks into a machine-specific Python install)
+.claude/
+.agents/
+
+# Screenshots from scripts/screenshot.py
+screenshots/

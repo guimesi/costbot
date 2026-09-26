@@ -5,7 +5,7 @@
 > **Accuracy:** reference evaluation (Sep 16 brief) reports 40/52 (77%) within ±30%.
 > The engine's own accuracy has NOT been reproduced yet; run
 > `scripts/evaluate_truth.py` against the real data package (see section 14).
-> Bug fixes and open decisions since the first build: `docs/REVIEW_2026-09-26.md`, `docs/BACKLOG.md`.
+> Bug fixes and open decisions since the first build: `REVIEW_2026-09-26.md`, `BACKLOG.md` (same folder).
 
 ---
 
@@ -455,7 +455,7 @@ script's output is meaningless.
 
 ### 14.2 Golden Baseline Regression Tests
 
-`test_golden_baseline.py` — tests each calculator in isolation against expected values from `_golden_baseline.json`.
+`tests/test_golden_baseline.py` — tests each calculator in isolation against expected values from `_golden_baseline.json`.
 
 The JSON in this repo is a MOCK snapshot of the engine's own output (14 cases, 13 PASS + 1 SKIP by construction); it guards against regressions, not against the reference. Against the REAL golden file the first build reported:
 
@@ -499,52 +499,44 @@ The JSON in this repo is a MOCK snapshot of the engine's own output (14 cases, 1
 
 ```
 costbot/
+├── README.md               # Repo readme: what it is, run, test, layout
+├── CLAUDE.md               # Conventions for working in the repo
+├── Makefile                # install / test / run / mock / screenshots / evaluate
 ├── app.py                  # Streamlit entry point (st.navigation, top)
 ├── .streamlit/config.toml  # Theme (light, navy accent). No CSS in code.
 ├── app_pages/              # estimator.py, models.py, data.py
-├── ui/                     # common.py (data, labels, formatters), cards.py (fragment cards), results.py (results panel)
+├── ui/                     # common.py, cards.py (fragment cards), results.py (results panel)
 ├── costbot/                # Engine package
 │   ├── constants.py        # routing, exclusions, correlations, location maps, UI option lists
+│   ├── labels.py           # labels, model specs, ensemble rules, colours (UI + report)
 │   ├── data.py             # DataStore (COSTBOT_DATA_DIR aware)
 │   ├── escalation.py       # CP30 + EMMA
 │   ├── models/             # one file per model runner
 │   ├── ensemble.py         # _assess_confidence
-│   ├── screening.py        # screen_project, analogues, validate_bid
+│   ├── screening.py        # screen_project, model_readiness, model_rows, analogues, validate_bid
 │   └── report.py           # HTML report
 ├── engine.py               # Facade re-exporting costbot.* (kept for compatibility)
-├── test_golden_baseline.py # Calculator regression vs _golden_baseline.json
 ├── app.yaml                # Databricks App config (streamlit on port 8000)
 ├── requirements.txt        # Runtime dependencies
-├── requirements-dev.txt    # pytest
-├── CLAUDE.md               # How to run, test and extend; conventions
-├── README.md               # Manager's task brief (Sep 15) = the spec
-├── LATEST_REQUIREMENT_UPDATE_EMAIL.md  # Sep 16 update
-├── wireframe.md            # Earlier UX spec (superseded where it conflicts)
-├── DEMO_SCRIPT.md          # Live demo walkthrough
-├── APP_DOCUMENTATION.md    # This file
+├── requirements-dev.txt    # pytest, pyflakes, playwright
 ├── docs/
+│   ├── spec/               # task_brief_2026-09-15.md (the spec), requirement_update_2026-09-16.md, wireframe_v1.md
+│   ├── APP_DOCUMENTATION.md  # This file
+│   ├── DEMO_SCRIPT.md        # Live demo walkthrough
 │   ├── REVIEW_2026-09-26.md  # Spec vs implementation review, bugs fixed
 │   └── BACKLOG.md            # Open decisions and next work
 ├── scripts/
 │   ├── generate_mock_data.py # Writes the synthetic data/ package
 │   ├── smoke_test.py         # Engine end-to-end scenarios
 │   ├── ui_test.py            # Headless Streamlit test
+│   ├── screenshot.py         # Playwright screenshots of the app
 │   └── evaluate_truth.py     # Accuracy vs project_truth.csv
 ├── tests/
-│   └── test_ensemble.py      # Unit tests
-└── data/                   # MOCK package (see data/README.md)
-    ├── frankenstein.csv
-    ├── gate_costs.csv
-    ├── project_truth.csv
-    ├── ref_archetype_taxonomy.csv
-    ├── ref_are_analogue_pool_v3.csv
-    ├── ref_country_to_cp30_location.csv
-    ├── ref_cp30_combined_indices.csv
-    ├── ref_equipment_vectors.csv
-    ├── ref_project_scope_inputs_v2.csv
-    ├── ref_semantic_chip_classifications.csv
-    └── extracted_files/
-        └── _golden_baseline.json
+│   ├── test_ensemble.py      # Ensemble, CP30, bid, equipment vector
+│   ├── test_readiness.py     # model_readiness vs screen_project
+│   ├── test_report.py        # HTML report
+│   └── test_golden_baseline.py  # Calculators vs golden JSON (script + pytest)
+└── data/                   # MOCK package (see data/README.md), incl. extracted_files/_golden_baseline.json
 ```
 
 ---

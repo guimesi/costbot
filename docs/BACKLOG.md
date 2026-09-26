@@ -5,7 +5,7 @@ the review docs when done.
 
 ## Decisions that only the manager can take (deviations from README)
 
-See `docs/REVIEW_2026-09-26.md` section 3. Short form:
+See `REVIEW_2026-09-26.md` section 3. Short form:
 
 1. Benchmark exclusions for `offshore_fpso` and `onshore_unconventional`: README says exclude, engine includes.
 2. OSBL trigger: README "whenever any model fires", engine only from Calculator_Onshore ISBL.
@@ -35,14 +35,15 @@ See `docs/REVIEW_2026-09-26.md` section 3. Short form:
 - [ ] Process Domain input is collected but not used by Benchmark; wire in or remove.
 - [ ] `_convert_capacity` cross-family conversions (KTA <-> BPD via fixed density): document or refuse.
 - [ ] Data Package / Code Inventory tabs: remove or label rows for files not shipped.
-- [ ] `APP_DOCUMENTATION.md` and `DEMO_SCRIPT.md`: rewrite after decisions above; drop unverified accuracy numbers.
+- [ ] `docs/APP_DOCUMENTATION.md` and `docs/DEMO_SCRIPT.md`: rewrite after decisions above; drop unverified accuracy numbers.
+- [ ] Top-level "Comparable projects" list uses `_get_analogues` (feature + capacity score) and shows 0.00 when only archetype is known; consider reusing the Benchmark analogues instead.
 
 ## Validation in the production environment (real data)
 
 - [ ] `COSTBOT_DATA_DIR=<real package> python scripts/evaluate_truth.py --csv results.csv`
       and compare with the email's 40/52 (77%).
 - [ ] Check `evaluate_truth.py` column auto-detection against the real `project_truth.csv`.
-- [ ] Run `test_golden_baseline.py` against the REAL `_golden_baseline.json` (expect the
+- [ ] Run `tests/test_golden_baseline.py` against the REAL `_golden_baseline.json` (expect the
       12 documented XFAILs, zero FAIL).
 - [ ] Confirm CP30 table has `location`, `year`, `combined_idx` columns and the
       `Texas-BTN (GOM)` row; the 2026 extrapolation depends on it.

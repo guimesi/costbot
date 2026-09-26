@@ -406,6 +406,7 @@ GOLDEN_CASES = [
 def gen_golden(data_dir):
     """Snapshot of the CURRENT engine output for each case. This is a regression
     guard, NOT reference truth. Expected keys mirror test_golden_baseline.py."""
+    sys.path.insert(0, os.path.join(ROOT, 'tests'))
     import test_golden_baseline as tgb
     from engine import DataStore
     data = DataStore(data_dir)

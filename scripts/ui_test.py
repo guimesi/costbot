@@ -106,6 +106,15 @@ def main():
     at.run()
     ok(at, 'back to estimator')
     assert at.session_state['last_results'] is results
+
+    # Reset clears inputs, lists and results
+    at.button(key='reset_all').click().run()
+    ok(at, 'after reset')
+    assert 'last_results' not in at.session_state
+    assert at.session_state['equipment_items'] == [] and at.session_state['scope_items'] == []
+    assert at.selectbox(key='archetype').value is None
+    assert at.selectbox(key='location').value is None
+    assert any('Pick an archetype and a location' in c.value for c in at.caption)
     print(f"UI OK: P50=${ens['best_estimate_musd']:,.0f}M conf={ens['confidence']} fired={sorted(fired)}")
 
 

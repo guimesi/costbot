@@ -4,7 +4,7 @@ import streamlit as st
 from costbot.constants import FACILITY_TYPE_OPTIONS, LOCATION_OPTIONS, resolve_country
 from costbot.screening import model_readiness, screen_project
 from ui.cards import equipment_card, scope_items_card
-from ui.common import ARCHETYPE_LABELS, ARCHETYPE_OPTIONS, load_data
+from ui.common import ARCHETYPE_LABELS, ARCHETYPE_OPTIONS, load_data, reset_session
 from ui.results import render_readiness, render_results
 
 data = load_data()
@@ -100,8 +100,11 @@ with left:
 
     scope_items_card(core_ready)
 
-    run_clicked = st.button("Run screening estimate", type="primary", icon=":material/play_arrow:",
-                            disabled=not core_ready, width="stretch")
+    with st.container(horizontal=True, vertical_alignment="center"):
+        run_clicked = st.button("Run screening estimate", type="primary", icon=":material/play_arrow:",
+                                disabled=not core_ready, width="stretch", key="run")
+        st.button("Reset", icon=":material/restart_alt:", type="tertiary", key="reset_all",
+                  on_click=reset_session, help="Clear every input and the last estimate.")
 
 # ----------------------------------------------------------------------------
 # Scope dict (built on every rerun so the readiness panel is live)

@@ -17,6 +17,16 @@ def load_data() -> DataStore:
     return DataStore()
 
 
+def reset_session() -> None:
+    """on_click callback: forget every widget value and result, so the next
+    rerun starts from an empty estimator. Runs before widgets are created,
+    which is the only moment Streamlit lets us drop widget keys."""
+    for key in list(st.session_state.keys()):
+        del st.session_state[key]
+    st.session_state['equipment_items'] = []
+    st.session_state['scope_items'] = []
+
+
 def data_is_mock(data: DataStore) -> bool:
     """True when the loaded package is the synthetic one shipped in the repo."""
     readme = os.path.join(data.data_dir, 'README.md')

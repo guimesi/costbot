@@ -17,7 +17,7 @@ the Sep 16 email, so the engine loads them unchanged. Values are random.
 | ref_cp30_combined_indices.csv | 324 | CP30 escalation (27 locations x 12 years) |
 | ref_country_to_cp30_location.csv | 67 | display |
 | ref_project_scope_inputs_v2.csv | 60 | not used at runtime |
-| extracted_files/_golden_baseline.json | 14 cases | test_golden_baseline.py (engine snapshot) |
+| extracted_files/_golden_baseline.json | 14 cases | tests/test_golden_baseline.py (engine snapshot) |
 
 Do not use anything computed on this data as evidence of model accuracy.
 Real data, if obtained, belongs in `data/_real/` which is gitignored.
