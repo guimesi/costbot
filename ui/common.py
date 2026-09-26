@@ -28,13 +28,13 @@ def reset_session() -> None:
 
 
 def data_is_mock(data: DataStore) -> bool:
-    """True when the loaded package is the synthetic one shipped in the repo."""
-    readme = os.path.join(data.data_dir, 'README.md')
-    try:
-        with open(readme) as f:
-            return 'MOCK' in f.read(200)
-    except OSError:
+    """True when the loaded pool is the synthetic one shipped in the repo.
+    Decided from the data itself (the generator stamps `data_source`), so
+    dropping the real CSVs into data/ is enough to clear the warning."""
+    pool = data.pool
+    if pool.empty or 'data_source' not in pool.columns:
         return False
+    return bool((pool['data_source'] == 'mock_generator').all())
 
 
 ARCHETYPE_OPTIONS = list(ARCHETYPE_LABELS)

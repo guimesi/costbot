@@ -40,6 +40,8 @@ export COSTBOT_DATA_DIR=/path/to/real/data
 .venv/bin/python scripts/evaluate_truth.py --csv results.csv   # hit rate at +/-30% per archetype
 ```
 
+Step-by-step for the real-data validation: [`docs/VALIDATION_RUNBOOK.md`](docs/VALIDATION_RUNBOOK.md).
+
 ## Layout
 
 | Path | What |

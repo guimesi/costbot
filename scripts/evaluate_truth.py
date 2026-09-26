@@ -101,6 +101,7 @@ def main():
     ap.add_argument('--tolerance', type=float, default=0.30)
     ap.add_argument('--data-dir', default=None)
     ap.add_argument('--csv', default=None, help='write per-project results here')
+    ap.add_argument('--redact', action='store_true', help='replace project names with archetype-N so the output can be shared')
     args = ap.parse_args()
 
     data = DataStore(args.data_dir) if args.data_dir else DataStore()
@@ -114,11 +115,15 @@ def main():
         print('Cannot find TEC or archetype column; edit CANDIDATES in this script.'); sys.exit(2)
 
     rows = []
+    counter = {}
     for _, r in truth.iterrows():
         truth_tec = float(r[cols['tec']])
         if not truth_tec or truth_tec <= 0:
             continue
         scope = build_scope(r, cols)
+        if args.redact:
+            counter[scope['archetype']] = counter.get(scope['archetype'], 0) + 1
+            scope['project_name'] = f"{scope['archetype']}-{counter[scope['archetype']]:02d}"
         res = screen_project(scope, data)
         ens = res['ensemble']
         p50 = ens.get('best_estimate_musd')

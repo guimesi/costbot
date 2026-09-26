@@ -38,7 +38,7 @@ changing them.
 | `scripts/ui_test.py` | Headless Streamlit `AppTest`: fills scenario 1, exercises the list cards, clicks Run, renders every page. |
 | `scripts/evaluate_truth.py` | LOOCV hit rate at +/-30% per archetype from `project_truth.csv`. Meaningless on mock data. |
 | `tests/` | pytest: ensemble rules, CP30, bid validation, equipment vector, readiness, report, golden baseline. |
-| `docs/` | `spec/` (manager's brief, email, wireframe), app documentation, demo script, review, backlog. |
+| `docs/` | `spec/` (manager's brief, email, wireframe), app documentation, demo script, review, backlog, validation runbook. |
 | `Makefile` | `make install`, `make test`, `make run`, `make mock`, `make screenshots`, `make evaluate`. |
 | `scripts/screenshot.py` | Boots the app and captures the main screens with Playwright + local Chrome. |
 | `data/` | Mock data package (tracked). Real data goes in `data/_real/` (gitignored) or wherever `COSTBOT_DATA_DIR` points. |
