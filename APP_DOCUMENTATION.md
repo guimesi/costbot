@@ -2,7 +2,10 @@
 
 > **Version:** POC v1.0
 > **Last Updated:** September 2026
-> **Accuracy:** 42/50 projects (84%) within ±30% — target was 77%
+> **Accuracy:** reference evaluation (Sep 16 brief) reports 40/52 (77%) within ±30%.
+> The engine's own accuracy has NOT been reproduced yet; run
+> `scripts/evaluate_truth.py` against the real data package (see section 14).
+> Bug fixes and open decisions since the first build: `docs/REVIEW_2026-09-26.md`, `docs/BACKLOG.md`.
 
 ---
 
@@ -49,7 +52,7 @@ assessment.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ app.py (Streamlit UI — 1,071 lines)                                 │
+│ app.py (Streamlit UI)                                               │
 │ • 5 tabs: Estimator, Data Package, Code, Dependencies, Specs        │
 │ • Collects scope dict, calls screen_project(), renders              │
 └──────────────────────────────────────────────────────────────────────┘
@@ -57,7 +60,7 @@ assessment.
                     scope dict (Python dict)
                               ▼
 ┌──────────────────────────────────────────────────────────────────────┐
-│ engine.py (Estimation Engine — 2,857 lines)                         │
+│ engine.py (Estimation Engine)                                       │
 │                                                                      │
 │ screen_project(scope, data)                                         │
 │   ├─ ARCHETYPE_MODELS routing → eligible models                     │
@@ -79,6 +82,8 @@ assessment.
 ```
 
 **Deployment:** Databricks App via `app.yaml` (Streamlit on port 8000).
+Set `COSTBOT_DATA_DIR=/path/to/real/data` to point the engine at the real
+package; the repo's `data/` is a synthetic mock with the same schema.
 
 **Dependencies:** `streamlit`, `pandas`, `numpy`, `plotly`, `scikit-learn` (for cosine similarity in Benchmark model).
 
@@ -121,7 +126,7 @@ ISBL_at_location = ISBL × EMMA_factor
 TEC = ISBL_at_location × TEC_multiplier
 ```
 
-**Inputs required:** facility_type + primary_capacity + capacity_unit
+**Inputs required:** facility_type + primary_capacity + capacity_unit. The UI offers facility_type as a dropdown of every name in `ISBL_CORRELATIONS`, `_FACILITY_ALIASES` and the unconventional aliases (`FACILITY_TYPE_OPTIONS`), with an "Other" option for free text.
 **TEC Multipliers:** Greenfield 2.58×, Brownfield 1.30×, Expansion 2.61×, Modification 1.30×
 **ISBL Correlations:** 20+ facility types with tuples of (base_cost_M, reference_capacity, exponent, unit)
 **Scope-type override:** Explicit scope_type from inputs (e.g. "modification", "BF-unit-mod") takes priority over keyword inference from facility_type name
@@ -300,16 +305,16 @@ geometric_mean = sqrt(estimate_A × estimate_B)
 
 | Constant | Value | Location | Purpose |
 |---|---|---|---|
-| `SPREAD_GATE_RATIO` | 3.0 | engine.py L26 | Max allowed ratio between highest and lowest surviving model estimates |
-| `SCREENING_FLOOR_MUSD` | 20.0 | engine.py L27 | Projects below $20M trigger a floor warning (not screening candidates) |
+| `SPREAD_GATE_RATIO` | 3.0 | engine.py | Max allowed ratio between highest and lowest surviving model estimates |
+| `SCREENING_FLOOR_MUSD` | 20.0 | engine.py | Projects below $20M trigger a floor warning (not screening candidates) |
 | `_POOL_BASE_YEAR` | 2024 | engine.py | All pool TEC values are normalized to 2024 USD |
 | `_CP30_REF_LOCATION` | Texas-BTN (GOM) | engine.py | GOM is the base location for CP30 indices |
-| TEC_MULT (greenfield) | 2.58 | engine.py L164 | ISBL → TEC multiplier for greenfield projects |
-| TEC_MULT (brownfield) | 1.30 | engine.py L165 | ISBL → TEC for brownfield/modification |
-| TEC_MULT (expansion) | 2.61 | engine.py L166 | ISBL → TEC for expansion projects |
-| Benchmark blend | 0.5 / 0.5 | engine.py L1257 | Cosine similarity weight vs. size similarity weight |
-| Geometric mean threshold | 1.5× | engine.py L2285 | Triggers geometric mean when Calc_Onshore and Benchmark disagree |
-| Range cap | 5.0× | engine.py L2320 | P80/P20 ratio capped at 5× (symmetric in log-space) |
+| TEC_MULT (greenfield) | 2.58 | engine.py | ISBL → TEC multiplier for greenfield projects |
+| TEC_MULT (brownfield) | 1.30 | engine.py | Defined, but plain "brownfield" scope currently uses the expansion multiplier 2.61 on purpose; 1.30 applies to "modification" only. Open decision, see BACKLOG. |
+| TEC_MULT (expansion) | 2.61 | engine.py | ISBL → TEC for expansion projects |
+| Benchmark blend | 0.5 / 0.5 | engine.py | Cosine similarity weight vs. size similarity weight |
+| Geometric mean threshold | 1.5× | engine.py | Triggers geometric mean when Calc_Onshore and Benchmark disagree |
+| Range cap | 5.0× | engine.py | P80/P20 ratio capped at 5× (symmetric in log-space) |
 | EMMA (offshore) | 1.0 | engine.py | EMMA intentionally disabled for offshore (was causing 1.88× inflation) |
 
 ---
@@ -321,8 +326,10 @@ The app has 5 tabs:
 ### Tab 1: Estimator
 The main estimation interface. Split into:
 - **Left panel (Input):** 5 progressive input cards (Core Inputs → Equipment → Facility & Capacity → SURF → Scope Items)
-- **Right panel (Results):** Model Readiness indicators, 3-Up Hero Cards (P50, Range, Confidence), bar chart with error bars, per-model detail expanders, analogues table,
-bid validation, what-if sensitivity, HTML report download
+- **Right panel (Results):** Model Readiness indicators (fixed order), 3-Up Hero Cards (P50, Range, Confidence), model warning banners (e.g. pipeline UNVERIFIED), bar chart with error bars, per-model detail expanders, analogues table,
+bid validation, what-if sensitivity, HTML report download button
+
+The Equipment List and Scope Items cards are `st.fragment`s: adding or removing an item reruns only that card.
 
 Conditional UI:
 - Pipeline fields (Length, Diameter) appear only when archetype contains "pipeline"
@@ -375,6 +382,7 @@ escalation_factor = CP30_index(target_year, GOM) / CP30_index(2024, GOM)
 ```
 
 This adjusts for cost inflation/deflation between years. The factor is displayed in the results as a basis-year note.
+For a target year beyond the last year in the CP30 table, the factor is extrapolated with the last observed annual growth (e.g. 2026 from 2024→2025). Calculator models are not CP30-escalated; their rate tables carry their own basis.
 
 ---
 
@@ -416,17 +424,23 @@ Previously excluded combinations that were re-enabled after the Benchmark cosine
 
 ## 14. Testing & Validation
 
-### 14.1 50-Project Accuracy Test
+### 14.1 Accuracy against `project_truth.csv`
 
-50 projects from `project_truth.csv` evaluated at ±30% tolerance:
+The first build reported 42/50 (84%) at ±30%, but no script that produces
+that number survived, so it is treated as unverified. `scripts/evaluate_truth.py`
+now runs every truth row through `screen_project()` in LOOCV mode (the
+project's own pool entry is excluded by planview_id) and prints hit rate per
+archetype for the ensemble P50 and for the best single model. Run it in the
+production environment:
 
-| Metric | Result |
-|---|---|
-| Any-model ±30% | **42/50 (84%)** |
-| Ensemble P50 ±30% | **42/50 (84%)** |
-| Target | 77% |
+```bash
+COSTBOT_DATA_DIR=/path/to/real/data python scripts/evaluate_truth.py --csv results.csv
+```
 
-**Per-archetype breakdown:**
+Reference point from the Sep 16 brief: 40/52 (77%). On the mock package the
+script's output is meaningless.
+
+**Per-archetype breakdown claimed by the first build (unverified):**
 - Chemicals: 4/4 (100%)
 - CCS: 2/2 (100%)
 - Deepwater: 3/3 (100%)
@@ -437,7 +451,9 @@ Previously excluded combinations that were re-enabled after the Benchmark cosine
 
 ### 14.2 Golden Baseline Regression Tests
 
-`test_golden_baseline.py` — tests each calculator in isolation against reference expected values from `_golden_baseline.json`.
+`test_golden_baseline.py` — tests each calculator in isolation against expected values from `_golden_baseline.json`.
+
+The JSON in this repo is a MOCK snapshot of the engine's own output (14 cases, 13 PASS + 1 SKIP by construction); it guards against regressions, not against the reference. Against the REAL golden file the first build reported:
 
 | Status | Count | Details |
 |---|---|---|
@@ -452,7 +468,15 @@ Previously excluded combinations that were re-enabled after the Benchmark cosine
 - 2 LNG: Calculator regression equations differ from reference
 - 4 onshore (Joliet/BRACE): EMMA location mapping + BF-unit-mod scope chain differences
 
-### 14.3 8 Remaining Accuracy Failures (structural)
+### 14.3 Other test layers
+
+| Script | What it checks |
+|---|---|
+| `tests/test_ensemble.py` (pytest) | Ensemble rules independent of data: spread gate, geometric blend, unconventional override, 5x cap, bid validation, CP30 escalation and extrapolation, equipment vector, location resolution, screening floor, COMPONENT_ONLY. |
+| `scripts/smoke_test.py` | 6 end-to-end scenarios through `screen_project()`; asserts which models fire and that no model died on a swallowed exception. |
+| `scripts/ui_test.py` | Headless Streamlit `AppTest`: fills scenario 1, adds/removes equipment and scope items, clicks Run, checks results and that no error element rendered. |
+
+### 14.4 8 Remaining Accuracy Failures reported by the first build (unverified)
 
 | # | Project | Best Error | Root Cause |
 |---|---|---|---|
@@ -470,16 +494,30 @@ Previously excluded combinations that were re-enabled after the Benchmark cosine
 ## 15. File Inventory
 
 ```
-cost-bot-deploy/
-├── app.py                  # Streamlit UI (1,071 lines)
-├── engine.py               # Estimation engine (2,857 lines)
-├── test_golden_baseline.py # Golden regression tests (273 lines)
+costbot/
+├── app.py                  # Streamlit UI
+├── engine.py               # Estimation engine (all models, ensemble, report)
+├── test_golden_baseline.py # Calculator regression vs _golden_baseline.json
 ├── app.yaml                # Databricks App config (streamlit on port 8000)
-├── requirements.txt        # Python dependencies
-├── PENDING.md              # Known gaps and future work
+├── requirements.txt        # Runtime dependencies
+├── requirements-dev.txt    # pytest
+├── CLAUDE.md               # How to run, test and extend; conventions
+├── README.md               # Manager's task brief (Sep 15) = the spec
+├── LATEST_REQUIREMENT_UPDATE_EMAIL.md  # Sep 16 update
+├── wireframe.md            # Earlier UX spec (superseded where it conflicts)
 ├── DEMO_SCRIPT.md          # Live demo walkthrough
 ├── APP_DOCUMENTATION.md    # This file
-└── data/
+├── docs/
+│   ├── REVIEW_2026-09-26.md  # Spec vs implementation review, bugs fixed
+│   └── BACKLOG.md            # Open decisions and next work
+├── scripts/
+│   ├── generate_mock_data.py # Writes the synthetic data/ package
+│   ├── smoke_test.py         # Engine end-to-end scenarios
+│   ├── ui_test.py            # Headless Streamlit test
+│   └── evaluate_truth.py     # Accuracy vs project_truth.csv
+├── tests/
+│   └── test_ensemble.py      # Unit tests
+└── data/                   # MOCK package (see data/README.md)
     ├── frankenstein.csv
     ├── gate_costs.csv
     ├── project_truth.csv
@@ -506,6 +544,8 @@ cost-bot-deploy/
 6. **No user authentication / role-based access.** POC-level — anyone with workspace access can use the app.
 7. **No persistent storage.** Estimates are in-session only (Streamlit session state). Download the HTML report to preserve results.
 8. **Screening floor at $20M.** Projects below $20M are flagged as not screening candidates — estimates at this scale carry disproportionate uncertainty.
+9. **Reference parity is unverified.** `cost_bot_api.py` (the spec's source of truth) is not available here, so "identical outputs for identical inputs" has never been checked. Six modelling choices deviate from the README on purpose; see `docs/BACKLOG.md`.
+10. **Pipeline calculator is unverified** (truth values disagree between sources); the UI shows a warning banner.
 
 ---
 

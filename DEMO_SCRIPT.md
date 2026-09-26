@@ -15,9 +15,9 @@
 
 | Item | Detail |
 |---|---|
-| App URL | Open the **cost-bot** Databricks App (Streamlit) |
+| App URL | Open the **cost-bot** Databricks App (Streamlit), or locally: `streamlit run app.py` (see CLAUDE.md for setup) |
 | Browser | Chrome / Edge recommended; any modern browser works |
-| Data | No setup needed — the app loads all CSV data automatically on startup |
+| Data | No setup needed — the app loads all CSV data automatically on startup. Locally this is the MOCK package in `data/`; numbers are synthetic. |
 | Credentials | Any user with workspace access can view the app |
 
 When the app opens you will see:
@@ -67,7 +67,7 @@ The Estimator tab is split into two columns:
 
 | Field | Value to Enter |
 |---|---|
-| Facility Type | **polypropylene** |
+| Facility Type | select **polypropylene** from the dropdown (the list is every facility type the calculators understand; pick "Other" to type a custom name) |
 | Primary Capacity | **450** |
 | Unit | **KTA** |
 
@@ -134,7 +134,7 @@ The Estimator tab is split into two columns:
 
 ### Step 2 — Equipment List (Card 2)
 
-Add the following equipment items one at a time (select type → set count → click "+ Add Equipment"):
+Add the following equipment items one at a time (select type → set count → click "+ Add Equipment"). Only the card refreshes; the rest of the page stays put.
 
 | Equipment Type | Count | What It Represents |
 |---|---|---|
@@ -217,6 +217,7 @@ Click **Run Screening Estimate**.
 ### What You Should See
 
 - 🟢 **Calculator_Pipeline** — rate × length estimate (includes mainline + linepipe + HDD crossings + stations + indirects)
+- A yellow **warning banner**: the pipeline calculator is flagged UNVERIFIED because pipeline truth values differ between sources (per the task brief). Say so out loud; it is a feature, not a bug.
 - 🟢 **Benchmark** — analogue matching against pool pipelines
 - P50 estimate in the ~$250–350M range for a 200km / 24" oil pipeline on the Gulf Coast
 
@@ -238,7 +239,7 @@ Click **Run Screening Estimate**.
 | Project Archetype | **Refinery Brownfield** |
 | Location | **US Gulf Coast** |
 | Scope Type | **Modification** |
-| Facility Type | **hydrotreater** |
+| Facility Type | select **hydrotreater** |
 | Primary Capacity | **40000** |
 | Unit | **BPD** |
 
@@ -337,7 +338,7 @@ After running any scenario, scroll to **"What-If Sensitivity"**.
 
 ## 8. Downloading the Report
 
-At the bottom of the results panel, click **"⬇ Download HTML Report"**.
+At the bottom of the results panel, click **"Download HTML Report"**.
 
 This generates a standalone HTML file containing:
 - Project scope summary
@@ -354,7 +355,7 @@ The file can be opened in any browser, emailed, or attached to a gate review pac
 
 1. **10 independent models** — no single point of failure. The ensemble mediates.
 2. **Progressive unlock** — start with 2 fields, get a Benchmark estimate. Add detail, unlock more models.
-3. **84% accuracy** on 50 real projects at ±30% tolerance (target was 77%).
+3. **Accuracy**: the reference evaluation reported **40/52 (77%)** within ±30% (Sep 16 brief). The engine's own number is produced by `scripts/evaluate_truth.py` on the real data package; do not quote a figure until that run has been done.
 4. **No AI/LLM** — fully deterministic, reproducible, auditable.
 5. **Sub-second response** — all computation is local, no API calls.
 6. **Bid validation** — instant sanity check for contractor bids.
