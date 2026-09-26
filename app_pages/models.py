@@ -29,14 +29,16 @@ tab_specs, tab_routing, tab_accuracy = st.tabs(["Model specs", "Routing and inpu
 with tab_specs:
     st.caption("Ten deterministic models. Each fires only when its inputs are present; the ensemble "
                "mediates between the total-cost models with a 3x spread gate and priority rules.")
-    cols = st.columns(2, gap="medium")
-    for i, (mid, method, badge, colour, algo, acc, libs) in enumerate(MODEL_SPECS):
-        with cols[i % 2].container(border=True):
-            st.markdown(f"**{model_label(mid)}** :{colour}-badge[{badge}]")
-            st.caption(f"{method} · `{mid}`")
-            st.markdown(algo)
-            st.markdown(f":material/target: {acc}")
-            st.caption(f"Libraries: {libs}")
+    # Row by row so the two cards of a row share the same height (height="stretch")
+    for row_start in range(0, len(MODEL_SPECS), 2):
+        cols = st.columns(2, gap="medium")
+        for col, (mid, method, badge, colour, algo, acc, libs) in zip(cols, MODEL_SPECS[row_start:row_start + 2]):
+            with col.container(border=True, height="stretch"):
+                st.markdown(f"**{model_label(mid)}** :{colour}-badge[{badge}]")
+                st.caption(f"{method} · `{mid}`")
+                st.markdown(algo)
+                st.markdown(f":material/target: {acc}")
+                st.caption(f"Libraries: {libs}")
 
 with tab_routing:
     st.markdown("**Which models each archetype can use**")
