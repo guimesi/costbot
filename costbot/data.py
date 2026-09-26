@@ -24,6 +24,15 @@ class DataStore:
     def __init__(self, data_dir: str = DATA_DIR):
         self.data_dir = data_dir
         self._cache = {}
+        self._derived = {}
+
+    def derived(self, key: str, builder):
+        """Cache an object derived from the loaded tables (e.g. a parsed
+        numpy matrix) for the lifetime of this DataStore. `builder` is a
+        zero-arg callable run once per key."""
+        if key not in self._derived:
+            self._derived[key] = builder()
+        return self._derived[key]
 
     def _load_csv(self, filename: str) -> pd.DataFrame:
         if filename not in self._cache:

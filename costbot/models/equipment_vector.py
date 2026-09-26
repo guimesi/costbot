@@ -60,6 +60,35 @@ def _build_equipment_vector(equipment_items: dict) -> tuple:
 # Model 6: EquipmentVector
 # ============================================================================
 
+def _parse_vector_table(ev_df: pd.DataFrame):
+    """One-time parse of ref_equipment_vectors.csv into a (n, 52) float matrix
+    plus per-row metadata. Rows with a missing TEC or an unparseable / wrong
+    length vector are skipped, exactly as the per-call loop used to do."""
+    rows, meta = [], []
+    for _, row in ev_df.iterrows():
+        vec_str = row.get('vector_norm')
+        tec = row.get('tec_musd_2024')
+        if pd.isna(vec_str) or pd.isna(tec) or not isinstance(vec_str, str):
+            continue
+        try:
+            vec = np.asarray(json.loads(vec_str), dtype=float)
+        except Exception:
+            continue
+        if vec.shape != (52,):
+            continue
+        rows.append(vec)
+        meta.append({
+            'project_name': row.get('project_name', ''),
+            'project_id': row.get('project_id', ''),
+            'archetype': row.get('archetype', ''),
+            'tec_musd_2024': float(tec),
+            'country': row.get('country', ''),
+            'total_items': row.get('total_items', 0),
+        })
+    matrix = np.vstack(rows) if rows else np.zeros((0, 52))
+    return matrix, meta
+
+
 def run_equipment_vector(scope: Dict, data: DataStore) -> Dict:
     equipment_list = scope.get('equipment_list')
     if not equipment_list:
@@ -90,43 +119,30 @@ def run_equipment_vector(scope: Dict, data: DataStore) -> Dict:
         return {'can_fire': False, 'no_fire_reason': 'equipment_vectors_not_loaded',
                 'model_id': 'EquipmentVector'}
 
-    # Parse stored vectors and compute similarity
+    matrix, meta = data.derived('equipment_vector_matrix', lambda: _parse_vector_table(ev_df))
+    if matrix.shape[0] == 0:
+        return {'can_fire': False, 'no_fire_reason': 'no_parseable_equipment_vectors',
+                'model_id': 'EquipmentVector'}
+
+    # Cosine similarity against every stored vector in one matrix product.
+    # Stored vectors are already L2-normalised but we renormalise defensively.
+    norm_a = float(np.linalg.norm(user_vec))
+    norms_b = np.linalg.norm(matrix, axis=1)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        sims = np.where((norm_a > 0) & (norms_b > 0), matrix @ user_vec / (norm_a * norms_b), 0.0)
+
     matches = []
-    for _, row in ev_df.iterrows():
-        vec_str = row.get('vector_norm')
-        tec = row.get('tec_musd_2024')
-        if pd.isna(vec_str) or pd.isna(tec):
-            continue
-        try:
-            if isinstance(vec_str, str):
-                pool_vec = np.array(json.loads(vec_str))
-            else:
-                continue
-        except Exception:
-            continue
-
-        if len(pool_vec) != 52:
-            continue
-
-        # Cosine similarity
-        dot = np.dot(user_vec, pool_vec)
-        norm_a = np.linalg.norm(user_vec)
-        norm_b = np.linalg.norm(pool_vec)
-        if norm_a > 0 and norm_b > 0:
-            sim = dot / (norm_a * norm_b)
-        else:
-            sim = 0.0
-
-        if sim > 0.1:
-            matches.append({
-                'project_name': row.get('project_name', ''),
-                'project_id': row.get('project_id', ''),
-                'archetype': row.get('archetype', ''),
-                'tec_musd_2024': float(tec),
-                'similarity': round(float(sim), 4),
-                'country': row.get('country', ''),
-                'total_items': row.get('total_items', 0),
-            })
+    for i in np.where(sims > 0.1)[0]:
+        m = meta[i]
+        matches.append({
+            'project_name': m['project_name'],
+            'project_id': m['project_id'],
+            'archetype': m['archetype'],
+            'tec_musd_2024': m['tec_musd_2024'],
+            'similarity': round(float(sims[i]), 4),
+            'country': m['country'],
+            'total_items': m['total_items'],
+        })
 
     if not matches:
         return {'can_fire': False, 'no_fire_reason': 'no_similar_equipment_profiles',

@@ -20,9 +20,16 @@ See `docs/REVIEW_2026-09-26.md` section 3. Short form:
       constants, data, escalation, ensemble, screening, report) with `engine.py`
       as a facade; split `app.py` into `app_pages/` + `ui/` with `st.navigation`.
       Done 2026-09-26, all four test layers unchanged.
-- [ ] Cache the Benchmark one-hot matrix and scaler per DataStore (recomputed every call).
-- [ ] Pre-parse `ref_equipment_vectors.csv` JSON vectors into a numpy matrix once.
-- [ ] Composite: vectorize chip scoring (DataFrame.apply with Python scorer per scope item).
+- [x] Performance, measured 2026-09-26 on the mock package (same row counts as the
+      real one), Apple Silicon: `screen_project` with all pool models firing = 28 ms;
+      a full estimator-page rerun with results on screen = 26 ms server-side.
+      EquipmentVector was 10 ms (JSON parse of 593 vectors per call) and is now
+      0.5 ms via a parsed matrix cached on `DataStore.derived()`. Benchmark (5 ms)
+      and Composite (7 ms) are not worth caching. The "page reload" feeling on
+      Databricks is therefore not engine time: it was the double rerun (fixed with
+      fragments) plus network round trip and Plotly re-rendering in the browser.
+      Remaining lever is client-side: fewer/lighter charts, `st.form` on the input
+      panel so widgets do not rerun the page on every change. Both belong to the UX pass.
 - [ ] What-if: propagate all `secondary_params` keys, not only topsides/water depth.
 - [ ] Add `pipeline_gathering` and `lng_offshore` to the UI archetype list or drop from routing.
 - [ ] Process Domain input is collected but not used by Benchmark; wire in or remove.

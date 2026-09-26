@@ -176,6 +176,27 @@ def test_equipment_vector_zeroes_non_process_and_normalizes():
     assert total == 107 and process == 7
 
 
+def test_equipment_vector_matrix_is_parsed_once_and_cached():
+    from costbot.models.equipment_vector import run_equipment_vector, _parse_vector_table
+    data = DataStore()
+    if data.equipment_vectors.empty:
+        pytest.skip('no data package')
+    scope = {'equipment_list': [{'type': 'pump', 'count': 10}, {'type': 'exchanger', 'count': 5}]}
+    r1 = run_equipment_vector(scope, data)
+    matrix, meta = data.derived('equipment_vector_matrix', lambda: (_ for _ in ()).throw(AssertionError('rebuilt')))
+    assert matrix.shape[1] == 52 and len(meta) == matrix.shape[0]
+    r2 = run_equipment_vector(scope, data)
+    assert r1 == r2 and r1['can_fire']
+
+
+def test_datastore_derived_runs_builder_once():
+    d = DataStore('/nonexistent')
+    calls = []
+    assert d.derived('k', lambda: calls.append(1) or 'v') == 'v'
+    assert d.derived('k', lambda: calls.append(1) or 'other') == 'v'
+    assert calls == [1]
+
+
 # ---------------------------------------------------------------- location
 
 @pytest.mark.parametrize('loc,country', [('US Gulf Coast', 'United States'), ('china', 'China'),
