@@ -1,0 +1,18 @@
+process_domain,scope_type,archetype,description
+refining,grassroots,refinery_gf,New refinery
+refining,modification,refinery_bf,Refinery brownfield / unit modification
+refining,expansion,refinery_bf,Refinery expansion
+chemicals,grassroots,onshore_petchem,New petrochemical plant
+chemicals,expansion,onshore_petchem,Petrochemical expansion
+offshore,grassroots,offshore_fpso,FPSO / platform development
+pipeline,grassroots,pipeline_mainline,New mainline pipeline
+pipeline,modification,pipeline_mainline,Pipeline replacement / mod
+lng,grassroots,lng_onshore,LNG liquefaction
+lng,expansion,lng_terminal,LNG terminal expansion
+oil_sands,expansion,oil_sands,Oil sands mining / SAGD
+ccs,grassroots,ccs,Carbon capture and storage
+gas_processing,grassroots,gas_processing,Gas plant
+upstream_unconventional,expansion,onshore_unconventional,Short-cycle unconventional
+upstream_conventional,grassroots,onshore_conventional,Conventional onshore field
+power,grassroots,power_generation,Power generation
+refining,grassroots,renewable_diesel,Renewable diesel

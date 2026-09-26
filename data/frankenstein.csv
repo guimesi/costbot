@@ -1,0 +1,858 @@
+chip_id,planview_id,project_name,scope_name,scope_type,description,direct_cost_kusd,indirect_cost_kusd,total_cost_kusd,capacity_value,capacity_unit,country,basis_year
+1,1003059,MOCK-ONSHOR-006,Storage Tank Farm,osbl,Storage Tank Farm scope chip for ethylene_cracker (expansion),244647.0,163098.0,407746.0,272.0,KTA,China,2024
+2,1001678,MOCK-REFINE-079,Crude Unit Revamp,storage,Crude Unit Revamp scope chip for coker (expansion),74873.0,49915.0,124789.0,57716.0,BPD,United Kingdom,2024
+3,1006992,MOCK-GAS_PR-007,CO2 Capture Facilities,marine,CO2 Capture Facilities scope chip for ngl_fractionation (grassroots),34018.0,22679.0,56697.0,1060.0,MMSCFD,United States,2024
+4,1006494,MOCK-ONSHOR-008,Central Delivery Point,marine,Central Delivery Point scope chip for central_delivery_point (expansion),42464.0,28309.0,70773.0,326.0,MMSCFD,Canada,2024
+5,1002679,MOCK-REFINE-125,Hydrotreater,process_unit,Hydrotreater scope chip for alkylation (expansion),38640.0,25760.0,64400.0,12545.0,BPD,United States,2024
+6,1002869,MOCK-REFINE-136,CCR Reformer,process_unit,CCR Reformer scope chip for fcc (modification),44547.0,29698.0,74245.0,106203.0,BPD,Canada,2024
+7,1006137,MOCK-PIPELI-037,Gathering Pipeline,marine,Gathering Pipeline scope chip for pipeline (grassroots),6545.0,4363.0,10908.0,482.0,km,Australia,2024
+8,1002633,MOCK-REFINE-123,Alkylation Unit,osbl,Alkylation Unit scope chip for fcc (modification),26797.0,17865.0,44661.0,106620.0,BPD,Canada,2024
+9,1006522,MOCK-ONSHOR-011,Central Delivery Point,process_unit,Central Delivery Point scope chip for cryo_gas_processing (expansion),984.0,656.0,1640.0,350.0,MMSCFD,United States,2024
+10,1001004,MOCK-REFINE-050,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for crude_unit (modification),41186.0,27458.0,68644.0,114063.0,BPD,Belgium,2024
+11,1007556,MOCK-LNG_ON-001,Infrastructure,osbl,Infrastructure scope chip for lng_terminal (expansion),572015.0,381344.0,953359.0,7.1,MTPA,Australia,2024
+12,1002007,MOCK-REFINE-094,Utilities Package,osbl,Utilities Package scope chip for fcc (modification),4744.0,3162.0,7906.0,103806.0,BPD,Australia,2024
+13,1004729,MOCK-OFFSHO-009,FPSO Topsides,marine,FPSO Topsides scope chip for platform (grassroots),369391.0,246261.0,615652.0,110.0,KBPD,Brazil,2024
+14,1003420,MOCK-ONSHOR-026,Polyethylene Unit,process_unit,Polyethylene Unit scope chip for meg (grassroots),18268.0,12178.0,30446.0,985.0,KTA,United States,2024
+15,1003363,MOCK-ONSHOR-020,Polypropylene Unit,pipeline_segment,Polypropylene Unit scope chip for meg (modification),19726.0,13151.0,32877.0,448.0,KTA,Canada,2024
+16,1009162,MOCK-ONSHOR-013,Infrastructure,storage,Infrastructure scope chip for onshore_process (grassroots),59018.0,39346.0,98364.0,28.0,KBPD,Kazakhstan,2024
+17,1007162,MOCK-GAS_PR-019,Utilities,process_unit,Utilities scope chip for ccs (grassroots),25528.0,17019.0,42547.0,680.0,MMSCFD,Australia,2024
+18,1002384,MOCK-REFINE-111,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for hydrotreater (modification),22238.0,14825.0,37063.0,103438.0,BPD,Canada,2024
+19,1003389,MOCK-ONSHOR-023,Olefins Cracker,osbl,Olefins Cracker scope chip for polypropylene (grassroots),112522.0,75015.0,187537.0,965.0,KTA,Canada,2024
+20,1005270,MOCK-OFFSHO-037,Umbilicals,storage,Umbilicals scope chip for fpso (grassroots),1593366.0,1062244.0,2655610.0,116.0,KBPD,Brazil,2024
+21,1006197,MOCK-PIPELI-040,Export Pipeline,pipeline_segment,Export Pipeline scope chip for pipeline_gathering (grassroots),21367.0,14245.0,35612.0,688.0,km,United States,2024
+22,1003521,MOCK-ONSHOR-032,Offsites,process_unit,Offsites scope chip for ethylene_cracker (grassroots),259967.0,173312.0,433279.0,1220.0,KTA,Saudi Arabia,2024
+23,1004528,MOCK-ONSHOR-080,Utilities Package,process_unit,Utilities Package scope chip for meg (grassroots),88103.0,58735.0,146838.0,1608.0,KTA,Belgium,2024
+24,1001804,MOCK-REFINE-086,FCC Modernization,process_unit,FCC Modernization scope chip for hydrocracker (modification),15726.0,10484.0,26210.0,117999.0,BPD,Canada,2024
+25,1000356,MOCK-REFINE-017,CCR Reformer,process_unit,CCR Reformer scope chip for reformer (modification),5158.0,3438.0,8596.0,104228.0,BPD,Canada,2024
+26,1003622,MOCK-ONSHOR-037,Offsites,osbl,Offsites scope chip for polyethylene (expansion),38751.0,25834.0,64585.0,378.0,KTA,China,2024
+27,1008083,MOCK-OIL_SA-005,Mining OPP,osbl,Mining OPP scope chip for oil_sands_pad (grassroots),110451.0,73634.0,184086.0,75.0,KBPD,Canada,2024
+28,1005432,MOCK-OFFSHO-045,Mooring System,infrastructure,Mooring System scope chip for fpso (grassroots),85119.0,56746.0,141865.0,232.0,KBPD,Nigeria,2024
+29,1004186,MOCK-ONSHOR-064,Storage Tank Farm,osbl,Storage Tank Farm scope chip for polyethylene (grassroots),55233.0,36822.0,92054.0,851.0,KTA,Singapore,2024
+30,1009071,MOCK-ONSHOR-008,Storage,storage,Storage scope chip for gas_plant (expansion),210281.0,140187.0,350468.0,45.0,KBPD,Nigeria,2024
+31,1002485,MOCK-REFINE-115,Hydrotreater,process_unit,Hydrotreater scope chip for alkylation (modification),8667.0,5778.0,14445.0,44887.0,BPD,Singapore,2024
+32,1001975,MOCK-REFINE-092,CCR Reformer,infrastructure,CCR Reformer scope chip for reformer (modification),7561.0,5040.0,12601.0,91337.0,BPD,Singapore,2024
+33,1009430,MOCK-ONSHOR-028,Compression,osbl,Compression scope chip for onshore_process (grassroots),137793.0,91862.0,229656.0,77.0,KBPD,Nigeria,2024
+34,1005157,MOCK-OFFSHO-031,Mooring System,storage,Mooring System scope chip for fpso (grassroots),1305731.0,870487.0,2176218.0,214.0,KBPD,Angola,2024
+35,1007229,MOCK-GAS_PR-024,Utilities,process_unit,Utilities scope chip for gas_plant_cryo (modification),4642.0,3094.0,7736.0,1119.0,MMSCFD,Canada,2024
+36,1004898,MOCK-OFFSHO-019,Risers,process_unit,Risers scope chip for fpso (grassroots),146248.0,97498.0,243746.0,225.0,KBPD,United States,2024
+37,1009333,MOCK-ONSHOR-022,Compression,process_unit,Compression scope chip for onshore_process (grassroots),29711.0,19807.0,49518.0,147.0,KBPD,Kazakhstan,2024
+38,1008112,MOCK-OIL_SA-008,Infrastructure,process_unit,Infrastructure scope chip for bitumen (grassroots),277398.0,184932.0,462330.0,24.0,KBPD,Canada,2024
+39,1002174,MOCK-REFINE-103,CCR Reformer,osbl,CCR Reformer scope chip for hydrocracker (expansion),25617.0,17078.0,42695.0,21208.0,BPD,Singapore,2024
+40,1000929,MOCK-REFINE-046,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for alkylation (modification),28500.0,19000.0,47501.0,42656.0,BPD,Canada,2024
+41,1006681,MOCK-ONSHOR-022,Gathering Pipeline,process_unit,Gathering Pipeline scope chip for train_cryogenic (expansion),1790.0,1193.0,2984.0,326.0,MMSCFD,United States,2024
+42,1007506,MOCK-GAS_PR-037,Dehydration,infrastructure,Dehydration scope chip for ccs (grassroots),34185.0,22790.0,56974.0,776.0,MMSCFD,United States,2024
+43,1008511,MOCK-REFINE-002,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for refinery (grassroots),467035.0,311356.0,778391.0,329417.0,BPD,Saudi Arabia,2024
+44,1008299,MOCK-OIL_SA-017,Tailings,process_unit,Tailings scope chip for oil_sands_pad (modification),104106.0,69404.0,173510.0,112.0,KBPD,Canada,2024
+45,1008147,MOCK-OIL_SA-009,Utilities,infrastructure,Utilities scope chip for oil_sands_pad (expansion),28220.0,18813.0,47034.0,97.0,KBPD,Canada,2024
+46,1003384,MOCK-ONSHOR-022,Product Loading,storage,Product Loading scope chip for ethylene_cracker (expansion),433695.0,289130.0,722825.0,1999.0,KTA,Belgium,2024
+47,1003199,MOCK-ONSHOR-013,Olefins Cracker,pipeline_segment,Olefins Cracker scope chip for polypropylene (modification),18979.0,12653.0,31632.0,1434.0,KTA,China,2024
+48,1009790,MOCK-ONSHOR-048,Infrastructure,process_unit,Infrastructure scope chip for gas_plant (grassroots),86145.0,57430.0,143576.0,149.0,KBPD,Kazakhstan,2024
+49,1004057,MOCK-ONSHOR-057,Polyethylene Unit,process_unit,Polyethylene Unit scope chip for meg (expansion),620390.0,413594.0,1033984.0,345.0,KTA,Singapore,2024
+50,1008868,MOCK-REFINE-019,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for refinery (grassroots),1902072.0,1268048.0,3170120.0,389310.0,BPD,United States,2024
+51,1009359,MOCK-ONSHOR-024,Onsites Process,pipeline_segment,Onsites Process scope chip for compressor_station (grassroots),98418.0,65612.0,164029.0,114.0,KBPD,United States,2024
+52,1001327,MOCK-REFINE-065,Alkylation Unit,pipeline_segment,Alkylation Unit scope chip for hydrocracker (modification),2418.0,1612.0,4029.0,107256.0,BPD,United States,2024
+53,1007542,MOCK-GAS_PR-039,CO2 Capture Facilities,infrastructure,CO2 Capture Facilities scope chip for ngl_fractionation (grassroots),19622.0,13082.0,32704.0,414.0,MMSCFD,Kazakhstan,2024
+54,1001628,MOCK-REFINE-077,Alkylation Unit,osbl,Alkylation Unit scope chip for coker (modification),2491.0,1661.0,4152.0,32996.0,BPD,United Kingdom,2024
+55,1007258,MOCK-GAS_PR-025,Utilities,osbl,Utilities scope chip for gas_plant_cryo (grassroots),40508.0,27005.0,67514.0,468.0,MMSCFD,United States,2024
+56,1008755,MOCK-REFINE-014,Desalter Upgrade,osbl,Desalter Upgrade scope chip for renewable_diesel (grassroots),310190.0,206793.0,516984.0,262522.0,BPD,China,2024
+57,1002516,MOCK-REFINE-116,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for alkylation (modification),3583.0,2389.0,5971.0,65802.0,BPD,United States,2024
+58,1003059,MOCK-ONSHOR-006,Storage Tank Farm,process_unit,Storage Tank Farm scope chip for ethylene_cracker (expansion),300107.0,200072.0,500179.0,272.0,KTA,China,2024
+59,1001678,MOCK-REFINE-079,Alkylation Unit,pipeline_segment,Alkylation Unit scope chip for coker (expansion),123300.0,82200.0,205501.0,57716.0,BPD,United Kingdom,2024
+60,1006992,MOCK-GAS_PR-007,NGL Fractionation,pipeline_segment,NGL Fractionation scope chip for ngl_fractionation (grassroots),9648.0,6432.0,16081.0,1060.0,MMSCFD,United States,2024
+61,1006494,MOCK-ONSHOR-008,Pad Facilities,storage,Pad Facilities scope chip for central_delivery_point (expansion),29548.0,19698.0,49246.0,326.0,MMSCFD,Canada,2024
+62,1002679,MOCK-REFINE-125,CCR Reformer,process_unit,CCR Reformer scope chip for alkylation (expansion),11998.0,7999.0,19997.0,12545.0,BPD,United States,2024
+63,1002869,MOCK-REFINE-136,Hydrocracker Reactor,infrastructure,Hydrocracker Reactor scope chip for fcc (modification),56178.0,37452.0,93630.0,106203.0,BPD,Canada,2024
+64,1006137,MOCK-PIPELI-037,Metering Station,storage,Metering Station scope chip for pipeline (grassroots),18749.0,12500.0,31249.0,482.0,km,Australia,2024
+65,1002633,MOCK-REFINE-123,Flare System,osbl,Flare System scope chip for fcc (modification),7003.0,4669.0,11672.0,106620.0,BPD,Canada,2024
+66,1006522,MOCK-ONSHOR-011,Gathering Pipeline,infrastructure,Gathering Pipeline scope chip for cryo_gas_processing (expansion),3585.0,2390.0,5976.0,350.0,MMSCFD,United States,2024
+67,1001004,MOCK-REFINE-050,Desalter Upgrade,process_unit,Desalter Upgrade scope chip for crude_unit (modification),17079.0,11386.0,28465.0,114063.0,BPD,Belgium,2024
+68,1007556,MOCK-LNG_ON-001,Power Plant,process_unit,Power Plant scope chip for lng_terminal (expansion),644841.0,429894.0,1074734.0,7.1,MTPA,Australia,2024
+69,1002007,MOCK-REFINE-094,Alkylation Unit,process_unit,Alkylation Unit scope chip for fcc (modification),5475.0,3650.0,9125.0,103806.0,BPD,Australia,2024
+70,1004729,MOCK-OFFSHO-009,Drilling Wells,process_unit,Drilling Wells scope chip for platform (grassroots),804873.0,536582.0,1341454.0,110.0,KBPD,Brazil,2024
+71,1003420,MOCK-ONSHOR-026,Storage Tank Farm,pipeline_segment,Storage Tank Farm scope chip for meg (grassroots),39202.0,26135.0,65337.0,985.0,KTA,United States,2024
+72,1003363,MOCK-ONSHOR-020,MEG Unit,process_unit,MEG Unit scope chip for meg (modification),7312.0,4875.0,12186.0,448.0,KTA,Canada,2024
+73,1009162,MOCK-ONSHOR-013,Injection,pipeline_segment,Injection scope chip for onshore_process (grassroots),191986.0,127991.0,319976.0,28.0,KBPD,Kazakhstan,2024
+74,1007162,MOCK-GAS_PR-019,NGL Fractionation,storage,NGL Fractionation scope chip for ccs (grassroots),30273.0,20182.0,50454.0,680.0,MMSCFD,Australia,2024
+75,1002384,MOCK-REFINE-111,Offsites and Tank Farm,osbl,Offsites and Tank Farm scope chip for hydrotreater (modification),6243.0,4162.0,10405.0,103438.0,BPD,Canada,2024
+76,1003389,MOCK-ONSHOR-023,Offsites,process_unit,Offsites scope chip for polypropylene (grassroots),30576.0,20384.0,50960.0,965.0,KTA,Canada,2024
+77,1005270,MOCK-OFFSHO-037,Drilling Wells,marine,Drilling Wells scope chip for fpso (grassroots),1065666.0,710444.0,1776110.0,116.0,KBPD,Brazil,2024
+78,1006197,MOCK-PIPELI-040,Gathering Pipeline,infrastructure,Gathering Pipeline scope chip for pipeline_gathering (grassroots),4786.0,3190.0,7976.0,688.0,km,United States,2024
+79,1003521,MOCK-ONSHOR-032,Offsites,process_unit,Offsites scope chip for ethylene_cracker (grassroots),72333.0,48222.0,120555.0,1220.0,KTA,Saudi Arabia,2024
+80,1004528,MOCK-ONSHOR-080,Utilities Package,infrastructure,Utilities Package scope chip for meg (grassroots),141066.0,94044.0,235110.0,1608.0,KTA,Belgium,2024
+81,1001804,MOCK-REFINE-086,Desalter Upgrade,pipeline_segment,Desalter Upgrade scope chip for hydrocracker (modification),26017.0,17345.0,43362.0,117999.0,BPD,Canada,2024
+82,1000356,MOCK-REFINE-017,Hydrotreater,infrastructure,Hydrotreater scope chip for reformer (modification),2027.0,1351.0,3379.0,104228.0,BPD,Canada,2024
+83,1003622,MOCK-ONSHOR-037,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for polyethylene (expansion),79160.0,52773.0,131933.0,378.0,KTA,China,2024
+84,1008083,MOCK-OIL_SA-005,Extraction,process_unit,Extraction scope chip for oil_sands_pad (grassroots),158139.0,105426.0,263564.0,75.0,KBPD,Canada,2024
+85,1005432,MOCK-OFFSHO-045,SURF Flowlines,process_unit,SURF Flowlines scope chip for fpso (grassroots),432557.0,288372.0,720929.0,232.0,KBPD,Nigeria,2024
+86,1004186,MOCK-ONSHOR-064,Olefins Cracker,osbl,Olefins Cracker scope chip for polyethylene (grassroots),133009.0,88672.0,221681.0,851.0,KTA,Singapore,2024
+87,1009071,MOCK-ONSHOR-008,Injection,process_unit,Injection scope chip for gas_plant (expansion),142466.0,94977.0,237444.0,45.0,KBPD,Nigeria,2024
+88,1002485,MOCK-REFINE-115,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for alkylation (modification),13858.0,9239.0,23096.0,44887.0,BPD,Singapore,2024
+89,1001975,MOCK-REFINE-092,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for reformer (modification),15771.0,10514.0,26285.0,91337.0,BPD,Singapore,2024
+90,1009430,MOCK-ONSHOR-028,Compression,infrastructure,Compression scope chip for onshore_process (grassroots),20857.0,13905.0,34762.0,77.0,KBPD,Nigeria,2024
+91,1005157,MOCK-OFFSHO-031,SURF Flowlines,process_unit,SURF Flowlines scope chip for fpso (grassroots),306862.0,204575.0,511437.0,214.0,KBPD,Angola,2024
+92,1007229,MOCK-GAS_PR-024,Utilities,osbl,Utilities scope chip for gas_plant_cryo (modification),2146.0,1431.0,3577.0,1119.0,MMSCFD,Canada,2024
+93,1004898,MOCK-OFFSHO-019,Umbilicals,osbl,Umbilicals scope chip for fpso (grassroots),311635.0,207757.0,519392.0,225.0,KBPD,United States,2024
+94,1009333,MOCK-ONSHOR-022,Compression,pipeline_segment,Compression scope chip for onshore_process (grassroots),105402.0,70268.0,175670.0,147.0,KBPD,Kazakhstan,2024
+95,1008112,MOCK-OIL_SA-008,Extraction,process_unit,Extraction scope chip for bitumen (grassroots),313760.0,209173.0,522933.0,24.0,KBPD,Canada,2024
+96,1002174,MOCK-REFINE-103,Flare System,process_unit,Flare System scope chip for hydrocracker (expansion),50401.0,33601.0,84002.0,21208.0,BPD,Singapore,2024
+97,1000929,MOCK-REFINE-046,Crude Unit Revamp,osbl,Crude Unit Revamp scope chip for alkylation (modification),8197.0,5465.0,13662.0,42656.0,BPD,Canada,2024
+98,1006681,MOCK-ONSHOR-022,Central Delivery Point,process_unit,Central Delivery Point scope chip for train_cryogenic (expansion),1403.0,936.0,2339.0,326.0,MMSCFD,United States,2024
+99,1007506,MOCK-GAS_PR-037,Utilities,pipeline_segment,Utilities scope chip for ccs (grassroots),35669.0,23779.0,59448.0,776.0,MMSCFD,United States,2024
+100,1008511,MOCK-REFINE-002,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for refinery (grassroots),1684624.0,1123082.0,2807706.0,329417.0,BPD,Saudi Arabia,2024
+101,1008299,MOCK-OIL_SA-017,Tailings,process_unit,Tailings scope chip for oil_sands_pad (modification),74918.0,49945.0,124863.0,112.0,KBPD,Canada,2024
+102,1008147,MOCK-OIL_SA-009,Mining OPP,storage,Mining OPP scope chip for oil_sands_pad (expansion),64235.0,42823.0,107059.0,97.0,KBPD,Canada,2024
+103,1003384,MOCK-ONSHOR-022,MEG Unit,pipeline_segment,MEG Unit scope chip for ethylene_cracker (expansion),244941.0,163294.0,408234.0,1999.0,KTA,Belgium,2024
+104,1003199,MOCK-ONSHOR-013,Polyethylene Unit,process_unit,Polyethylene Unit scope chip for polypropylene (modification),34581.0,23054.0,57636.0,1434.0,KTA,China,2024
+105,1009790,MOCK-ONSHOR-048,Onsites Process,process_unit,Onsites Process scope chip for gas_plant (grassroots),144060.0,96040.0,240100.0,149.0,KBPD,Kazakhstan,2024
+106,1004057,MOCK-ONSHOR-057,Infrastructure,storage,Infrastructure scope chip for meg (expansion),569048.0,379366.0,948414.0,345.0,KTA,Singapore,2024
+107,1008868,MOCK-REFINE-019,Desalter Upgrade,process_unit,Desalter Upgrade scope chip for refinery (grassroots),1840671.0,1227114.0,3067786.0,389310.0,BPD,United States,2024
+108,1009359,MOCK-ONSHOR-024,Injection,marine,Injection scope chip for compressor_station (grassroots),41638.0,27758.0,69396.0,114.0,KBPD,United States,2024
+109,1001327,MOCK-REFINE-065,Alkylation Unit,process_unit,Alkylation Unit scope chip for hydrocracker (modification),810.0,540.0,1350.0,107256.0,BPD,United States,2024
+110,1007542,MOCK-GAS_PR-039,Injection Wells,pipeline_segment,Injection Wells scope chip for ngl_fractionation (grassroots),17545.0,11697.0,29241.0,414.0,MMSCFD,Kazakhstan,2024
+111,1001628,MOCK-REFINE-077,Furnace Replacement,pipeline_segment,Furnace Replacement scope chip for coker (modification),910.0,607.0,1517.0,32996.0,BPD,United Kingdom,2024
+112,1007258,MOCK-GAS_PR-025,CO2 Capture Facilities,process_unit,CO2 Capture Facilities scope chip for gas_plant_cryo (grassroots),46213.0,30808.0,77021.0,468.0,MMSCFD,United States,2024
+113,1008755,MOCK-REFINE-014,Flare System,process_unit,Flare System scope chip for renewable_diesel (grassroots),74729.0,49820.0,124549.0,262522.0,BPD,China,2024
+114,1002516,MOCK-REFINE-116,Utilities Package,process_unit,Utilities Package scope chip for alkylation (modification),3207.0,2138.0,5345.0,65802.0,BPD,United States,2024
+115,1003059,MOCK-ONSHOR-006,Olefins Cracker,process_unit,Olefins Cracker scope chip for ethylene_cracker (expansion),138472.0,92315.0,230787.0,272.0,KTA,China,2024
+116,1001678,MOCK-REFINE-079,Hydrotreater,process_unit,Hydrotreater scope chip for coker (expansion),24822.0,16548.0,41371.0,57716.0,BPD,United Kingdom,2024
+117,1006992,MOCK-GAS_PR-007,Utilities,process_unit,Utilities scope chip for ngl_fractionation (grassroots),46600.0,31067.0,77667.0,1060.0,MMSCFD,United States,2024
+118,1006494,MOCK-ONSHOR-008,Central Delivery Point,pipeline_segment,Central Delivery Point scope chip for central_delivery_point (expansion),11252.0,7502.0,18754.0,326.0,MMSCFD,Canada,2024
+119,1002679,MOCK-REFINE-125,Flare System,storage,Flare System scope chip for alkylation (expansion),80595.0,53730.0,134326.0,12545.0,BPD,United States,2024
+120,1002869,MOCK-REFINE-136,Offsites and Tank Farm,process_unit,Offsites and Tank Farm scope chip for fcc (modification),58434.0,38956.0,97390.0,106203.0,BPD,Canada,2024
+121,1006137,MOCK-PIPELI-037,Metering Station,pipeline_segment,Metering Station scope chip for pipeline (grassroots),18899.0,12600.0,31499.0,482.0,km,Australia,2024
+122,1002633,MOCK-REFINE-123,Hydrotreater,process_unit,Hydrotreater scope chip for fcc (modification),25835.0,17223.0,43058.0,106620.0,BPD,Canada,2024
+123,1006522,MOCK-ONSHOR-011,Compression Station,process_unit,Compression Station scope chip for cryo_gas_processing (expansion),2574.0,1716.0,4290.0,350.0,MMSCFD,United States,2024
+124,1001004,MOCK-REFINE-050,Utilities Package,process_unit,Utilities Package scope chip for crude_unit (modification),27762.0,18508.0,46270.0,114063.0,BPD,Belgium,2024
+125,1007556,MOCK-LNG_ON-001,Liquefaction Train,pipeline_segment,Liquefaction Train scope chip for lng_terminal (expansion),424376.0,282917.0,707293.0,7.1,MTPA,Australia,2024
+126,1002007,MOCK-REFINE-094,FCC Modernization,process_unit,FCC Modernization scope chip for fcc (modification),4822.0,3215.0,8036.0,103806.0,BPD,Australia,2024
+127,1004729,MOCK-OFFSHO-009,Subsea Trees,pipeline_segment,Subsea Trees scope chip for platform (grassroots),189466.0,126311.0,315776.0,110.0,KBPD,Brazil,2024
+128,1003420,MOCK-ONSHOR-026,MEG Unit,pipeline_segment,MEG Unit scope chip for meg (grassroots),39183.0,26122.0,65306.0,985.0,KTA,United States,2024
+129,1003363,MOCK-ONSHOR-020,Infrastructure,pipeline_segment,Infrastructure scope chip for meg (modification),18350.0,12234.0,30584.0,448.0,KTA,Canada,2024
+130,1009162,MOCK-ONSHOR-013,Injection,process_unit,Injection scope chip for onshore_process (grassroots),151936.0,101291.0,253227.0,28.0,KBPD,Kazakhstan,2024
+131,1007162,MOCK-GAS_PR-019,Injection Wells,process_unit,Injection Wells scope chip for ccs (grassroots),6012.0,4008.0,10019.0,680.0,MMSCFD,Australia,2024
+132,1002384,MOCK-REFINE-111,Alkylation Unit,process_unit,Alkylation Unit scope chip for hydrotreater (modification),20865.0,13910.0,34775.0,103438.0,BPD,Canada,2024
+133,1003389,MOCK-ONSHOR-023,Utilities Package,storage,Utilities Package scope chip for polypropylene (grassroots),57210.0,38140.0,95351.0,965.0,KTA,Canada,2024
+134,1005270,MOCK-OFFSHO-037,Drilling Wells,process_unit,Drilling Wells scope chip for fpso (grassroots),1339295.0,892864.0,2232159.0,116.0,KBPD,Brazil,2024
+135,1006197,MOCK-PIPELI-040,Gathering Pipeline,process_unit,Gathering Pipeline scope chip for pipeline_gathering (grassroots),16690.0,11127.0,27817.0,688.0,km,United States,2024
+136,1003521,MOCK-ONSHOR-032,Product Loading,process_unit,Product Loading scope chip for ethylene_cracker (grassroots),30113.0,20075.0,50188.0,1220.0,KTA,Saudi Arabia,2024
+137,1004528,MOCK-ONSHOR-080,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for meg (grassroots),70372.0,46915.0,117287.0,1608.0,KTA,Belgium,2024
+138,1001804,MOCK-REFINE-086,Hydrogen Plant,process_unit,Hydrogen Plant scope chip for hydrocracker (modification),4078.0,2718.0,6796.0,117999.0,BPD,Canada,2024
+139,1000356,MOCK-REFINE-017,Offsites and Tank Farm,infrastructure,Offsites and Tank Farm scope chip for reformer (modification),633.0,422.0,1054.0,104228.0,BPD,Canada,2024
+140,1003622,MOCK-ONSHOR-037,Olefins Cracker,infrastructure,Olefins Cracker scope chip for polyethylene (expansion),89240.0,59494.0,148734.0,378.0,KTA,China,2024
+141,1008083,MOCK-OIL_SA-005,Utilities,pipeline_segment,Utilities scope chip for oil_sands_pad (grassroots),165458.0,110305.0,275764.0,75.0,KBPD,Canada,2024
+142,1005432,MOCK-OFFSHO-045,FPSO Hull,process_unit,FPSO Hull scope chip for fpso (grassroots),445041.0,296694.0,741734.0,232.0,KBPD,Nigeria,2024
+143,1004186,MOCK-ONSHOR-064,Polypropylene Unit,infrastructure,Polypropylene Unit scope chip for polyethylene (grassroots),60261.0,40174.0,100435.0,851.0,KTA,Singapore,2024
+144,1009071,MOCK-ONSHOR-008,Injection,process_unit,Injection scope chip for gas_plant (expansion),277542.0,185028.0,462571.0,45.0,KBPD,Nigeria,2024
+145,1002485,MOCK-REFINE-115,Offsites and Tank Farm,process_unit,Offsites and Tank Farm scope chip for alkylation (modification),14679.0,9786.0,24465.0,44887.0,BPD,Singapore,2024
+146,1001975,MOCK-REFINE-092,Offsites and Tank Farm,process_unit,Offsites and Tank Farm scope chip for reformer (modification),40554.0,27036.0,67590.0,91337.0,BPD,Singapore,2024
+147,1009430,MOCK-ONSHOR-028,Injection,process_unit,Injection scope chip for onshore_process (grassroots),176031.0,117354.0,293385.0,77.0,KBPD,Nigeria,2024
+148,1005157,MOCK-OFFSHO-031,Drilling Wells,osbl,Drilling Wells scope chip for fpso (grassroots),1333571.0,889047.0,2222619.0,214.0,KBPD,Angola,2024
+149,1007229,MOCK-GAS_PR-024,CO2 Capture Facilities,process_unit,CO2 Capture Facilities scope chip for gas_plant_cryo (modification),4799.0,3199.0,7998.0,1119.0,MMSCFD,Canada,2024
+150,1004898,MOCK-OFFSHO-019,SURF Flowlines,osbl,SURF Flowlines scope chip for fpso (grassroots),278229.0,185486.0,463714.0,225.0,KBPD,United States,2024
+151,1009333,MOCK-ONSHOR-022,Onsites Process,infrastructure,Onsites Process scope chip for onshore_process (grassroots),17803.0,11869.0,29672.0,147.0,KBPD,Kazakhstan,2024
+152,1008112,MOCK-OIL_SA-008,Utilities,process_unit,Utilities scope chip for bitumen (grassroots),645454.0,430302.0,1075756.0,24.0,KBPD,Canada,2024
+153,1002174,MOCK-REFINE-103,Furnace Replacement,process_unit,Furnace Replacement scope chip for hydrocracker (expansion),57532.0,38355.0,95887.0,21208.0,BPD,Singapore,2024
+154,1000929,MOCK-REFINE-046,Delayed Coker,marine,Delayed Coker scope chip for alkylation (modification),34841.0,23228.0,58069.0,42656.0,BPD,Canada,2024
+155,1006681,MOCK-ONSHOR-022,Pad Facilities,process_unit,Pad Facilities scope chip for train_cryogenic (expansion),8138.0,5425.0,13563.0,326.0,MMSCFD,United States,2024
+156,1007506,MOCK-GAS_PR-037,Compression,storage,Compression scope chip for ccs (grassroots),59209.0,39473.0,98682.0,776.0,MMSCFD,United States,2024
+157,1008511,MOCK-REFINE-002,FCC Modernization,process_unit,FCC Modernization scope chip for refinery (grassroots),750128.0,500085.0,1250214.0,329417.0,BPD,Saudi Arabia,2024
+158,1008299,MOCK-OIL_SA-017,Tailings,process_unit,Tailings scope chip for oil_sands_pad (modification),143873.0,95915.0,239789.0,112.0,KBPD,Canada,2024
+159,1008147,MOCK-OIL_SA-009,Utilities,infrastructure,Utilities scope chip for oil_sands_pad (expansion),74776.0,49851.0,124627.0,97.0,KBPD,Canada,2024
+160,1003384,MOCK-ONSHOR-022,Infrastructure,osbl,Infrastructure scope chip for ethylene_cracker (expansion),396734.0,264489.0,661223.0,1999.0,KTA,Belgium,2024
+161,1003199,MOCK-ONSHOR-013,Polypropylene Unit,marine,Polypropylene Unit scope chip for polypropylene (modification),33968.0,22645.0,56613.0,1434.0,KTA,China,2024
+162,1009790,MOCK-ONSHOR-048,Injection,process_unit,Injection scope chip for gas_plant (grassroots),136931.0,91288.0,228219.0,149.0,KBPD,Kazakhstan,2024
+163,1004057,MOCK-ONSHOR-057,Offsites,process_unit,Offsites scope chip for meg (expansion),453525.0,302350.0,755874.0,345.0,KTA,Singapore,2024
+164,1008868,MOCK-REFINE-019,Crude Unit Revamp,osbl,Crude Unit Revamp scope chip for refinery (grassroots),1086419.0,724280.0,1810699.0,389310.0,BPD,United States,2024
+165,1009359,MOCK-ONSHOR-024,Onsites Process,pipeline_segment,Onsites Process scope chip for compressor_station (grassroots),110532.0,73688.0,184221.0,114.0,KBPD,United States,2024
+166,1001327,MOCK-REFINE-065,Hydrotreater,osbl,Hydrotreater scope chip for hydrocracker (modification),1259.0,839.0,2099.0,107256.0,BPD,United States,2024
+167,1007542,MOCK-GAS_PR-039,Injection Wells,process_unit,Injection Wells scope chip for ngl_fractionation (grassroots),102591.0,68394.0,170986.0,414.0,MMSCFD,Kazakhstan,2024
+168,1001628,MOCK-REFINE-077,Flare System,process_unit,Flare System scope chip for coker (modification),1559.0,1039.0,2598.0,32996.0,BPD,United Kingdom,2024
+169,1007258,MOCK-GAS_PR-025,Injection Wells,process_unit,Injection Wells scope chip for gas_plant_cryo (grassroots),44294.0,29530.0,73824.0,468.0,MMSCFD,United States,2024
+170,1008755,MOCK-REFINE-014,Alkylation Unit,process_unit,Alkylation Unit scope chip for renewable_diesel (grassroots),172370.0,114913.0,287283.0,262522.0,BPD,China,2024
+171,1002516,MOCK-REFINE-116,Crude Unit Revamp,marine,Crude Unit Revamp scope chip for alkylation (modification),2213.0,1475.0,3688.0,65802.0,BPD,United States,2024
+172,1003059,MOCK-ONSHOR-006,Storage Tank Farm,osbl,Storage Tank Farm scope chip for ethylene_cracker (expansion),385971.0,257314.0,643285.0,272.0,KTA,China,2024
+173,1001678,MOCK-REFINE-079,CCR Reformer,process_unit,CCR Reformer scope chip for coker (expansion),11837.0,7891.0,19728.0,57716.0,BPD,United Kingdom,2024
+174,1006992,MOCK-GAS_PR-007,CO2 Capture Facilities,infrastructure,CO2 Capture Facilities scope chip for ngl_fractionation (grassroots),57540.0,38360.0,95900.0,1060.0,MMSCFD,United States,2024
+175,1006494,MOCK-ONSHOR-008,Water Handling,pipeline_segment,Water Handling scope chip for central_delivery_point (expansion),23565.0,15710.0,39276.0,326.0,MMSCFD,Canada,2024
+176,1002679,MOCK-REFINE-125,CCR Reformer,process_unit,CCR Reformer scope chip for alkylation (expansion),119279.0,79519.0,198798.0,12545.0,BPD,United States,2024
+177,1002869,MOCK-REFINE-136,Offsites and Tank Farm,process_unit,Offsites and Tank Farm scope chip for fcc (modification),70812.0,47208.0,118021.0,106203.0,BPD,Canada,2024
+178,1006137,MOCK-PIPELI-037,HDD Crossing,osbl,HDD Crossing scope chip for pipeline (grassroots),20717.0,13811.0,34528.0,482.0,km,Australia,2024
+179,1002633,MOCK-REFINE-123,Offsites and Tank Farm,storage,Offsites and Tank Farm scope chip for fcc (modification),19340.0,12893.0,32234.0,106620.0,BPD,Canada,2024
+180,1006522,MOCK-ONSHOR-011,Compression Station,osbl,Compression Station scope chip for cryo_gas_processing (expansion),4287.0,2858.0,7144.0,350.0,MMSCFD,United States,2024
+181,1001004,MOCK-REFINE-050,FCC Modernization,osbl,FCC Modernization scope chip for crude_unit (modification),45424.0,30282.0,75706.0,114063.0,BPD,Belgium,2024
+182,1007556,MOCK-LNG_ON-001,Power Plant,pipeline_segment,Power Plant scope chip for lng_terminal (expansion),373019.0,248680.0,621699.0,7.1,MTPA,Australia,2024
+183,1002007,MOCK-REFINE-094,Furnace Replacement,pipeline_segment,Furnace Replacement scope chip for fcc (modification),4703.0,3135.0,7839.0,103806.0,BPD,Australia,2024
+184,1004729,MOCK-OFFSHO-009,Risers,process_unit,Risers scope chip for platform (grassroots),784708.0,523138.0,1307846.0,110.0,KBPD,Brazil,2024
+185,1003420,MOCK-ONSHOR-026,Infrastructure,process_unit,Infrastructure scope chip for meg (grassroots),37345.0,24897.0,62242.0,985.0,KTA,United States,2024
+186,1003363,MOCK-ONSHOR-020,Storage Tank Farm,process_unit,Storage Tank Farm scope chip for meg (modification),20292.0,13528.0,33820.0,448.0,KTA,Canada,2024
+187,1009162,MOCK-ONSHOR-013,Compression,infrastructure,Compression scope chip for onshore_process (grassroots),108102.0,72068.0,180171.0,28.0,KBPD,Kazakhstan,2024
+188,1007162,MOCK-GAS_PR-019,CO2 Capture Facilities,process_unit,CO2 Capture Facilities scope chip for ccs (grassroots),4338.0,2892.0,7230.0,680.0,MMSCFD,Australia,2024
+189,1002384,MOCK-REFINE-111,FCC Modernization,pipeline_segment,FCC Modernization scope chip for hydrotreater (modification),8241.0,5494.0,13736.0,103438.0,BPD,Canada,2024
+190,1003389,MOCK-ONSHOR-023,Product Loading,process_unit,Product Loading scope chip for polypropylene (grassroots),102246.0,68164.0,170411.0,965.0,KTA,Canada,2024
+191,1005270,MOCK-OFFSHO-037,Mooring System,process_unit,Mooring System scope chip for fpso (grassroots),901305.0,600870.0,1502174.0,116.0,KBPD,Brazil,2024
+192,1006197,MOCK-PIPELI-040,Pump Station,process_unit,Pump Station scope chip for pipeline_gathering (grassroots),26074.0,17383.0,43457.0,688.0,km,United States,2024
+193,1003521,MOCK-ONSHOR-032,Storage Tank Farm,storage,Storage Tank Farm scope chip for ethylene_cracker (grassroots),282426.0,188284.0,470711.0,1220.0,KTA,Saudi Arabia,2024
+194,1004528,MOCK-ONSHOR-080,Olefins Cracker,osbl,Olefins Cracker scope chip for meg (grassroots),118937.0,79292.0,198229.0,1608.0,KTA,Belgium,2024
+195,1001804,MOCK-REFINE-086,Delayed Coker,process_unit,Delayed Coker scope chip for hydrocracker (modification),6846.0,4564.0,11411.0,117999.0,BPD,Canada,2024
+196,1000356,MOCK-REFINE-017,Alkylation Unit,osbl,Alkylation Unit scope chip for reformer (modification),4951.0,3301.0,8251.0,104228.0,BPD,Canada,2024
+197,1003622,MOCK-ONSHOR-037,Storage Tank Farm,osbl,Storage Tank Farm scope chip for polyethylene (expansion),54873.0,36582.0,91454.0,378.0,KTA,China,2024
+198,1008083,MOCK-OIL_SA-005,Tailings,process_unit,Tailings scope chip for oil_sands_pad (grassroots),59759.0,39839.0,99598.0,75.0,KBPD,Canada,2024
+199,1005432,MOCK-OFFSHO-045,Risers,storage,Risers scope chip for fpso (grassroots),450498.0,300332.0,750830.0,232.0,KBPD,Nigeria,2024
+200,1004186,MOCK-ONSHOR-064,Offsites,osbl,Offsites scope chip for polyethylene (grassroots),31640.0,21093.0,52733.0,851.0,KTA,Singapore,2024
+201,1009071,MOCK-ONSHOR-008,Storage,process_unit,Storage scope chip for gas_plant (expansion),177620.0,118413.0,296034.0,45.0,KBPD,Nigeria,2024
+202,1002485,MOCK-REFINE-115,Hydrotreater,pipeline_segment,Hydrotreater scope chip for alkylation (modification),38136.0,25424.0,63561.0,44887.0,BPD,Singapore,2024
+203,1001975,MOCK-REFINE-092,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for reformer (modification),53006.0,35337.0,88343.0,91337.0,BPD,Singapore,2024
+204,1009430,MOCK-ONSHOR-028,Infrastructure,process_unit,Infrastructure scope chip for onshore_process (grassroots),23257.0,15505.0,38762.0,77.0,KBPD,Nigeria,2024
+205,1005157,MOCK-OFFSHO-031,Subsea Trees,process_unit,Subsea Trees scope chip for fpso (grassroots),863174.0,575449.0,1438623.0,214.0,KBPD,Angola,2024
+206,1007229,MOCK-GAS_PR-024,CO2 Capture Facilities,process_unit,CO2 Capture Facilities scope chip for gas_plant_cryo (modification),6056.0,4037.0,10093.0,1119.0,MMSCFD,Canada,2024
+207,1004898,MOCK-OFFSHO-019,Umbilicals,pipeline_segment,Umbilicals scope chip for fpso (grassroots),37054.0,24702.0,61756.0,225.0,KBPD,United States,2024
+208,1009333,MOCK-ONSHOR-022,Storage,process_unit,Storage scope chip for onshore_process (grassroots),35788.0,23858.0,59646.0,147.0,KBPD,Kazakhstan,2024
+209,1008112,MOCK-OIL_SA-008,Mining OPP,osbl,Mining OPP scope chip for bitumen (grassroots),246233.0,164155.0,410389.0,24.0,KBPD,Canada,2024
+210,1002174,MOCK-REFINE-103,CCR Reformer,storage,CCR Reformer scope chip for hydrocracker (expansion),11252.0,7501.0,18754.0,21208.0,BPD,Singapore,2024
+211,1000929,MOCK-REFINE-046,Alkylation Unit,osbl,Alkylation Unit scope chip for alkylation (modification),18397.0,12264.0,30661.0,42656.0,BPD,Canada,2024
+212,1006681,MOCK-ONSHOR-022,Central Delivery Point,process_unit,Central Delivery Point scope chip for train_cryogenic (expansion),9886.0,6591.0,16477.0,326.0,MMSCFD,United States,2024
+213,1007506,MOCK-GAS_PR-037,Cryogenic Gas Plant,process_unit,Cryogenic Gas Plant scope chip for ccs (grassroots),41069.0,27379.0,68448.0,776.0,MMSCFD,United States,2024
+214,1008511,MOCK-REFINE-002,Alkylation Unit,infrastructure,Alkylation Unit scope chip for refinery (grassroots),551616.0,367744.0,919360.0,329417.0,BPD,Saudi Arabia,2024
+215,1008299,MOCK-OIL_SA-017,Infrastructure,process_unit,Infrastructure scope chip for oil_sands_pad (modification),174689.0,116459.0,291148.0,112.0,KBPD,Canada,2024
+216,1008147,MOCK-OIL_SA-009,Mining OPP,infrastructure,Mining OPP scope chip for oil_sands_pad (expansion),52453.0,34969.0,87421.0,97.0,KBPD,Canada,2024
+217,1003384,MOCK-ONSHOR-022,Polypropylene Unit,osbl,Polypropylene Unit scope chip for ethylene_cracker (expansion),423998.0,282665.0,706663.0,1999.0,KTA,Belgium,2024
+218,1003199,MOCK-ONSHOR-013,Storage Tank Farm,process_unit,Storage Tank Farm scope chip for polypropylene (modification),49752.0,33168.0,82920.0,1434.0,KTA,China,2024
+219,1009790,MOCK-ONSHOR-048,Onsites Process,process_unit,Onsites Process scope chip for gas_plant (grassroots),32028.0,21352.0,53380.0,149.0,KBPD,Kazakhstan,2024
+220,1004057,MOCK-ONSHOR-057,Utilities Package,storage,Utilities Package scope chip for meg (expansion),562831.0,375221.0,938052.0,345.0,KTA,Singapore,2024
+221,1008868,MOCK-REFINE-019,Alkylation Unit,process_unit,Alkylation Unit scope chip for refinery (grassroots),543660.0,362440.0,906101.0,389310.0,BPD,United States,2024
+222,1009359,MOCK-ONSHOR-024,Injection,process_unit,Injection scope chip for compressor_station (grassroots),62795.0,41864.0,104659.0,114.0,KBPD,United States,2024
+223,1001327,MOCK-REFINE-065,Offsites and Tank Farm,osbl,Offsites and Tank Farm scope chip for hydrocracker (modification),1401.0,934.0,2335.0,107256.0,BPD,United States,2024
+224,1007542,MOCK-GAS_PR-039,Utilities,process_unit,Utilities scope chip for ngl_fractionation (grassroots),72577.0,48385.0,120962.0,414.0,MMSCFD,Kazakhstan,2024
+225,1001628,MOCK-REFINE-077,Desalter Upgrade,process_unit,Desalter Upgrade scope chip for coker (modification),2009.0,1339.0,3348.0,32996.0,BPD,United Kingdom,2024
+226,1007258,MOCK-GAS_PR-025,NGL Fractionation,process_unit,NGL Fractionation scope chip for gas_plant_cryo (grassroots),31382.0,20921.0,52303.0,468.0,MMSCFD,United States,2024
+227,1008755,MOCK-REFINE-014,Flare System,process_unit,Flare System scope chip for renewable_diesel (grassroots),293707.0,195805.0,489512.0,262522.0,BPD,China,2024
+228,1002516,MOCK-REFINE-116,Offsites and Tank Farm,storage,Offsites and Tank Farm scope chip for alkylation (modification),3176.0,2117.0,5293.0,65802.0,BPD,United States,2024
+229,1003059,MOCK-ONSHOR-006,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for ethylene_cracker (expansion),381764.0,254510.0,636274.0,272.0,KTA,China,2024
+230,1001678,MOCK-REFINE-079,Flare System,process_unit,Flare System scope chip for coker (expansion),67463.0,44976.0,112439.0,57716.0,BPD,United Kingdom,2024
+231,1006992,MOCK-GAS_PR-007,Cryogenic Gas Plant,marine,Cryogenic Gas Plant scope chip for ngl_fractionation (grassroots),23969.0,15979.0,39948.0,1060.0,MMSCFD,United States,2024
+232,1006494,MOCK-ONSHOR-008,Pad Facilities,storage,Pad Facilities scope chip for central_delivery_point (expansion),8490.0,5660.0,14149.0,326.0,MMSCFD,Canada,2024
+233,1002679,MOCK-REFINE-125,Desalter Upgrade,process_unit,Desalter Upgrade scope chip for alkylation (expansion),82475.0,54983.0,137458.0,12545.0,BPD,United States,2024
+234,1002869,MOCK-REFINE-136,Flare System,process_unit,Flare System scope chip for fcc (modification),15056.0,10037.0,25093.0,106203.0,BPD,Canada,2024
+235,1006137,MOCK-PIPELI-037,Metering Station,osbl,Metering Station scope chip for pipeline (grassroots),35279.0,23519.0,58798.0,482.0,km,Australia,2024
+236,1002633,MOCK-REFINE-123,Desalter Upgrade,infrastructure,Desalter Upgrade scope chip for fcc (modification),23210.0,15473.0,38683.0,106620.0,BPD,Canada,2024
+237,1006522,MOCK-ONSHOR-011,Central Delivery Point,infrastructure,Central Delivery Point scope chip for cryo_gas_processing (expansion),3895.0,2597.0,6492.0,350.0,MMSCFD,United States,2024
+238,1001004,MOCK-REFINE-050,Offsites and Tank Farm,pipeline_segment,Offsites and Tank Farm scope chip for crude_unit (modification),23786.0,15857.0,39643.0,114063.0,BPD,Belgium,2024
+239,1007556,MOCK-LNG_ON-001,Infrastructure,storage,Infrastructure scope chip for lng_terminal (expansion),485886.0,323924.0,809809.0,7.1,MTPA,Australia,2024
+240,1002007,MOCK-REFINE-094,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for fcc (modification),894.0,596.0,1490.0,103806.0,BPD,Australia,2024
+241,1004729,MOCK-OFFSHO-009,SURF Flowlines,storage,SURF Flowlines scope chip for platform (grassroots),878495.0,585663.0,1464158.0,110.0,KBPD,Brazil,2024
+242,1003420,MOCK-ONSHOR-026,Utilities Package,process_unit,Utilities Package scope chip for meg (grassroots),32712.0,21808.0,54520.0,985.0,KTA,United States,2024
+243,1003363,MOCK-ONSHOR-020,Storage Tank Farm,storage,Storage Tank Farm scope chip for meg (modification),2543.0,1696.0,4239.0,448.0,KTA,Canada,2024
+244,1009162,MOCK-ONSHOR-013,Onsites Process,process_unit,Onsites Process scope chip for onshore_process (grassroots),160102.0,106735.0,266837.0,28.0,KBPD,Kazakhstan,2024
+245,1007162,MOCK-GAS_PR-019,NGL Fractionation,infrastructure,NGL Fractionation scope chip for ccs (grassroots),19187.0,12792.0,31979.0,680.0,MMSCFD,Australia,2024
+246,1002384,MOCK-REFINE-111,Alkylation Unit,pipeline_segment,Alkylation Unit scope chip for hydrotreater (modification),3783.0,2522.0,6305.0,103438.0,BPD,Canada,2024
+247,1003389,MOCK-ONSHOR-023,Polyethylene Unit,infrastructure,Polyethylene Unit scope chip for polypropylene (grassroots),106752.0,71168.0,177919.0,965.0,KTA,Canada,2024
+248,1005270,MOCK-OFFSHO-037,SURF Flowlines,process_unit,SURF Flowlines scope chip for fpso (grassroots),1234724.0,823149.0,2057873.0,116.0,KBPD,Brazil,2024
+249,1006197,MOCK-PIPELI-040,HDD Crossing,marine,HDD Crossing scope chip for pipeline_gathering (grassroots),21143.0,14095.0,35238.0,688.0,km,United States,2024
+250,1003521,MOCK-ONSHOR-032,Polypropylene Unit,pipeline_segment,Polypropylene Unit scope chip for ethylene_cracker (grassroots),327432.0,218288.0,545721.0,1220.0,KTA,Saudi Arabia,2024
+251,1004528,MOCK-ONSHOR-080,MEG Unit,osbl,MEG Unit scope chip for meg (grassroots),33148.0,22099.0,55246.0,1608.0,KTA,Belgium,2024
+252,1001804,MOCK-REFINE-086,Hydrotreater,process_unit,Hydrotreater scope chip for hydrocracker (modification),4598.0,3065.0,7663.0,117999.0,BPD,Canada,2024
+253,1000356,MOCK-REFINE-017,Utilities Package,process_unit,Utilities Package scope chip for reformer (modification),3908.0,2605.0,6513.0,104228.0,BPD,Canada,2024
+254,1003622,MOCK-ONSHOR-037,Product Loading,storage,Product Loading scope chip for polyethylene (expansion),65000.0,43333.0,108333.0,378.0,KTA,China,2024
+255,1008083,MOCK-OIL_SA-005,Extraction,infrastructure,Extraction scope chip for oil_sands_pad (grassroots),247346.0,164897.0,412243.0,75.0,KBPD,Canada,2024
+256,1005432,MOCK-OFFSHO-045,Subsea Trees,process_unit,Subsea Trees scope chip for fpso (grassroots),257058.0,171372.0,428430.0,232.0,KBPD,Nigeria,2024
+257,1004186,MOCK-ONSHOR-064,Product Loading,process_unit,Product Loading scope chip for polyethylene (grassroots),111207.0,74138.0,185345.0,851.0,KTA,Singapore,2024
+258,1009071,MOCK-ONSHOR-008,Storage,process_unit,Storage scope chip for gas_plant (expansion),178253.0,118835.0,297088.0,45.0,KBPD,Nigeria,2024
+259,1002485,MOCK-REFINE-115,Offsites and Tank Farm,osbl,Offsites and Tank Farm scope chip for alkylation (modification),28310.0,18874.0,47184.0,44887.0,BPD,Singapore,2024
+260,1001975,MOCK-REFINE-092,Furnace Replacement,infrastructure,Furnace Replacement scope chip for reformer (modification),22042.0,14695.0,36737.0,91337.0,BPD,Singapore,2024
+261,1009430,MOCK-ONSHOR-028,Storage,storage,Storage scope chip for onshore_process (grassroots),24904.0,16602.0,41506.0,77.0,KBPD,Nigeria,2024
+262,1005157,MOCK-OFFSHO-031,Subsea Trees,process_unit,Subsea Trees scope chip for fpso (grassroots),688002.0,458668.0,1146671.0,214.0,KBPD,Angola,2024
+263,1007229,MOCK-GAS_PR-024,Utilities,storage,Utilities scope chip for gas_plant_cryo (modification),9625.0,6417.0,16042.0,1119.0,MMSCFD,Canada,2024
+264,1004898,MOCK-OFFSHO-019,Risers,storage,Risers scope chip for fpso (grassroots),203325.0,135550.0,338876.0,225.0,KBPD,United States,2024
+265,1009333,MOCK-ONSHOR-022,Compression,osbl,Compression scope chip for onshore_process (grassroots),36325.0,24217.0,60542.0,147.0,KBPD,Kazakhstan,2024
+266,1008112,MOCK-OIL_SA-008,Extraction,storage,Extraction scope chip for bitumen (grassroots),184543.0,123028.0,307571.0,24.0,KBPD,Canada,2024
+267,1002174,MOCK-REFINE-103,CCR Reformer,infrastructure,CCR Reformer scope chip for hydrocracker (expansion),22945.0,15296.0,38241.0,21208.0,BPD,Singapore,2024
+268,1000929,MOCK-REFINE-046,Alkylation Unit,process_unit,Alkylation Unit scope chip for alkylation (modification),21535.0,14357.0,35892.0,42656.0,BPD,Canada,2024
+269,1006681,MOCK-ONSHOR-022,Compression Station,storage,Compression Station scope chip for train_cryogenic (expansion),6787.0,4525.0,11312.0,326.0,MMSCFD,United States,2024
+270,1007506,MOCK-GAS_PR-037,NGL Fractionation,process_unit,NGL Fractionation scope chip for ccs (grassroots),60574.0,40382.0,100956.0,776.0,MMSCFD,United States,2024
+271,1008511,MOCK-REFINE-002,Furnace Replacement,process_unit,Furnace Replacement scope chip for refinery (grassroots),603609.0,402406.0,1006015.0,329417.0,BPD,Saudi Arabia,2024
+272,1008299,MOCK-OIL_SA-017,Extraction,osbl,Extraction scope chip for oil_sands_pad (modification),87891.0,58594.0,146486.0,112.0,KBPD,Canada,2024
+273,1008147,MOCK-OIL_SA-009,Utilities,process_unit,Utilities scope chip for oil_sands_pad (expansion),62209.0,41472.0,103681.0,97.0,KBPD,Canada,2024
+274,1003384,MOCK-ONSHOR-022,Polypropylene Unit,infrastructure,Polypropylene Unit scope chip for ethylene_cracker (expansion),418011.0,278674.0,696684.0,1999.0,KTA,Belgium,2024
+275,1003199,MOCK-ONSHOR-013,Storage Tank Farm,osbl,Storage Tank Farm scope chip for polypropylene (modification),12293.0,8195.0,20488.0,1434.0,KTA,China,2024
+276,1009790,MOCK-ONSHOR-048,Infrastructure,osbl,Infrastructure scope chip for gas_plant (grassroots),205217.0,136811.0,342028.0,149.0,KBPD,Kazakhstan,2024
+277,1004057,MOCK-ONSHOR-057,Olefins Cracker,storage,Olefins Cracker scope chip for meg (expansion),297127.0,198085.0,495212.0,345.0,KTA,Singapore,2024
+278,1008868,MOCK-REFINE-019,Crude Unit Revamp,osbl,Crude Unit Revamp scope chip for refinery (grassroots),599922.0,399948.0,999869.0,389310.0,BPD,United States,2024
+279,1009359,MOCK-ONSHOR-024,Injection,marine,Injection scope chip for compressor_station (grassroots),16647.0,11098.0,27745.0,114.0,KBPD,United States,2024
+280,1001327,MOCK-REFINE-065,Hydrocracker Reactor,marine,Hydrocracker Reactor scope chip for hydrocracker (modification),2443.0,1629.0,4072.0,107256.0,BPD,United States,2024
+281,1007542,MOCK-GAS_PR-039,Injection Wells,process_unit,Injection Wells scope chip for ngl_fractionation (grassroots),85042.0,56695.0,141737.0,414.0,MMSCFD,Kazakhstan,2024
+282,1001628,MOCK-REFINE-077,Furnace Replacement,infrastructure,Furnace Replacement scope chip for coker (modification),1175.0,783.0,1958.0,32996.0,BPD,United Kingdom,2024
+283,1007258,MOCK-GAS_PR-025,Cryogenic Gas Plant,storage,Cryogenic Gas Plant scope chip for gas_plant_cryo (grassroots),68517.0,45678.0,114195.0,468.0,MMSCFD,United States,2024
+284,1008755,MOCK-REFINE-014,Hydrogen Plant,marine,Hydrogen Plant scope chip for renewable_diesel (grassroots),150698.0,100465.0,251163.0,262522.0,BPD,China,2024
+285,1002516,MOCK-REFINE-116,Hydrocracker Reactor,osbl,Hydrocracker Reactor scope chip for alkylation (modification),1122.0,748.0,1870.0,65802.0,BPD,United States,2024
+286,1003059,MOCK-ONSHOR-006,Olefins Cracker,pipeline_segment,Olefins Cracker scope chip for ethylene_cracker (expansion),162686.0,108458.0,271144.0,272.0,KTA,China,2024
+287,1001678,MOCK-REFINE-079,Delayed Coker,storage,Delayed Coker scope chip for coker (expansion),123001.0,82000.0,205001.0,57716.0,BPD,United Kingdom,2024
+288,1006992,MOCK-GAS_PR-007,Utilities,infrastructure,Utilities scope chip for ngl_fractionation (grassroots),44064.0,29376.0,73439.0,1060.0,MMSCFD,United States,2024
+289,1006494,MOCK-ONSHOR-008,Compression Station,osbl,Compression Station scope chip for central_delivery_point (expansion),39202.0,26135.0,65337.0,326.0,MMSCFD,Canada,2024
+290,1002679,MOCK-REFINE-125,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for alkylation (expansion),36907.0,24604.0,61511.0,12545.0,BPD,United States,2024
+291,1002869,MOCK-REFINE-136,Furnace Replacement,osbl,Furnace Replacement scope chip for fcc (modification),64237.0,42825.0,107062.0,106203.0,BPD,Canada,2024
+292,1006137,MOCK-PIPELI-037,Metering Station,infrastructure,Metering Station scope chip for pipeline (grassroots),12713.0,8475.0,21188.0,482.0,km,Australia,2024
+293,1002633,MOCK-REFINE-123,Hydrocracker Reactor,osbl,Hydrocracker Reactor scope chip for fcc (modification),31080.0,20720.0,51799.0,106620.0,BPD,Canada,2024
+294,1006522,MOCK-ONSHOR-011,Compression Station,marine,Compression Station scope chip for cryo_gas_processing (expansion),7774.0,5183.0,12957.0,350.0,MMSCFD,United States,2024
+295,1001004,MOCK-REFINE-050,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for crude_unit (modification),34846.0,23231.0,58077.0,114063.0,BPD,Belgium,2024
+296,1007556,MOCK-LNG_ON-001,Utilities,storage,Utilities scope chip for lng_terminal (expansion),597252.0,398168.0,995420.0,7.1,MTPA,Australia,2024
+297,1002007,MOCK-REFINE-094,Utilities Package,osbl,Utilities Package scope chip for fcc (modification),6558.0,4372.0,10931.0,103806.0,BPD,Australia,2024
+298,1004729,MOCK-OFFSHO-009,FPSO Hull,storage,FPSO Hull scope chip for platform (grassroots),731779.0,487853.0,1219632.0,110.0,KBPD,Brazil,2024
+299,1003420,MOCK-ONSHOR-026,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for meg (grassroots),17340.0,11560.0,28900.0,985.0,KTA,United States,2024
+300,1003363,MOCK-ONSHOR-020,Utilities Package,storage,Utilities Package scope chip for meg (modification),12327.0,8218.0,20545.0,448.0,KTA,Canada,2024
+301,1009162,MOCK-ONSHOR-013,Infrastructure,process_unit,Infrastructure scope chip for onshore_process (grassroots),43372.0,28914.0,72286.0,28.0,KBPD,Kazakhstan,2024
+302,1007162,MOCK-GAS_PR-019,Utilities,storage,Utilities scope chip for ccs (grassroots),30307.0,20205.0,50512.0,680.0,MMSCFD,Australia,2024
+303,1002384,MOCK-REFINE-111,FCC Modernization,osbl,FCC Modernization scope chip for hydrotreater (modification),13395.0,8930.0,22324.0,103438.0,BPD,Canada,2024
+304,1003389,MOCK-ONSHOR-023,Offsites,infrastructure,Offsites scope chip for polypropylene (grassroots),123392.0,82262.0,205654.0,965.0,KTA,Canada,2024
+305,1005270,MOCK-OFFSHO-037,FPSO Hull,process_unit,FPSO Hull scope chip for fpso (grassroots),1276446.0,850964.0,2127409.0,116.0,KBPD,Brazil,2024
+306,1006197,MOCK-PIPELI-040,HDD Crossing,process_unit,HDD Crossing scope chip for pipeline_gathering (grassroots),14314.0,9543.0,23857.0,688.0,km,United States,2024
+307,1003521,MOCK-ONSHOR-032,Offsites,process_unit,Offsites scope chip for ethylene_cracker (grassroots),84835.0,56556.0,141391.0,1220.0,KTA,Saudi Arabia,2024
+308,1004528,MOCK-ONSHOR-080,Infrastructure,process_unit,Infrastructure scope chip for meg (grassroots),145074.0,96716.0,241791.0,1608.0,KTA,Belgium,2024
+309,1001804,MOCK-REFINE-086,Hydrocracker Reactor,infrastructure,Hydrocracker Reactor scope chip for hydrocracker (modification),24584.0,16390.0,40974.0,117999.0,BPD,Canada,2024
+310,1000356,MOCK-REFINE-017,Hydrocracker Reactor,storage,Hydrocracker Reactor scope chip for reformer (modification),2791.0,1861.0,4652.0,104228.0,BPD,Canada,2024
+311,1003622,MOCK-ONSHOR-037,Offsites,process_unit,Offsites scope chip for polyethylene (expansion),15829.0,10553.0,26382.0,378.0,KTA,China,2024
+312,1008083,MOCK-OIL_SA-005,Utilities,storage,Utilities scope chip for oil_sands_pad (grassroots),373608.0,249072.0,622680.0,75.0,KBPD,Canada,2024
+313,1005432,MOCK-OFFSHO-045,Risers,pipeline_segment,Risers scope chip for fpso (grassroots),426936.0,284624.0,711561.0,232.0,KBPD,Nigeria,2024
+314,1004186,MOCK-ONSHOR-064,Offsites,marine,Offsites scope chip for polyethylene (grassroots),118258.0,78838.0,197096.0,851.0,KTA,Singapore,2024
+315,1009071,MOCK-ONSHOR-008,Injection,infrastructure,Injection scope chip for gas_plant (expansion),150330.0,100220.0,250550.0,45.0,KBPD,Nigeria,2024
+316,1002485,MOCK-REFINE-115,Utilities Package,process_unit,Utilities Package scope chip for alkylation (modification),26311.0,17541.0,43852.0,44887.0,BPD,Singapore,2024
+317,1001975,MOCK-REFINE-092,Flare System,storage,Flare System scope chip for reformer (modification),22767.0,15178.0,37945.0,91337.0,BPD,Singapore,2024
+318,1009430,MOCK-ONSHOR-028,Infrastructure,osbl,Infrastructure scope chip for onshore_process (grassroots),112194.0,74796.0,186990.0,77.0,KBPD,Nigeria,2024
+319,1005157,MOCK-OFFSHO-031,FPSO Topsides,storage,FPSO Topsides scope chip for fpso (grassroots),1371058.0,914039.0,2285096.0,214.0,KBPD,Angola,2024
+320,1007229,MOCK-GAS_PR-024,Cryogenic Gas Plant,process_unit,Cryogenic Gas Plant scope chip for gas_plant_cryo (modification),5372.0,3582.0,8954.0,1119.0,MMSCFD,Canada,2024
+321,1004898,MOCK-OFFSHO-019,Mooring System,process_unit,Mooring System scope chip for fpso (grassroots),253483.0,168989.0,422471.0,225.0,KBPD,United States,2024
+322,1009333,MOCK-ONSHOR-022,Onsites Process,osbl,Onsites Process scope chip for onshore_process (grassroots),136564.0,91043.0,227607.0,147.0,KBPD,Kazakhstan,2024
+323,1008112,MOCK-OIL_SA-008,Tailings,pipeline_segment,Tailings scope chip for bitumen (grassroots),508766.0,339177.0,847944.0,24.0,KBPD,Canada,2024
+324,1002174,MOCK-REFINE-103,Hydrocracker Reactor,osbl,Hydrocracker Reactor scope chip for hydrocracker (expansion),28993.0,19329.0,48322.0,21208.0,BPD,Singapore,2024
+325,1000929,MOCK-REFINE-046,Offsites and Tank Farm,osbl,Offsites and Tank Farm scope chip for alkylation (modification),9549.0,6366.0,15916.0,42656.0,BPD,Canada,2024
+326,1006681,MOCK-ONSHOR-022,Gathering Pipeline,storage,Gathering Pipeline scope chip for train_cryogenic (expansion),8256.0,5504.0,13759.0,326.0,MMSCFD,United States,2024
+327,1007506,MOCK-GAS_PR-037,Dehydration,osbl,Dehydration scope chip for ccs (grassroots),7774.0,5182.0,12956.0,776.0,MMSCFD,United States,2024
+328,1008511,MOCK-REFINE-002,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for refinery (grassroots),634107.0,422738.0,1056845.0,329417.0,BPD,Saudi Arabia,2024
+329,1008299,MOCK-OIL_SA-017,Mining OPP,infrastructure,Mining OPP scope chip for oil_sands_pad (modification),45448.0,30299.0,75746.0,112.0,KBPD,Canada,2024
+330,1008147,MOCK-OIL_SA-009,Utilities,osbl,Utilities scope chip for oil_sands_pad (expansion),89884.0,59922.0,149806.0,97.0,KBPD,Canada,2024
+331,1003384,MOCK-ONSHOR-022,Product Loading,marine,Product Loading scope chip for ethylene_cracker (expansion),518141.0,345427.0,863568.0,1999.0,KTA,Belgium,2024
+332,1003199,MOCK-ONSHOR-013,Utilities Package,pipeline_segment,Utilities Package scope chip for polypropylene (modification),6818.0,4545.0,11363.0,1434.0,KTA,China,2024
+333,1009790,MOCK-ONSHOR-048,Injection,process_unit,Injection scope chip for gas_plant (grassroots),245430.0,163620.0,409049.0,149.0,KBPD,Kazakhstan,2024
+334,1004057,MOCK-ONSHOR-057,Utilities Package,process_unit,Utilities Package scope chip for meg (expansion),258940.0,172627.0,431567.0,345.0,KTA,Singapore,2024
+335,1008868,MOCK-REFINE-019,Alkylation Unit,process_unit,Alkylation Unit scope chip for refinery (grassroots),1520906.0,1013937.0,2534843.0,389310.0,BPD,United States,2024
+336,1009359,MOCK-ONSHOR-024,Infrastructure,process_unit,Infrastructure scope chip for compressor_station (grassroots),89353.0,59569.0,148921.0,114.0,KBPD,United States,2024
+337,1001327,MOCK-REFINE-065,Desalter Upgrade,storage,Desalter Upgrade scope chip for hydrocracker (modification),2610.0,1740.0,4350.0,107256.0,BPD,United States,2024
+338,1007542,MOCK-GAS_PR-039,Utilities,storage,Utilities scope chip for ngl_fractionation (grassroots),56728.0,37819.0,94547.0,414.0,MMSCFD,Kazakhstan,2024
+339,1001628,MOCK-REFINE-077,Alkylation Unit,process_unit,Alkylation Unit scope chip for coker (modification),1304.0,869.0,2174.0,32996.0,BPD,United Kingdom,2024
+340,1007258,MOCK-GAS_PR-025,Cryogenic Gas Plant,pipeline_segment,Cryogenic Gas Plant scope chip for gas_plant_cryo (grassroots),23584.0,15723.0,39307.0,468.0,MMSCFD,United States,2024
+341,1008755,MOCK-REFINE-014,Delayed Coker,osbl,Delayed Coker scope chip for renewable_diesel (grassroots),142553.0,95035.0,237588.0,262522.0,BPD,China,2024
+342,1002516,MOCK-REFINE-116,Alkylation Unit,osbl,Alkylation Unit scope chip for alkylation (modification),4445.0,2963.0,7408.0,65802.0,BPD,United States,2024
+343,1003059,MOCK-ONSHOR-006,Utilities Package,infrastructure,Utilities Package scope chip for ethylene_cracker (expansion),420754.0,280503.0,701257.0,272.0,KTA,China,2024
+344,1001678,MOCK-REFINE-079,Hydrogen Plant,process_unit,Hydrogen Plant scope chip for coker (expansion),91074.0,60716.0,151790.0,57716.0,BPD,United Kingdom,2024
+345,1006992,MOCK-GAS_PR-007,Compression,osbl,Compression scope chip for ngl_fractionation (grassroots),75606.0,50404.0,126011.0,1060.0,MMSCFD,United States,2024
+346,1006494,MOCK-ONSHOR-008,Pad Facilities,process_unit,Pad Facilities scope chip for central_delivery_point (expansion),20006.0,13338.0,33344.0,326.0,MMSCFD,Canada,2024
+347,1002679,MOCK-REFINE-125,FCC Modernization,storage,FCC Modernization scope chip for alkylation (expansion),99763.0,66509.0,166272.0,12545.0,BPD,United States,2024
+348,1002869,MOCK-REFINE-136,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for fcc (modification),26811.0,17874.0,44686.0,106203.0,BPD,Canada,2024
+349,1006137,MOCK-PIPELI-037,Export Pipeline,process_unit,Export Pipeline scope chip for pipeline (grassroots),22043.0,14695.0,36738.0,482.0,km,Australia,2024
+350,1002633,MOCK-REFINE-123,Crude Unit Revamp,osbl,Crude Unit Revamp scope chip for fcc (modification),41800.0,27867.0,69667.0,106620.0,BPD,Canada,2024
+351,1006522,MOCK-ONSHOR-011,Central Delivery Point,osbl,Central Delivery Point scope chip for cryo_gas_processing (expansion),6129.0,4086.0,10216.0,350.0,MMSCFD,United States,2024
+352,1001004,MOCK-REFINE-050,Flare System,process_unit,Flare System scope chip for crude_unit (modification),38873.0,25915.0,64789.0,114063.0,BPD,Belgium,2024
+353,1007556,MOCK-LNG_ON-001,Jetty and Loading,infrastructure,Jetty and Loading scope chip for lng_terminal (expansion),221316.0,147544.0,368860.0,7.1,MTPA,Australia,2024
+354,1002007,MOCK-REFINE-094,Alkylation Unit,process_unit,Alkylation Unit scope chip for fcc (modification),5093.0,3395.0,8488.0,103806.0,BPD,Australia,2024
+355,1004729,MOCK-OFFSHO-009,Mooring System,process_unit,Mooring System scope chip for platform (grassroots),153330.0,102220.0,255551.0,110.0,KBPD,Brazil,2024
+356,1003420,MOCK-ONSHOR-026,Olefins Cracker,osbl,Olefins Cracker scope chip for meg (grassroots),43944.0,29296.0,73240.0,985.0,KTA,United States,2024
+357,1003363,MOCK-ONSHOR-020,Product Loading,process_unit,Product Loading scope chip for meg (modification),24338.0,16225.0,40563.0,448.0,KTA,Canada,2024
+358,1009162,MOCK-ONSHOR-013,Compression,process_unit,Compression scope chip for onshore_process (grassroots),50594.0,33729.0,84324.0,28.0,KBPD,Kazakhstan,2024
+359,1007162,MOCK-GAS_PR-019,NGL Fractionation,marine,NGL Fractionation scope chip for ccs (grassroots),39582.0,26388.0,65970.0,680.0,MMSCFD,Australia,2024
+360,1002384,MOCK-REFINE-111,Crude Unit Revamp,osbl,Crude Unit Revamp scope chip for hydrotreater (modification),8364.0,5576.0,13940.0,103438.0,BPD,Canada,2024
+361,1003389,MOCK-ONSHOR-023,Olefins Cracker,osbl,Olefins Cracker scope chip for polypropylene (grassroots),24056.0,16037.0,40093.0,965.0,KTA,Canada,2024
+362,1005270,MOCK-OFFSHO-037,Subsea Trees,process_unit,Subsea Trees scope chip for fpso (grassroots),563366.0,375578.0,938944.0,116.0,KBPD,Brazil,2024
+363,1006197,MOCK-PIPELI-040,Pump Station,infrastructure,Pump Station scope chip for pipeline_gathering (grassroots),11888.0,7926.0,19814.0,688.0,km,United States,2024
+364,1003521,MOCK-ONSHOR-032,Offsites,process_unit,Offsites scope chip for ethylene_cracker (grassroots),210563.0,140376.0,350939.0,1220.0,KTA,Saudi Arabia,2024
+365,1004528,MOCK-ONSHOR-080,MEG Unit,process_unit,MEG Unit scope chip for meg (grassroots),129914.0,86609.0,216523.0,1608.0,KTA,Belgium,2024
+366,1001804,MOCK-REFINE-086,Furnace Replacement,pipeline_segment,Furnace Replacement scope chip for hydrocracker (modification),24216.0,16144.0,40360.0,117999.0,BPD,Canada,2024
+367,1000356,MOCK-REFINE-017,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for reformer (modification),1729.0,1153.0,2881.0,104228.0,BPD,Canada,2024
+368,1003622,MOCK-ONSHOR-037,Product Loading,process_unit,Product Loading scope chip for polyethylene (expansion),16430.0,10953.0,27383.0,378.0,KTA,China,2024
+369,1008083,MOCK-OIL_SA-005,Infrastructure,process_unit,Infrastructure scope chip for oil_sands_pad (grassroots),211604.0,141069.0,352673.0,75.0,KBPD,Canada,2024
+370,1005432,MOCK-OFFSHO-045,FPSO Hull,osbl,FPSO Hull scope chip for fpso (grassroots),355481.0,236987.0,592468.0,232.0,KBPD,Nigeria,2024
+371,1004186,MOCK-ONSHOR-064,Offsites,process_unit,Offsites scope chip for polyethylene (grassroots),90454.0,60303.0,150757.0,851.0,KTA,Singapore,2024
+372,1009071,MOCK-ONSHOR-008,Onsites Process,process_unit,Onsites Process scope chip for gas_plant (expansion),35564.0,23709.0,59273.0,45.0,KBPD,Nigeria,2024
+373,1002485,MOCK-REFINE-115,Utilities Package,process_unit,Utilities Package scope chip for alkylation (modification),33886.0,22591.0,56477.0,44887.0,BPD,Singapore,2024
+374,1001975,MOCK-REFINE-092,Hydrotreater,pipeline_segment,Hydrotreater scope chip for reformer (modification),31389.0,20926.0,52315.0,91337.0,BPD,Singapore,2024
+375,1009430,MOCK-ONSHOR-028,Onsites Process,pipeline_segment,Onsites Process scope chip for onshore_process (grassroots),42950.0,28633.0,71583.0,77.0,KBPD,Nigeria,2024
+376,1005157,MOCK-OFFSHO-031,SURF Flowlines,process_unit,SURF Flowlines scope chip for fpso (grassroots),1028263.0,685508.0,1713771.0,214.0,KBPD,Angola,2024
+377,1007229,MOCK-GAS_PR-024,Injection Wells,process_unit,Injection Wells scope chip for gas_plant_cryo (modification),9632.0,6421.0,16053.0,1119.0,MMSCFD,Canada,2024
+378,1004898,MOCK-OFFSHO-019,Subsea Trees,process_unit,Subsea Trees scope chip for fpso (grassroots),265767.0,177178.0,442945.0,225.0,KBPD,United States,2024
+379,1009333,MOCK-ONSHOR-022,Storage,osbl,Storage scope chip for onshore_process (grassroots),113509.0,75672.0,189181.0,147.0,KBPD,Kazakhstan,2024
+380,1008112,MOCK-OIL_SA-008,Extraction,osbl,Extraction scope chip for bitumen (grassroots),353897.0,235932.0,589829.0,24.0,KBPD,Canada,2024
+381,1002174,MOCK-REFINE-103,CCR Reformer,marine,CCR Reformer scope chip for hydrocracker (expansion),44873.0,29915.0,74789.0,21208.0,BPD,Singapore,2024
+382,1000929,MOCK-REFINE-046,Hydrocracker Reactor,pipeline_segment,Hydrocracker Reactor scope chip for alkylation (modification),25652.0,17101.0,42753.0,42656.0,BPD,Canada,2024
+383,1006681,MOCK-ONSHOR-022,Central Delivery Point,osbl,Central Delivery Point scope chip for train_cryogenic (expansion),10551.0,7034.0,17584.0,326.0,MMSCFD,United States,2024
+384,1007506,MOCK-GAS_PR-037,NGL Fractionation,process_unit,NGL Fractionation scope chip for ccs (grassroots),59784.0,39856.0,99640.0,776.0,MMSCFD,United States,2024
+385,1008511,MOCK-REFINE-002,CCR Reformer,osbl,CCR Reformer scope chip for refinery (grassroots),512888.0,341925.0,854813.0,329417.0,BPD,Saudi Arabia,2024
+386,1008299,MOCK-OIL_SA-017,Utilities,process_unit,Utilities scope chip for oil_sands_pad (modification),21926.0,14617.0,36543.0,112.0,KBPD,Canada,2024
+387,1008147,MOCK-OIL_SA-009,Extraction,infrastructure,Extraction scope chip for oil_sands_pad (expansion),87140.0,58093.0,145233.0,97.0,KBPD,Canada,2024
+388,1003384,MOCK-ONSHOR-022,Utilities Package,storage,Utilities Package scope chip for ethylene_cracker (expansion),143294.0,95529.0,238823.0,1999.0,KTA,Belgium,2024
+389,1003199,MOCK-ONSHOR-013,Utilities Package,infrastructure,Utilities Package scope chip for polypropylene (modification),18767.0,12512.0,31279.0,1434.0,KTA,China,2024
+390,1009790,MOCK-ONSHOR-048,Compression,osbl,Compression scope chip for gas_plant (grassroots),74284.0,49522.0,123806.0,149.0,KBPD,Kazakhstan,2024
+391,1004057,MOCK-ONSHOR-057,Offsites,storage,Offsites scope chip for meg (expansion),244205.0,162803.0,407009.0,345.0,KTA,Singapore,2024
+392,1008868,MOCK-REFINE-019,Desalter Upgrade,storage,Desalter Upgrade scope chip for refinery (grassroots),1773913.0,1182609.0,2956521.0,389310.0,BPD,United States,2024
+393,1009359,MOCK-ONSHOR-024,Onsites Process,marine,Onsites Process scope chip for compressor_station (grassroots),96606.0,64404.0,161009.0,114.0,KBPD,United States,2024
+394,1001327,MOCK-REFINE-065,Flare System,storage,Flare System scope chip for hydrocracker (modification),1759.0,1172.0,2931.0,107256.0,BPD,United States,2024
+395,1007542,MOCK-GAS_PR-039,Compression,process_unit,Compression scope chip for ngl_fractionation (grassroots),45256.0,30171.0,75427.0,414.0,MMSCFD,Kazakhstan,2024
+396,1001628,MOCK-REFINE-077,Utilities Package,marine,Utilities Package scope chip for coker (modification),844.0,563.0,1407.0,32996.0,BPD,United Kingdom,2024
+397,1007258,MOCK-GAS_PR-025,Dehydration,pipeline_segment,Dehydration scope chip for gas_plant_cryo (grassroots),36635.0,24424.0,61059.0,468.0,MMSCFD,United States,2024
+398,1008755,MOCK-REFINE-014,Offsites and Tank Farm,storage,Offsites and Tank Farm scope chip for renewable_diesel (grassroots),205464.0,136976.0,342441.0,262522.0,BPD,China,2024
+399,1002516,MOCK-REFINE-116,Desalter Upgrade,process_unit,Desalter Upgrade scope chip for alkylation (modification),555.0,370.0,925.0,65802.0,BPD,United States,2024
+400,1003059,MOCK-ONSHOR-006,Product Loading,process_unit,Product Loading scope chip for ethylene_cracker (expansion),166964.0,111310.0,278274.0,272.0,KTA,China,2024
+401,1001678,MOCK-REFINE-079,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for coker (expansion),66651.0,44434.0,111085.0,57716.0,BPD,United Kingdom,2024
+402,1006992,MOCK-GAS_PR-007,Compression,process_unit,Compression scope chip for ngl_fractionation (grassroots),63587.0,42392.0,105979.0,1060.0,MMSCFD,United States,2024
+403,1006494,MOCK-ONSHOR-008,Pad Facilities,infrastructure,Pad Facilities scope chip for central_delivery_point (expansion),52702.0,35135.0,87836.0,326.0,MMSCFD,Canada,2024
+404,1002679,MOCK-REFINE-125,FCC Modernization,pipeline_segment,FCC Modernization scope chip for alkylation (expansion),76925.0,51284.0,128209.0,12545.0,BPD,United States,2024
+405,1002869,MOCK-REFINE-136,Utilities Package,infrastructure,Utilities Package scope chip for fcc (modification),50502.0,33668.0,84170.0,106203.0,BPD,Canada,2024
+406,1006137,MOCK-PIPELI-037,Export Pipeline,osbl,Export Pipeline scope chip for pipeline (grassroots),16888.0,11259.0,28147.0,482.0,km,Australia,2024
+407,1002633,MOCK-REFINE-123,Desalter Upgrade,process_unit,Desalter Upgrade scope chip for fcc (modification),38266.0,25511.0,63777.0,106620.0,BPD,Canada,2024
+408,1006522,MOCK-ONSHOR-011,Central Delivery Point,pipeline_segment,Central Delivery Point scope chip for cryo_gas_processing (expansion),5462.0,3641.0,9103.0,350.0,MMSCFD,United States,2024
+409,1001004,MOCK-REFINE-050,Alkylation Unit,process_unit,Alkylation Unit scope chip for crude_unit (modification),25124.0,16749.0,41873.0,114063.0,BPD,Belgium,2024
+410,1007556,MOCK-LNG_ON-001,Power Plant,infrastructure,Power Plant scope chip for lng_terminal (expansion),419737.0,279825.0,699562.0,7.1,MTPA,Australia,2024
+411,1002007,MOCK-REFINE-094,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for fcc (modification),6062.0,4041.0,10103.0,103806.0,BPD,Australia,2024
+412,1004729,MOCK-OFFSHO-009,FPSO Hull,pipeline_segment,FPSO Hull scope chip for platform (grassroots),1091519.0,727679.0,1819198.0,110.0,KBPD,Brazil,2024
+413,1003420,MOCK-ONSHOR-026,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for meg (grassroots),28929.0,19286.0,48215.0,985.0,KTA,United States,2024
+414,1003363,MOCK-ONSHOR-020,Product Loading,osbl,Product Loading scope chip for meg (modification),20131.0,13421.0,33552.0,448.0,KTA,Canada,2024
+415,1009162,MOCK-ONSHOR-013,Onsites Process,infrastructure,Onsites Process scope chip for onshore_process (grassroots),85970.0,57313.0,143283.0,28.0,KBPD,Kazakhstan,2024
+416,1007162,MOCK-GAS_PR-019,Cryogenic Gas Plant,osbl,Cryogenic Gas Plant scope chip for ccs (grassroots),39165.0,26110.0,65275.0,680.0,MMSCFD,Australia,2024
+417,1002384,MOCK-REFINE-111,Furnace Replacement,infrastructure,Furnace Replacement scope chip for hydrotreater (modification),13361.0,8907.0,22268.0,103438.0,BPD,Canada,2024
+418,1003389,MOCK-ONSHOR-023,Polypropylene Unit,storage,Polypropylene Unit scope chip for polypropylene (grassroots),163553.0,109035.0,272589.0,965.0,KTA,Canada,2024
+419,1005270,MOCK-OFFSHO-037,Umbilicals,process_unit,Umbilicals scope chip for fpso (grassroots),814415.0,542944.0,1357359.0,116.0,KBPD,Brazil,2024
+420,1006197,MOCK-PIPELI-040,Export Pipeline,process_unit,Export Pipeline scope chip for pipeline_gathering (grassroots),38006.0,25337.0,63343.0,688.0,km,United States,2024
+421,1003521,MOCK-ONSHOR-032,MEG Unit,infrastructure,MEG Unit scope chip for ethylene_cracker (grassroots),263729.0,175820.0,439549.0,1220.0,KTA,Saudi Arabia,2024
+422,1004528,MOCK-ONSHOR-080,Infrastructure,osbl,Infrastructure scope chip for meg (grassroots),169880.0,113254.0,283134.0,1608.0,KTA,Belgium,2024
+423,1001804,MOCK-REFINE-086,Desalter Upgrade,infrastructure,Desalter Upgrade scope chip for hydrocracker (modification),16922.0,11282.0,28204.0,117999.0,BPD,Canada,2024
+424,1000356,MOCK-REFINE-017,Delayed Coker,infrastructure,Delayed Coker scope chip for reformer (modification),1356.0,904.0,2259.0,104228.0,BPD,Canada,2024
+425,1003622,MOCK-ONSHOR-037,Polyethylene Unit,osbl,Polyethylene Unit scope chip for polyethylene (expansion),64941.0,43294.0,108234.0,378.0,KTA,China,2024
+426,1008083,MOCK-OIL_SA-005,Utilities,infrastructure,Utilities scope chip for oil_sands_pad (grassroots),245216.0,163478.0,408694.0,75.0,KBPD,Canada,2024
+427,1005432,MOCK-OFFSHO-045,FPSO Hull,process_unit,FPSO Hull scope chip for fpso (grassroots),315729.0,210486.0,526215.0,232.0,KBPD,Nigeria,2024
+428,1004186,MOCK-ONSHOR-064,Olefins Cracker,infrastructure,Olefins Cracker scope chip for polyethylene (grassroots),125734.0,83823.0,209556.0,851.0,KTA,Singapore,2024
+429,1009071,MOCK-ONSHOR-008,Injection,osbl,Injection scope chip for gas_plant (expansion),129283.0,86189.0,215471.0,45.0,KBPD,Nigeria,2024
+430,1002485,MOCK-REFINE-115,CCR Reformer,process_unit,CCR Reformer scope chip for alkylation (modification),23725.0,15817.0,39542.0,44887.0,BPD,Singapore,2024
+431,1001975,MOCK-REFINE-092,FCC Modernization,osbl,FCC Modernization scope chip for reformer (modification),44728.0,29819.0,74547.0,91337.0,BPD,Singapore,2024
+432,1009430,MOCK-ONSHOR-028,Onsites Process,process_unit,Onsites Process scope chip for onshore_process (grassroots),72839.0,48559.0,121398.0,77.0,KBPD,Nigeria,2024
+433,1005157,MOCK-OFFSHO-031,SURF Flowlines,pipeline_segment,SURF Flowlines scope chip for fpso (grassroots),329040.0,219360.0,548401.0,214.0,KBPD,Angola,2024
+434,1007229,MOCK-GAS_PR-024,Utilities,infrastructure,Utilities scope chip for gas_plant_cryo (modification),2268.0,1512.0,3781.0,1119.0,MMSCFD,Canada,2024
+435,1004898,MOCK-OFFSHO-019,FPSO Hull,marine,FPSO Hull scope chip for fpso (grassroots),117433.0,78289.0,195722.0,225.0,KBPD,United States,2024
+436,1009333,MOCK-ONSHOR-022,Injection,osbl,Injection scope chip for onshore_process (grassroots),102804.0,68536.0,171340.0,147.0,KBPD,Kazakhstan,2024
+437,1008112,MOCK-OIL_SA-008,Utilities,storage,Utilities scope chip for bitumen (grassroots),188944.0,125963.0,314906.0,24.0,KBPD,Canada,2024
+438,1002174,MOCK-REFINE-103,Crude Unit Revamp,storage,Crude Unit Revamp scope chip for hydrocracker (expansion),24316.0,16211.0,40526.0,21208.0,BPD,Singapore,2024
+439,1000929,MOCK-REFINE-046,Offsites and Tank Farm,infrastructure,Offsites and Tank Farm scope chip for alkylation (modification),22545.0,15030.0,37576.0,42656.0,BPD,Canada,2024
+440,1006681,MOCK-ONSHOR-022,Pad Facilities,marine,Pad Facilities scope chip for train_cryogenic (expansion),1850.0,1233.0,3083.0,326.0,MMSCFD,United States,2024
+441,1007506,MOCK-GAS_PR-037,Injection Wells,pipeline_segment,Injection Wells scope chip for ccs (grassroots),74182.0,49455.0,123637.0,776.0,MMSCFD,United States,2024
+442,1008511,MOCK-REFINE-002,Delayed Coker,osbl,Delayed Coker scope chip for refinery (grassroots),1531383.0,1020922.0,2552306.0,329417.0,BPD,Saudi Arabia,2024
+443,1008299,MOCK-OIL_SA-017,Mining OPP,marine,Mining OPP scope chip for oil_sands_pad (modification),74691.0,49794.0,124485.0,112.0,KBPD,Canada,2024
+444,1008147,MOCK-OIL_SA-009,Utilities,pipeline_segment,Utilities scope chip for oil_sands_pad (expansion),104586.0,69724.0,174310.0,97.0,KBPD,Canada,2024
+445,1003384,MOCK-ONSHOR-022,Offsites,infrastructure,Offsites scope chip for ethylene_cracker (expansion),227466.0,151644.0,379110.0,1999.0,KTA,Belgium,2024
+446,1003199,MOCK-ONSHOR-013,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for polypropylene (modification),32258.0,21505.0,53764.0,1434.0,KTA,China,2024
+447,1009790,MOCK-ONSHOR-048,Injection,pipeline_segment,Injection scope chip for gas_plant (grassroots),52369.0,34912.0,87281.0,149.0,KBPD,Kazakhstan,2024
+448,1004057,MOCK-ONSHOR-057,Offsites,infrastructure,Offsites scope chip for meg (expansion),585209.0,390139.0,975348.0,345.0,KTA,Singapore,2024
+449,1008868,MOCK-REFINE-019,CCR Reformer,process_unit,CCR Reformer scope chip for refinery (grassroots),1607182.0,1071454.0,2678636.0,389310.0,BPD,United States,2024
+450,1009359,MOCK-ONSHOR-024,Infrastructure,storage,Infrastructure scope chip for compressor_station (grassroots),11548.0,7699.0,19247.0,114.0,KBPD,United States,2024
+451,1001327,MOCK-REFINE-065,Utilities Package,infrastructure,Utilities Package scope chip for hydrocracker (modification),1680.0,1120.0,2801.0,107256.0,BPD,United States,2024
+452,1007542,MOCK-GAS_PR-039,Compression,infrastructure,Compression scope chip for ngl_fractionation (grassroots),34285.0,22857.0,57142.0,414.0,MMSCFD,Kazakhstan,2024
+453,1001628,MOCK-REFINE-077,Delayed Coker,marine,Delayed Coker scope chip for coker (modification),1571.0,1047.0,2618.0,32996.0,BPD,United Kingdom,2024
+454,1007258,MOCK-GAS_PR-025,Compression,osbl,Compression scope chip for gas_plant_cryo (grassroots),40224.0,26816.0,67040.0,468.0,MMSCFD,United States,2024
+455,1008755,MOCK-REFINE-014,Flare System,storage,Flare System scope chip for renewable_diesel (grassroots),338121.0,225414.0,563535.0,262522.0,BPD,China,2024
+456,1002516,MOCK-REFINE-116,Alkylation Unit,pipeline_segment,Alkylation Unit scope chip for alkylation (modification),2010.0,1340.0,3350.0,65802.0,BPD,United States,2024
+457,1003059,MOCK-ONSHOR-006,Product Loading,osbl,Product Loading scope chip for ethylene_cracker (expansion),155847.0,103898.0,259746.0,272.0,KTA,China,2024
+458,1001678,MOCK-REFINE-079,Hydrogen Plant,process_unit,Hydrogen Plant scope chip for coker (expansion),114467.0,76311.0,190778.0,57716.0,BPD,United Kingdom,2024
+459,1006992,MOCK-GAS_PR-007,Injection Wells,process_unit,Injection Wells scope chip for ngl_fractionation (grassroots),38214.0,25476.0,63689.0,1060.0,MMSCFD,United States,2024
+460,1006494,MOCK-ONSHOR-008,Gathering Pipeline,marine,Gathering Pipeline scope chip for central_delivery_point (expansion),26763.0,17842.0,44605.0,326.0,MMSCFD,Canada,2024
+461,1002679,MOCK-REFINE-125,Hydrotreater,process_unit,Hydrotreater scope chip for alkylation (expansion),57167.0,38111.0,95279.0,12545.0,BPD,United States,2024
+462,1002869,MOCK-REFINE-136,Flare System,process_unit,Flare System scope chip for fcc (modification),20942.0,13961.0,34903.0,106203.0,BPD,Canada,2024
+463,1006137,MOCK-PIPELI-037,Metering Station,process_unit,Metering Station scope chip for pipeline (grassroots),33410.0,22274.0,55684.0,482.0,km,Australia,2024
+464,1002633,MOCK-REFINE-123,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for fcc (modification),28618.0,19079.0,47697.0,106620.0,BPD,Canada,2024
+465,1006522,MOCK-ONSHOR-011,Compression Station,process_unit,Compression Station scope chip for cryo_gas_processing (expansion),2741.0,1828.0,4569.0,350.0,MMSCFD,United States,2024
+466,1001004,MOCK-REFINE-050,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for crude_unit (modification),53896.0,35931.0,89827.0,114063.0,BPD,Belgium,2024
+467,1007556,MOCK-LNG_ON-001,Jetty and Loading,process_unit,Jetty and Loading scope chip for lng_terminal (expansion),329558.0,219706.0,549264.0,7.1,MTPA,Australia,2024
+468,1002007,MOCK-REFINE-094,Utilities Package,marine,Utilities Package scope chip for fcc (modification),1293.0,862.0,2154.0,103806.0,BPD,Australia,2024
+469,1004729,MOCK-OFFSHO-009,Umbilicals,infrastructure,Umbilicals scope chip for platform (grassroots),520577.0,347052.0,867629.0,110.0,KBPD,Brazil,2024
+470,1003420,MOCK-ONSHOR-026,MEG Unit,osbl,MEG Unit scope chip for meg (grassroots),8529.0,5686.0,14215.0,985.0,KTA,United States,2024
+471,1003363,MOCK-ONSHOR-020,Polypropylene Unit,storage,Polypropylene Unit scope chip for meg (modification),7367.0,4911.0,12278.0,448.0,KTA,Canada,2024
+472,1009162,MOCK-ONSHOR-013,Onsites Process,process_unit,Onsites Process scope chip for onshore_process (grassroots),142522.0,95014.0,237536.0,28.0,KBPD,Kazakhstan,2024
+473,1007162,MOCK-GAS_PR-019,CO2 Capture Facilities,process_unit,CO2 Capture Facilities scope chip for ccs (grassroots),30719.0,20479.0,51198.0,680.0,MMSCFD,Australia,2024
+474,1002384,MOCK-REFINE-111,Flare System,osbl,Flare System scope chip for hydrotreater (modification),20114.0,13409.0,33523.0,103438.0,BPD,Canada,2024
+475,1003389,MOCK-ONSHOR-023,Product Loading,osbl,Product Loading scope chip for polypropylene (grassroots),149028.0,99352.0,248380.0,965.0,KTA,Canada,2024
+476,1005270,MOCK-OFFSHO-037,Drilling Wells,pipeline_segment,Drilling Wells scope chip for fpso (grassroots),484801.0,323201.0,808001.0,116.0,KBPD,Brazil,2024
+477,1006197,MOCK-PIPELI-040,Pump Station,process_unit,Pump Station scope chip for pipeline_gathering (grassroots),17249.0,11499.0,28748.0,688.0,km,United States,2024
+478,1003521,MOCK-ONSHOR-032,Product Loading,pipeline_segment,Product Loading scope chip for ethylene_cracker (grassroots),45158.0,30105.0,75263.0,1220.0,KTA,Saudi Arabia,2024
+479,1004528,MOCK-ONSHOR-080,Infrastructure,process_unit,Infrastructure scope chip for meg (grassroots),40858.0,27238.0,68096.0,1608.0,KTA,Belgium,2024
+480,1001804,MOCK-REFINE-086,Utilities Package,pipeline_segment,Utilities Package scope chip for hydrocracker (modification),5437.0,3625.0,9062.0,117999.0,BPD,Canada,2024
+481,1000356,MOCK-REFINE-017,Flare System,marine,Flare System scope chip for reformer (modification),3404.0,2269.0,5674.0,104228.0,BPD,Canada,2024
+482,1003622,MOCK-ONSHOR-037,Polyethylene Unit,osbl,Polyethylene Unit scope chip for polyethylene (expansion),74114.0,49409.0,123523.0,378.0,KTA,China,2024
+483,1008083,MOCK-OIL_SA-005,Mining OPP,process_unit,Mining OPP scope chip for oil_sands_pad (grassroots),211040.0,140694.0,351734.0,75.0,KBPD,Canada,2024
+484,1005432,MOCK-OFFSHO-045,FPSO Topsides,process_unit,FPSO Topsides scope chip for fpso (grassroots),278143.0,185429.0,463572.0,232.0,KBPD,Nigeria,2024
+485,1004186,MOCK-ONSHOR-064,MEG Unit,pipeline_segment,MEG Unit scope chip for polyethylene (grassroots),66571.0,44381.0,110952.0,851.0,KTA,Singapore,2024
+486,1009071,MOCK-ONSHOR-008,Onsites Process,process_unit,Onsites Process scope chip for gas_plant (expansion),67956.0,45304.0,113260.0,45.0,KBPD,Nigeria,2024
+487,1002485,MOCK-REFINE-115,Alkylation Unit,pipeline_segment,Alkylation Unit scope chip for alkylation (modification),23371.0,15581.0,38952.0,44887.0,BPD,Singapore,2024
+488,1001975,MOCK-REFINE-092,Furnace Replacement,pipeline_segment,Furnace Replacement scope chip for reformer (modification),46080.0,30720.0,76800.0,91337.0,BPD,Singapore,2024
+489,1009430,MOCK-ONSHOR-028,Storage,infrastructure,Storage scope chip for onshore_process (grassroots),34031.0,22688.0,56719.0,77.0,KBPD,Nigeria,2024
+490,1005157,MOCK-OFFSHO-031,Risers,process_unit,Risers scope chip for fpso (grassroots),631924.0,421283.0,1053206.0,214.0,KBPD,Angola,2024
+491,1007229,MOCK-GAS_PR-024,Dehydration,storage,Dehydration scope chip for gas_plant_cryo (modification),1912.0,1274.0,3186.0,1119.0,MMSCFD,Canada,2024
+492,1004898,MOCK-OFFSHO-019,Umbilicals,process_unit,Umbilicals scope chip for fpso (grassroots),124994.0,83329.0,208324.0,225.0,KBPD,United States,2024
+493,1009333,MOCK-ONSHOR-022,Compression,storage,Compression scope chip for onshore_process (grassroots),135828.0,90552.0,226380.0,147.0,KBPD,Kazakhstan,2024
+494,1008112,MOCK-OIL_SA-008,Extraction,infrastructure,Extraction scope chip for bitumen (grassroots),657525.0,438350.0,1095874.0,24.0,KBPD,Canada,2024
+495,1002174,MOCK-REFINE-103,Desalter Upgrade,process_unit,Desalter Upgrade scope chip for hydrocracker (expansion),31409.0,20939.0,52348.0,21208.0,BPD,Singapore,2024
+496,1000929,MOCK-REFINE-046,Offsites and Tank Farm,pipeline_segment,Offsites and Tank Farm scope chip for alkylation (modification),13673.0,9116.0,22789.0,42656.0,BPD,Canada,2024
+497,1006681,MOCK-ONSHOR-022,Central Delivery Point,process_unit,Central Delivery Point scope chip for train_cryogenic (expansion),1639.0,1093.0,2732.0,326.0,MMSCFD,United States,2024
+498,1007506,MOCK-GAS_PR-037,Dehydration,process_unit,Dehydration scope chip for ccs (grassroots),15167.0,10111.0,25278.0,776.0,MMSCFD,United States,2024
+499,1008511,MOCK-REFINE-002,Furnace Replacement,pipeline_segment,Furnace Replacement scope chip for refinery (grassroots),344921.0,229948.0,574869.0,329417.0,BPD,Saudi Arabia,2024
+500,1008299,MOCK-OIL_SA-017,Utilities,process_unit,Utilities scope chip for oil_sands_pad (modification),41449.0,27633.0,69082.0,112.0,KBPD,Canada,2024
+501,1008147,MOCK-OIL_SA-009,Mining OPP,process_unit,Mining OPP scope chip for oil_sands_pad (expansion),93315.0,62210.0,155526.0,97.0,KBPD,Canada,2024
+502,1003384,MOCK-ONSHOR-022,Olefins Cracker,marine,Olefins Cracker scope chip for ethylene_cracker (expansion),594816.0,396544.0,991361.0,1999.0,KTA,Belgium,2024
+503,1003199,MOCK-ONSHOR-013,Olefins Cracker,process_unit,Olefins Cracker scope chip for polypropylene (modification),14719.0,9813.0,24532.0,1434.0,KTA,China,2024
+504,1009790,MOCK-ONSHOR-048,Infrastructure,process_unit,Infrastructure scope chip for gas_plant (grassroots),185101.0,123401.0,308502.0,149.0,KBPD,Kazakhstan,2024
+505,1004057,MOCK-ONSHOR-057,Polyethylene Unit,storage,Polyethylene Unit scope chip for meg (expansion),583409.0,388939.0,972349.0,345.0,KTA,Singapore,2024
+506,1008868,MOCK-REFINE-019,Offsites and Tank Farm,marine,Offsites and Tank Farm scope chip for refinery (grassroots),191596.0,127730.0,319326.0,389310.0,BPD,United States,2024
+507,1009359,MOCK-ONSHOR-024,Injection,storage,Injection scope chip for compressor_station (grassroots),83092.0,55395.0,138487.0,114.0,KBPD,United States,2024
+508,1001327,MOCK-REFINE-065,Furnace Replacement,storage,Furnace Replacement scope chip for hydrocracker (modification),2295.0,1530.0,3825.0,107256.0,BPD,United States,2024
+509,1007542,MOCK-GAS_PR-039,Cryogenic Gas Plant,osbl,Cryogenic Gas Plant scope chip for ngl_fractionation (grassroots),100897.0,67265.0,168162.0,414.0,MMSCFD,Kazakhstan,2024
+510,1001628,MOCK-REFINE-077,Delayed Coker,pipeline_segment,Delayed Coker scope chip for coker (modification),1306.0,871.0,2176.0,32996.0,BPD,United Kingdom,2024
+511,1007258,MOCK-GAS_PR-025,NGL Fractionation,osbl,NGL Fractionation scope chip for gas_plant_cryo (grassroots),66660.0,44440.0,111100.0,468.0,MMSCFD,United States,2024
+512,1008755,MOCK-REFINE-014,Hydrocracker Reactor,osbl,Hydrocracker Reactor scope chip for renewable_diesel (grassroots),58210.0,38807.0,97017.0,262522.0,BPD,China,2024
+513,1002516,MOCK-REFINE-116,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for alkylation (modification),4563.0,3042.0,7605.0,65802.0,BPD,United States,2024
+514,1003059,MOCK-ONSHOR-006,Polypropylene Unit,osbl,Polypropylene Unit scope chip for ethylene_cracker (expansion),424965.0,283310.0,708275.0,272.0,KTA,China,2024
+515,1001678,MOCK-REFINE-079,CCR Reformer,process_unit,CCR Reformer scope chip for coker (expansion),36715.0,24477.0,61191.0,57716.0,BPD,United Kingdom,2024
+516,1006992,MOCK-GAS_PR-007,Cryogenic Gas Plant,pipeline_segment,Cryogenic Gas Plant scope chip for ngl_fractionation (grassroots),17399.0,11599.0,28999.0,1060.0,MMSCFD,United States,2024
+517,1006494,MOCK-ONSHOR-008,Compression Station,osbl,Compression Station scope chip for central_delivery_point (expansion),40022.0,26682.0,66704.0,326.0,MMSCFD,Canada,2024
+518,1002679,MOCK-REFINE-125,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for alkylation (expansion),12316.0,8210.0,20526.0,12545.0,BPD,United States,2024
+519,1002869,MOCK-REFINE-136,Hydrogen Plant,process_unit,Hydrogen Plant scope chip for fcc (modification),17556.0,11704.0,29260.0,106203.0,BPD,Canada,2024
+520,1006137,MOCK-PIPELI-037,HDD Crossing,pipeline_segment,HDD Crossing scope chip for pipeline (grassroots),6940.0,4627.0,11567.0,482.0,km,Australia,2024
+521,1002633,MOCK-REFINE-123,Utilities Package,process_unit,Utilities Package scope chip for fcc (modification),11615.0,7744.0,19359.0,106620.0,BPD,Canada,2024
+522,1006522,MOCK-ONSHOR-011,Compression Station,osbl,Compression Station scope chip for cryo_gas_processing (expansion),4405.0,2937.0,7341.0,350.0,MMSCFD,United States,2024
+523,1001004,MOCK-REFINE-050,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for crude_unit (modification),49193.0,32796.0,81989.0,114063.0,BPD,Belgium,2024
+524,1007556,MOCK-LNG_ON-001,LNG Storage,process_unit,LNG Storage scope chip for lng_terminal (expansion),558900.0,372600.0,931500.0,7.1,MTPA,Australia,2024
+525,1002007,MOCK-REFINE-094,Furnace Replacement,process_unit,Furnace Replacement scope chip for fcc (modification),1062.0,708.0,1771.0,103806.0,BPD,Australia,2024
+526,1004729,MOCK-OFFSHO-009,Umbilicals,process_unit,Umbilicals scope chip for platform (grassroots),1213241.0,808827.0,2022069.0,110.0,KBPD,Brazil,2024
+527,1003420,MOCK-ONSHOR-026,Olefins Cracker,storage,Olefins Cracker scope chip for meg (grassroots),29798.0,19866.0,49664.0,985.0,KTA,United States,2024
+528,1003363,MOCK-ONSHOR-020,Utilities Package,process_unit,Utilities Package scope chip for meg (modification),17015.0,11344.0,28359.0,448.0,KTA,Canada,2024
+529,1009162,MOCK-ONSHOR-013,Compression,process_unit,Compression scope chip for onshore_process (grassroots),104972.0,69981.0,174953.0,28.0,KBPD,Kazakhstan,2024
+530,1007162,MOCK-GAS_PR-019,Dehydration,pipeline_segment,Dehydration scope chip for ccs (grassroots),14820.0,9880.0,24699.0,680.0,MMSCFD,Australia,2024
+531,1002384,MOCK-REFINE-111,FCC Modernization,pipeline_segment,FCC Modernization scope chip for hydrotreater (modification),18709.0,12472.0,31181.0,103438.0,BPD,Canada,2024
+532,1003389,MOCK-ONSHOR-023,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for polypropylene (grassroots),168694.0,112463.0,281157.0,965.0,KTA,Canada,2024
+533,1005270,MOCK-OFFSHO-037,FPSO Topsides,pipeline_segment,FPSO Topsides scope chip for fpso (grassroots),1346480.0,897653.0,2244134.0,116.0,KBPD,Brazil,2024
+534,1006197,MOCK-PIPELI-040,Export Pipeline,storage,Export Pipeline scope chip for pipeline_gathering (grassroots),19614.0,13076.0,32689.0,688.0,km,United States,2024
+535,1003521,MOCK-ONSHOR-032,Offsites,process_unit,Offsites scope chip for ethylene_cracker (grassroots),258501.0,172334.0,430835.0,1220.0,KTA,Saudi Arabia,2024
+536,1004528,MOCK-ONSHOR-080,Polyethylene Unit,osbl,Polyethylene Unit scope chip for meg (grassroots),28107.0,18738.0,46845.0,1608.0,KTA,Belgium,2024
+537,1001804,MOCK-REFINE-086,Offsites and Tank Farm,storage,Offsites and Tank Farm scope chip for hydrocracker (modification),21349.0,14233.0,35582.0,117999.0,BPD,Canada,2024
+538,1000356,MOCK-REFINE-017,Hydrotreater,osbl,Hydrotreater scope chip for reformer (modification),1593.0,1062.0,2655.0,104228.0,BPD,Canada,2024
+539,1003622,MOCK-ONSHOR-037,Utilities Package,osbl,Utilities Package scope chip for polyethylene (expansion),28529.0,19020.0,47549.0,378.0,KTA,China,2024
+540,1008083,MOCK-OIL_SA-005,Tailings,process_unit,Tailings scope chip for oil_sands_pad (grassroots),353188.0,235458.0,588646.0,75.0,KBPD,Canada,2024
+541,1005432,MOCK-OFFSHO-045,Risers,osbl,Risers scope chip for fpso (grassroots),133125.0,88750.0,221876.0,232.0,KBPD,Nigeria,2024
+542,1004186,MOCK-ONSHOR-064,Infrastructure,process_unit,Infrastructure scope chip for polyethylene (grassroots),41457.0,27638.0,69095.0,851.0,KTA,Singapore,2024
+543,1009071,MOCK-ONSHOR-008,Onsites Process,process_unit,Onsites Process scope chip for gas_plant (expansion),152201.0,101467.0,253668.0,45.0,KBPD,Nigeria,2024
+544,1002485,MOCK-REFINE-115,Utilities Package,osbl,Utilities Package scope chip for alkylation (modification),42333.0,28222.0,70556.0,44887.0,BPD,Singapore,2024
+545,1001975,MOCK-REFINE-092,Hydrogen Plant,process_unit,Hydrogen Plant scope chip for reformer (modification),27227.0,18151.0,45378.0,91337.0,BPD,Singapore,2024
+546,1009430,MOCK-ONSHOR-028,Compression,pipeline_segment,Compression scope chip for onshore_process (grassroots),130394.0,86929.0,217323.0,77.0,KBPD,Nigeria,2024
+547,1005157,MOCK-OFFSHO-031,FPSO Hull,process_unit,FPSO Hull scope chip for fpso (grassroots),202279.0,134852.0,337131.0,214.0,KBPD,Angola,2024
+548,1007229,MOCK-GAS_PR-024,Dehydration,infrastructure,Dehydration scope chip for gas_plant_cryo (modification),4430.0,2954.0,7384.0,1119.0,MMSCFD,Canada,2024
+549,1004898,MOCK-OFFSHO-019,SURF Flowlines,process_unit,SURF Flowlines scope chip for fpso (grassroots),98790.0,65860.0,164650.0,225.0,KBPD,United States,2024
+550,1009333,MOCK-ONSHOR-022,Storage,process_unit,Storage scope chip for onshore_process (grassroots),29004.0,19336.0,48340.0,147.0,KBPD,Kazakhstan,2024
+551,1008112,MOCK-OIL_SA-008,Extraction,process_unit,Extraction scope chip for bitumen (grassroots),344909.0,229940.0,574849.0,24.0,KBPD,Canada,2024
+552,1002174,MOCK-REFINE-103,Utilities Package,osbl,Utilities Package scope chip for hydrocracker (expansion),38278.0,25519.0,63796.0,21208.0,BPD,Singapore,2024
+553,1000929,MOCK-REFINE-046,Hydrotreater,marine,Hydrotreater scope chip for alkylation (modification),6049.0,4033.0,10081.0,42656.0,BPD,Canada,2024
+554,1006681,MOCK-ONSHOR-022,Gathering Pipeline,infrastructure,Gathering Pipeline scope chip for train_cryogenic (expansion),14485.0,9657.0,24141.0,326.0,MMSCFD,United States,2024
+555,1007506,MOCK-GAS_PR-037,Compression,process_unit,Compression scope chip for ccs (grassroots),36860.0,24573.0,61433.0,776.0,MMSCFD,United States,2024
+556,1008511,MOCK-REFINE-002,FCC Modernization,process_unit,FCC Modernization scope chip for refinery (grassroots),773293.0,515529.0,1288822.0,329417.0,BPD,Saudi Arabia,2024
+557,1008299,MOCK-OIL_SA-017,Infrastructure,osbl,Infrastructure scope chip for oil_sands_pad (modification),111431.0,74287.0,185718.0,112.0,KBPD,Canada,2024
+558,1008147,MOCK-OIL_SA-009,Tailings,marine,Tailings scope chip for oil_sands_pad (expansion),90926.0,60617.0,151543.0,97.0,KBPD,Canada,2024
+559,1003384,MOCK-ONSHOR-022,Infrastructure,osbl,Infrastructure scope chip for ethylene_cracker (expansion),492968.0,328645.0,821613.0,1999.0,KTA,Belgium,2024
+560,1003199,MOCK-ONSHOR-013,Polypropylene Unit,infrastructure,Polypropylene Unit scope chip for polypropylene (modification),57134.0,38090.0,95224.0,1434.0,KTA,China,2024
+561,1009790,MOCK-ONSHOR-048,Injection,storage,Injection scope chip for gas_plant (grassroots),214533.0,143022.0,357556.0,149.0,KBPD,Kazakhstan,2024
+562,1004057,MOCK-ONSHOR-057,Polypropylene Unit,marine,Polypropylene Unit scope chip for meg (expansion),201168.0,134112.0,335280.0,345.0,KTA,Singapore,2024
+563,1008868,MOCK-REFINE-019,Hydrogen Plant,process_unit,Hydrogen Plant scope chip for refinery (grassroots),195099.0,130066.0,325166.0,389310.0,BPD,United States,2024
+564,1009359,MOCK-ONSHOR-024,Storage,osbl,Storage scope chip for compressor_station (grassroots),68770.0,45846.0,114616.0,114.0,KBPD,United States,2024
+565,1001327,MOCK-REFINE-065,CCR Reformer,process_unit,CCR Reformer scope chip for hydrocracker (modification),771.0,514.0,1285.0,107256.0,BPD,United States,2024
+566,1007542,MOCK-GAS_PR-039,Utilities,process_unit,Utilities scope chip for ngl_fractionation (grassroots),42502.0,28334.0,70836.0,414.0,MMSCFD,Kazakhstan,2024
+567,1001628,MOCK-REFINE-077,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for coker (modification),1977.0,1318.0,3296.0,32996.0,BPD,United Kingdom,2024
+568,1007258,MOCK-GAS_PR-025,CO2 Capture Facilities,osbl,CO2 Capture Facilities scope chip for gas_plant_cryo (grassroots),28163.0,18776.0,46939.0,468.0,MMSCFD,United States,2024
+569,1008755,MOCK-REFINE-014,Delayed Coker,process_unit,Delayed Coker scope chip for renewable_diesel (grassroots),498604.0,332403.0,831007.0,262522.0,BPD,China,2024
+570,1002516,MOCK-REFINE-116,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for alkylation (modification),3742.0,2494.0,6236.0,65802.0,BPD,United States,2024
+571,1003059,MOCK-ONSHOR-006,MEG Unit,infrastructure,MEG Unit scope chip for ethylene_cracker (expansion),379719.0,253146.0,632865.0,272.0,KTA,China,2024
+572,1001678,MOCK-REFINE-079,Flare System,process_unit,Flare System scope chip for coker (expansion),122643.0,81762.0,204405.0,57716.0,BPD,United Kingdom,2024
+573,1006992,MOCK-GAS_PR-007,CO2 Capture Facilities,process_unit,CO2 Capture Facilities scope chip for ngl_fractionation (grassroots),41946.0,27964.0,69911.0,1060.0,MMSCFD,United States,2024
+574,1006494,MOCK-ONSHOR-008,Compression Station,osbl,Compression Station scope chip for central_delivery_point (expansion),19737.0,13158.0,32895.0,326.0,MMSCFD,Canada,2024
+575,1002679,MOCK-REFINE-125,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for alkylation (expansion),67079.0,44720.0,111799.0,12545.0,BPD,United States,2024
+576,1002869,MOCK-REFINE-136,Alkylation Unit,process_unit,Alkylation Unit scope chip for fcc (modification),18614.0,12410.0,31024.0,106203.0,BPD,Canada,2024
+577,1006137,MOCK-PIPELI-037,Metering Station,pipeline_segment,Metering Station scope chip for pipeline (grassroots),9392.0,6262.0,15654.0,482.0,km,Australia,2024
+578,1002633,MOCK-REFINE-123,Offsites and Tank Farm,process_unit,Offsites and Tank Farm scope chip for fcc (modification),35419.0,23613.0,59032.0,106620.0,BPD,Canada,2024
+579,1006522,MOCK-ONSHOR-011,Compression Station,infrastructure,Compression Station scope chip for cryo_gas_processing (expansion),3797.0,2532.0,6329.0,350.0,MMSCFD,United States,2024
+580,1001004,MOCK-REFINE-050,Hydrotreater,process_unit,Hydrotreater scope chip for crude_unit (modification),27817.0,18545.0,46362.0,114063.0,BPD,Belgium,2024
+581,1007556,MOCK-LNG_ON-001,Liquefaction Train,osbl,Liquefaction Train scope chip for lng_terminal (expansion),154867.0,103245.0,258112.0,7.1,MTPA,Australia,2024
+582,1002007,MOCK-REFINE-094,Utilities Package,infrastructure,Utilities Package scope chip for fcc (modification),3751.0,2501.0,6252.0,103806.0,BPD,Australia,2024
+583,1004729,MOCK-OFFSHO-009,FPSO Hull,process_unit,FPSO Hull scope chip for platform (grassroots),363810.0,242540.0,606351.0,110.0,KBPD,Brazil,2024
+584,1003420,MOCK-ONSHOR-026,Infrastructure,marine,Infrastructure scope chip for meg (grassroots),26753.0,17835.0,44588.0,985.0,KTA,United States,2024
+585,1003363,MOCK-ONSHOR-020,Infrastructure,osbl,Infrastructure scope chip for meg (modification),9159.0,6106.0,15266.0,448.0,KTA,Canada,2024
+586,1009162,MOCK-ONSHOR-013,Infrastructure,storage,Infrastructure scope chip for onshore_process (grassroots),48489.0,32326.0,80814.0,28.0,KBPD,Kazakhstan,2024
+587,1007162,MOCK-GAS_PR-019,Utilities,storage,Utilities scope chip for ccs (grassroots),27767.0,18511.0,46278.0,680.0,MMSCFD,Australia,2024
+588,1002384,MOCK-REFINE-111,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for hydrotreater (modification),12861.0,8574.0,21434.0,103438.0,BPD,Canada,2024
+589,1003389,MOCK-ONSHOR-023,Polyethylene Unit,process_unit,Polyethylene Unit scope chip for polypropylene (grassroots),163447.0,108965.0,272411.0,965.0,KTA,Canada,2024
+590,1005270,MOCK-OFFSHO-037,Mooring System,process_unit,Mooring System scope chip for fpso (grassroots),1452513.0,968342.0,2420854.0,116.0,KBPD,Brazil,2024
+591,1006197,MOCK-PIPELI-040,Export Pipeline,process_unit,Export Pipeline scope chip for pipeline_gathering (grassroots),25438.0,16959.0,42397.0,688.0,km,United States,2024
+592,1003521,MOCK-ONSHOR-032,Polypropylene Unit,osbl,Polypropylene Unit scope chip for ethylene_cracker (grassroots),88756.0,59171.0,147927.0,1220.0,KTA,Saudi Arabia,2024
+593,1004528,MOCK-ONSHOR-080,Offsites,process_unit,Offsites scope chip for meg (grassroots),102318.0,68212.0,170530.0,1608.0,KTA,Belgium,2024
+594,1001804,MOCK-REFINE-086,Offsites and Tank Farm,pipeline_segment,Offsites and Tank Farm scope chip for hydrocracker (modification),6760.0,4507.0,11267.0,117999.0,BPD,Canada,2024
+595,1000356,MOCK-REFINE-017,FCC Modernization,process_unit,FCC Modernization scope chip for reformer (modification),1263.0,842.0,2105.0,104228.0,BPD,Canada,2024
+596,1003622,MOCK-ONSHOR-037,Storage Tank Farm,pipeline_segment,Storage Tank Farm scope chip for polyethylene (expansion),45463.0,30309.0,75772.0,378.0,KTA,China,2024
+597,1008083,MOCK-OIL_SA-005,Extraction,marine,Extraction scope chip for oil_sands_pad (grassroots),210758.0,140505.0,351264.0,75.0,KBPD,Canada,2024
+598,1005432,MOCK-OFFSHO-045,Subsea Trees,pipeline_segment,Subsea Trees scope chip for fpso (grassroots),422505.0,281670.0,704174.0,232.0,KBPD,Nigeria,2024
+599,1004186,MOCK-ONSHOR-064,Storage Tank Farm,infrastructure,Storage Tank Farm scope chip for polyethylene (grassroots),31101.0,20734.0,51835.0,851.0,KTA,Singapore,2024
+600,1009071,MOCK-ONSHOR-008,Storage,process_unit,Storage scope chip for gas_plant (expansion),174477.0,116318.0,290795.0,45.0,KBPD,Nigeria,2024
+601,1002485,MOCK-REFINE-115,Offsites and Tank Farm,osbl,Offsites and Tank Farm scope chip for alkylation (modification),11602.0,7735.0,19336.0,44887.0,BPD,Singapore,2024
+602,1001975,MOCK-REFINE-092,Desalter Upgrade,process_unit,Desalter Upgrade scope chip for reformer (modification),55057.0,36705.0,91762.0,91337.0,BPD,Singapore,2024
+603,1009430,MOCK-ONSHOR-028,Injection,process_unit,Injection scope chip for onshore_process (grassroots),120764.0,80509.0,201273.0,77.0,KBPD,Nigeria,2024
+604,1005157,MOCK-OFFSHO-031,FPSO Topsides,storage,FPSO Topsides scope chip for fpso (grassroots),238917.0,159278.0,398194.0,214.0,KBPD,Angola,2024
+605,1007229,MOCK-GAS_PR-024,Compression,infrastructure,Compression scope chip for gas_plant_cryo (modification),6955.0,4636.0,11591.0,1119.0,MMSCFD,Canada,2024
+606,1004898,MOCK-OFFSHO-019,FPSO Hull,osbl,FPSO Hull scope chip for fpso (grassroots),286393.0,190929.0,477322.0,225.0,KBPD,United States,2024
+607,1009333,MOCK-ONSHOR-022,Infrastructure,infrastructure,Infrastructure scope chip for onshore_process (grassroots),115563.0,77042.0,192606.0,147.0,KBPD,Kazakhstan,2024
+608,1008112,MOCK-OIL_SA-008,Infrastructure,pipeline_segment,Infrastructure scope chip for bitumen (grassroots),137178.0,91452.0,228631.0,24.0,KBPD,Canada,2024
+609,1002174,MOCK-REFINE-103,Utilities Package,process_unit,Utilities Package scope chip for hydrocracker (expansion),11745.0,7830.0,19575.0,21208.0,BPD,Singapore,2024
+610,1000929,MOCK-REFINE-046,Delayed Coker,process_unit,Delayed Coker scope chip for alkylation (modification),32875.0,21916.0,54791.0,42656.0,BPD,Canada,2024
+611,1006681,MOCK-ONSHOR-022,Gathering Pipeline,marine,Gathering Pipeline scope chip for train_cryogenic (expansion),2305.0,1537.0,3842.0,326.0,MMSCFD,United States,2024
+612,1007506,MOCK-GAS_PR-037,CO2 Capture Facilities,pipeline_segment,CO2 Capture Facilities scope chip for ccs (grassroots),8997.0,5998.0,14994.0,776.0,MMSCFD,United States,2024
+613,1008511,MOCK-REFINE-002,Hydrotreater,osbl,Hydrotreater scope chip for refinery (grassroots),1599937.0,1066625.0,2666562.0,329417.0,BPD,Saudi Arabia,2024
+614,1008299,MOCK-OIL_SA-017,Utilities,process_unit,Utilities scope chip for oil_sands_pad (modification),74352.0,49568.0,123919.0,112.0,KBPD,Canada,2024
+615,1008147,MOCK-OIL_SA-009,Tailings,storage,Tailings scope chip for oil_sands_pad (expansion),93793.0,62529.0,156321.0,97.0,KBPD,Canada,2024
+616,1003384,MOCK-ONSHOR-022,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for ethylene_cracker (expansion),218721.0,145814.0,364535.0,1999.0,KTA,Belgium,2024
+617,1003199,MOCK-ONSHOR-013,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for polypropylene (modification),7627.0,5085.0,12712.0,1434.0,KTA,China,2024
+618,1009790,MOCK-ONSHOR-048,Injection,process_unit,Injection scope chip for gas_plant (grassroots),200776.0,133851.0,334627.0,149.0,KBPD,Kazakhstan,2024
+619,1004057,MOCK-ONSHOR-057,Olefins Cracker,osbl,Olefins Cracker scope chip for meg (expansion),446096.0,297397.0,743493.0,345.0,KTA,Singapore,2024
+620,1008868,MOCK-REFINE-019,Delayed Coker,process_unit,Delayed Coker scope chip for refinery (grassroots),1966792.0,1311194.0,3277986.0,389310.0,BPD,United States,2024
+621,1009359,MOCK-ONSHOR-024,Storage,pipeline_segment,Storage scope chip for compressor_station (grassroots),18418.0,12278.0,30696.0,114.0,KBPD,United States,2024
+622,1001327,MOCK-REFINE-065,Delayed Coker,process_unit,Delayed Coker scope chip for hydrocracker (modification),906.0,604.0,1510.0,107256.0,BPD,United States,2024
+623,1007542,MOCK-GAS_PR-039,Cryogenic Gas Plant,process_unit,Cryogenic Gas Plant scope chip for ngl_fractionation (grassroots),95279.0,63520.0,158799.0,414.0,MMSCFD,Kazakhstan,2024
+624,1001628,MOCK-REFINE-077,Hydrotreater,pipeline_segment,Hydrotreater scope chip for coker (modification),1302.0,868.0,2170.0,32996.0,BPD,United Kingdom,2024
+625,1007258,MOCK-GAS_PR-025,NGL Fractionation,marine,NGL Fractionation scope chip for gas_plant_cryo (grassroots),25196.0,16798.0,41994.0,468.0,MMSCFD,United States,2024
+626,1008755,MOCK-REFINE-014,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for renewable_diesel (grassroots),275065.0,183377.0,458441.0,262522.0,BPD,China,2024
+627,1002516,MOCK-REFINE-116,Utilities Package,storage,Utilities Package scope chip for alkylation (modification),4331.0,2888.0,7219.0,65802.0,BPD,United States,2024
+628,1003059,MOCK-ONSHOR-006,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for ethylene_cracker (expansion),178866.0,119244.0,298111.0,272.0,KTA,China,2024
+629,1001678,MOCK-REFINE-079,CCR Reformer,process_unit,CCR Reformer scope chip for coker (expansion),20489.0,13659.0,34148.0,57716.0,BPD,United Kingdom,2024
+630,1006992,MOCK-GAS_PR-007,Dehydration,marine,Dehydration scope chip for ngl_fractionation (grassroots),20333.0,13555.0,33888.0,1060.0,MMSCFD,United States,2024
+631,1006494,MOCK-ONSHOR-008,Pad Facilities,storage,Pad Facilities scope chip for central_delivery_point (expansion),52042.0,34695.0,86736.0,326.0,MMSCFD,Canada,2024
+632,1002679,MOCK-REFINE-125,Hydrogen Plant,process_unit,Hydrogen Plant scope chip for alkylation (expansion),80060.0,53373.0,133433.0,12545.0,BPD,United States,2024
+633,1002869,MOCK-REFINE-136,Furnace Replacement,process_unit,Furnace Replacement scope chip for fcc (modification),53666.0,35777.0,89444.0,106203.0,BPD,Canada,2024
+634,1006137,MOCK-PIPELI-037,Metering Station,marine,Metering Station scope chip for pipeline (grassroots),34021.0,22681.0,56701.0,482.0,km,Australia,2024
+635,1002633,MOCK-REFINE-123,Alkylation Unit,pipeline_segment,Alkylation Unit scope chip for fcc (modification),13954.0,9303.0,23257.0,106620.0,BPD,Canada,2024
+636,1006522,MOCK-ONSHOR-011,Water Handling,process_unit,Water Handling scope chip for cryo_gas_processing (expansion),881.0,588.0,1469.0,350.0,MMSCFD,United States,2024
+637,1001004,MOCK-REFINE-050,Hydrotreater,pipeline_segment,Hydrotreater scope chip for crude_unit (modification),14339.0,9560.0,23899.0,114063.0,BPD,Belgium,2024
+638,1007556,MOCK-LNG_ON-001,Infrastructure,infrastructure,Infrastructure scope chip for lng_terminal (expansion),70664.0,47109.0,117773.0,7.1,MTPA,Australia,2024
+639,1002007,MOCK-REFINE-094,Delayed Coker,process_unit,Delayed Coker scope chip for fcc (modification),3841.0,2561.0,6402.0,103806.0,BPD,Australia,2024
+640,1004729,MOCK-OFFSHO-009,Mooring System,osbl,Mooring System scope chip for platform (grassroots),759042.0,506028.0,1265070.0,110.0,KBPD,Brazil,2024
+641,1003420,MOCK-ONSHOR-026,Utilities Package,marine,Utilities Package scope chip for meg (grassroots),34125.0,22750.0,56875.0,985.0,KTA,United States,2024
+642,1003363,MOCK-ONSHOR-020,Polypropylene Unit,process_unit,Polypropylene Unit scope chip for meg (modification),13302.0,8868.0,22170.0,448.0,KTA,Canada,2024
+643,1009162,MOCK-ONSHOR-013,Compression,process_unit,Compression scope chip for onshore_process (grassroots),174186.0,116124.0,290311.0,28.0,KBPD,Kazakhstan,2024
+644,1007162,MOCK-GAS_PR-019,Injection Wells,osbl,Injection Wells scope chip for ccs (grassroots),41780.0,27853.0,69633.0,680.0,MMSCFD,Australia,2024
+645,1002384,MOCK-REFINE-111,FCC Modernization,process_unit,FCC Modernization scope chip for hydrotreater (modification),5282.0,3521.0,8804.0,103438.0,BPD,Canada,2024
+646,1003389,MOCK-ONSHOR-023,Storage Tank Farm,process_unit,Storage Tank Farm scope chip for polypropylene (grassroots),167476.0,111651.0,279127.0,965.0,KTA,Canada,2024
+647,1005270,MOCK-OFFSHO-037,SURF Flowlines,osbl,SURF Flowlines scope chip for fpso (grassroots),474284.0,316190.0,790474.0,116.0,KBPD,Brazil,2024
+648,1006197,MOCK-PIPELI-040,Export Pipeline,marine,Export Pipeline scope chip for pipeline_gathering (grassroots),5476.0,3651.0,9127.0,688.0,km,United States,2024
+649,1003521,MOCK-ONSHOR-032,MEG Unit,marine,MEG Unit scope chip for ethylene_cracker (grassroots),33936.0,22624.0,56561.0,1220.0,KTA,Saudi Arabia,2024
+650,1004528,MOCK-ONSHOR-080,Olefins Cracker,pipeline_segment,Olefins Cracker scope chip for meg (grassroots),27661.0,18441.0,46102.0,1608.0,KTA,Belgium,2024
+651,1001804,MOCK-REFINE-086,Offsites and Tank Farm,osbl,Offsites and Tank Farm scope chip for hydrocracker (modification),24986.0,16657.0,41644.0,117999.0,BPD,Canada,2024
+652,1000356,MOCK-REFINE-017,Alkylation Unit,process_unit,Alkylation Unit scope chip for reformer (modification),691.0,461.0,1152.0,104228.0,BPD,Canada,2024
+653,1003622,MOCK-ONSHOR-037,Offsites,process_unit,Offsites scope chip for polyethylene (expansion),68100.0,45400.0,113500.0,378.0,KTA,China,2024
+654,1008083,MOCK-OIL_SA-005,Extraction,process_unit,Extraction scope chip for oil_sands_pad (grassroots),239397.0,159598.0,398996.0,75.0,KBPD,Canada,2024
+655,1005432,MOCK-OFFSHO-045,FPSO Hull,storage,FPSO Hull scope chip for fpso (grassroots),400457.0,266971.0,667428.0,232.0,KBPD,Nigeria,2024
+656,1004186,MOCK-ONSHOR-064,Product Loading,process_unit,Product Loading scope chip for polyethylene (grassroots),18390.0,12260.0,30649.0,851.0,KTA,Singapore,2024
+657,1009071,MOCK-ONSHOR-008,Storage,process_unit,Storage scope chip for gas_plant (expansion),246259.0,164173.0,410432.0,45.0,KBPD,Nigeria,2024
+658,1002485,MOCK-REFINE-115,Offsites and Tank Farm,process_unit,Offsites and Tank Farm scope chip for alkylation (modification),29741.0,19828.0,49569.0,44887.0,BPD,Singapore,2024
+659,1001975,MOCK-REFINE-092,Utilities Package,pipeline_segment,Utilities Package scope chip for reformer (modification),26481.0,17654.0,44134.0,91337.0,BPD,Singapore,2024
+660,1009430,MOCK-ONSHOR-028,Compression,osbl,Compression scope chip for onshore_process (grassroots),189902.0,126601.0,316503.0,77.0,KBPD,Nigeria,2024
+661,1005157,MOCK-OFFSHO-031,FPSO Hull,pipeline_segment,FPSO Hull scope chip for fpso (grassroots),289492.0,192995.0,482487.0,214.0,KBPD,Angola,2024
+662,1007229,MOCK-GAS_PR-024,CO2 Capture Facilities,infrastructure,CO2 Capture Facilities scope chip for gas_plant_cryo (modification),3191.0,2127.0,5318.0,1119.0,MMSCFD,Canada,2024
+663,1004898,MOCK-OFFSHO-019,Risers,osbl,Risers scope chip for fpso (grassroots),270085.0,180056.0,450141.0,225.0,KBPD,United States,2024
+664,1009333,MOCK-ONSHOR-022,Compression,process_unit,Compression scope chip for onshore_process (grassroots),81044.0,54029.0,135073.0,147.0,KBPD,Kazakhstan,2024
+665,1008112,MOCK-OIL_SA-008,Infrastructure,process_unit,Infrastructure scope chip for bitumen (grassroots),194887.0,129924.0,324811.0,24.0,KBPD,Canada,2024
+666,1002174,MOCK-REFINE-103,Utilities Package,pipeline_segment,Utilities Package scope chip for hydrocracker (expansion),30144.0,20096.0,50240.0,21208.0,BPD,Singapore,2024
+667,1000929,MOCK-REFINE-046,CCR Reformer,osbl,CCR Reformer scope chip for alkylation (modification),18971.0,12647.0,31619.0,42656.0,BPD,Canada,2024
+668,1006681,MOCK-ONSHOR-022,Central Delivery Point,process_unit,Central Delivery Point scope chip for train_cryogenic (expansion),14923.0,9949.0,24872.0,326.0,MMSCFD,United States,2024
+669,1007506,MOCK-GAS_PR-037,Injection Wells,storage,Injection Wells scope chip for ccs (grassroots),69530.0,46354.0,115884.0,776.0,MMSCFD,United States,2024
+670,1008511,MOCK-REFINE-002,Offsites and Tank Farm,process_unit,Offsites and Tank Farm scope chip for refinery (grassroots),727193.0,484795.0,1211989.0,329417.0,BPD,Saudi Arabia,2024
+671,1008299,MOCK-OIL_SA-017,Mining OPP,osbl,Mining OPP scope chip for oil_sands_pad (modification),130904.0,87269.0,218173.0,112.0,KBPD,Canada,2024
+672,1008147,MOCK-OIL_SA-009,Extraction,process_unit,Extraction scope chip for oil_sands_pad (expansion),94713.0,63142.0,157855.0,97.0,KBPD,Canada,2024
+673,1003384,MOCK-ONSHOR-022,Utilities Package,marine,Utilities Package scope chip for ethylene_cracker (expansion),283541.0,189027.0,472568.0,1999.0,KTA,Belgium,2024
+674,1003199,MOCK-ONSHOR-013,Polyethylene Unit,process_unit,Polyethylene Unit scope chip for polypropylene (modification),45975.0,30650.0,76625.0,1434.0,KTA,China,2024
+675,1009790,MOCK-ONSHOR-048,Storage,process_unit,Storage scope chip for gas_plant (grassroots),46976.0,31318.0,78294.0,149.0,KBPD,Kazakhstan,2024
+676,1004057,MOCK-ONSHOR-057,Infrastructure,infrastructure,Infrastructure scope chip for meg (expansion),188047.0,125365.0,313412.0,345.0,KTA,Singapore,2024
+677,1008868,MOCK-REFINE-019,CCR Reformer,process_unit,CCR Reformer scope chip for refinery (grassroots),1426352.0,950902.0,2377254.0,389310.0,BPD,United States,2024
+678,1009359,MOCK-ONSHOR-024,Storage,osbl,Storage scope chip for compressor_station (grassroots),47985.0,31990.0,79974.0,114.0,KBPD,United States,2024
+679,1001327,MOCK-REFINE-065,FCC Modernization,process_unit,FCC Modernization scope chip for hydrocracker (modification),2310.0,1540.0,3851.0,107256.0,BPD,United States,2024
+680,1007542,MOCK-GAS_PR-039,Compression,process_unit,Compression scope chip for ngl_fractionation (grassroots),21259.0,14172.0,35431.0,414.0,MMSCFD,Kazakhstan,2024
+681,1001628,MOCK-REFINE-077,Flare System,process_unit,Flare System scope chip for coker (modification),2735.0,1823.0,4558.0,32996.0,BPD,United Kingdom,2024
+682,1007258,MOCK-GAS_PR-025,Injection Wells,process_unit,Injection Wells scope chip for gas_plant_cryo (grassroots),48104.0,32070.0,80174.0,468.0,MMSCFD,United States,2024
+683,1008755,MOCK-REFINE-014,Hydrotreater,process_unit,Hydrotreater scope chip for renewable_diesel (grassroots),97041.0,64694.0,161735.0,262522.0,BPD,China,2024
+684,1002516,MOCK-REFINE-116,Furnace Replacement,process_unit,Furnace Replacement scope chip for alkylation (modification),2935.0,1957.0,4892.0,65802.0,BPD,United States,2024
+685,1003059,MOCK-ONSHOR-006,Olefins Cracker,marine,Olefins Cracker scope chip for ethylene_cracker (expansion),358168.0,238779.0,596947.0,272.0,KTA,China,2024
+686,1001678,MOCK-REFINE-079,Alkylation Unit,process_unit,Alkylation Unit scope chip for coker (expansion),50303.0,33535.0,83838.0,57716.0,BPD,United Kingdom,2024
+687,1006992,MOCK-GAS_PR-007,Compression,process_unit,Compression scope chip for ngl_fractionation (grassroots),31366.0,20910.0,52276.0,1060.0,MMSCFD,United States,2024
+688,1006494,MOCK-ONSHOR-008,Water Handling,osbl,Water Handling scope chip for central_delivery_point (expansion),25629.0,17086.0,42714.0,326.0,MMSCFD,Canada,2024
+689,1002679,MOCK-REFINE-125,Offsites and Tank Farm,storage,Offsites and Tank Farm scope chip for alkylation (expansion),85618.0,57078.0,142696.0,12545.0,BPD,United States,2024
+690,1002869,MOCK-REFINE-136,Hydrocracker Reactor,infrastructure,Hydrocracker Reactor scope chip for fcc (modification),20511.0,13674.0,34185.0,106203.0,BPD,Canada,2024
+691,1006137,MOCK-PIPELI-037,Gathering Pipeline,pipeline_segment,Gathering Pipeline scope chip for pipeline (grassroots),13430.0,8953.0,22384.0,482.0,km,Australia,2024
+692,1002633,MOCK-REFINE-123,Hydrogen Plant,process_unit,Hydrogen Plant scope chip for fcc (modification),25941.0,17294.0,43235.0,106620.0,BPD,Canada,2024
+693,1006522,MOCK-ONSHOR-011,Gathering Pipeline,osbl,Gathering Pipeline scope chip for cryo_gas_processing (expansion),1721.0,1147.0,2868.0,350.0,MMSCFD,United States,2024
+694,1001004,MOCK-REFINE-050,Utilities Package,pipeline_segment,Utilities Package scope chip for crude_unit (modification),47099.0,31399.0,78498.0,114063.0,BPD,Belgium,2024
+695,1007556,MOCK-LNG_ON-001,Power Plant,infrastructure,Power Plant scope chip for lng_terminal (expansion),647929.0,431953.0,1079882.0,7.1,MTPA,Australia,2024
+696,1002007,MOCK-REFINE-094,Delayed Coker,process_unit,Delayed Coker scope chip for fcc (modification),1043.0,695.0,1738.0,103806.0,BPD,Australia,2024
+697,1004729,MOCK-OFFSHO-009,Drilling Wells,osbl,Drilling Wells scope chip for platform (grassroots),868908.0,579272.0,1448180.0,110.0,KBPD,Brazil,2024
+698,1003420,MOCK-ONSHOR-026,Polyethylene Unit,process_unit,Polyethylene Unit scope chip for meg (grassroots),32676.0,21784.0,54460.0,985.0,KTA,United States,2024
+699,1003363,MOCK-ONSHOR-020,Polyethylene Unit,storage,Polyethylene Unit scope chip for meg (modification),9911.0,6607.0,16518.0,448.0,KTA,Canada,2024
+700,1009162,MOCK-ONSHOR-013,Injection,osbl,Injection scope chip for onshore_process (grassroots),113464.0,75643.0,189107.0,28.0,KBPD,Kazakhstan,2024
+701,1007162,MOCK-GAS_PR-019,Dehydration,process_unit,Dehydration scope chip for ccs (grassroots),25143.0,16762.0,41906.0,680.0,MMSCFD,Australia,2024
+702,1002384,MOCK-REFINE-111,Hydrocracker Reactor,pipeline_segment,Hydrocracker Reactor scope chip for hydrotreater (modification),10437.0,6958.0,17395.0,103438.0,BPD,Canada,2024
+703,1003389,MOCK-ONSHOR-023,Offsites,infrastructure,Offsites scope chip for polypropylene (grassroots),37138.0,24758.0,61896.0,965.0,KTA,Canada,2024
+704,1005270,MOCK-OFFSHO-037,Umbilicals,process_unit,Umbilicals scope chip for fpso (grassroots),748293.0,498862.0,1247154.0,116.0,KBPD,Brazil,2024
+705,1006197,MOCK-PIPELI-040,Metering Station,pipeline_segment,Metering Station scope chip for pipeline_gathering (grassroots),17733.0,11822.0,29556.0,688.0,km,United States,2024
+706,1003521,MOCK-ONSHOR-032,Storage Tank Farm,marine,Storage Tank Farm scope chip for ethylene_cracker (grassroots),246790.0,164527.0,411317.0,1220.0,KTA,Saudi Arabia,2024
+707,1004528,MOCK-ONSHOR-080,Offsites,pipeline_segment,Offsites scope chip for meg (grassroots),89725.0,59817.0,149542.0,1608.0,KTA,Belgium,2024
+708,1001804,MOCK-REFINE-086,Alkylation Unit,osbl,Alkylation Unit scope chip for hydrocracker (modification),21147.0,14098.0,35246.0,117999.0,BPD,Canada,2024
+709,1000356,MOCK-REFINE-017,CCR Reformer,process_unit,CCR Reformer scope chip for reformer (modification),4195.0,2796.0,6991.0,104228.0,BPD,Canada,2024
+710,1003622,MOCK-ONSHOR-037,Utilities Package,infrastructure,Utilities Package scope chip for polyethylene (expansion),32364.0,21576.0,53940.0,378.0,KTA,China,2024
+711,1008083,MOCK-OIL_SA-005,Extraction,process_unit,Extraction scope chip for oil_sands_pad (grassroots),242714.0,161809.0,404523.0,75.0,KBPD,Canada,2024
+712,1005432,MOCK-OFFSHO-045,Umbilicals,marine,Umbilicals scope chip for fpso (grassroots),247262.0,164841.0,412103.0,232.0,KBPD,Nigeria,2024
+713,1004186,MOCK-ONSHOR-064,MEG Unit,storage,MEG Unit scope chip for polyethylene (grassroots),135510.0,90340.0,225850.0,851.0,KTA,Singapore,2024
+714,1009071,MOCK-ONSHOR-008,Compression,process_unit,Compression scope chip for gas_plant (expansion),76644.0,51096.0,127739.0,45.0,KBPD,Nigeria,2024
+715,1002485,MOCK-REFINE-115,Offsites and Tank Farm,pipeline_segment,Offsites and Tank Farm scope chip for alkylation (modification),30038.0,20025.0,50063.0,44887.0,BPD,Singapore,2024
+716,1001975,MOCK-REFINE-092,Furnace Replacement,process_unit,Furnace Replacement scope chip for reformer (modification),60095.0,40063.0,100159.0,91337.0,BPD,Singapore,2024
+717,1009430,MOCK-ONSHOR-028,Compression,process_unit,Compression scope chip for onshore_process (grassroots),71026.0,47350.0,118376.0,77.0,KBPD,Nigeria,2024
+718,1005157,MOCK-OFFSHO-031,Subsea Trees,osbl,Subsea Trees scope chip for fpso (grassroots),1164767.0,776511.0,1941278.0,214.0,KBPD,Angola,2024
+719,1007229,MOCK-GAS_PR-024,Injection Wells,storage,Injection Wells scope chip for gas_plant_cryo (modification),9787.0,6525.0,16311.0,1119.0,MMSCFD,Canada,2024
+720,1004898,MOCK-OFFSHO-019,Umbilicals,process_unit,Umbilicals scope chip for fpso (grassroots),290601.0,193734.0,484336.0,225.0,KBPD,United States,2024
+721,1009333,MOCK-ONSHOR-022,Compression,process_unit,Compression scope chip for onshore_process (grassroots),75878.0,50586.0,126464.0,147.0,KBPD,Kazakhstan,2024
+722,1008112,MOCK-OIL_SA-008,Utilities,process_unit,Utilities scope chip for bitumen (grassroots),422614.0,281743.0,704356.0,24.0,KBPD,Canada,2024
+723,1002174,MOCK-REFINE-103,CCR Reformer,pipeline_segment,CCR Reformer scope chip for hydrocracker (expansion),30508.0,20339.0,50847.0,21208.0,BPD,Singapore,2024
+724,1000929,MOCK-REFINE-046,Hydrotreater,process_unit,Hydrotreater scope chip for alkylation (modification),5244.0,3496.0,8739.0,42656.0,BPD,Canada,2024
+725,1006681,MOCK-ONSHOR-022,Gathering Pipeline,storage,Gathering Pipeline scope chip for train_cryogenic (expansion),6110.0,4074.0,10184.0,326.0,MMSCFD,United States,2024
+726,1007506,MOCK-GAS_PR-037,Injection Wells,pipeline_segment,Injection Wells scope chip for ccs (grassroots),28167.0,18778.0,46945.0,776.0,MMSCFD,United States,2024
+727,1008511,MOCK-REFINE-002,Flare System,infrastructure,Flare System scope chip for refinery (grassroots),1140544.0,760363.0,1900906.0,329417.0,BPD,Saudi Arabia,2024
+728,1008299,MOCK-OIL_SA-017,Mining OPP,osbl,Mining OPP scope chip for oil_sands_pad (modification),110788.0,73858.0,184646.0,112.0,KBPD,Canada,2024
+729,1008147,MOCK-OIL_SA-009,Mining OPP,process_unit,Mining OPP scope chip for oil_sands_pad (expansion),44347.0,29565.0,73912.0,97.0,KBPD,Canada,2024
+730,1003384,MOCK-ONSHOR-022,Storage Tank Farm,pipeline_segment,Storage Tank Farm scope chip for ethylene_cracker (expansion),325709.0,217140.0,542849.0,1999.0,KTA,Belgium,2024
+731,1003199,MOCK-ONSHOR-013,Olefins Cracker,process_unit,Olefins Cracker scope chip for polypropylene (modification),41950.0,27967.0,69916.0,1434.0,KTA,China,2024
+732,1009790,MOCK-ONSHOR-048,Injection,infrastructure,Injection scope chip for gas_plant (grassroots),107178.0,71452.0,178630.0,149.0,KBPD,Kazakhstan,2024
+733,1004057,MOCK-ONSHOR-057,Infrastructure,storage,Infrastructure scope chip for meg (expansion),120591.0,80394.0,200985.0,345.0,KTA,Singapore,2024
+734,1008868,MOCK-REFINE-019,Flare System,storage,Flare System scope chip for refinery (grassroots),1709865.0,1139910.0,2849775.0,389310.0,BPD,United States,2024
+735,1009359,MOCK-ONSHOR-024,Storage,pipeline_segment,Storage scope chip for compressor_station (grassroots),46027.0,30685.0,76712.0,114.0,KBPD,United States,2024
+736,1001327,MOCK-REFINE-065,Crude Unit Revamp,infrastructure,Crude Unit Revamp scope chip for hydrocracker (modification),1483.0,988.0,2471.0,107256.0,BPD,United States,2024
+737,1007542,MOCK-GAS_PR-039,CO2 Capture Facilities,process_unit,CO2 Capture Facilities scope chip for ngl_fractionation (grassroots),36906.0,24604.0,61510.0,414.0,MMSCFD,Kazakhstan,2024
+738,1001628,MOCK-REFINE-077,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for coker (modification),963.0,642.0,1605.0,32996.0,BPD,United Kingdom,2024
+739,1007258,MOCK-GAS_PR-025,Utilities,storage,Utilities scope chip for gas_plant_cryo (grassroots),26527.0,17685.0,44212.0,468.0,MMSCFD,United States,2024
+740,1008755,MOCK-REFINE-014,Crude Unit Revamp,osbl,Crude Unit Revamp scope chip for renewable_diesel (grassroots),108864.0,72576.0,181439.0,262522.0,BPD,China,2024
+741,1002516,MOCK-REFINE-116,Flare System,pipeline_segment,Flare System scope chip for alkylation (modification),3148.0,2098.0,5246.0,65802.0,BPD,United States,2024
+742,1003059,MOCK-ONSHOR-006,Storage Tank Farm,process_unit,Storage Tank Farm scope chip for ethylene_cracker (expansion),432948.0,288632.0,721580.0,272.0,KTA,China,2024
+743,1001678,MOCK-REFINE-079,Furnace Replacement,osbl,Furnace Replacement scope chip for coker (expansion),45953.0,30635.0,76588.0,57716.0,BPD,United Kingdom,2024
+744,1006992,MOCK-GAS_PR-007,Injection Wells,process_unit,Injection Wells scope chip for ngl_fractionation (grassroots),46788.0,31192.0,77980.0,1060.0,MMSCFD,United States,2024
+745,1006494,MOCK-ONSHOR-008,Compression Station,infrastructure,Compression Station scope chip for central_delivery_point (expansion),14120.0,9413.0,23533.0,326.0,MMSCFD,Canada,2024
+746,1002679,MOCK-REFINE-125,Alkylation Unit,storage,Alkylation Unit scope chip for alkylation (expansion),76277.0,50851.0,127128.0,12545.0,BPD,United States,2024
+747,1002869,MOCK-REFINE-136,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for fcc (modification),7150.0,4767.0,11917.0,106203.0,BPD,Canada,2024
+748,1006137,MOCK-PIPELI-037,Metering Station,process_unit,Metering Station scope chip for pipeline (grassroots),19487.0,12991.0,32479.0,482.0,km,Australia,2024
+749,1002633,MOCK-REFINE-123,Delayed Coker,process_unit,Delayed Coker scope chip for fcc (modification),31702.0,21134.0,52836.0,106620.0,BPD,Canada,2024
+750,1006522,MOCK-ONSHOR-011,Compression Station,process_unit,Compression Station scope chip for cryo_gas_processing (expansion),697.0,465.0,1162.0,350.0,MMSCFD,United States,2024
+751,1001004,MOCK-REFINE-050,Crude Unit Revamp,infrastructure,Crude Unit Revamp scope chip for crude_unit (modification),24737.0,16491.0,41228.0,114063.0,BPD,Belgium,2024
+752,1007556,MOCK-LNG_ON-001,Utilities,osbl,Utilities scope chip for lng_terminal (expansion),401861.0,267907.0,669768.0,7.1,MTPA,Australia,2024
+753,1002007,MOCK-REFINE-094,Crude Unit Revamp,osbl,Crude Unit Revamp scope chip for fcc (modification),4857.0,3238.0,8095.0,103806.0,BPD,Australia,2024
+754,1004729,MOCK-OFFSHO-009,SURF Flowlines,process_unit,SURF Flowlines scope chip for platform (grassroots),897422.0,598282.0,1495704.0,110.0,KBPD,Brazil,2024
+755,1003420,MOCK-ONSHOR-026,Olefins Cracker,process_unit,Olefins Cracker scope chip for meg (grassroots),41847.0,27898.0,69745.0,985.0,KTA,United States,2024
+756,1003363,MOCK-ONSHOR-020,Utilities Package,pipeline_segment,Utilities Package scope chip for meg (modification),16475.0,10983.0,27458.0,448.0,KTA,Canada,2024
+757,1009162,MOCK-ONSHOR-013,Infrastructure,pipeline_segment,Infrastructure scope chip for onshore_process (grassroots),49265.0,32844.0,82109.0,28.0,KBPD,Kazakhstan,2024
+758,1007162,MOCK-GAS_PR-019,Utilities,process_unit,Utilities scope chip for ccs (grassroots),22326.0,14884.0,37210.0,680.0,MMSCFD,Australia,2024
+759,1002384,MOCK-REFINE-111,Utilities Package,process_unit,Utilities Package scope chip for hydrotreater (modification),6342.0,4228.0,10570.0,103438.0,BPD,Canada,2024
+760,1003389,MOCK-ONSHOR-023,Utilities Package,pipeline_segment,Utilities Package scope chip for polypropylene (grassroots),78037.0,52025.0,130062.0,965.0,KTA,Canada,2024
+761,1005270,MOCK-OFFSHO-037,Mooring System,pipeline_segment,Mooring System scope chip for fpso (grassroots),1221048.0,814032.0,2035080.0,116.0,KBPD,Brazil,2024
+762,1006197,MOCK-PIPELI-040,Gathering Pipeline,osbl,Gathering Pipeline scope chip for pipeline_gathering (grassroots),25946.0,17297.0,43243.0,688.0,km,United States,2024
+763,1003521,MOCK-ONSHOR-032,Storage Tank Farm,storage,Storage Tank Farm scope chip for ethylene_cracker (grassroots),90415.0,60276.0,150691.0,1220.0,KTA,Saudi Arabia,2024
+764,1004528,MOCK-ONSHOR-080,Utilities Package,infrastructure,Utilities Package scope chip for meg (grassroots),91387.0,60925.0,152312.0,1608.0,KTA,Belgium,2024
+765,1001804,MOCK-REFINE-086,Desalter Upgrade,osbl,Desalter Upgrade scope chip for hydrocracker (modification),31547.0,21031.0,52578.0,117999.0,BPD,Canada,2024
+766,1000356,MOCK-REFINE-017,Desalter Upgrade,process_unit,Desalter Upgrade scope chip for reformer (modification),3554.0,2370.0,5924.0,104228.0,BPD,Canada,2024
+767,1003622,MOCK-ONSHOR-037,Storage Tank Farm,osbl,Storage Tank Farm scope chip for polyethylene (expansion),11682.0,7788.0,19470.0,378.0,KTA,China,2024
+768,1008083,MOCK-OIL_SA-005,Mining OPP,storage,Mining OPP scope chip for oil_sands_pad (grassroots),169224.0,112816.0,282040.0,75.0,KBPD,Canada,2024
+769,1005432,MOCK-OFFSHO-045,Mooring System,pipeline_segment,Mooring System scope chip for fpso (grassroots),339256.0,226170.0,565426.0,232.0,KBPD,Nigeria,2024
+770,1004186,MOCK-ONSHOR-064,Storage Tank Farm,process_unit,Storage Tank Farm scope chip for polyethylene (grassroots),72343.0,48229.0,120571.0,851.0,KTA,Singapore,2024
+771,1009071,MOCK-ONSHOR-008,Compression,process_unit,Compression scope chip for gas_plant (expansion),89096.0,59397.0,148493.0,45.0,KBPD,Nigeria,2024
+772,1002485,MOCK-REFINE-115,Crude Unit Revamp,osbl,Crude Unit Revamp scope chip for alkylation (modification),13249.0,8833.0,22082.0,44887.0,BPD,Singapore,2024
+773,1001975,MOCK-REFINE-092,Hydrotreater,process_unit,Hydrotreater scope chip for reformer (modification),38271.0,25514.0,63784.0,91337.0,BPD,Singapore,2024
+774,1009430,MOCK-ONSHOR-028,Infrastructure,infrastructure,Infrastructure scope chip for onshore_process (grassroots),123213.0,82142.0,205355.0,77.0,KBPD,Nigeria,2024
+775,1005157,MOCK-OFFSHO-031,Mooring System,process_unit,Mooring System scope chip for fpso (grassroots),1027789.0,685193.0,1712982.0,214.0,KBPD,Angola,2024
+776,1007229,MOCK-GAS_PR-024,CO2 Capture Facilities,osbl,CO2 Capture Facilities scope chip for gas_plant_cryo (modification),10191.0,6794.0,16985.0,1119.0,MMSCFD,Canada,2024
+777,1004898,MOCK-OFFSHO-019,Umbilicals,osbl,Umbilicals scope chip for fpso (grassroots),208698.0,139132.0,347830.0,225.0,KBPD,United States,2024
+778,1009333,MOCK-ONSHOR-022,Injection,osbl,Injection scope chip for onshore_process (grassroots),109687.0,73125.0,182812.0,147.0,KBPD,Kazakhstan,2024
+779,1008112,MOCK-OIL_SA-008,Tailings,process_unit,Tailings scope chip for bitumen (grassroots),185650.0,123767.0,309416.0,24.0,KBPD,Canada,2024
+780,1002174,MOCK-REFINE-103,Flare System,process_unit,Flare System scope chip for hydrocracker (expansion),18929.0,12619.0,31548.0,21208.0,BPD,Singapore,2024
+781,1000929,MOCK-REFINE-046,Hydrotreater,process_unit,Hydrotreater scope chip for alkylation (modification),34915.0,23277.0,58192.0,42656.0,BPD,Canada,2024
+782,1006681,MOCK-ONSHOR-022,Compression Station,osbl,Compression Station scope chip for train_cryogenic (expansion),4349.0,2899.0,7248.0,326.0,MMSCFD,United States,2024
+783,1007506,MOCK-GAS_PR-037,Dehydration,osbl,Dehydration scope chip for ccs (grassroots),49638.0,33092.0,82730.0,776.0,MMSCFD,United States,2024
+784,1008511,MOCK-REFINE-002,CCR Reformer,storage,CCR Reformer scope chip for refinery (grassroots),1850876.0,1233918.0,3084794.0,329417.0,BPD,Saudi Arabia,2024
+785,1008299,MOCK-OIL_SA-017,Infrastructure,process_unit,Infrastructure scope chip for oil_sands_pad (modification),155234.0,103490.0,258724.0,112.0,KBPD,Canada,2024
+786,1008147,MOCK-OIL_SA-009,Utilities,storage,Utilities scope chip for oil_sands_pad (expansion),49187.0,32791.0,81978.0,97.0,KBPD,Canada,2024
+787,1003384,MOCK-ONSHOR-022,Offsites,process_unit,Offsites scope chip for ethylene_cracker (expansion),158033.0,105355.0,263389.0,1999.0,KTA,Belgium,2024
+788,1003199,MOCK-ONSHOR-013,Product Loading,pipeline_segment,Product Loading scope chip for polypropylene (modification),37129.0,24753.0,61882.0,1434.0,KTA,China,2024
+789,1009790,MOCK-ONSHOR-048,Onsites Process,osbl,Onsites Process scope chip for gas_plant (grassroots),22102.0,14735.0,36837.0,149.0,KBPD,Kazakhstan,2024
+790,1004057,MOCK-ONSHOR-057,Utilities Package,process_unit,Utilities Package scope chip for meg (expansion),504269.0,336180.0,840449.0,345.0,KTA,Singapore,2024
+791,1008868,MOCK-REFINE-019,Delayed Coker,osbl,Delayed Coker scope chip for refinery (grassroots),265532.0,177022.0,442554.0,389310.0,BPD,United States,2024
+792,1009359,MOCK-ONSHOR-024,Injection,osbl,Injection scope chip for compressor_station (grassroots),93543.0,62362.0,155906.0,114.0,KBPD,United States,2024
+793,1001327,MOCK-REFINE-065,Hydrogen Plant,process_unit,Hydrogen Plant scope chip for hydrocracker (modification),2984.0,1989.0,4974.0,107256.0,BPD,United States,2024
+794,1007542,MOCK-GAS_PR-039,Utilities,process_unit,Utilities scope chip for ngl_fractionation (grassroots),102918.0,68612.0,171531.0,414.0,MMSCFD,Kazakhstan,2024
+795,1001628,MOCK-REFINE-077,CCR Reformer,process_unit,CCR Reformer scope chip for coker (modification),2238.0,1492.0,3729.0,32996.0,BPD,United Kingdom,2024
+796,1007258,MOCK-GAS_PR-025,Compression,osbl,Compression scope chip for gas_plant_cryo (grassroots),16239.0,10826.0,27064.0,468.0,MMSCFD,United States,2024
+797,1008755,MOCK-REFINE-014,Alkylation Unit,process_unit,Alkylation Unit scope chip for renewable_diesel (grassroots),466379.0,310919.0,777298.0,262522.0,BPD,China,2024
+798,1002516,MOCK-REFINE-116,Furnace Replacement,process_unit,Furnace Replacement scope chip for alkylation (modification),2078.0,1385.0,3463.0,65802.0,BPD,United States,2024
+799,1003059,MOCK-ONSHOR-006,Polyethylene Unit,infrastructure,Polyethylene Unit scope chip for ethylene_cracker (expansion),196069.0,130713.0,326782.0,272.0,KTA,China,2024
+800,1001678,MOCK-REFINE-079,Alkylation Unit,osbl,Alkylation Unit scope chip for coker (expansion),60376.0,40251.0,100627.0,57716.0,BPD,United Kingdom,2024
+801,1006992,MOCK-GAS_PR-007,Cryogenic Gas Plant,process_unit,Cryogenic Gas Plant scope chip for ngl_fractionation (grassroots),30842.0,20561.0,51403.0,1060.0,MMSCFD,United States,2024
+802,1006494,MOCK-ONSHOR-008,Compression Station,storage,Compression Station scope chip for central_delivery_point (expansion),41521.0,27680.0,69201.0,326.0,MMSCFD,Canada,2024
+803,1002679,MOCK-REFINE-125,Utilities Package,osbl,Utilities Package scope chip for alkylation (expansion),55635.0,37090.0,92725.0,12545.0,BPD,United States,2024
+804,1002869,MOCK-REFINE-136,Delayed Coker,infrastructure,Delayed Coker scope chip for fcc (modification),63981.0,42654.0,106635.0,106203.0,BPD,Canada,2024
+805,1006137,MOCK-PIPELI-037,HDD Crossing,infrastructure,HDD Crossing scope chip for pipeline (grassroots),11770.0,7846.0,19616.0,482.0,km,Australia,2024
+806,1002633,MOCK-REFINE-123,Utilities Package,pipeline_segment,Utilities Package scope chip for fcc (modification),37925.0,25283.0,63208.0,106620.0,BPD,Canada,2024
+807,1006522,MOCK-ONSHOR-011,Water Handling,process_unit,Water Handling scope chip for cryo_gas_processing (expansion),7879.0,5252.0,13131.0,350.0,MMSCFD,United States,2024
+808,1001004,MOCK-REFINE-050,Furnace Replacement,pipeline_segment,Furnace Replacement scope chip for crude_unit (modification),43049.0,28700.0,71749.0,114063.0,BPD,Belgium,2024
+809,1007556,MOCK-LNG_ON-001,Utilities,process_unit,Utilities scope chip for lng_terminal (expansion),544486.0,362991.0,907477.0,7.1,MTPA,Australia,2024
+810,1002007,MOCK-REFINE-094,Desalter Upgrade,pipeline_segment,Desalter Upgrade scope chip for fcc (modification),2977.0,1984.0,4961.0,103806.0,BPD,Australia,2024
+811,1004729,MOCK-OFFSHO-009,SURF Flowlines,storage,SURF Flowlines scope chip for platform (grassroots),1001795.0,667863.0,1669659.0,110.0,KBPD,Brazil,2024
+812,1003420,MOCK-ONSHOR-026,MEG Unit,process_unit,MEG Unit scope chip for meg (grassroots),33308.0,22206.0,55514.0,985.0,KTA,United States,2024
+813,1003363,MOCK-ONSHOR-020,Infrastructure,marine,Infrastructure scope chip for meg (modification),16703.0,11135.0,27838.0,448.0,KTA,Canada,2024
+814,1009162,MOCK-ONSHOR-013,Compression,infrastructure,Compression scope chip for onshore_process (grassroots),180728.0,120485.0,301214.0,28.0,KBPD,Kazakhstan,2024
+815,1007162,MOCK-GAS_PR-019,CO2 Capture Facilities,pipeline_segment,CO2 Capture Facilities scope chip for ccs (grassroots),17341.0,11561.0,28902.0,680.0,MMSCFD,Australia,2024
+816,1002384,MOCK-REFINE-111,Hydrocracker Reactor,process_unit,Hydrocracker Reactor scope chip for hydrotreater (modification),13369.0,8913.0,22282.0,103438.0,BPD,Canada,2024
+817,1003389,MOCK-ONSHOR-023,Utilities Package,process_unit,Utilities Package scope chip for polypropylene (grassroots),52681.0,35121.0,87802.0,965.0,KTA,Canada,2024
+818,1005270,MOCK-OFFSHO-037,Risers,process_unit,Risers scope chip for fpso (grassroots),345302.0,230201.0,575503.0,116.0,KBPD,Brazil,2024
+819,1006197,MOCK-PIPELI-040,Metering Station,process_unit,Metering Station scope chip for pipeline_gathering (grassroots),22724.0,15150.0,37874.0,688.0,km,United States,2024
+820,1003521,MOCK-ONSHOR-032,Storage Tank Farm,process_unit,Storage Tank Farm scope chip for ethylene_cracker (grassroots),166498.0,110999.0,277497.0,1220.0,KTA,Saudi Arabia,2024
+821,1004528,MOCK-ONSHOR-080,Infrastructure,storage,Infrastructure scope chip for meg (grassroots),177144.0,118096.0,295239.0,1608.0,KTA,Belgium,2024
+822,1001804,MOCK-REFINE-086,Utilities Package,process_unit,Utilities Package scope chip for hydrocracker (modification),24564.0,16376.0,40940.0,117999.0,BPD,Canada,2024
+823,1000356,MOCK-REFINE-017,Furnace Replacement,process_unit,Furnace Replacement scope chip for reformer (modification),4143.0,2762.0,6905.0,104228.0,BPD,Canada,2024
+824,1003622,MOCK-ONSHOR-037,Olefins Cracker,storage,Olefins Cracker scope chip for polyethylene (expansion),22539.0,15026.0,37564.0,378.0,KTA,China,2024
+825,1008083,MOCK-OIL_SA-005,Tailings,process_unit,Tailings scope chip for oil_sands_pad (grassroots),137228.0,91485.0,228713.0,75.0,KBPD,Canada,2024
+826,1005432,MOCK-OFFSHO-045,Risers,process_unit,Risers scope chip for fpso (grassroots),369079.0,246053.0,615132.0,232.0,KBPD,Nigeria,2024
+827,1004186,MOCK-ONSHOR-064,Olefins Cracker,process_unit,Olefins Cracker scope chip for polyethylene (grassroots),78532.0,52355.0,130886.0,851.0,KTA,Singapore,2024
+828,1009071,MOCK-ONSHOR-008,Storage,infrastructure,Storage scope chip for gas_plant (expansion),83835.0,55890.0,139724.0,45.0,KBPD,Nigeria,2024
+829,1002485,MOCK-REFINE-115,Offsites and Tank Farm,process_unit,Offsites and Tank Farm scope chip for alkylation (modification),18075.0,12050.0,30126.0,44887.0,BPD,Singapore,2024
+830,1001975,MOCK-REFINE-092,Desalter Upgrade,osbl,Desalter Upgrade scope chip for reformer (modification),11996.0,7998.0,19994.0,91337.0,BPD,Singapore,2024
+831,1009430,MOCK-ONSHOR-028,Compression,marine,Compression scope chip for onshore_process (grassroots),68485.0,45657.0,114142.0,77.0,KBPD,Nigeria,2024
+832,1005157,MOCK-OFFSHO-031,Drilling Wells,osbl,Drilling Wells scope chip for fpso (grassroots),461372.0,307581.0,768953.0,214.0,KBPD,Angola,2024
+833,1007229,MOCK-GAS_PR-024,NGL Fractionation,process_unit,NGL Fractionation scope chip for gas_plant_cryo (modification),3104.0,2069.0,5174.0,1119.0,MMSCFD,Canada,2024
+834,1004898,MOCK-OFFSHO-019,Subsea Trees,process_unit,Subsea Trees scope chip for fpso (grassroots),67090.0,44727.0,111817.0,225.0,KBPD,United States,2024
+835,1009333,MOCK-ONSHOR-022,Compression,pipeline_segment,Compression scope chip for onshore_process (grassroots),131146.0,87430.0,218576.0,147.0,KBPD,Kazakhstan,2024
+836,1008112,MOCK-OIL_SA-008,Infrastructure,marine,Infrastructure scope chip for bitumen (grassroots),241269.0,160846.0,402115.0,24.0,KBPD,Canada,2024
+837,1002174,MOCK-REFINE-103,Flare System,process_unit,Flare System scope chip for hydrocracker (expansion),25006.0,16671.0,41677.0,21208.0,BPD,Singapore,2024
+838,1000929,MOCK-REFINE-046,Delayed Coker,process_unit,Delayed Coker scope chip for alkylation (modification),5431.0,3621.0,9052.0,42656.0,BPD,Canada,2024
+839,1006681,MOCK-ONSHOR-022,Water Handling,osbl,Water Handling scope chip for train_cryogenic (expansion),12535.0,8356.0,20891.0,326.0,MMSCFD,United States,2024
+840,1007506,MOCK-GAS_PR-037,Utilities,process_unit,Utilities scope chip for ccs (grassroots),31241.0,20827.0,52068.0,776.0,MMSCFD,United States,2024
+841,1008511,MOCK-REFINE-002,Alkylation Unit,process_unit,Alkylation Unit scope chip for refinery (grassroots),1843389.0,1228926.0,3072314.0,329417.0,BPD,Saudi Arabia,2024
+842,1008299,MOCK-OIL_SA-017,Tailings,infrastructure,Tailings scope chip for oil_sands_pad (modification),56922.0,37948.0,94870.0,112.0,KBPD,Canada,2024
+843,1008147,MOCK-OIL_SA-009,Extraction,osbl,Extraction scope chip for oil_sands_pad (expansion),94727.0,63151.0,157878.0,97.0,KBPD,Canada,2024
+844,1003384,MOCK-ONSHOR-022,Storage Tank Farm,marine,Storage Tank Farm scope chip for ethylene_cracker (expansion),87194.0,58129.0,145324.0,1999.0,KTA,Belgium,2024
+845,1003199,MOCK-ONSHOR-013,Product Loading,process_unit,Product Loading scope chip for polypropylene (modification),8146.0,5431.0,13577.0,1434.0,KTA,China,2024
+846,1009790,MOCK-ONSHOR-048,Injection,infrastructure,Injection scope chip for gas_plant (grassroots),248699.0,165800.0,414499.0,149.0,KBPD,Kazakhstan,2024
+847,1004057,MOCK-ONSHOR-057,Olefins Cracker,process_unit,Olefins Cracker scope chip for meg (expansion),386141.0,257427.0,643568.0,345.0,KTA,Singapore,2024
+848,1008868,MOCK-REFINE-019,Desalter Upgrade,process_unit,Desalter Upgrade scope chip for refinery (grassroots),1013676.0,675784.0,1689460.0,389310.0,BPD,United States,2024
+849,1009359,MOCK-ONSHOR-024,Compression,pipeline_segment,Compression scope chip for compressor_station (grassroots),11638.0,7759.0,19397.0,114.0,KBPD,United States,2024
+850,1001327,MOCK-REFINE-065,Alkylation Unit,osbl,Alkylation Unit scope chip for hydrocracker (modification),2855.0,1904.0,4759.0,107256.0,BPD,United States,2024
+851,1007542,MOCK-GAS_PR-039,CO2 Capture Facilities,osbl,CO2 Capture Facilities scope chip for ngl_fractionation (grassroots),42117.0,28078.0,70196.0,414.0,MMSCFD,Kazakhstan,2024
+852,1001628,MOCK-REFINE-077,Hydrogen Plant,storage,Hydrogen Plant scope chip for coker (modification),1809.0,1206.0,3015.0,32996.0,BPD,United Kingdom,2024
+853,1007258,MOCK-GAS_PR-025,Compression,process_unit,Compression scope chip for gas_plant_cryo (grassroots),16242.0,10828.0,27071.0,468.0,MMSCFD,United States,2024
+854,1008755,MOCK-REFINE-014,Offsites and Tank Farm,osbl,Offsites and Tank Farm scope chip for renewable_diesel (grassroots),313360.0,208907.0,522267.0,262522.0,BPD,China,2024
+855,1002516,MOCK-REFINE-116,Flare System,osbl,Flare System scope chip for alkylation (modification),3886.0,2591.0,6477.0,65802.0,BPD,United States,2024
+856,1003059,MOCK-ONSHOR-006,MEG Unit,infrastructure,MEG Unit scope chip for ethylene_cracker (expansion),369024.0,246016.0,615040.0,272.0,KTA,China,2024
+857,1001678,MOCK-REFINE-079,Crude Unit Revamp,process_unit,Crude Unit Revamp scope chip for coker (expansion),17169.0,11446.0,28615.0,57716.0,BPD,United Kingdom,2024

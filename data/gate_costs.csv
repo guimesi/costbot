@@ -1,0 +1,1688 @@
+planview_id,project_name,gate,scope_chip,cost_type,indirect_flag,cost_kusd,currency,basis_year
+1005781,MOCK-PIPELI-017,IC4,Export Pipeline,equipment,False,8255.0,USD,2023
+1009790,MOCK-ONSHOR-048,IC5,Injection,contingency,False,60059.0,USD,2017
+1008162,MOCK-OIL_SA-010,IC5,Utilities,equipment,True,54880.0,USD,2021
+1000789,MOCK-REFINE-039,IC3,Crude Unit Revamp,owner,False,2986.0,USD,2017
+1006137,MOCK-PIPELI-037,IC3,Export Pipeline,contingency,False,5686.0,USD,2020
+1001271,MOCK-REFINE-062,IC3,Utilities Package,owner,False,24979.0,USD,2012
+1008895,MOCK-REFINE-020,IC4,Utilities Package,labor,False,215858.0,USD,2014
+1002716,MOCK-REFINE-126,IC3,Offsites and Tank Farm,contingency,False,493.0,USD,2015
+1008105,MOCK-OIL_SA-007,IC4,Infrastructure,equipment,True,20884.0,USD,2018
+1001327,MOCK-REFINE-065,IC3,Offsites and Tank Farm,bulk_material,False,611.0,USD,2023
+1007549,MOCK-GAS_PR-040,IC4,Injection Wells,equipment,False,46526.0,USD,2022
+1008450,MOCK-OIL_SA-023,IC4,Utilities,contingency,True,87466.0,USD,2023
+1007000,MOCK-GAS_PR-008,IC4,Cryogenic Gas Plant,equipment,False,19459.0,USD,2017
+1006184,MOCK-PIPELI-039,IC3,Pump Station,subcontract,False,12389.0,USD,2012
+1006229,MOCK-PIPELI-041,IC4,Pump Station,engineering,True,82890.0,USD,2021
+1005621,MOCK-PIPELI-009,IC3,Metering Station,subcontract,False,1565.0,USD,2013
+1003521,MOCK-ONSHOR-032,IC3,Offsites,contingency,False,16604.0,USD,2014
+1009453,MOCK-ONSHOR-030,IC4,Onsites Process,equipment,False,64427.0,USD,2018
+1001025,MOCK-REFINE-051,IC3,Hydrogen Plant,bulk_material,False,7692.0,USD,2018
+1002106,MOCK-REFINE-100,IC3,Hydrogen Plant,bulk_material,False,3799.0,USD,2024
+1002163,MOCK-REFINE-102,IC3,Flare System,owner,False,2258.0,USD,2016
+1002766,MOCK-REFINE-129,IC3,Offsites and Tank Farm,engineering,False,3386.0,USD,2024
+1007162,MOCK-GAS_PR-019,IC5,Dehydration,equipment,True,3202.0,USD,2012
+1007391,MOCK-GAS_PR-031,IC3,Cryogenic Gas Plant,subcontract,True,2944.0,USD,2020
+1009240,MOCK-ONSHOR-016,IC5,Compression,labor,True,4260.0,USD,2015
+1006961,MOCK-GAS_PR-006,IC5,Compression,subcontract,False,40589.0,USD,2018
+1006420,MOCK-ONSHOR-004,IC3,Gathering Pipeline,labor,False,985.0,USD,2020
+1000104,MOCK-REFINE-005,IC3,Furnace Replacement,equipment,False,6941.0,USD,2017
+1003788,MOCK-ONSHOR-045,IC4,Polyethylene Unit,owner,True,44987.0,USD,2022
+1002900,MOCK-REFINE-138,IC5,Flare System,labor,True,2562.0,USD,2018
+1008626,MOCK-REFINE-007,IC4,Delayed Coker,labor,False,203163.0,USD,2024
+1000988,MOCK-REFINE-049,IC4,Alkylation Unit,bulk_material,False,175.0,USD,2021
+1009248,MOCK-ONSHOR-017,IC4,Compression,subcontract,False,80072.0,USD,2012
+1003883,MOCK-ONSHOR-049,IC4,Offsites,bulk_material,False,29584.0,USD,2018
+1008008,MOCK-LNG_ON-025,IC5,Liquefaction Train,labor,False,223357.0,USD,2023
+1005976,MOCK-PIPELI-026,IC5,Gathering Pipeline,contingency,False,16879.0,USD,2024
+1004693,MOCK-OFFSHO-007,IC4,FPSO Hull,equipment,False,313929.0,USD,2018
+1006862,MOCK-ONSHOR-030,IC4,Compression Station,labor,False,2731.0,USD,2018
+1004702,MOCK-OFFSHO-008,IC4,Risers,subcontract,True,108642.0,USD,2013
+1007788,MOCK-LNG_ON-015,IC5,Liquefaction Train,bulk_material,False,531689.0,USD,2012
+1000806,MOCK-REFINE-040,IC5,Crude Unit Revamp,owner,False,2136.0,USD,2016
+1008250,MOCK-OIL_SA-015,IC4,Tailings,engineering,True,115827.0,USD,2017
+1007214,MOCK-GAS_PR-022,IC5,Cryogenic Gas Plant,bulk_material,True,4505.0,USD,2018
+1002174,MOCK-REFINE-103,IC3,Hydrotreater,owner,True,7391.0,USD,2023
+1007040,MOCK-GAS_PR-010,IC3,Cryogenic Gas Plant,labor,False,12184.0,USD,2021
+1005578,MOCK-PIPELI-007,IC5,Metering Station,subcontract,False,959.0,USD,2018
+1006947,MOCK-GAS_PR-005,IC5,Utilities,engineering,True,25290.0,USD,2024
+1007939,MOCK-LNG_ON-022,IC3,LNG Storage,labor,False,351088.0,USD,2019
+1007694,MOCK-LNG_ON-009,IC5,Jetty and Loading,labor,False,79215.0,USD,2021
+1000377,MOCK-REFINE-019,IC5,Furnace Replacement,bulk_material,False,3792.0,USD,2020
+1007258,MOCK-GAS_PR-025,IC5,Cryogenic Gas Plant,labor,True,5675.0,USD,2014
+1003131,MOCK-ONSHOR-010,IC4,Utilities Package,contingency,False,31670.0,USD,2023
+1009000,MOCK-ONSHOR-004,IC3,Compression,contingency,False,31579.0,USD,2016
+1006110,MOCK-PIPELI-036,IC4,Gathering Pipeline,labor,False,25776.0,USD,2023
+1002851,MOCK-REFINE-134,IC3,Alkylation Unit,subcontract,False,16839.0,USD,2020
+1001628,MOCK-REFINE-077,IC5,Alkylation Unit,equipment,False,520.0,USD,2018
+1004072,MOCK-ONSHOR-058,IC4,MEG Unit,equipment,False,9568.0,USD,2013
+1005306,MOCK-OFFSHO-039,IC5,FPSO Hull,bulk_material,True,69947.0,USD,2019
+1005781,MOCK-PIPELI-017,IC5,Pump Station,engineering,False,29377.0,USD,2015
+1009790,MOCK-ONSHOR-048,IC3,Compression,equipment,False,14186.0,USD,2013
+1008162,MOCK-OIL_SA-010,IC5,Tailings,owner,False,76051.0,USD,2021
+1000789,MOCK-REFINE-039,IC5,Desalter Upgrade,subcontract,False,3231.0,USD,2013
+1006137,MOCK-PIPELI-037,IC4,Pump Station,contingency,True,12529.0,USD,2013
+1001271,MOCK-REFINE-062,IC5,FCC Modernization,owner,False,28819.0,USD,2023
+1008895,MOCK-REFINE-020,IC5,Furnace Replacement,labor,False,203837.0,USD,2014
+1002716,MOCK-REFINE-126,IC3,FCC Modernization,contingency,False,390.0,USD,2023
+1008105,MOCK-OIL_SA-007,IC3,Tailings,equipment,False,55974.0,USD,2014
+1001327,MOCK-REFINE-065,IC3,Flare System,labor,True,681.0,USD,2024
+1007549,MOCK-GAS_PR-040,IC4,Compression,bulk_material,True,22755.0,USD,2023
+1008450,MOCK-OIL_SA-023,IC4,Mining OPP,engineering,True,27724.0,USD,2014
+1007000,MOCK-GAS_PR-008,IC4,Utilities,labor,True,62718.0,USD,2022
+1006184,MOCK-PIPELI-039,IC3,Pump Station,equipment,False,8821.0,USD,2022
+1006229,MOCK-PIPELI-041,IC4,Gathering Pipeline,labor,False,74311.0,USD,2014
+1005621,MOCK-PIPELI-009,IC4,Metering Station,engineering,False,14574.0,USD,2016
+1003521,MOCK-ONSHOR-032,IC3,Olefins Cracker,subcontract,False,35145.0,USD,2012
+1009453,MOCK-ONSHOR-030,IC4,Compression,contingency,False,138623.0,USD,2013
+1001025,MOCK-REFINE-051,IC3,Offsites and Tank Farm,labor,False,21687.0,USD,2020
+1002106,MOCK-REFINE-100,IC5,Utilities Package,subcontract,True,5373.0,USD,2018
+1002163,MOCK-REFINE-102,IC4,Hydrogen Plant,owner,False,5979.0,USD,2020
+1002766,MOCK-REFINE-129,IC5,Desalter Upgrade,equipment,False,4798.0,USD,2020
+1007162,MOCK-GAS_PR-019,IC5,Cryogenic Gas Plant,contingency,True,5412.0,USD,2020
+1007391,MOCK-GAS_PR-031,IC4,Dehydration,contingency,True,5846.0,USD,2018
+1009240,MOCK-ONSHOR-016,IC5,Onsites Process,contingency,False,21308.0,USD,2020
+1006961,MOCK-GAS_PR-006,IC4,NGL Fractionation,equipment,False,7938.0,USD,2015
+1006420,MOCK-ONSHOR-004,IC3,Water Handling,contingency,False,274.0,USD,2021
+1000104,MOCK-REFINE-005,IC5,Crude Unit Revamp,owner,False,15843.0,USD,2019
+1003788,MOCK-ONSHOR-045,IC3,Offsites,subcontract,True,33199.0,USD,2017
+1002900,MOCK-REFINE-138,IC5,Hydrocracker Reactor,labor,False,4537.0,USD,2020
+1008626,MOCK-REFINE-007,IC5,CCR Reformer,subcontract,False,195335.0,USD,2015
+1000988,MOCK-REFINE-049,IC4,Utilities Package,engineering,False,386.0,USD,2018
+1009248,MOCK-ONSHOR-017,IC5,Injection,labor,True,74321.0,USD,2022
+1003883,MOCK-ONSHOR-049,IC5,MEG Unit,contingency,True,112657.0,USD,2013
+1008008,MOCK-LNG_ON-025,IC4,Utilities,labor,True,93528.0,USD,2015
+1005976,MOCK-PIPELI-026,IC5,Gathering Pipeline,bulk_material,True,6445.0,USD,2021
+1004693,MOCK-OFFSHO-007,IC5,FPSO Topsides,engineering,False,243901.0,USD,2019
+1006862,MOCK-ONSHOR-030,IC3,Compression Station,owner,False,4254.0,USD,2024
+1004702,MOCK-OFFSHO-008,IC5,Drilling Wells,owner,False,85534.0,USD,2013
+1007788,MOCK-LNG_ON-015,IC5,Power Plant,owner,False,653517.0,USD,2014
+1000806,MOCK-REFINE-040,IC5,Hydrocracker Reactor,subcontract,True,2444.0,USD,2012
+1008250,MOCK-OIL_SA-015,IC5,Infrastructure,owner,False,76756.0,USD,2020
+1007214,MOCK-GAS_PR-022,IC4,Dehydration,contingency,True,31946.0,USD,2015
+1002174,MOCK-REFINE-103,IC4,Hydrotreater,bulk_material,False,13786.0,USD,2015
+1007040,MOCK-GAS_PR-010,IC4,Cryogenic Gas Plant,engineering,False,11110.0,USD,2021
+1005578,MOCK-PIPELI-007,IC3,Metering Station,contingency,True,2907.0,USD,2012
+1006947,MOCK-GAS_PR-005,IC3,CO2 Capture Facilities,subcontract,False,21089.0,USD,2018
+1007939,MOCK-LNG_ON-022,IC3,LNG Storage,subcontract,True,163057.0,USD,2013
+1007694,MOCK-LNG_ON-009,IC5,Power Plant,subcontract,True,201673.0,USD,2024
+1000377,MOCK-REFINE-019,IC3,Hydrotreater,equipment,True,2569.0,USD,2021
+1007258,MOCK-GAS_PR-025,IC5,Compression,contingency,False,11346.0,USD,2014
+1003131,MOCK-ONSHOR-010,IC3,Utilities Package,engineering,False,15393.0,USD,2016
+1009000,MOCK-ONSHOR-004,IC3,Injection,bulk_material,False,17028.0,USD,2023
+1006110,MOCK-PIPELI-036,IC3,Pump Station,equipment,False,50357.0,USD,2013
+1002851,MOCK-REFINE-134,IC4,Utilities Package,subcontract,True,2741.0,USD,2023
+1001628,MOCK-REFINE-077,IC5,CCR Reformer,labor,False,683.0,USD,2018
+1004072,MOCK-ONSHOR-058,IC4,Utilities Package,subcontract,False,3078.0,USD,2024
+1005306,MOCK-OFFSHO-039,IC3,SURF Flowlines,engineering,True,80859.0,USD,2019
+1005781,MOCK-PIPELI-017,IC4,Gathering Pipeline,contingency,False,16180.0,USD,2021
+1009790,MOCK-ONSHOR-048,IC4,Onsites Process,equipment,False,93945.0,USD,2017
+1008162,MOCK-OIL_SA-010,IC5,Tailings,equipment,False,102752.0,USD,2020
+1000789,MOCK-REFINE-039,IC3,FCC Modernization,owner,False,1823.0,USD,2019
+1006137,MOCK-PIPELI-037,IC3,HDD Crossing,labor,False,2871.0,USD,2015
+1001271,MOCK-REFINE-062,IC3,Hydrocracker Reactor,equipment,False,38349.0,USD,2019
+1008895,MOCK-REFINE-020,IC3,Delayed Coker,labor,False,115782.0,USD,2012
+1002716,MOCK-REFINE-126,IC5,Offsites and Tank Farm,equipment,False,2797.0,USD,2020
+1008105,MOCK-OIL_SA-007,IC5,Extraction,contingency,False,54243.0,USD,2020
+1001327,MOCK-REFINE-065,IC5,CCR Reformer,subcontract,False,899.0,USD,2020
+1007549,MOCK-GAS_PR-040,IC5,Utilities,bulk_material,True,27927.0,USD,2023
+1008450,MOCK-OIL_SA-023,IC5,Utilities,engineering,False,73170.0,USD,2020
+1007000,MOCK-GAS_PR-008,IC3,Injection Wells,subcontract,True,14254.0,USD,2020
+1006184,MOCK-PIPELI-039,IC5,Metering Station,owner,False,8716.0,USD,2014
+1006229,MOCK-PIPELI-041,IC5,Pump Station,labor,False,71705.0,USD,2015
+1005621,MOCK-PIPELI-009,IC5,Metering Station,labor,False,17662.0,USD,2021
+1003521,MOCK-ONSHOR-032,IC5,Offsites,subcontract,True,42203.0,USD,2018
+1009453,MOCK-ONSHOR-030,IC3,Infrastructure,engineering,False,191370.0,USD,2016
+1001025,MOCK-REFINE-051,IC5,CCR Reformer,bulk_material,False,1650.0,USD,2013
+1002106,MOCK-REFINE-100,IC5,Offsites and Tank Farm,owner,False,4776.0,USD,2018
+1002163,MOCK-REFINE-102,IC4,Alkylation Unit,subcontract,True,2935.0,USD,2016
+1002766,MOCK-REFINE-129,IC5,Flare System,engineering,False,1270.0,USD,2013
+1007162,MOCK-GAS_PR-019,IC5,Dehydration,bulk_material,False,2544.0,USD,2013
+1007391,MOCK-GAS_PR-031,IC4,CO2 Capture Facilities,equipment,False,5154.0,USD,2015
+1009240,MOCK-ONSHOR-016,IC3,Infrastructure,subcontract,True,20414.0,USD,2024
+1006961,MOCK-GAS_PR-006,IC4,Dehydration,engineering,False,11740.0,USD,2019
+1006420,MOCK-ONSHOR-004,IC5,Compression Station,bulk_material,False,812.0,USD,2012
+1000104,MOCK-REFINE-005,IC4,Flare System,owner,False,3619.0,USD,2015
+1003788,MOCK-ONSHOR-045,IC3,Offsites,contingency,True,9746.0,USD,2016
+1002900,MOCK-REFINE-138,IC3,Furnace Replacement,owner,False,5413.0,USD,2015
+1008626,MOCK-REFINE-007,IC5,Delayed Coker,contingency,True,47950.0,USD,2012
+1000988,MOCK-REFINE-049,IC3,Alkylation Unit,engineering,True,279.0,USD,2021
+1009248,MOCK-ONSHOR-017,IC5,Infrastructure,bulk_material,False,84999.0,USD,2015
+1003883,MOCK-ONSHOR-049,IC3,Polypropylene Unit,engineering,False,93918.0,USD,2018
+1008008,MOCK-LNG_ON-025,IC4,Utilities,contingency,False,179585.0,USD,2022
+1005976,MOCK-PIPELI-026,IC4,Metering Station,bulk_material,False,10229.0,USD,2021
+1004693,MOCK-OFFSHO-007,IC3,Mooring System,equipment,True,139477.0,USD,2015
+1006862,MOCK-ONSHOR-030,IC3,Central Delivery Point,bulk_material,True,3319.0,USD,2020
+1004702,MOCK-OFFSHO-008,IC4,Subsea Trees,engineering,True,77302.0,USD,2013
+1007788,MOCK-LNG_ON-015,IC5,Utilities,labor,True,249571.0,USD,2017
+1000806,MOCK-REFINE-040,IC3,Hydrotreater,engineering,False,719.0,USD,2012
+1008250,MOCK-OIL_SA-015,IC5,Mining OPP,labor,False,73891.0,USD,2023
+1007214,MOCK-GAS_PR-022,IC5,CO2 Capture Facilities,labor,True,12351.0,USD,2024
+1002174,MOCK-REFINE-103,IC4,Flare System,equipment,False,8152.0,USD,2022
+1007040,MOCK-GAS_PR-010,IC3,Utilities,labor,False,11450.0,USD,2016
+1005578,MOCK-PIPELI-007,IC5,Export Pipeline,bulk_material,False,8153.0,USD,2014
+1006947,MOCK-GAS_PR-005,IC5,Cryogenic Gas Plant,engineering,False,17209.0,USD,2023
+1007939,MOCK-LNG_ON-022,IC3,Jetty and Loading,bulk_material,True,223576.0,USD,2023
+1007694,MOCK-LNG_ON-009,IC4,Liquefaction Train,subcontract,False,82702.0,USD,2024
+1000377,MOCK-REFINE-019,IC5,FCC Modernization,subcontract,False,3143.0,USD,2016
+1007258,MOCK-GAS_PR-025,IC4,NGL Fractionation,owner,False,13462.0,USD,2017
+1003131,MOCK-ONSHOR-010,IC4,Polyethylene Unit,equipment,False,28844.0,USD,2013
+1009000,MOCK-ONSHOR-004,IC4,Onsites Process,subcontract,True,33322.0,USD,2019
+1006110,MOCK-PIPELI-036,IC3,Export Pipeline,bulk_material,True,40157.0,USD,2018
+1002851,MOCK-REFINE-134,IC4,Crude Unit Revamp,bulk_material,False,3087.0,USD,2018
+1001628,MOCK-REFINE-077,IC4,Utilities Package,engineering,False,654.0,USD,2019
+1004072,MOCK-ONSHOR-058,IC4,MEG Unit,subcontract,False,17432.0,USD,2021
+1005306,MOCK-OFFSHO-039,IC3,SURF Flowlines,bulk_material,True,135407.0,USD,2020
+1005781,MOCK-PIPELI-017,IC5,Export Pipeline,contingency,False,36510.0,USD,2014
+1009790,MOCK-ONSHOR-048,IC3,Onsites Process,subcontract,False,88821.0,USD,2019
+1008162,MOCK-OIL_SA-010,IC3,Utilities,subcontract,True,103742.0,USD,2013
+1000789,MOCK-REFINE-039,IC3,Hydrocracker Reactor,labor,False,3785.0,USD,2024
+1006137,MOCK-PIPELI-037,IC5,Gathering Pipeline,subcontract,False,1296.0,USD,2021
+1001271,MOCK-REFINE-062,IC5,FCC Modernization,contingency,False,55616.0,USD,2014
+1008895,MOCK-REFINE-020,IC5,Offsites and Tank Farm,owner,False,52510.0,USD,2015
+1002716,MOCK-REFINE-126,IC5,FCC Modernization,engineering,False,2382.0,USD,2012
+1008105,MOCK-OIL_SA-007,IC5,Infrastructure,subcontract,True,42910.0,USD,2023
+1001327,MOCK-REFINE-065,IC4,Hydrotreater,subcontract,False,130.0,USD,2016
+1007549,MOCK-GAS_PR-040,IC3,Compression,contingency,True,103219.0,USD,2015
+1008450,MOCK-OIL_SA-023,IC4,Extraction,owner,False,121795.0,USD,2018
+1007000,MOCK-GAS_PR-008,IC3,Dehydration,subcontract,True,18165.0,USD,2024
+1006184,MOCK-PIPELI-039,IC4,Pump Station,subcontract,False,1518.0,USD,2017
+1006229,MOCK-PIPELI-041,IC5,Metering Station,engineering,False,19310.0,USD,2021
+1005621,MOCK-PIPELI-009,IC3,Gathering Pipeline,contingency,False,1838.0,USD,2024
+1003521,MOCK-ONSHOR-032,IC3,Olefins Cracker,owner,False,76566.0,USD,2022
+1009453,MOCK-ONSHOR-030,IC5,Storage,owner,True,127747.0,USD,2015
+1001025,MOCK-REFINE-051,IC4,Flare System,equipment,False,4743.0,USD,2015
+1002106,MOCK-REFINE-100,IC4,Hydrocracker Reactor,subcontract,True,683.0,USD,2023
+1002163,MOCK-REFINE-102,IC5,Offsites and Tank Farm,labor,False,5277.0,USD,2016
+1002766,MOCK-REFINE-129,IC3,Hydrocracker Reactor,subcontract,False,838.0,USD,2020
+1007162,MOCK-GAS_PR-019,IC4,CO2 Capture Facilities,labor,False,14741.0,USD,2016
+1007391,MOCK-GAS_PR-031,IC3,Injection Wells,equipment,True,18544.0,USD,2016
+1009240,MOCK-ONSHOR-016,IC4,Injection,owner,False,6893.0,USD,2021
+1006961,MOCK-GAS_PR-006,IC3,Cryogenic Gas Plant,bulk_material,False,14871.0,USD,2020
+1006420,MOCK-ONSHOR-004,IC3,Compression Station,equipment,False,519.0,USD,2022
+1000104,MOCK-REFINE-005,IC3,Utilities Package,subcontract,False,3733.0,USD,2022
+1003788,MOCK-ONSHOR-045,IC3,Product Loading,bulk_material,False,23042.0,USD,2021
+1002900,MOCK-REFINE-138,IC4,Crude Unit Revamp,labor,True,1845.0,USD,2018
+1008626,MOCK-REFINE-007,IC5,Desalter Upgrade,engineering,False,147075.0,USD,2013
+1000988,MOCK-REFINE-049,IC4,Offsites and Tank Farm,contingency,False,818.0,USD,2015
+1009248,MOCK-ONSHOR-017,IC3,Storage,subcontract,True,86288.0,USD,2014
+1003883,MOCK-ONSHOR-049,IC4,Olefins Cracker,contingency,True,17791.0,USD,2020
+1008008,MOCK-LNG_ON-025,IC4,Power Plant,subcontract,False,160989.0,USD,2019
+1005976,MOCK-PIPELI-026,IC5,Metering Station,bulk_material,True,8891.0,USD,2024
+1004693,MOCK-OFFSHO-007,IC4,SURF Flowlines,subcontract,False,251774.0,USD,2021
+1006862,MOCK-ONSHOR-030,IC3,Compression Station,bulk_material,False,2666.0,USD,2019
+1004702,MOCK-OFFSHO-008,IC4,Risers,subcontract,False,43234.0,USD,2015
+1007788,MOCK-LNG_ON-015,IC4,Infrastructure,contingency,True,211550.0,USD,2017
+1000806,MOCK-REFINE-040,IC5,Alkylation Unit,bulk_material,False,1460.0,USD,2023
+1008250,MOCK-OIL_SA-015,IC4,Tailings,owner,False,31796.0,USD,2024
+1007214,MOCK-GAS_PR-022,IC5,CO2 Capture Facilities,bulk_material,False,22107.0,USD,2022
+1002174,MOCK-REFINE-103,IC4,Utilities Package,contingency,True,2629.0,USD,2019
+1007040,MOCK-GAS_PR-010,IC5,Dehydration,engineering,False,10800.0,USD,2012
+1005578,MOCK-PIPELI-007,IC4,HDD Crossing,owner,True,6596.0,USD,2012
+1006947,MOCK-GAS_PR-005,IC5,NGL Fractionation,bulk_material,False,10304.0,USD,2013
+1007939,MOCK-LNG_ON-022,IC3,Liquefaction Train,bulk_material,False,160846.0,USD,2021
+1007694,MOCK-LNG_ON-009,IC3,Utilities,equipment,True,191103.0,USD,2023
+1000377,MOCK-REFINE-019,IC5,Hydrocracker Reactor,owner,False,1623.0,USD,2018
+1007258,MOCK-GAS_PR-025,IC3,Compression,bulk_material,False,24481.0,USD,2022
+1003131,MOCK-ONSHOR-010,IC3,MEG Unit,labor,False,19485.0,USD,2022
+1009000,MOCK-ONSHOR-004,IC3,Infrastructure,contingency,False,21517.0,USD,2022
+1006110,MOCK-PIPELI-036,IC5,Pump Station,subcontract,False,83346.0,USD,2019
+1002851,MOCK-REFINE-134,IC4,CCR Reformer,owner,False,19485.0,USD,2017
+1001628,MOCK-REFINE-077,IC3,FCC Modernization,owner,True,743.0,USD,2015
+1004072,MOCK-ONSHOR-058,IC4,Utilities Package,engineering,True,19762.0,USD,2017
+1005306,MOCK-OFFSHO-039,IC5,Risers,owner,True,42071.0,USD,2019
+1005781,MOCK-PIPELI-017,IC5,Export Pipeline,subcontract,False,12076.0,USD,2016
+1009790,MOCK-ONSHOR-048,IC5,Compression,labor,False,16522.0,USD,2012
+1008162,MOCK-OIL_SA-010,IC5,Mining OPP,engineering,False,147387.0,USD,2012
+1000789,MOCK-REFINE-039,IC5,Furnace Replacement,owner,False,3885.0,USD,2013
+1006137,MOCK-PIPELI-037,IC4,Pump Station,labor,False,13032.0,USD,2013
+1001271,MOCK-REFINE-062,IC3,Offsites and Tank Farm,subcontract,False,56972.0,USD,2020
+1008895,MOCK-REFINE-020,IC4,Crude Unit Revamp,equipment,False,42947.0,USD,2013
+1002716,MOCK-REFINE-126,IC3,Delayed Coker,engineering,True,304.0,USD,2015
+1008105,MOCK-OIL_SA-007,IC3,Tailings,owner,False,19670.0,USD,2017
+1001327,MOCK-REFINE-065,IC5,Desalter Upgrade,bulk_material,False,466.0,USD,2019
+1007549,MOCK-GAS_PR-040,IC3,Cryogenic Gas Plant,equipment,False,12931.0,USD,2022
+1008450,MOCK-OIL_SA-023,IC3,Utilities,equipment,True,119080.0,USD,2020
+1007000,MOCK-GAS_PR-008,IC5,Compression,bulk_material,False,41203.0,USD,2012
+1006184,MOCK-PIPELI-039,IC5,Metering Station,contingency,False,7051.0,USD,2021
+1006229,MOCK-PIPELI-041,IC4,Pump Station,contingency,False,50248.0,USD,2015
+1005621,MOCK-PIPELI-009,IC3,Metering Station,subcontract,True,16306.0,USD,2016
+1003521,MOCK-ONSHOR-032,IC3,Infrastructure,subcontract,False,67721.0,USD,2016
+1009453,MOCK-ONSHOR-030,IC4,Infrastructure,subcontract,False,23369.0,USD,2017
+1001025,MOCK-REFINE-051,IC4,Hydrocracker Reactor,subcontract,False,2204.0,USD,2022
+1002106,MOCK-REFINE-100,IC5,Hydrocracker Reactor,contingency,False,3229.0,USD,2017
+1002163,MOCK-REFINE-102,IC4,Utilities Package,labor,False,5280.0,USD,2023
+1002766,MOCK-REFINE-129,IC4,Hydrotreater,owner,True,585.0,USD,2017
+1007162,MOCK-GAS_PR-019,IC5,Cryogenic Gas Plant,subcontract,False,9128.0,USD,2013
+1007391,MOCK-GAS_PR-031,IC3,Utilities,labor,False,4854.0,USD,2018
+1009240,MOCK-ONSHOR-016,IC4,Injection,bulk_material,False,20029.0,USD,2017
+1006961,MOCK-GAS_PR-006,IC5,Compression,owner,False,27776.0,USD,2020
+1006420,MOCK-ONSHOR-004,IC5,Pad Facilities,subcontract,False,692.0,USD,2020
+1000104,MOCK-REFINE-005,IC5,Alkylation Unit,bulk_material,False,3070.0,USD,2013
+1003788,MOCK-ONSHOR-045,IC4,Polyethylene Unit,equipment,False,46563.0,USD,2015
+1002900,MOCK-REFINE-138,IC5,Crude Unit Revamp,owner,False,2435.0,USD,2014
+1008626,MOCK-REFINE-007,IC4,Crude Unit Revamp,subcontract,True,148792.0,USD,2024
+1000988,MOCK-REFINE-049,IC4,FCC Modernization,bulk_material,False,609.0,USD,2021
+1009248,MOCK-ONSHOR-017,IC3,Infrastructure,bulk_material,False,40914.0,USD,2023
+1003883,MOCK-ONSHOR-049,IC4,MEG Unit,subcontract,True,11081.0,USD,2023
+1008008,MOCK-LNG_ON-025,IC5,LNG Storage,labor,True,104863.0,USD,2022
+1005976,MOCK-PIPELI-026,IC3,Metering Station,owner,False,12162.0,USD,2014
+1004693,MOCK-OFFSHO-007,IC5,FPSO Hull,owner,True,310433.0,USD,2024
+1006862,MOCK-ONSHOR-030,IC3,Compression Station,subcontract,True,2602.0,USD,2013
+1004702,MOCK-OFFSHO-008,IC5,SURF Flowlines,bulk_material,False,69636.0,USD,2015
+1007788,MOCK-LNG_ON-015,IC3,Infrastructure,equipment,True,457199.0,USD,2014
+1000806,MOCK-REFINE-040,IC3,FCC Modernization,engineering,True,630.0,USD,2014
+1008250,MOCK-OIL_SA-015,IC5,Utilities,owner,False,36713.0,USD,2015
+1007214,MOCK-GAS_PR-022,IC3,Dehydration,engineering,False,37300.0,USD,2016
+1002174,MOCK-REFINE-103,IC4,Offsites and Tank Farm,subcontract,False,19162.0,USD,2012
+1007040,MOCK-GAS_PR-010,IC3,Cryogenic Gas Plant,subcontract,True,5782.0,USD,2018
+1005578,MOCK-PIPELI-007,IC4,Pump Station,contingency,False,5401.0,USD,2017
+1006947,MOCK-GAS_PR-005,IC5,Utilities,equipment,False,20387.0,USD,2021
+1007939,MOCK-LNG_ON-022,IC4,Jetty and Loading,bulk_material,True,349899.0,USD,2022
+1007694,MOCK-LNG_ON-009,IC4,Power Plant,labor,False,170961.0,USD,2019
+1000377,MOCK-REFINE-019,IC5,Furnace Replacement,labor,True,2308.0,USD,2020
+1007258,MOCK-GAS_PR-025,IC3,Dehydration,contingency,False,6322.0,USD,2020
+1003131,MOCK-ONSHOR-010,IC3,Storage Tank Farm,owner,False,31849.0,USD,2017
+1009000,MOCK-ONSHOR-004,IC4,Infrastructure,labor,True,7742.0,USD,2021
+1006110,MOCK-PIPELI-036,IC4,Metering Station,bulk_material,True,20010.0,USD,2015
+1002851,MOCK-REFINE-134,IC3,Delayed Coker,contingency,True,6754.0,USD,2024
+1001628,MOCK-REFINE-077,IC4,Flare System,bulk_material,True,931.0,USD,2024
+1004072,MOCK-ONSHOR-058,IC4,Polyethylene Unit,bulk_material,True,9765.0,USD,2021
+1005306,MOCK-OFFSHO-039,IC3,FPSO Hull,contingency,True,128055.0,USD,2021
+1005781,MOCK-PIPELI-017,IC4,Metering Station,bulk_material,False,16600.0,USD,2012
+1009790,MOCK-ONSHOR-048,IC4,Onsites Process,contingency,False,23564.0,USD,2014
+1008162,MOCK-OIL_SA-010,IC3,Tailings,contingency,False,72914.0,USD,2020
+1000789,MOCK-REFINE-039,IC5,Offsites and Tank Farm,engineering,False,3577.0,USD,2015
+1006137,MOCK-PIPELI-037,IC5,Gathering Pipeline,bulk_material,False,7560.0,USD,2020
+1001271,MOCK-REFINE-062,IC5,Desalter Upgrade,equipment,False,20600.0,USD,2016
+1008895,MOCK-REFINE-020,IC3,Crude Unit Revamp,subcontract,True,210857.0,USD,2024
+1002716,MOCK-REFINE-126,IC4,Furnace Replacement,bulk_material,False,2089.0,USD,2023
+1008105,MOCK-OIL_SA-007,IC5,Infrastructure,engineering,False,38242.0,USD,2021
+1001327,MOCK-REFINE-065,IC3,Hydrocracker Reactor,bulk_material,True,561.0,USD,2012
+1007549,MOCK-GAS_PR-040,IC4,Compression,owner,False,74515.0,USD,2018
+1008450,MOCK-OIL_SA-023,IC4,Infrastructure,contingency,False,132090.0,USD,2024
+1007000,MOCK-GAS_PR-008,IC4,Compression,equipment,True,16094.0,USD,2024
+1006184,MOCK-PIPELI-039,IC4,Gathering Pipeline,owner,False,1117.0,USD,2019
+1006229,MOCK-PIPELI-041,IC4,Metering Station,subcontract,True,35338.0,USD,2014
+1005621,MOCK-PIPELI-009,IC5,Gathering Pipeline,labor,True,4619.0,USD,2021
+1003521,MOCK-ONSHOR-032,IC5,Olefins Cracker,equipment,False,87968.0,USD,2022
+1009453,MOCK-ONSHOR-030,IC3,Injection,equipment,True,24993.0,USD,2023
+1001025,MOCK-REFINE-051,IC5,Alkylation Unit,engineering,False,11324.0,USD,2015
+1002106,MOCK-REFINE-100,IC3,Delayed Coker,equipment,False,1349.0,USD,2018
+1002163,MOCK-REFINE-102,IC5,Flare System,equipment,True,1111.0,USD,2021
+1002766,MOCK-REFINE-129,IC3,Hydrotreater,equipment,True,1098.0,USD,2012
+1007162,MOCK-GAS_PR-019,IC5,Injection Wells,engineering,False,10190.0,USD,2022
+1007391,MOCK-GAS_PR-031,IC5,Injection Wells,bulk_material,False,15443.0,USD,2021
+1009240,MOCK-ONSHOR-016,IC5,Infrastructure,equipment,False,5599.0,USD,2022
+1006961,MOCK-GAS_PR-006,IC3,Cryogenic Gas Plant,subcontract,True,10417.0,USD,2017
+1006420,MOCK-ONSHOR-004,IC5,Pad Facilities,equipment,False,749.0,USD,2015
+1000104,MOCK-REFINE-005,IC5,FCC Modernization,contingency,False,12902.0,USD,2017
+1003788,MOCK-ONSHOR-045,IC4,Offsites,engineering,False,6242.0,USD,2012
+1002900,MOCK-REFINE-138,IC5,Furnace Replacement,labor,False,1410.0,USD,2024
+1008626,MOCK-REFINE-007,IC5,Utilities Package,bulk_material,False,84115.0,USD,2022
+1000988,MOCK-REFINE-049,IC4,CCR Reformer,engineering,True,952.0,USD,2014
+1009248,MOCK-ONSHOR-017,IC3,Injection,engineering,False,47777.0,USD,2015
+1003883,MOCK-ONSHOR-049,IC4,Product Loading,owner,False,104025.0,USD,2022
+1008008,MOCK-LNG_ON-025,IC5,Liquefaction Train,equipment,False,61040.0,USD,2012
+1005976,MOCK-PIPELI-026,IC4,Gathering Pipeline,equipment,True,6654.0,USD,2019
+1004693,MOCK-OFFSHO-007,IC3,Risers,equipment,False,48005.0,USD,2016
+1006862,MOCK-ONSHOR-030,IC3,Compression Station,engineering,False,839.0,USD,2014
+1004702,MOCK-OFFSHO-008,IC4,FPSO Hull,contingency,True,105592.0,USD,2022
+1007788,MOCK-LNG_ON-015,IC5,LNG Storage,engineering,True,653758.0,USD,2015
+1000806,MOCK-REFINE-040,IC5,CCR Reformer,contingency,False,1995.0,USD,2015
+1008250,MOCK-OIL_SA-015,IC5,Utilities,equipment,False,76195.0,USD,2024
+1007214,MOCK-GAS_PR-022,IC3,Dehydration,equipment,False,9736.0,USD,2024
+1002174,MOCK-REFINE-103,IC4,Desalter Upgrade,subcontract,False,8886.0,USD,2024
+1007040,MOCK-GAS_PR-010,IC4,CO2 Capture Facilities,engineering,False,4794.0,USD,2022
+1005578,MOCK-PIPELI-007,IC5,Gathering Pipeline,labor,True,7570.0,USD,2016
+1006947,MOCK-GAS_PR-005,IC3,Cryogenic Gas Plant,bulk_material,False,17131.0,USD,2017
+1007939,MOCK-LNG_ON-022,IC3,LNG Storage,equipment,True,331914.0,USD,2024
+1007694,MOCK-LNG_ON-009,IC4,Liquefaction Train,equipment,False,120193.0,USD,2017
+1000377,MOCK-REFINE-019,IC3,Alkylation Unit,labor,False,715.0,USD,2014
+1007258,MOCK-GAS_PR-025,IC3,Injection Wells,contingency,False,3114.0,USD,2019
+1003131,MOCK-ONSHOR-010,IC3,Utilities Package,labor,True,32063.0,USD,2019
+1009000,MOCK-ONSHOR-004,IC3,Onsites Process,owner,False,9352.0,USD,2014
+1006110,MOCK-PIPELI-036,IC5,Gathering Pipeline,engineering,False,11946.0,USD,2020
+1002851,MOCK-REFINE-134,IC5,Hydrotreater,bulk_material,False,9626.0,USD,2017
+1001628,MOCK-REFINE-077,IC4,Furnace Replacement,subcontract,False,409.0,USD,2021
+1004072,MOCK-ONSHOR-058,IC4,Polyethylene Unit,owner,True,9510.0,USD,2015
+1005306,MOCK-OFFSHO-039,IC4,Mooring System,equipment,True,141962.0,USD,2016
+1005781,MOCK-PIPELI-017,IC3,HDD Crossing,contingency,False,34531.0,USD,2014
+1009790,MOCK-ONSHOR-048,IC5,Injection,bulk_material,False,29249.0,USD,2020
+1008162,MOCK-OIL_SA-010,IC4,Tailings,subcontract,False,132310.0,USD,2013
+1000789,MOCK-REFINE-039,IC4,FCC Modernization,engineering,True,724.0,USD,2019
+1006137,MOCK-PIPELI-037,IC3,Metering Station,bulk_material,False,4289.0,USD,2013
+1001271,MOCK-REFINE-062,IC3,Offsites and Tank Farm,subcontract,False,44572.0,USD,2016
+1008895,MOCK-REFINE-020,IC3,Alkylation Unit,engineering,False,82500.0,USD,2014
+1002716,MOCK-REFINE-126,IC4,Hydrotreater,equipment,False,2228.0,USD,2017
+1008105,MOCK-OIL_SA-007,IC5,Infrastructure,equipment,True,17400.0,USD,2019
+1001327,MOCK-REFINE-065,IC5,Hydrotreater,engineering,True,751.0,USD,2021
+1007549,MOCK-GAS_PR-040,IC5,CO2 Capture Facilities,equipment,True,27804.0,USD,2022
+1008450,MOCK-OIL_SA-023,IC5,Infrastructure,equipment,False,156610.0,USD,2019
+1007000,MOCK-GAS_PR-008,IC3,Utilities,bulk_material,False,12940.0,USD,2015
+1006184,MOCK-PIPELI-039,IC5,HDD Crossing,subcontract,True,2281.0,USD,2014
+1006229,MOCK-PIPELI-041,IC4,HDD Crossing,bulk_material,True,35658.0,USD,2024
+1005621,MOCK-PIPELI-009,IC3,Gathering Pipeline,contingency,False,2236.0,USD,2014
+1003521,MOCK-ONSHOR-032,IC3,Product Loading,owner,True,72218.0,USD,2024
+1009453,MOCK-ONSHOR-030,IC3,Storage,engineering,False,16732.0,USD,2023
+1001025,MOCK-REFINE-051,IC4,Crude Unit Revamp,bulk_material,False,15917.0,USD,2022
+1002106,MOCK-REFINE-100,IC5,Utilities Package,labor,True,3404.0,USD,2017
+1002163,MOCK-REFINE-102,IC5,Flare System,equipment,True,6247.0,USD,2016
+1002766,MOCK-REFINE-129,IC3,Furnace Replacement,labor,False,2344.0,USD,2019
+1007162,MOCK-GAS_PR-019,IC3,Utilities,contingency,True,6546.0,USD,2023
+1007391,MOCK-GAS_PR-031,IC4,Compression,contingency,False,11387.0,USD,2020
+1009240,MOCK-ONSHOR-016,IC5,Storage,subcontract,False,14508.0,USD,2018
+1006961,MOCK-GAS_PR-006,IC3,NGL Fractionation,owner,False,31310.0,USD,2012
+1006420,MOCK-ONSHOR-004,IC5,Pad Facilities,subcontract,False,657.0,USD,2022
+1000104,MOCK-REFINE-005,IC4,Offsites and Tank Farm,subcontract,False,11927.0,USD,2016
+1003788,MOCK-ONSHOR-045,IC3,Olefins Cracker,contingency,True,16156.0,USD,2017
+1002900,MOCK-REFINE-138,IC5,Furnace Replacement,engineering,False,2391.0,USD,2012
+1008626,MOCK-REFINE-007,IC4,FCC Modernization,contingency,False,175568.0,USD,2023
+1000988,MOCK-REFINE-049,IC3,Utilities Package,contingency,True,195.0,USD,2023
+1009248,MOCK-ONSHOR-017,IC4,Storage,subcontract,False,57580.0,USD,2012
+1003883,MOCK-ONSHOR-049,IC4,Utilities Package,contingency,False,14062.0,USD,2022
+1008008,MOCK-LNG_ON-025,IC3,Power Plant,contingency,False,285894.0,USD,2021
+1005976,MOCK-PIPELI-026,IC4,Pump Station,contingency,False,23011.0,USD,2014
+1004693,MOCK-OFFSHO-007,IC5,FPSO Topsides,subcontract,True,24855.0,USD,2021
+1006862,MOCK-ONSHOR-030,IC3,Central Delivery Point,labor,True,906.0,USD,2023
+1004702,MOCK-OFFSHO-008,IC3,Drilling Wells,equipment,True,38975.0,USD,2017
+1007788,MOCK-LNG_ON-015,IC3,Utilities,contingency,False,113449.0,USD,2020
+1000806,MOCK-REFINE-040,IC5,CCR Reformer,subcontract,True,1040.0,USD,2022
+1008250,MOCK-OIL_SA-015,IC3,Extraction,owner,True,150007.0,USD,2016
+1007214,MOCK-GAS_PR-022,IC3,NGL Fractionation,contingency,True,26929.0,USD,2019
+1002174,MOCK-REFINE-103,IC3,Hydrogen Plant,contingency,False,18180.0,USD,2024
+1007040,MOCK-GAS_PR-010,IC4,Dehydration,owner,False,8342.0,USD,2019
+1005578,MOCK-PIPELI-007,IC3,Metering Station,subcontract,False,2462.0,USD,2023
+1006947,MOCK-GAS_PR-005,IC3,Compression,labor,False,20263.0,USD,2019
+1007939,MOCK-LNG_ON-022,IC4,LNG Storage,bulk_material,True,85069.0,USD,2018
+1007694,MOCK-LNG_ON-009,IC3,Liquefaction Train,equipment,False,107928.0,USD,2012
+1000377,MOCK-REFINE-019,IC5,Hydrocracker Reactor,contingency,False,1634.0,USD,2018
+1007258,MOCK-GAS_PR-025,IC3,Dehydration,contingency,False,4552.0,USD,2012
+1003131,MOCK-ONSHOR-010,IC4,Polyethylene Unit,contingency,False,9773.0,USD,2014
+1009000,MOCK-ONSHOR-004,IC4,Compression,subcontract,True,40980.0,USD,2015
+1006110,MOCK-PIPELI-036,IC3,Gathering Pipeline,engineering,False,19205.0,USD,2013
+1002851,MOCK-REFINE-134,IC3,Offsites and Tank Farm,labor,False,18689.0,USD,2012
+1001628,MOCK-REFINE-077,IC4,Hydrocracker Reactor,owner,False,1028.0,USD,2014
+1004072,MOCK-ONSHOR-058,IC4,MEG Unit,bulk_material,True,14609.0,USD,2020
+1005306,MOCK-OFFSHO-039,IC5,SURF Flowlines,bulk_material,True,142525.0,USD,2019
+1005781,MOCK-PIPELI-017,IC3,Gathering Pipeline,bulk_material,False,35492.0,USD,2020
+1009790,MOCK-ONSHOR-048,IC3,Storage,contingency,False,7565.0,USD,2017
+1008162,MOCK-OIL_SA-010,IC3,Infrastructure,owner,False,73990.0,USD,2020
+1000789,MOCK-REFINE-039,IC4,Utilities Package,labor,False,2152.0,USD,2022
+1006137,MOCK-PIPELI-037,IC4,Gathering Pipeline,labor,False,7736.0,USD,2024
+1001271,MOCK-REFINE-062,IC4,Hydrogen Plant,subcontract,False,33807.0,USD,2020
+1008895,MOCK-REFINE-020,IC5,Flare System,bulk_material,False,47697.0,USD,2023
+1002716,MOCK-REFINE-126,IC5,Hydrogen Plant,contingency,False,3152.0,USD,2020
+1008105,MOCK-OIL_SA-007,IC5,Mining OPP,subcontract,False,53317.0,USD,2015
+1001327,MOCK-REFINE-065,IC4,CCR Reformer,owner,False,584.0,USD,2014
+1007549,MOCK-GAS_PR-040,IC3,NGL Fractionation,contingency,False,74493.0,USD,2015
+1008450,MOCK-OIL_SA-023,IC4,Utilities,equipment,False,77527.0,USD,2020
+1007000,MOCK-GAS_PR-008,IC5,Dehydration,contingency,False,49648.0,USD,2024
+1006184,MOCK-PIPELI-039,IC5,Pump Station,owner,False,6998.0,USD,2023
+1006229,MOCK-PIPELI-041,IC4,HDD Crossing,labor,False,42412.0,USD,2014
+1005621,MOCK-PIPELI-009,IC3,HDD Crossing,subcontract,True,15903.0,USD,2021
+1003521,MOCK-ONSHOR-032,IC4,Storage Tank Farm,owner,True,26163.0,USD,2019
+1009453,MOCK-ONSHOR-030,IC3,Infrastructure,contingency,False,61772.0,USD,2017
+1001025,MOCK-REFINE-051,IC3,Furnace Replacement,labor,False,2490.0,USD,2015
+1002106,MOCK-REFINE-100,IC5,CCR Reformer,engineering,False,2878.0,USD,2014
+1002163,MOCK-REFINE-102,IC5,Offsites and Tank Farm,labor,False,4021.0,USD,2013
+1002766,MOCK-REFINE-129,IC4,Crude Unit Revamp,bulk_material,False,3315.0,USD,2012
+1007162,MOCK-GAS_PR-019,IC4,Utilities,labor,False,11357.0,USD,2013
+1007391,MOCK-GAS_PR-031,IC4,CO2 Capture Facilities,owner,False,10987.0,USD,2018
+1009240,MOCK-ONSHOR-016,IC4,Storage,contingency,False,21283.0,USD,2015
+1006961,MOCK-GAS_PR-006,IC3,Utilities,engineering,False,7148.0,USD,2015
+1006420,MOCK-ONSHOR-004,IC5,Gathering Pipeline,equipment,False,805.0,USD,2016
+1000104,MOCK-REFINE-005,IC3,Crude Unit Revamp,contingency,True,8606.0,USD,2015
+1003788,MOCK-ONSHOR-045,IC5,Infrastructure,labor,False,53028.0,USD,2021
+1002900,MOCK-REFINE-138,IC5,Delayed Coker,equipment,False,931.0,USD,2018
+1008626,MOCK-REFINE-007,IC5,Hydrogen Plant,equipment,False,209507.0,USD,2021
+1000988,MOCK-REFINE-049,IC4,Hydrotreater,labor,True,1238.0,USD,2021
+1009248,MOCK-ONSHOR-017,IC3,Compression,owner,False,28506.0,USD,2018
+1003883,MOCK-ONSHOR-049,IC5,MEG Unit,subcontract,False,121325.0,USD,2014
+1008008,MOCK-LNG_ON-025,IC5,LNG Storage,labor,False,154687.0,USD,2018
+1005976,MOCK-PIPELI-026,IC3,HDD Crossing,bulk_material,False,5103.0,USD,2017
+1004693,MOCK-OFFSHO-007,IC4,FPSO Topsides,labor,False,68438.0,USD,2019
+1006862,MOCK-ONSHOR-030,IC5,Water Handling,bulk_material,False,4412.0,USD,2016
+1004702,MOCK-OFFSHO-008,IC4,Umbilicals,labor,True,31347.0,USD,2018
+1007788,MOCK-LNG_ON-015,IC5,LNG Storage,bulk_material,False,525179.0,USD,2022
+1000806,MOCK-REFINE-040,IC5,Hydrocracker Reactor,labor,False,2515.0,USD,2018
+1008250,MOCK-OIL_SA-015,IC3,Tailings,subcontract,False,112075.0,USD,2024
+1007214,MOCK-GAS_PR-022,IC5,Compression,subcontract,False,37939.0,USD,2023
+1002174,MOCK-REFINE-103,IC4,Alkylation Unit,bulk_material,False,9750.0,USD,2014
+1007040,MOCK-GAS_PR-010,IC4,Dehydration,owner,False,4826.0,USD,2017
+1005578,MOCK-PIPELI-007,IC3,Metering Station,subcontract,False,1080.0,USD,2020
+1006947,MOCK-GAS_PR-005,IC3,Utilities,contingency,False,19021.0,USD,2017
+1007939,MOCK-LNG_ON-022,IC5,Jetty and Loading,labor,True,327957.0,USD,2020
+1007694,MOCK-LNG_ON-009,IC4,Liquefaction Train,contingency,False,36581.0,USD,2024
+1000377,MOCK-REFINE-019,IC3,Hydrogen Plant,subcontract,False,2923.0,USD,2016
+1007258,MOCK-GAS_PR-025,IC4,NGL Fractionation,subcontract,False,18839.0,USD,2017
+1003131,MOCK-ONSHOR-010,IC3,Utilities Package,contingency,False,33261.0,USD,2017
+1009000,MOCK-ONSHOR-004,IC3,Injection,engineering,False,28377.0,USD,2023
+1006110,MOCK-PIPELI-036,IC5,Pump Station,subcontract,False,92878.0,USD,2021
+1002851,MOCK-REFINE-134,IC4,Delayed Coker,engineering,False,15457.0,USD,2021
+1001628,MOCK-REFINE-077,IC4,Delayed Coker,subcontract,True,123.0,USD,2021
+1004072,MOCK-ONSHOR-058,IC4,Infrastructure,owner,True,20931.0,USD,2022
+1005306,MOCK-OFFSHO-039,IC5,Risers,bulk_material,False,233027.0,USD,2023
+1005781,MOCK-PIPELI-017,IC4,HDD Crossing,owner,False,11404.0,USD,2024
+1009790,MOCK-ONSHOR-048,IC3,Compression,labor,True,88595.0,USD,2021
+1008162,MOCK-OIL_SA-010,IC4,Extraction,engineering,False,133997.0,USD,2023
+1000789,MOCK-REFINE-039,IC4,Desalter Upgrade,owner,False,1094.0,USD,2017
+1006137,MOCK-PIPELI-037,IC3,HDD Crossing,owner,True,1151.0,USD,2022
+1001271,MOCK-REFINE-062,IC3,CCR Reformer,contingency,False,17876.0,USD,2014
+1008895,MOCK-REFINE-020,IC4,Desalter Upgrade,owner,False,135117.0,USD,2024
+1002716,MOCK-REFINE-126,IC3,FCC Modernization,equipment,False,3437.0,USD,2022
+1008105,MOCK-OIL_SA-007,IC5,Extraction,subcontract,False,47957.0,USD,2012
+1001327,MOCK-REFINE-065,IC4,Hydrocracker Reactor,equipment,True,698.0,USD,2021
+1007549,MOCK-GAS_PR-040,IC5,Dehydration,contingency,True,35224.0,USD,2016
+1008450,MOCK-OIL_SA-023,IC5,Tailings,equipment,False,123854.0,USD,2015
+1007000,MOCK-GAS_PR-008,IC5,CO2 Capture Facilities,labor,True,7811.0,USD,2020
+1006184,MOCK-PIPELI-039,IC5,HDD Crossing,labor,False,14341.0,USD,2023
+1006229,MOCK-PIPELI-041,IC4,Metering Station,bulk_material,False,77629.0,USD,2023
+1005621,MOCK-PIPELI-009,IC5,HDD Crossing,engineering,False,7800.0,USD,2022
+1003521,MOCK-ONSHOR-032,IC4,Polypropylene Unit,subcontract,False,93050.0,USD,2016
+1009453,MOCK-ONSHOR-030,IC3,Compression,bulk_material,False,117228.0,USD,2021
+1001025,MOCK-REFINE-051,IC5,Delayed Coker,bulk_material,False,17274.0,USD,2018
+1002106,MOCK-REFINE-100,IC3,Utilities Package,equipment,False,2293.0,USD,2017
+1002163,MOCK-REFINE-102,IC5,Alkylation Unit,owner,False,5960.0,USD,2019
+1002766,MOCK-REFINE-129,IC5,FCC Modernization,bulk_material,False,3034.0,USD,2022
+1007162,MOCK-GAS_PR-019,IC4,Injection Wells,owner,False,13184.0,USD,2021
+1007391,MOCK-GAS_PR-031,IC4,Compression,equipment,False,9603.0,USD,2024
+1009240,MOCK-ONSHOR-016,IC3,Onsites Process,owner,False,20369.0,USD,2015
+1006961,MOCK-GAS_PR-006,IC4,Injection Wells,equipment,True,25792.0,USD,2017
+1006420,MOCK-ONSHOR-004,IC4,Central Delivery Point,bulk_material,True,369.0,USD,2013
+1000104,MOCK-REFINE-005,IC5,Hydrocracker Reactor,labor,False,8774.0,USD,2021
+1003788,MOCK-ONSHOR-045,IC3,Offsites,labor,False,43229.0,USD,2024
+1002900,MOCK-REFINE-138,IC4,Utilities Package,subcontract,False,2914.0,USD,2021
+1008626,MOCK-REFINE-007,IC3,Hydrogen Plant,owner,False,86995.0,USD,2017
+1000988,MOCK-REFINE-049,IC4,Delayed Coker,engineering,False,744.0,USD,2017
+1009248,MOCK-ONSHOR-017,IC3,Onsites Process,engineering,False,65724.0,USD,2016
+1003883,MOCK-ONSHOR-049,IC4,Polypropylene Unit,owner,True,69804.0,USD,2012
+1008008,MOCK-LNG_ON-025,IC3,LNG Storage,labor,False,297984.0,USD,2018
+1005976,MOCK-PIPELI-026,IC5,Metering Station,subcontract,False,19604.0,USD,2012
+1004693,MOCK-OFFSHO-007,IC3,SURF Flowlines,owner,False,53888.0,USD,2024
+1006862,MOCK-ONSHOR-030,IC4,Central Delivery Point,subcontract,False,4267.0,USD,2023
+1004702,MOCK-OFFSHO-008,IC3,SURF Flowlines,bulk_material,True,59276.0,USD,2021
+1007788,MOCK-LNG_ON-015,IC3,Utilities,owner,False,388077.0,USD,2024
+1000806,MOCK-REFINE-040,IC4,Hydrocracker Reactor,equipment,True,4080.0,USD,2017
+1008250,MOCK-OIL_SA-015,IC4,Mining OPP,owner,True,79776.0,USD,2020
+1007214,MOCK-GAS_PR-022,IC3,Compression,bulk_material,False,28157.0,USD,2017
+1002174,MOCK-REFINE-103,IC4,Desalter Upgrade,owner,False,20743.0,USD,2016
+1007040,MOCK-GAS_PR-010,IC4,Dehydration,labor,False,11025.0,USD,2023
+1005578,MOCK-PIPELI-007,IC4,Pump Station,bulk_material,False,5945.0,USD,2021
+1006947,MOCK-GAS_PR-005,IC4,Utilities,equipment,False,20848.0,USD,2015
+1007939,MOCK-LNG_ON-022,IC3,LNG Storage,contingency,False,221651.0,USD,2020
+1007694,MOCK-LNG_ON-009,IC5,Infrastructure,equipment,False,196784.0,USD,2016
+1000377,MOCK-REFINE-019,IC3,Offsites and Tank Farm,subcontract,False,3471.0,USD,2015
+1007258,MOCK-GAS_PR-025,IC5,Cryogenic Gas Plant,contingency,False,20801.0,USD,2017
+1003131,MOCK-ONSHOR-010,IC5,Infrastructure,labor,False,24337.0,USD,2021
+1009000,MOCK-ONSHOR-004,IC4,Infrastructure,engineering,False,7377.0,USD,2023
+1006110,MOCK-PIPELI-036,IC4,Gathering Pipeline,contingency,False,61699.0,USD,2019
+1002851,MOCK-REFINE-134,IC5,Offsites and Tank Farm,bulk_material,True,12628.0,USD,2022
+1001628,MOCK-REFINE-077,IC4,Hydrogen Plant,contingency,False,604.0,USD,2014
+1004072,MOCK-ONSHOR-058,IC5,Infrastructure,contingency,True,11430.0,USD,2017
+1005306,MOCK-OFFSHO-039,IC5,Mooring System,labor,False,237922.0,USD,2019
+1005781,MOCK-PIPELI-017,IC4,Export Pipeline,bulk_material,False,31218.0,USD,2016
+1009790,MOCK-ONSHOR-048,IC5,Storage,labor,False,69986.0,USD,2012
+1008162,MOCK-OIL_SA-010,IC4,Infrastructure,subcontract,False,37937.0,USD,2023
+1000789,MOCK-REFINE-039,IC3,Delayed Coker,bulk_material,False,2257.0,USD,2024
+1006137,MOCK-PIPELI-037,IC4,HDD Crossing,contingency,False,12028.0,USD,2023
+1001271,MOCK-REFINE-062,IC3,Hydrotreater,owner,False,6307.0,USD,2021
+1008895,MOCK-REFINE-020,IC5,Hydrocracker Reactor,bulk_material,False,31085.0,USD,2022
+1002716,MOCK-REFINE-126,IC5,FCC Modernization,engineering,False,3109.0,USD,2016
+1008105,MOCK-OIL_SA-007,IC3,Utilities,contingency,True,26189.0,USD,2021
+1001327,MOCK-REFINE-065,IC4,Delayed Coker,bulk_material,False,548.0,USD,2023
+1007549,MOCK-GAS_PR-040,IC4,Utilities,owner,False,86802.0,USD,2012
+1008450,MOCK-OIL_SA-023,IC3,Extraction,owner,True,165840.0,USD,2023
+1007000,MOCK-GAS_PR-008,IC4,Compression,bulk_material,False,74649.0,USD,2014
+1006184,MOCK-PIPELI-039,IC4,Pump Station,labor,True,1723.0,USD,2020
+1006229,MOCK-PIPELI-041,IC3,Export Pipeline,engineering,True,35951.0,USD,2022
+1005621,MOCK-PIPELI-009,IC3,Metering Station,engineering,False,1245.0,USD,2019
+1003521,MOCK-ONSHOR-032,IC3,Utilities Package,equipment,True,93881.0,USD,2021
+1009453,MOCK-ONSHOR-030,IC4,Onsites Process,equipment,False,12978.0,USD,2023
+1001025,MOCK-REFINE-051,IC5,CCR Reformer,engineering,False,13151.0,USD,2017
+1002106,MOCK-REFINE-100,IC3,Hydrogen Plant,subcontract,True,5698.0,USD,2014
+1002163,MOCK-REFINE-102,IC5,Furnace Replacement,contingency,False,4249.0,USD,2022
+1002766,MOCK-REFINE-129,IC3,Alkylation Unit,engineering,False,4655.0,USD,2023
+1007162,MOCK-GAS_PR-019,IC3,Utilities,bulk_material,False,11287.0,USD,2017
+1007391,MOCK-GAS_PR-031,IC4,Compression,contingency,False,9998.0,USD,2020
+1009240,MOCK-ONSHOR-016,IC3,Onsites Process,engineering,False,11990.0,USD,2021
+1006961,MOCK-GAS_PR-006,IC5,Compression,labor,True,17925.0,USD,2019
+1006420,MOCK-ONSHOR-004,IC3,Central Delivery Point,labor,False,1117.0,USD,2023
+1000104,MOCK-REFINE-005,IC3,Flare System,labor,False,3539.0,USD,2017
+1003788,MOCK-ONSHOR-045,IC3,MEG Unit,owner,False,62136.0,USD,2013
+1002900,MOCK-REFINE-138,IC5,Furnace Replacement,labor,True,5163.0,USD,2020
+1008626,MOCK-REFINE-007,IC4,Alkylation Unit,owner,False,126274.0,USD,2015
+1000988,MOCK-REFINE-049,IC5,Delayed Coker,engineering,True,1150.0,USD,2012
+1009248,MOCK-ONSHOR-017,IC3,Injection,contingency,True,57995.0,USD,2024
+1003883,MOCK-ONSHOR-049,IC4,Storage Tank Farm,contingency,False,79872.0,USD,2020
+1008008,MOCK-LNG_ON-025,IC5,Utilities,owner,False,156819.0,USD,2023
+1005976,MOCK-PIPELI-026,IC5,Metering Station,equipment,True,23541.0,USD,2016
+1004693,MOCK-OFFSHO-007,IC5,FPSO Hull,subcontract,False,48781.0,USD,2015
+1006862,MOCK-ONSHOR-030,IC4,Pad Facilities,owner,True,2276.0,USD,2012
+1004702,MOCK-OFFSHO-008,IC4,Mooring System,contingency,False,87618.0,USD,2016
+1007788,MOCK-LNG_ON-015,IC5,LNG Storage,engineering,False,281863.0,USD,2017
+1000806,MOCK-REFINE-040,IC5,CCR Reformer,engineering,False,4604.0,USD,2012
+1008250,MOCK-OIL_SA-015,IC3,Infrastructure,bulk_material,False,94031.0,USD,2012
+1007214,MOCK-GAS_PR-022,IC5,Cryogenic Gas Plant,equipment,False,8435.0,USD,2024
+1002174,MOCK-REFINE-103,IC4,Desalter Upgrade,equipment,False,4833.0,USD,2013
+1007040,MOCK-GAS_PR-010,IC5,Compression,bulk_material,False,3930.0,USD,2024
+1005578,MOCK-PIPELI-007,IC4,Metering Station,equipment,False,8952.0,USD,2023
+1006947,MOCK-GAS_PR-005,IC4,Utilities,contingency,False,36107.0,USD,2020
+1007939,MOCK-LNG_ON-022,IC4,Liquefaction Train,bulk_material,False,122204.0,USD,2014
+1007694,MOCK-LNG_ON-009,IC3,Power Plant,equipment,False,170789.0,USD,2023
+1000377,MOCK-REFINE-019,IC5,CCR Reformer,owner,True,410.0,USD,2021
+1007258,MOCK-GAS_PR-025,IC4,CO2 Capture Facilities,owner,False,10283.0,USD,2018
+1003131,MOCK-ONSHOR-010,IC5,Olefins Cracker,engineering,False,22054.0,USD,2020
+1009000,MOCK-ONSHOR-004,IC4,Storage,engineering,True,31650.0,USD,2021
+1006110,MOCK-PIPELI-036,IC5,Export Pipeline,owner,False,19469.0,USD,2014
+1002851,MOCK-REFINE-134,IC5,FCC Modernization,owner,False,18423.0,USD,2023
+1001628,MOCK-REFINE-077,IC3,Flare System,owner,False,438.0,USD,2016
+1004072,MOCK-ONSHOR-058,IC3,Storage Tank Farm,equipment,True,3314.0,USD,2016
+1005306,MOCK-OFFSHO-039,IC5,Mooring System,contingency,False,222699.0,USD,2013
+1005781,MOCK-PIPELI-017,IC3,Metering Station,engineering,True,38379.0,USD,2017
+1009790,MOCK-ONSHOR-048,IC5,Injection,engineering,False,25043.0,USD,2017
+1008162,MOCK-OIL_SA-010,IC5,Tailings,engineering,True,68715.0,USD,2013
+1000789,MOCK-REFINE-039,IC3,Utilities Package,contingency,False,3250.0,USD,2016
+1006137,MOCK-PIPELI-037,IC3,HDD Crossing,labor,False,2710.0,USD,2012
+1001271,MOCK-REFINE-062,IC5,Utilities Package,contingency,False,15298.0,USD,2016
+1008895,MOCK-REFINE-020,IC5,Furnace Replacement,equipment,True,138128.0,USD,2013
+1002716,MOCK-REFINE-126,IC5,Delayed Coker,engineering,False,2266.0,USD,2021
+1008105,MOCK-OIL_SA-007,IC3,Utilities,owner,False,7800.0,USD,2022
+1001327,MOCK-REFINE-065,IC4,Hydrogen Plant,labor,True,369.0,USD,2021
+1007549,MOCK-GAS_PR-040,IC3,Compression,contingency,False,75577.0,USD,2019
+1008450,MOCK-OIL_SA-023,IC5,Utilities,contingency,True,160398.0,USD,2020
+1007000,MOCK-GAS_PR-008,IC5,CO2 Capture Facilities,subcontract,True,27128.0,USD,2013
+1006184,MOCK-PIPELI-039,IC5,HDD Crossing,bulk_material,True,2910.0,USD,2016
+1006229,MOCK-PIPELI-041,IC4,Export Pipeline,equipment,False,47005.0,USD,2017
+1005621,MOCK-PIPELI-009,IC4,HDD Crossing,owner,False,14983.0,USD,2012
+1003521,MOCK-ONSHOR-032,IC5,Storage Tank Farm,bulk_material,True,68745.0,USD,2023
+1009453,MOCK-ONSHOR-030,IC4,Infrastructure,labor,False,70989.0,USD,2014
+1001025,MOCK-REFINE-051,IC5,Hydrotreater,contingency,False,20577.0,USD,2021
+1002106,MOCK-REFINE-100,IC3,Flare System,contingency,False,8001.0,USD,2015
+1002163,MOCK-REFINE-102,IC3,FCC Modernization,subcontract,False,1034.0,USD,2018
+1002766,MOCK-REFINE-129,IC4,Desalter Upgrade,equipment,False,3375.0,USD,2018
+1007162,MOCK-GAS_PR-019,IC5,CO2 Capture Facilities,engineering,True,10385.0,USD,2022
+1007391,MOCK-GAS_PR-031,IC5,Utilities,labor,False,13771.0,USD,2024
+1009240,MOCK-ONSHOR-016,IC5,Infrastructure,contingency,False,13588.0,USD,2019
+1006961,MOCK-GAS_PR-006,IC4,Cryogenic Gas Plant,engineering,False,16814.0,USD,2013
+1006420,MOCK-ONSHOR-004,IC3,Central Delivery Point,engineering,False,1732.0,USD,2014
+1000104,MOCK-REFINE-005,IC4,Furnace Replacement,engineering,False,4958.0,USD,2024
+1003788,MOCK-ONSHOR-045,IC4,Polyethylene Unit,equipment,True,39416.0,USD,2014
+1002900,MOCK-REFINE-138,IC3,FCC Modernization,contingency,False,2206.0,USD,2023
+1008626,MOCK-REFINE-007,IC4,Desalter Upgrade,engineering,False,221293.0,USD,2024
+1000988,MOCK-REFINE-049,IC3,Desalter Upgrade,contingency,False,173.0,USD,2019
+1009248,MOCK-ONSHOR-017,IC5,Injection,owner,True,13051.0,USD,2018
+1003883,MOCK-ONSHOR-049,IC4,Olefins Cracker,owner,True,60660.0,USD,2015
+1008008,MOCK-LNG_ON-025,IC5,Utilities,subcontract,False,29251.0,USD,2019
+1005976,MOCK-PIPELI-026,IC4,HDD Crossing,subcontract,False,13299.0,USD,2013
+1004693,MOCK-OFFSHO-007,IC5,Umbilicals,engineering,False,269581.0,USD,2024
+1006862,MOCK-ONSHOR-030,IC3,Compression Station,equipment,True,1542.0,USD,2020
+1004702,MOCK-OFFSHO-008,IC5,Umbilicals,equipment,False,40427.0,USD,2024
+1007788,MOCK-LNG_ON-015,IC3,LNG Storage,bulk_material,True,493398.0,USD,2018
+1000806,MOCK-REFINE-040,IC5,Crude Unit Revamp,engineering,True,3723.0,USD,2013
+1008250,MOCK-OIL_SA-015,IC3,Extraction,labor,False,125696.0,USD,2018
+1007214,MOCK-GAS_PR-022,IC4,Dehydration,labor,True,28300.0,USD,2021
+1002174,MOCK-REFINE-103,IC3,CCR Reformer,engineering,False,18010.0,USD,2024
+1007040,MOCK-GAS_PR-010,IC3,Utilities,bulk_material,False,3196.0,USD,2013
+1005578,MOCK-PIPELI-007,IC5,Gathering Pipeline,engineering,False,7058.0,USD,2018
+1006947,MOCK-GAS_PR-005,IC5,Utilities,labor,False,34736.0,USD,2019
+1007939,MOCK-LNG_ON-022,IC5,Infrastructure,owner,False,280073.0,USD,2014
+1007694,MOCK-LNG_ON-009,IC5,Infrastructure,owner,False,112573.0,USD,2012
+1000377,MOCK-REFINE-019,IC5,FCC Modernization,subcontract,True,1515.0,USD,2022
+1007258,MOCK-GAS_PR-025,IC4,CO2 Capture Facilities,subcontract,True,17389.0,USD,2017
+1003131,MOCK-ONSHOR-010,IC5,Utilities Package,equipment,False,45356.0,USD,2024
+1009000,MOCK-ONSHOR-004,IC3,Onsites Process,engineering,False,34069.0,USD,2021
+1006110,MOCK-PIPELI-036,IC5,Pump Station,engineering,True,91498.0,USD,2014
+1002851,MOCK-REFINE-134,IC5,Offsites and Tank Farm,contingency,False,14877.0,USD,2014
+1001628,MOCK-REFINE-077,IC4,Hydrogen Plant,bulk_material,False,697.0,USD,2016
+1004072,MOCK-ONSHOR-058,IC3,Storage Tank Farm,subcontract,False,4369.0,USD,2020
+1005306,MOCK-OFFSHO-039,IC3,Umbilicals,equipment,False,231276.0,USD,2015
+1005781,MOCK-PIPELI-017,IC5,Metering Station,labor,True,19511.0,USD,2019
+1009790,MOCK-ONSHOR-048,IC5,Infrastructure,contingency,True,94252.0,USD,2013
+1008162,MOCK-OIL_SA-010,IC5,Extraction,bulk_material,True,105257.0,USD,2016
+1000789,MOCK-REFINE-039,IC4,Alkylation Unit,engineering,False,306.0,USD,2022
+1006137,MOCK-PIPELI-037,IC4,Pump Station,bulk_material,False,2286.0,USD,2012
+1001271,MOCK-REFINE-062,IC3,Hydrocracker Reactor,equipment,True,33045.0,USD,2017
+1008895,MOCK-REFINE-020,IC3,CCR Reformer,engineering,True,130476.0,USD,2024
+1002716,MOCK-REFINE-126,IC4,Utilities Package,contingency,False,3065.0,USD,2013
+1008105,MOCK-OIL_SA-007,IC3,Utilities,subcontract,False,24412.0,USD,2024
+1001327,MOCK-REFINE-065,IC4,Flare System,owner,False,930.0,USD,2014
+1007549,MOCK-GAS_PR-040,IC3,Utilities,subcontract,True,81762.0,USD,2023
+1008450,MOCK-OIL_SA-023,IC3,Extraction,contingency,False,47698.0,USD,2022
+1007000,MOCK-GAS_PR-008,IC4,Injection Wells,contingency,False,76602.0,USD,2018
+1006184,MOCK-PIPELI-039,IC3,Metering Station,subcontract,True,3715.0,USD,2019
+1006229,MOCK-PIPELI-041,IC4,Export Pipeline,owner,False,54267.0,USD,2016
+1005621,MOCK-PIPELI-009,IC4,Metering Station,contingency,False,17263.0,USD,2014
+1003521,MOCK-ONSHOR-032,IC5,Polyethylene Unit,bulk_material,True,72415.0,USD,2020
+1009453,MOCK-ONSHOR-030,IC5,Infrastructure,contingency,False,177337.0,USD,2012
+1001025,MOCK-REFINE-051,IC5,Hydrocracker Reactor,bulk_material,False,4988.0,USD,2021
+1002106,MOCK-REFINE-100,IC5,Utilities Package,contingency,True,7628.0,USD,2018
+1002163,MOCK-REFINE-102,IC3,Alkylation Unit,labor,True,1241.0,USD,2021
+1002766,MOCK-REFINE-129,IC5,Utilities Package,bulk_material,True,3988.0,USD,2020
+1007162,MOCK-GAS_PR-019,IC5,NGL Fractionation,owner,False,10221.0,USD,2016
+1007391,MOCK-GAS_PR-031,IC3,NGL Fractionation,owner,False,19428.0,USD,2022
+1009240,MOCK-ONSHOR-016,IC5,Storage,owner,False,20498.0,USD,2016
+1006961,MOCK-GAS_PR-006,IC5,Utilities,engineering,True,19030.0,USD,2014
+1006420,MOCK-ONSHOR-004,IC4,Water Handling,labor,False,575.0,USD,2024
+1000104,MOCK-REFINE-005,IC5,Flare System,subcontract,False,7741.0,USD,2012
+1003788,MOCK-ONSHOR-045,IC5,Utilities Package,equipment,True,16458.0,USD,2019
+1002900,MOCK-REFINE-138,IC5,Offsites and Tank Farm,owner,False,1337.0,USD,2012
+1008626,MOCK-REFINE-007,IC5,Delayed Coker,engineering,False,134755.0,USD,2015
+1000988,MOCK-REFINE-049,IC3,FCC Modernization,owner,True,1093.0,USD,2022
+1009248,MOCK-ONSHOR-017,IC4,Compression,bulk_material,True,52958.0,USD,2023
+1003883,MOCK-ONSHOR-049,IC5,Offsites,engineering,False,22146.0,USD,2019
+1008008,MOCK-LNG_ON-025,IC3,Jetty and Loading,subcontract,False,168346.0,USD,2023
+1005976,MOCK-PIPELI-026,IC4,Pump Station,equipment,False,21761.0,USD,2021
+1004693,MOCK-OFFSHO-007,IC5,Mooring System,subcontract,False,186239.0,USD,2017
+1006862,MOCK-ONSHOR-030,IC4,Pad Facilities,bulk_material,False,572.0,USD,2022
+1004702,MOCK-OFFSHO-008,IC3,Drilling Wells,engineering,True,88451.0,USD,2015
+1007788,MOCK-LNG_ON-015,IC3,Utilities,owner,True,443991.0,USD,2018
+1000806,MOCK-REFINE-040,IC4,Crude Unit Revamp,owner,True,4135.0,USD,2024
+1008250,MOCK-OIL_SA-015,IC4,Mining OPP,bulk_material,False,121297.0,USD,2013
+1007214,MOCK-GAS_PR-022,IC3,Utilities,bulk_material,False,4426.0,USD,2018
+1002174,MOCK-REFINE-103,IC4,Hydrogen Plant,subcontract,False,11711.0,USD,2016
+1007040,MOCK-GAS_PR-010,IC4,Injection Wells,owner,True,6121.0,USD,2023
+1005578,MOCK-PIPELI-007,IC3,HDD Crossing,contingency,False,8416.0,USD,2017
+1006947,MOCK-GAS_PR-005,IC3,Compression,labor,False,24006.0,USD,2023
+1007939,MOCK-LNG_ON-022,IC3,LNG Storage,contingency,True,46019.0,USD,2018
+1007694,MOCK-LNG_ON-009,IC4,Jetty and Loading,contingency,False,28782.0,USD,2016
+1000377,MOCK-REFINE-019,IC3,Hydrocracker Reactor,owner,False,1114.0,USD,2014
+1007258,MOCK-GAS_PR-025,IC4,Cryogenic Gas Plant,owner,False,19298.0,USD,2019
+1003131,MOCK-ONSHOR-010,IC5,Polypropylene Unit,subcontract,False,29352.0,USD,2023
+1009000,MOCK-ONSHOR-004,IC3,Compression,owner,False,13314.0,USD,2015
+1006110,MOCK-PIPELI-036,IC3,Metering Station,bulk_material,True,22070.0,USD,2016
+1002851,MOCK-REFINE-134,IC5,Hydrotreater,engineering,True,11264.0,USD,2017
+1001628,MOCK-REFINE-077,IC3,FCC Modernization,engineering,False,919.0,USD,2019
+1004072,MOCK-ONSHOR-058,IC5,Offsites,bulk_material,False,20422.0,USD,2017
+1005306,MOCK-OFFSHO-039,IC4,Risers,bulk_material,False,18584.0,USD,2013
+1005781,MOCK-PIPELI-017,IC3,Metering Station,engineering,True,32915.0,USD,2013
+1009790,MOCK-ONSHOR-048,IC4,Infrastructure,equipment,False,81618.0,USD,2019
+1008162,MOCK-OIL_SA-010,IC4,Tailings,contingency,False,35176.0,USD,2024
+1000789,MOCK-REFINE-039,IC4,Offsites and Tank Farm,contingency,False,476.0,USD,2017
+1006137,MOCK-PIPELI-037,IC3,Export Pipeline,contingency,False,11389.0,USD,2012
+1001271,MOCK-REFINE-062,IC5,CCR Reformer,bulk_material,False,22618.0,USD,2013
+1008895,MOCK-REFINE-020,IC5,Furnace Replacement,engineering,True,98728.0,USD,2020
+1002716,MOCK-REFINE-126,IC5,Furnace Replacement,engineering,False,2240.0,USD,2015
+1008105,MOCK-OIL_SA-007,IC4,Tailings,engineering,True,44661.0,USD,2012
+1001327,MOCK-REFINE-065,IC3,FCC Modernization,labor,False,603.0,USD,2022
+1007549,MOCK-GAS_PR-040,IC5,Injection Wells,bulk_material,True,17709.0,USD,2016
+1008450,MOCK-OIL_SA-023,IC3,Utilities,labor,False,100839.0,USD,2018
+1007000,MOCK-GAS_PR-008,IC4,Dehydration,subcontract,True,66200.0,USD,2015
+1006184,MOCK-PIPELI-039,IC4,Export Pipeline,engineering,True,8229.0,USD,2023
+1006229,MOCK-PIPELI-041,IC5,Export Pipeline,owner,True,57502.0,USD,2022
+1005621,MOCK-PIPELI-009,IC3,HDD Crossing,equipment,True,15152.0,USD,2020
+1003521,MOCK-ONSHOR-032,IC3,MEG Unit,bulk_material,False,106494.0,USD,2012
+1009453,MOCK-ONSHOR-030,IC3,Injection,bulk_material,False,98293.0,USD,2021
+1001025,MOCK-REFINE-051,IC3,Delayed Coker,contingency,False,5126.0,USD,2021
+1002106,MOCK-REFINE-100,IC5,Delayed Coker,subcontract,True,2264.0,USD,2023
+1002163,MOCK-REFINE-102,IC4,Hydrotreater,contingency,False,3675.0,USD,2012
+1002766,MOCK-REFINE-129,IC3,Utilities Package,contingency,False,4246.0,USD,2022
+1007162,MOCK-GAS_PR-019,IC4,Utilities,bulk_material,False,7461.0,USD,2021
+1007391,MOCK-GAS_PR-031,IC5,Injection Wells,owner,False,8285.0,USD,2013
+1009240,MOCK-ONSHOR-016,IC5,Injection,bulk_material,False,1847.0,USD,2023
+1006961,MOCK-GAS_PR-006,IC4,Injection Wells,labor,False,40970.0,USD,2024
+1006420,MOCK-ONSHOR-004,IC5,Water Handling,engineering,False,909.0,USD,2023
+1000104,MOCK-REFINE-005,IC3,Flare System,engineering,True,4324.0,USD,2023
+1003788,MOCK-ONSHOR-045,IC4,MEG Unit,bulk_material,False,39256.0,USD,2022
+1002900,MOCK-REFINE-138,IC5,Hydrotreater,contingency,False,2144.0,USD,2015
+1008626,MOCK-REFINE-007,IC5,Hydrotreater,equipment,False,144413.0,USD,2015
+1000988,MOCK-REFINE-049,IC5,Hydrocracker Reactor,contingency,False,654.0,USD,2016
+1009248,MOCK-ONSHOR-017,IC3,Injection,owner,False,74880.0,USD,2013
+1003883,MOCK-ONSHOR-049,IC3,Infrastructure,contingency,False,55347.0,USD,2017
+1008008,MOCK-LNG_ON-025,IC3,Infrastructure,subcontract,False,274633.0,USD,2012
+1005976,MOCK-PIPELI-026,IC3,HDD Crossing,contingency,False,20107.0,USD,2021
+1004693,MOCK-OFFSHO-007,IC4,Drilling Wells,labor,False,246344.0,USD,2015
+1006862,MOCK-ONSHOR-030,IC3,Compression Station,labor,False,1123.0,USD,2023
+1004702,MOCK-OFFSHO-008,IC5,FPSO Hull,contingency,True,122943.0,USD,2022
+1007788,MOCK-LNG_ON-015,IC5,Liquefaction Train,engineering,False,327212.0,USD,2017
+1000806,MOCK-REFINE-040,IC3,Offsites and Tank Farm,equipment,False,2863.0,USD,2013
+1008250,MOCK-OIL_SA-015,IC3,Infrastructure,subcontract,False,106708.0,USD,2013
+1007214,MOCK-GAS_PR-022,IC5,Utilities,subcontract,False,23234.0,USD,2023
+1002174,MOCK-REFINE-103,IC4,Hydrogen Plant,equipment,False,18613.0,USD,2023
+1007040,MOCK-GAS_PR-010,IC4,Injection Wells,contingency,True,4333.0,USD,2023
+1005578,MOCK-PIPELI-007,IC4,HDD Crossing,engineering,True,5102.0,USD,2019
+1006947,MOCK-GAS_PR-005,IC3,CO2 Capture Facilities,owner,False,4218.0,USD,2022
+1007939,MOCK-LNG_ON-022,IC5,Jetty and Loading,engineering,False,83918.0,USD,2012
+1007694,MOCK-LNG_ON-009,IC5,Power Plant,bulk_material,False,173416.0,USD,2019
+1000377,MOCK-REFINE-019,IC5,Utilities Package,owner,True,1541.0,USD,2020
+1007258,MOCK-GAS_PR-025,IC4,NGL Fractionation,contingency,False,9870.0,USD,2016
+1003131,MOCK-ONSHOR-010,IC4,Infrastructure,owner,False,10776.0,USD,2013
+1009000,MOCK-ONSHOR-004,IC3,Injection,subcontract,False,12217.0,USD,2016
+1006110,MOCK-PIPELI-036,IC4,Metering Station,subcontract,False,78706.0,USD,2019
+1002851,MOCK-REFINE-134,IC5,Hydrogen Plant,engineering,True,12936.0,USD,2022
+1001628,MOCK-REFINE-077,IC3,CCR Reformer,subcontract,True,486.0,USD,2021
+1004072,MOCK-ONSHOR-058,IC3,Offsites,bulk_material,True,10956.0,USD,2017
+1005306,MOCK-OFFSHO-039,IC5,Mooring System,owner,False,254632.0,USD,2014
+1005781,MOCK-PIPELI-017,IC4,HDD Crossing,subcontract,False,5124.0,USD,2012
+1009790,MOCK-ONSHOR-048,IC5,Storage,engineering,False,30193.0,USD,2017
+1008162,MOCK-OIL_SA-010,IC3,Tailings,bulk_material,False,82393.0,USD,2013
+1000789,MOCK-REFINE-039,IC4,Hydrogen Plant,subcontract,True,901.0,USD,2022
+1006137,MOCK-PIPELI-037,IC3,Pump Station,labor,True,10924.0,USD,2022
+1001271,MOCK-REFINE-062,IC5,Alkylation Unit,engineering,False,6699.0,USD,2019
+1008895,MOCK-REFINE-020,IC5,FCC Modernization,equipment,False,127188.0,USD,2021
+1002716,MOCK-REFINE-126,IC4,Desalter Upgrade,engineering,False,1409.0,USD,2012
+1008105,MOCK-OIL_SA-007,IC3,Mining OPP,bulk_material,False,20040.0,USD,2024
+1001327,MOCK-REFINE-065,IC4,Desalter Upgrade,subcontract,False,1009.0,USD,2012
+1007549,MOCK-GAS_PR-040,IC5,Compression,subcontract,False,39808.0,USD,2019
+1008450,MOCK-OIL_SA-023,IC5,Extraction,bulk_material,True,35555.0,USD,2020
+1007000,MOCK-GAS_PR-008,IC5,Compression,equipment,False,42359.0,USD,2021
+1006184,MOCK-PIPELI-039,IC4,Export Pipeline,bulk_material,False,2446.0,USD,2014
+1006229,MOCK-PIPELI-041,IC3,Metering Station,bulk_material,False,40759.0,USD,2017
+1005621,MOCK-PIPELI-009,IC4,HDD Crossing,contingency,False,5885.0,USD,2012
+1003521,MOCK-ONSHOR-032,IC4,Olefins Cracker,equipment,True,63700.0,USD,2019
+1009453,MOCK-ONSHOR-030,IC3,Storage,engineering,False,196094.0,USD,2022
+1001025,MOCK-REFINE-051,IC4,Alkylation Unit,labor,False,6235.0,USD,2012
+1002106,MOCK-REFINE-100,IC5,Hydrocracker Reactor,bulk_material,False,2949.0,USD,2012
+1002163,MOCK-REFINE-102,IC5,FCC Modernization,subcontract,False,6117.0,USD,2019
+1002766,MOCK-REFINE-129,IC3,Hydrotreater,subcontract,False,808.0,USD,2013
+1007162,MOCK-GAS_PR-019,IC5,Dehydration,owner,False,4251.0,USD,2020
+1007391,MOCK-GAS_PR-031,IC5,CO2 Capture Facilities,labor,False,7352.0,USD,2020
+1009240,MOCK-ONSHOR-016,IC5,Infrastructure,labor,True,13769.0,USD,2021
+1006961,MOCK-GAS_PR-006,IC3,CO2 Capture Facilities,labor,False,22180.0,USD,2015
+1006420,MOCK-ONSHOR-004,IC3,Gathering Pipeline,subcontract,False,422.0,USD,2012
+1000104,MOCK-REFINE-005,IC4,Furnace Replacement,engineering,False,10605.0,USD,2020
+1003788,MOCK-ONSHOR-045,IC3,Polypropylene Unit,engineering,False,12039.0,USD,2016
+1002900,MOCK-REFINE-138,IC4,Offsites and Tank Farm,subcontract,False,1691.0,USD,2020
+1008626,MOCK-REFINE-007,IC4,Alkylation Unit,contingency,False,191312.0,USD,2012
+1000988,MOCK-REFINE-049,IC3,Furnace Replacement,labor,True,880.0,USD,2021
+1009248,MOCK-ONSHOR-017,IC5,Storage,equipment,False,81439.0,USD,2013
+1003883,MOCK-ONSHOR-049,IC3,Product Loading,equipment,True,80276.0,USD,2022
+1008008,MOCK-LNG_ON-025,IC5,Liquefaction Train,bulk_material,True,278136.0,USD,2021
+1005976,MOCK-PIPELI-026,IC5,Gathering Pipeline,engineering,True,17733.0,USD,2014
+1004693,MOCK-OFFSHO-007,IC3,FPSO Hull,bulk_material,True,126144.0,USD,2014
+1006862,MOCK-ONSHOR-030,IC3,Water Handling,bulk_material,True,1088.0,USD,2018
+1004702,MOCK-OFFSHO-008,IC4,FPSO Topsides,subcontract,True,12307.0,USD,2016
+1007788,MOCK-LNG_ON-015,IC3,Liquefaction Train,contingency,False,92208.0,USD,2016
+1000806,MOCK-REFINE-040,IC3,Furnace Replacement,contingency,False,1105.0,USD,2020
+1008250,MOCK-OIL_SA-015,IC3,Utilities,engineering,False,128637.0,USD,2023
+1007214,MOCK-GAS_PR-022,IC5,Cryogenic Gas Plant,owner,False,11102.0,USD,2024
+1002174,MOCK-REFINE-103,IC5,Hydrocracker Reactor,subcontract,True,18074.0,USD,2024
+1007040,MOCK-GAS_PR-010,IC4,Dehydration,contingency,True,9548.0,USD,2021
+1005578,MOCK-PIPELI-007,IC3,Pump Station,equipment,True,1576.0,USD,2023
+1006947,MOCK-GAS_PR-005,IC5,Compression,engineering,False,6897.0,USD,2013
+1007939,MOCK-LNG_ON-022,IC5,LNG Storage,engineering,True,100796.0,USD,2022
+1007694,MOCK-LNG_ON-009,IC4,Utilities,subcontract,False,194018.0,USD,2017
+1000377,MOCK-REFINE-019,IC3,FCC Modernization,labor,False,1533.0,USD,2019
+1007258,MOCK-GAS_PR-025,IC4,Injection Wells,labor,False,20541.0,USD,2017
+1003131,MOCK-ONSHOR-010,IC3,Olefins Cracker,owner,True,34105.0,USD,2017
+1009000,MOCK-ONSHOR-004,IC3,Infrastructure,subcontract,True,43396.0,USD,2016
+1006110,MOCK-PIPELI-036,IC5,Gathering Pipeline,contingency,True,65115.0,USD,2015
+1002851,MOCK-REFINE-134,IC5,FCC Modernization,subcontract,False,1305.0,USD,2022
+1001628,MOCK-REFINE-077,IC3,Hydrogen Plant,equipment,True,674.0,USD,2015
+1004072,MOCK-ONSHOR-058,IC4,Polyethylene Unit,equipment,False,5692.0,USD,2023
+1005306,MOCK-OFFSHO-039,IC3,Umbilicals,owner,True,140664.0,USD,2019
+1005781,MOCK-PIPELI-017,IC4,HDD Crossing,equipment,False,20477.0,USD,2017
+1009790,MOCK-ONSHOR-048,IC5,Compression,equipment,False,85426.0,USD,2014
+1008162,MOCK-OIL_SA-010,IC3,Utilities,equipment,False,10628.0,USD,2013
+1000789,MOCK-REFINE-039,IC4,Delayed Coker,contingency,True,3382.0,USD,2020
+1006137,MOCK-PIPELI-037,IC5,Pump Station,contingency,False,9500.0,USD,2020
+1001271,MOCK-REFINE-062,IC3,Flare System,owner,False,19847.0,USD,2022
+1008895,MOCK-REFINE-020,IC4,FCC Modernization,equipment,True,204436.0,USD,2023
+1002716,MOCK-REFINE-126,IC4,Delayed Coker,contingency,False,3358.0,USD,2021
+1008105,MOCK-OIL_SA-007,IC5,Mining OPP,bulk_material,False,18057.0,USD,2016
+1001327,MOCK-REFINE-065,IC3,FCC Modernization,bulk_material,False,193.0,USD,2023
+1007549,MOCK-GAS_PR-040,IC5,CO2 Capture Facilities,equipment,True,70349.0,USD,2014
+1008450,MOCK-OIL_SA-023,IC3,Mining OPP,engineering,True,177043.0,USD,2018
+1007000,MOCK-GAS_PR-008,IC5,NGL Fractionation,labor,False,65643.0,USD,2014
+1006184,MOCK-PIPELI-039,IC3,Gathering Pipeline,owner,True,5020.0,USD,2024
+1006229,MOCK-PIPELI-041,IC3,Gathering Pipeline,equipment,False,56722.0,USD,2014
+1005621,MOCK-PIPELI-009,IC5,HDD Crossing,subcontract,True,7464.0,USD,2015
+1003521,MOCK-ONSHOR-032,IC3,Polyethylene Unit,equipment,False,104520.0,USD,2024
+1009453,MOCK-ONSHOR-030,IC4,Infrastructure,subcontract,True,93134.0,USD,2015
+1001025,MOCK-REFINE-051,IC5,Offsites and Tank Farm,bulk_material,True,15735.0,USD,2016
+1002106,MOCK-REFINE-100,IC4,Hydrocracker Reactor,engineering,True,4321.0,USD,2019
+1002163,MOCK-REFINE-102,IC5,CCR Reformer,equipment,False,625.0,USD,2023
+1002766,MOCK-REFINE-129,IC3,Offsites and Tank Farm,bulk_material,False,4885.0,USD,2022
+1007162,MOCK-GAS_PR-019,IC5,Injection Wells,engineering,False,6230.0,USD,2014
+1007391,MOCK-GAS_PR-031,IC3,NGL Fractionation,subcontract,False,7337.0,USD,2024
+1009240,MOCK-ONSHOR-016,IC5,Storage,equipment,True,19481.0,USD,2021
+1006961,MOCK-GAS_PR-006,IC5,Dehydration,subcontract,False,43717.0,USD,2018
+1006420,MOCK-ONSHOR-004,IC4,Central Delivery Point,labor,False,1602.0,USD,2016
+1000104,MOCK-REFINE-005,IC3,Hydrotreater,engineering,False,14704.0,USD,2014
+1003788,MOCK-ONSHOR-045,IC4,MEG Unit,engineering,False,44933.0,USD,2016
+1002900,MOCK-REFINE-138,IC3,Hydrogen Plant,owner,True,4584.0,USD,2022
+1008626,MOCK-REFINE-007,IC3,Crude Unit Revamp,engineering,True,50144.0,USD,2023
+1000988,MOCK-REFINE-049,IC3,Hydrocracker Reactor,engineering,False,948.0,USD,2014
+1009248,MOCK-ONSHOR-017,IC4,Storage,bulk_material,False,32792.0,USD,2018
+1003883,MOCK-ONSHOR-049,IC5,Infrastructure,labor,False,20266.0,USD,2013
+1008008,MOCK-LNG_ON-025,IC3,LNG Storage,equipment,True,49843.0,USD,2019
+1005976,MOCK-PIPELI-026,IC4,HDD Crossing,labor,False,9543.0,USD,2013
+1004693,MOCK-OFFSHO-007,IC3,Umbilicals,labor,True,325853.0,USD,2021
+1006862,MOCK-ONSHOR-030,IC5,Compression Station,bulk_material,False,3602.0,USD,2015
+1004702,MOCK-OFFSHO-008,IC3,SURF Flowlines,subcontract,True,86724.0,USD,2016
+1007788,MOCK-LNG_ON-015,IC3,Infrastructure,subcontract,False,167704.0,USD,2017
+1000806,MOCK-REFINE-040,IC5,Offsites and Tank Farm,labor,False,776.0,USD,2024
+1008250,MOCK-OIL_SA-015,IC4,Extraction,contingency,False,156504.0,USD,2013
+1007214,MOCK-GAS_PR-022,IC5,Dehydration,engineering,True,25368.0,USD,2014
+1002174,MOCK-REFINE-103,IC3,Hydrogen Plant,labor,False,3313.0,USD,2014
+1007040,MOCK-GAS_PR-010,IC4,CO2 Capture Facilities,engineering,True,8455.0,USD,2017
+1005578,MOCK-PIPELI-007,IC5,Metering Station,labor,False,5158.0,USD,2017
+1006947,MOCK-GAS_PR-005,IC4,Dehydration,bulk_material,False,5906.0,USD,2024
+1007939,MOCK-LNG_ON-022,IC5,Infrastructure,contingency,True,204409.0,USD,2022
+1007694,MOCK-LNG_ON-009,IC5,Liquefaction Train,equipment,False,119690.0,USD,2019
+1000377,MOCK-REFINE-019,IC4,Alkylation Unit,engineering,False,3090.0,USD,2014
+1007258,MOCK-GAS_PR-025,IC5,Compression,labor,False,20905.0,USD,2019
+1003131,MOCK-ONSHOR-010,IC4,Storage Tank Farm,owner,False,28689.0,USD,2021
+1009000,MOCK-ONSHOR-004,IC5,Infrastructure,contingency,False,40816.0,USD,2020
+1006110,MOCK-PIPELI-036,IC3,Gathering Pipeline,bulk_material,False,12881.0,USD,2012
+1002851,MOCK-REFINE-134,IC4,Flare System,equipment,False,11682.0,USD,2019
+1001628,MOCK-REFINE-077,IC5,Offsites and Tank Farm,subcontract,False,422.0,USD,2021
+1004072,MOCK-ONSHOR-058,IC4,Olefins Cracker,engineering,False,7059.0,USD,2015
+1005306,MOCK-OFFSHO-039,IC4,Mooring System,subcontract,False,254814.0,USD,2018
+1005781,MOCK-PIPELI-017,IC3,Export Pipeline,equipment,False,5556.0,USD,2019
+1009790,MOCK-ONSHOR-048,IC3,Compression,subcontract,True,77142.0,USD,2021
+1008162,MOCK-OIL_SA-010,IC3,Utilities,engineering,True,30106.0,USD,2013
+1000789,MOCK-REFINE-039,IC5,Offsites and Tank Farm,equipment,True,2272.0,USD,2018
+1006137,MOCK-PIPELI-037,IC3,Pump Station,engineering,True,1294.0,USD,2020
+1001271,MOCK-REFINE-062,IC4,Delayed Coker,equipment,False,18812.0,USD,2020
+1008895,MOCK-REFINE-020,IC4,Hydrocracker Reactor,owner,True,126431.0,USD,2020
+1002716,MOCK-REFINE-126,IC5,CCR Reformer,contingency,False,935.0,USD,2015
+1008105,MOCK-OIL_SA-007,IC3,Tailings,subcontract,False,30583.0,USD,2013
+1001327,MOCK-REFINE-065,IC5,Crude Unit Revamp,contingency,False,1143.0,USD,2019
+1007549,MOCK-GAS_PR-040,IC5,Compression,bulk_material,False,98749.0,USD,2014
+1008450,MOCK-OIL_SA-023,IC3,Tailings,labor,False,20127.0,USD,2015
+1007000,MOCK-GAS_PR-008,IC4,NGL Fractionation,engineering,False,58869.0,USD,2017
+1006184,MOCK-PIPELI-039,IC4,Gathering Pipeline,engineering,False,2803.0,USD,2020
+1006229,MOCK-PIPELI-041,IC4,HDD Crossing,owner,False,71545.0,USD,2021
+1005621,MOCK-PIPELI-009,IC3,Gathering Pipeline,equipment,False,1799.0,USD,2017
+1003521,MOCK-ONSHOR-032,IC4,MEG Unit,labor,True,110690.0,USD,2016
+1009453,MOCK-ONSHOR-030,IC3,Onsites Process,owner,False,125996.0,USD,2018
+1001025,MOCK-REFINE-051,IC4,Hydrocracker Reactor,owner,False,19951.0,USD,2020
+1002106,MOCK-REFINE-100,IC5,Delayed Coker,contingency,False,2195.0,USD,2012
+1002163,MOCK-REFINE-102,IC3,Offsites and Tank Farm,contingency,False,6298.0,USD,2020
+1002766,MOCK-REFINE-129,IC3,Hydrogen Plant,labor,False,1218.0,USD,2023
+1007162,MOCK-GAS_PR-019,IC4,Injection Wells,bulk_material,False,4638.0,USD,2021
+1007391,MOCK-GAS_PR-031,IC5,Dehydration,bulk_material,True,13527.0,USD,2022
+1009240,MOCK-ONSHOR-016,IC3,Injection,bulk_material,True,17553.0,USD,2014
+1006961,MOCK-GAS_PR-006,IC4,Cryogenic Gas Plant,subcontract,False,31623.0,USD,2021
+1006420,MOCK-ONSHOR-004,IC3,Compression Station,subcontract,False,323.0,USD,2012
+1000104,MOCK-REFINE-005,IC4,FCC Modernization,contingency,False,5607.0,USD,2024
+1003788,MOCK-ONSHOR-045,IC3,Product Loading,engineering,True,30644.0,USD,2013
+1002900,MOCK-REFINE-138,IC3,Offsites and Tank Farm,engineering,False,5397.0,USD,2023
+1008626,MOCK-REFINE-007,IC4,Crude Unit Revamp,labor,True,251890.0,USD,2020
+1000988,MOCK-REFINE-049,IC3,Desalter Upgrade,owner,False,915.0,USD,2015
+1009248,MOCK-ONSHOR-017,IC5,Onsites Process,labor,False,31840.0,USD,2019
+1003883,MOCK-ONSHOR-049,IC3,Olefins Cracker,engineering,False,61623.0,USD,2024
+1008008,MOCK-LNG_ON-025,IC4,Utilities,contingency,False,49652.0,USD,2019
+1005976,MOCK-PIPELI-026,IC3,HDD Crossing,equipment,False,21133.0,USD,2018
+1004693,MOCK-OFFSHO-007,IC4,FPSO Topsides,equipment,False,343246.0,USD,2023
+1006862,MOCK-ONSHOR-030,IC3,Central Delivery Point,owner,False,4555.0,USD,2016
+1004702,MOCK-OFFSHO-008,IC3,Umbilicals,bulk_material,False,31165.0,USD,2017
+1007788,MOCK-LNG_ON-015,IC4,Utilities,contingency,False,284595.0,USD,2022
+1000806,MOCK-REFINE-040,IC5,Desalter Upgrade,subcontract,False,2740.0,USD,2013
+1008250,MOCK-OIL_SA-015,IC5,Tailings,engineering,False,21135.0,USD,2021
+1007214,MOCK-GAS_PR-022,IC4,Compression,labor,False,23115.0,USD,2018
+1002174,MOCK-REFINE-103,IC4,Delayed Coker,labor,False,12078.0,USD,2012
+1007040,MOCK-GAS_PR-010,IC3,NGL Fractionation,engineering,True,4137.0,USD,2018
+1005578,MOCK-PIPELI-007,IC4,Export Pipeline,bulk_material,True,3271.0,USD,2021
+1006947,MOCK-GAS_PR-005,IC3,Utilities,engineering,False,16490.0,USD,2017
+1007939,MOCK-LNG_ON-022,IC5,LNG Storage,labor,False,188303.0,USD,2012
+1007694,MOCK-LNG_ON-009,IC3,Utilities,engineering,True,204138.0,USD,2024
+1000377,MOCK-REFINE-019,IC5,Hydrotreater,subcontract,False,491.0,USD,2017
+1007258,MOCK-GAS_PR-025,IC3,Utilities,equipment,False,2212.0,USD,2019
+1003131,MOCK-ONSHOR-010,IC3,Offsites,equipment,True,24000.0,USD,2018
+1009000,MOCK-ONSHOR-004,IC5,Onsites Process,labor,False,23913.0,USD,2024
+1006110,MOCK-PIPELI-036,IC4,Metering Station,equipment,False,101916.0,USD,2021
+1002851,MOCK-REFINE-134,IC3,Hydrocracker Reactor,contingency,False,2066.0,USD,2017
+1001628,MOCK-REFINE-077,IC3,Utilities Package,equipment,False,771.0,USD,2012
+1004072,MOCK-ONSHOR-058,IC4,Offsites,bulk_material,False,16572.0,USD,2017
+1005306,MOCK-OFFSHO-039,IC5,Mooring System,engineering,True,29233.0,USD,2022
+1005781,MOCK-PIPELI-017,IC4,Export Pipeline,contingency,False,15202.0,USD,2020
+1009790,MOCK-ONSHOR-048,IC5,Storage,contingency,False,48679.0,USD,2013
+1008162,MOCK-OIL_SA-010,IC3,Tailings,engineering,False,123800.0,USD,2012
+1000789,MOCK-REFINE-039,IC4,Delayed Coker,subcontract,False,1619.0,USD,2018
+1006137,MOCK-PIPELI-037,IC4,Metering Station,subcontract,False,9952.0,USD,2017
+1001271,MOCK-REFINE-062,IC5,Hydrotreater,engineering,False,54662.0,USD,2022
+1008895,MOCK-REFINE-020,IC5,Hydrogen Plant,equipment,False,40031.0,USD,2012
+1002716,MOCK-REFINE-126,IC3,Flare System,owner,False,1974.0,USD,2024
+1008105,MOCK-OIL_SA-007,IC5,Utilities,equipment,True,52757.0,USD,2017
+1001327,MOCK-REFINE-065,IC3,Delayed Coker,engineering,True,1184.0,USD,2016
+1007549,MOCK-GAS_PR-040,IC4,Utilities,engineering,True,89942.0,USD,2016
+1008450,MOCK-OIL_SA-023,IC4,Tailings,engineering,False,158875.0,USD,2024
+1007000,MOCK-GAS_PR-008,IC3,Cryogenic Gas Plant,equipment,False,32466.0,USD,2021
+1006184,MOCK-PIPELI-039,IC3,HDD Crossing,equipment,False,10064.0,USD,2017
+1006229,MOCK-PIPELI-041,IC3,Export Pipeline,labor,True,41972.0,USD,2018
+1005621,MOCK-PIPELI-009,IC3,HDD Crossing,labor,False,2924.0,USD,2015
+1003521,MOCK-ONSHOR-032,IC5,Offsites,contingency,False,116974.0,USD,2024
+1009453,MOCK-ONSHOR-030,IC5,Storage,contingency,False,18520.0,USD,2020
+1001025,MOCK-REFINE-051,IC5,CCR Reformer,contingency,False,16115.0,USD,2015
+1002106,MOCK-REFINE-100,IC3,Hydrogen Plant,subcontract,True,7661.0,USD,2024
+1002163,MOCK-REFINE-102,IC5,Hydrotreater,contingency,False,2486.0,USD,2016
+1002766,MOCK-REFINE-129,IC4,Furnace Replacement,bulk_material,False,1207.0,USD,2022
+1007162,MOCK-GAS_PR-019,IC4,Compression,equipment,False,3054.0,USD,2012
+1007391,MOCK-GAS_PR-031,IC4,Dehydration,owner,False,17177.0,USD,2022
+1009240,MOCK-ONSHOR-016,IC4,Onsites Process,contingency,True,8856.0,USD,2019
+1006961,MOCK-GAS_PR-006,IC4,Dehydration,contingency,False,14759.0,USD,2024
+1006420,MOCK-ONSHOR-004,IC4,Gathering Pipeline,bulk_material,True,1483.0,USD,2024
+1000104,MOCK-REFINE-005,IC4,Hydrocracker Reactor,contingency,False,1194.0,USD,2013
+1003788,MOCK-ONSHOR-045,IC4,Storage Tank Farm,owner,False,41723.0,USD,2013
+1002900,MOCK-REFINE-138,IC4,Flare System,equipment,False,2314.0,USD,2022
+1008626,MOCK-REFINE-007,IC4,Hydrocracker Reactor,bulk_material,False,37282.0,USD,2020
+1000988,MOCK-REFINE-049,IC5,Desalter Upgrade,bulk_material,True,1271.0,USD,2016
+1009248,MOCK-ONSHOR-017,IC3,Injection,contingency,True,40039.0,USD,2021
+1003883,MOCK-ONSHOR-049,IC5,Offsites,equipment,False,37187.0,USD,2015
+1008008,MOCK-LNG_ON-025,IC3,LNG Storage,engineering,True,93379.0,USD,2012
+1005976,MOCK-PIPELI-026,IC4,Metering Station,bulk_material,True,14469.0,USD,2019
+1004693,MOCK-OFFSHO-007,IC4,FPSO Hull,bulk_material,False,266174.0,USD,2017
+1006862,MOCK-ONSHOR-030,IC3,Gathering Pipeline,bulk_material,True,3762.0,USD,2015
+1004702,MOCK-OFFSHO-008,IC4,Subsea Trees,engineering,False,54520.0,USD,2020
+1007788,MOCK-LNG_ON-015,IC3,Utilities,labor,True,82482.0,USD,2019
+1000806,MOCK-REFINE-040,IC3,Furnace Replacement,subcontract,False,3384.0,USD,2015
+1008250,MOCK-OIL_SA-015,IC5,Tailings,subcontract,False,78673.0,USD,2018
+1007214,MOCK-GAS_PR-022,IC3,Utilities,labor,False,3984.0,USD,2012
+1002174,MOCK-REFINE-103,IC5,Hydrocracker Reactor,bulk_material,True,7044.0,USD,2021
+1007040,MOCK-GAS_PR-010,IC5,Compression,contingency,False,1582.0,USD,2021
+1005578,MOCK-PIPELI-007,IC5,Pump Station,contingency,False,1563.0,USD,2014
+1006947,MOCK-GAS_PR-005,IC4,CO2 Capture Facilities,engineering,False,37233.0,USD,2018
+1007939,MOCK-LNG_ON-022,IC5,Jetty and Loading,labor,False,253745.0,USD,2021
+1007694,MOCK-LNG_ON-009,IC5,Jetty and Loading,owner,True,46353.0,USD,2014
+1000377,MOCK-REFINE-019,IC5,Desalter Upgrade,owner,True,2118.0,USD,2022
+1007258,MOCK-GAS_PR-025,IC5,CO2 Capture Facilities,engineering,False,20148.0,USD,2016
+1003131,MOCK-ONSHOR-010,IC3,Polypropylene Unit,equipment,True,3005.0,USD,2018
+1009000,MOCK-ONSHOR-004,IC5,Infrastructure,engineering,False,10830.0,USD,2021
+1006110,MOCK-PIPELI-036,IC5,Metering Station,labor,False,104121.0,USD,2024
+1002851,MOCK-REFINE-134,IC4,Desalter Upgrade,bulk_material,False,12808.0,USD,2022
+1001628,MOCK-REFINE-077,IC3,Alkylation Unit,bulk_material,False,174.0,USD,2023
+1004072,MOCK-ONSHOR-058,IC5,Polypropylene Unit,equipment,False,6188.0,USD,2015
+1005306,MOCK-OFFSHO-039,IC3,SURF Flowlines,owner,True,247620.0,USD,2018
+1005781,MOCK-PIPELI-017,IC4,Pump Station,owner,True,33550.0,USD,2014
+1009790,MOCK-ONSHOR-048,IC5,Infrastructure,contingency,False,86002.0,USD,2018
+1008162,MOCK-OIL_SA-010,IC4,Utilities,bulk_material,False,154754.0,USD,2021
+1000789,MOCK-REFINE-039,IC4,Utilities Package,engineering,False,3587.0,USD,2017
+1006137,MOCK-PIPELI-037,IC4,Metering Station,subcontract,False,7276.0,USD,2021
+1001271,MOCK-REFINE-062,IC5,Hydrocracker Reactor,owner,False,22585.0,USD,2019
+1008895,MOCK-REFINE-020,IC3,Desalter Upgrade,subcontract,False,70599.0,USD,2014
+1002716,MOCK-REFINE-126,IC4,Crude Unit Revamp,subcontract,False,1716.0,USD,2012
+1008105,MOCK-OIL_SA-007,IC3,Extraction,equipment,False,7461.0,USD,2020
+1001327,MOCK-REFINE-065,IC5,Delayed Coker,labor,True,307.0,USD,2013
+1007549,MOCK-GAS_PR-040,IC3,CO2 Capture Facilities,labor,False,84893.0,USD,2021
+1008450,MOCK-OIL_SA-023,IC5,Tailings,labor,True,137275.0,USD,2016
+1007000,MOCK-GAS_PR-008,IC3,Dehydration,engineering,False,17777.0,USD,2015
+1006184,MOCK-PIPELI-039,IC5,Export Pipeline,subcontract,False,6429.0,USD,2024
+1006229,MOCK-PIPELI-041,IC4,Export Pipeline,subcontract,False,69146.0,USD,2017
+1005621,MOCK-PIPELI-009,IC4,Pump Station,equipment,False,11897.0,USD,2015
+1003521,MOCK-ONSHOR-032,IC4,Polypropylene Unit,engineering,False,113397.0,USD,2013
+1009453,MOCK-ONSHOR-030,IC5,Storage,engineering,False,160605.0,USD,2022
+1001025,MOCK-REFINE-051,IC4,Desalter Upgrade,labor,False,5863.0,USD,2012
+1002106,MOCK-REFINE-100,IC3,Desalter Upgrade,owner,False,2722.0,USD,2024
+1002163,MOCK-REFINE-102,IC5,Desalter Upgrade,subcontract,True,4163.0,USD,2012
+1002766,MOCK-REFINE-129,IC5,Offsites and Tank Farm,contingency,False,2244.0,USD,2023
+1007162,MOCK-GAS_PR-019,IC5,NGL Fractionation,subcontract,False,6051.0,USD,2012
+1007391,MOCK-GAS_PR-031,IC5,Compression,engineering,False,18121.0,USD,2017
+1009240,MOCK-ONSHOR-016,IC5,Compression,bulk_material,False,12362.0,USD,2014
+1006961,MOCK-GAS_PR-006,IC4,Dehydration,contingency,False,34691.0,USD,2014
+1006420,MOCK-ONSHOR-004,IC5,Central Delivery Point,contingency,True,528.0,USD,2013
+1000104,MOCK-REFINE-005,IC4,Hydrotreater,engineering,True,7743.0,USD,2014
+1003788,MOCK-ONSHOR-045,IC4,Utilities Package,engineering,False,19459.0,USD,2017
+1002900,MOCK-REFINE-138,IC3,Flare System,labor,False,1282.0,USD,2023
+1008626,MOCK-REFINE-007,IC3,FCC Modernization,subcontract,True,39262.0,USD,2020
+1000988,MOCK-REFINE-049,IC4,Crude Unit Revamp,labor,False,427.0,USD,2019
+1009248,MOCK-ONSHOR-017,IC5,Storage,contingency,True,40268.0,USD,2022
+1003883,MOCK-ONSHOR-049,IC3,Olefins Cracker,bulk_material,False,93278.0,USD,2023
+1008008,MOCK-LNG_ON-025,IC3,Utilities,equipment,False,294807.0,USD,2015
+1005976,MOCK-PIPELI-026,IC3,Metering Station,subcontract,True,2165.0,USD,2018
+1004693,MOCK-OFFSHO-007,IC4,FPSO Hull,subcontract,False,343803.0,USD,2019
+1006862,MOCK-ONSHOR-030,IC4,Pad Facilities,bulk_material,True,4846.0,USD,2015
+1004702,MOCK-OFFSHO-008,IC3,Mooring System,engineering,False,82616.0,USD,2018
+1007788,MOCK-LNG_ON-015,IC3,LNG Storage,contingency,True,216508.0,USD,2014
+1000806,MOCK-REFINE-040,IC4,Hydrogen Plant,engineering,False,2799.0,USD,2016
+1008250,MOCK-OIL_SA-015,IC3,Tailings,subcontract,False,103169.0,USD,2024
+1007214,MOCK-GAS_PR-022,IC4,Cryogenic Gas Plant,engineering,False,10946.0,USD,2021
+1002174,MOCK-REFINE-103,IC4,Crude Unit Revamp,subcontract,False,15681.0,USD,2021
+1007040,MOCK-GAS_PR-010,IC5,NGL Fractionation,engineering,False,3685.0,USD,2020
+1005578,MOCK-PIPELI-007,IC3,Pump Station,engineering,False,4479.0,USD,2018
+1006947,MOCK-GAS_PR-005,IC5,NGL Fractionation,bulk_material,False,11243.0,USD,2024
+1007939,MOCK-LNG_ON-022,IC4,Infrastructure,contingency,False,87203.0,USD,2013
+1007694,MOCK-LNG_ON-009,IC4,Jetty and Loading,equipment,True,249481.0,USD,2024
+1000377,MOCK-REFINE-019,IC4,Alkylation Unit,equipment,False,2190.0,USD,2013
+1007258,MOCK-GAS_PR-025,IC5,Utilities,subcontract,True,8508.0,USD,2023
+1003131,MOCK-ONSHOR-010,IC5,MEG Unit,labor,True,19629.0,USD,2018
+1009000,MOCK-ONSHOR-004,IC3,Storage,contingency,False,23043.0,USD,2014
+1006110,MOCK-PIPELI-036,IC3,Export Pipeline,equipment,True,69399.0,USD,2014
+1002851,MOCK-REFINE-134,IC4,Hydrotreater,subcontract,False,2714.0,USD,2022
+1001628,MOCK-REFINE-077,IC4,Flare System,contingency,True,999.0,USD,2024
+1004072,MOCK-ONSHOR-058,IC5,Polypropylene Unit,labor,True,18242.0,USD,2020
+1005306,MOCK-OFFSHO-039,IC3,Mooring System,engineering,False,34334.0,USD,2024
+1005781,MOCK-PIPELI-017,IC4,Metering Station,bulk_material,True,8359.0,USD,2015
+1009790,MOCK-ONSHOR-048,IC5,Storage,engineering,True,93430.0,USD,2020
+1008162,MOCK-OIL_SA-010,IC4,Infrastructure,labor,False,117154.0,USD,2016
+1000789,MOCK-REFINE-039,IC5,Furnace Replacement,owner,False,410.0,USD,2018
+1006137,MOCK-PIPELI-037,IC4,Pump Station,subcontract,True,4262.0,USD,2016
+1001271,MOCK-REFINE-062,IC5,Furnace Replacement,subcontract,False,12318.0,USD,2017
+1008895,MOCK-REFINE-020,IC5,Desalter Upgrade,bulk_material,False,52092.0,USD,2014
+1002716,MOCK-REFINE-126,IC4,Utilities Package,contingency,False,3101.0,USD,2017
+1008105,MOCK-OIL_SA-007,IC5,Utilities,bulk_material,False,54403.0,USD,2018
+1001327,MOCK-REFINE-065,IC3,Desalter Upgrade,owner,False,1079.0,USD,2021
+1007549,MOCK-GAS_PR-040,IC5,Utilities,labor,False,79386.0,USD,2013
+1008450,MOCK-OIL_SA-023,IC4,Tailings,equipment,False,167483.0,USD,2017
+1007000,MOCK-GAS_PR-008,IC3,CO2 Capture Facilities,bulk_material,False,15336.0,USD,2014
+1006184,MOCK-PIPELI-039,IC3,Pump Station,equipment,False,2961.0,USD,2019
+1006229,MOCK-PIPELI-041,IC3,Export Pipeline,equipment,False,90750.0,USD,2015
+1005621,MOCK-PIPELI-009,IC5,Metering Station,contingency,False,3130.0,USD,2021
+1003521,MOCK-ONSHOR-032,IC3,Product Loading,equipment,True,72878.0,USD,2018
+1009453,MOCK-ONSHOR-030,IC4,Infrastructure,equipment,True,129211.0,USD,2016
+1001025,MOCK-REFINE-051,IC4,Crude Unit Revamp,bulk_material,False,23071.0,USD,2017
+1002106,MOCK-REFINE-100,IC3,Delayed Coker,equipment,False,2575.0,USD,2012
+1002163,MOCK-REFINE-102,IC3,Flare System,engineering,False,5047.0,USD,2021
+1002766,MOCK-REFINE-129,IC3,Delayed Coker,labor,False,1309.0,USD,2018
+1007162,MOCK-GAS_PR-019,IC5,Dehydration,labor,False,5751.0,USD,2023
+1007391,MOCK-GAS_PR-031,IC4,Cryogenic Gas Plant,contingency,False,9142.0,USD,2017
+1009240,MOCK-ONSHOR-016,IC3,Compression,labor,False,19176.0,USD,2016
+1006961,MOCK-GAS_PR-006,IC5,CO2 Capture Facilities,labor,False,10233.0,USD,2020
+1006420,MOCK-ONSHOR-004,IC4,Central Delivery Point,labor,False,1790.0,USD,2012
+1000104,MOCK-REFINE-005,IC3,Delayed Coker,contingency,True,9171.0,USD,2023
+1003788,MOCK-ONSHOR-045,IC4,MEG Unit,equipment,False,43567.0,USD,2014
+1002900,MOCK-REFINE-138,IC4,Alkylation Unit,contingency,False,2839.0,USD,2022
+1008626,MOCK-REFINE-007,IC5,Desalter Upgrade,equipment,True,124621.0,USD,2012
+1000988,MOCK-REFINE-049,IC3,Hydrogen Plant,owner,False,1264.0,USD,2019
+1009248,MOCK-ONSHOR-017,IC5,Compression,contingency,False,47336.0,USD,2022
+1003883,MOCK-ONSHOR-049,IC3,Polypropylene Unit,engineering,False,102809.0,USD,2015
+1008008,MOCK-LNG_ON-025,IC3,Jetty and Loading,bulk_material,False,217519.0,USD,2013
+1005976,MOCK-PIPELI-026,IC4,HDD Crossing,subcontract,False,12445.0,USD,2018
+1004693,MOCK-OFFSHO-007,IC3,Drilling Wells,engineering,True,356746.0,USD,2017
+1006862,MOCK-ONSHOR-030,IC5,Gathering Pipeline,contingency,False,3571.0,USD,2019
+1004702,MOCK-OFFSHO-008,IC4,FPSO Hull,owner,True,25315.0,USD,2016
+1007788,MOCK-LNG_ON-015,IC3,Liquefaction Train,labor,True,620004.0,USD,2021
+1000806,MOCK-REFINE-040,IC5,Flare System,labor,False,2324.0,USD,2014
+1008250,MOCK-OIL_SA-015,IC4,Infrastructure,contingency,False,53093.0,USD,2018
+1007214,MOCK-GAS_PR-022,IC5,Utilities,bulk_material,False,10381.0,USD,2014
+1002174,MOCK-REFINE-103,IC4,Furnace Replacement,contingency,True,4125.0,USD,2017
+1007040,MOCK-GAS_PR-010,IC4,Compression,labor,False,3278.0,USD,2021
+1005578,MOCK-PIPELI-007,IC5,Pump Station,owner,False,7701.0,USD,2013
+1006947,MOCK-GAS_PR-005,IC5,Utilities,bulk_material,False,11688.0,USD,2023
+1007939,MOCK-LNG_ON-022,IC4,Infrastructure,owner,True,132871.0,USD,2013
+1007694,MOCK-LNG_ON-009,IC5,Utilities,bulk_material,False,117302.0,USD,2021
+1000377,MOCK-REFINE-019,IC5,FCC Modernization,owner,False,999.0,USD,2016
+1007258,MOCK-GAS_PR-025,IC3,Utilities,owner,False,22943.0,USD,2018
+1003131,MOCK-ONSHOR-010,IC5,Utilities Package,equipment,False,37807.0,USD,2021
+1009000,MOCK-ONSHOR-004,IC3,Storage,labor,True,45338.0,USD,2019
+1006110,MOCK-PIPELI-036,IC4,HDD Crossing,labor,False,57577.0,USD,2020
+1002851,MOCK-REFINE-134,IC4,Delayed Coker,subcontract,True,11389.0,USD,2017
+1001628,MOCK-REFINE-077,IC5,Furnace Replacement,subcontract,True,774.0,USD,2013
+1004072,MOCK-ONSHOR-058,IC4,Infrastructure,equipment,True,18736.0,USD,2024
+1005306,MOCK-OFFSHO-039,IC5,FPSO Hull,contingency,False,123471.0,USD,2013
+1005781,MOCK-PIPELI-017,IC5,Metering Station,contingency,True,23879.0,USD,2015
+1009790,MOCK-ONSHOR-048,IC4,Onsites Process,contingency,True,34381.0,USD,2015
+1008162,MOCK-OIL_SA-010,IC5,Utilities,subcontract,False,96210.0,USD,2013
+1000789,MOCK-REFINE-039,IC3,Alkylation Unit,equipment,False,3424.0,USD,2018
+1006137,MOCK-PIPELI-037,IC4,Export Pipeline,bulk_material,True,6956.0,USD,2022
+1001271,MOCK-REFINE-062,IC3,Alkylation Unit,contingency,True,7722.0,USD,2014
+1008895,MOCK-REFINE-020,IC3,Crude Unit Revamp,owner,True,177519.0,USD,2019
+1002716,MOCK-REFINE-126,IC4,Flare System,bulk_material,True,1568.0,USD,2015
+1008105,MOCK-OIL_SA-007,IC4,Infrastructure,owner,True,55715.0,USD,2017
+1001327,MOCK-REFINE-065,IC4,Alkylation Unit,owner,False,1111.0,USD,2016
+1007549,MOCK-GAS_PR-040,IC3,NGL Fractionation,subcontract,False,29493.0,USD,2015
+1008450,MOCK-OIL_SA-023,IC4,Tailings,subcontract,False,158959.0,USD,2014
+1007000,MOCK-GAS_PR-008,IC4,Utilities,bulk_material,True,20528.0,USD,2022
+1006184,MOCK-PIPELI-039,IC3,Pump Station,owner,True,11478.0,USD,2015
+1006229,MOCK-PIPELI-041,IC3,Gathering Pipeline,subcontract,False,94888.0,USD,2012
+1005621,MOCK-PIPELI-009,IC4,Metering Station,equipment,False,16995.0,USD,2014
+1003521,MOCK-ONSHOR-032,IC4,Olefins Cracker,engineering,False,93354.0,USD,2020
+1009453,MOCK-ONSHOR-030,IC4,Onsites Process,equipment,False,22229.0,USD,2023
+1001025,MOCK-REFINE-051,IC5,Hydrotreater,bulk_material,True,18323.0,USD,2017
+1002106,MOCK-REFINE-100,IC3,Flare System,labor,False,7867.0,USD,2012
+1002163,MOCK-REFINE-102,IC5,Crude Unit Revamp,labor,False,5260.0,USD,2021
+1002766,MOCK-REFINE-129,IC5,Alkylation Unit,owner,False,1761.0,USD,2023
+1007162,MOCK-GAS_PR-019,IC5,Compression,labor,False,5924.0,USD,2018
+1007391,MOCK-GAS_PR-031,IC5,Compression,labor,False,7692.0,USD,2022
+1009240,MOCK-ONSHOR-016,IC5,Compression,owner,True,13855.0,USD,2013
+1006961,MOCK-GAS_PR-006,IC3,Cryogenic Gas Plant,bulk_material,True,4082.0,USD,2024
+1006420,MOCK-ONSHOR-004,IC3,Water Handling,engineering,False,311.0,USD,2016
+1000104,MOCK-REFINE-005,IC4,Furnace Replacement,contingency,False,12148.0,USD,2016
+1003788,MOCK-ONSHOR-045,IC5,Infrastructure,labor,False,46313.0,USD,2020
+1002900,MOCK-REFINE-138,IC3,Alkylation Unit,equipment,False,380.0,USD,2020
+1008626,MOCK-REFINE-007,IC4,Utilities Package,engineering,False,45890.0,USD,2015
+1000988,MOCK-REFINE-049,IC3,Crude Unit Revamp,owner,True,114.0,USD,2012
+1009248,MOCK-ONSHOR-017,IC4,Onsites Process,owner,False,88988.0,USD,2019
+1003883,MOCK-ONSHOR-049,IC4,Infrastructure,labor,False,61627.0,USD,2013
+1008008,MOCK-LNG_ON-025,IC5,Jetty and Loading,bulk_material,False,210818.0,USD,2018
+1005976,MOCK-PIPELI-026,IC4,Gathering Pipeline,engineering,True,20562.0,USD,2021
+1004693,MOCK-OFFSHO-007,IC5,Umbilicals,owner,False,298068.0,USD,2015
+1006862,MOCK-ONSHOR-030,IC5,Compression Station,contingency,False,2176.0,USD,2013
+1004702,MOCK-OFFSHO-008,IC4,FPSO Hull,contingency,False,20264.0,USD,2020
+1007788,MOCK-LNG_ON-015,IC5,Infrastructure,bulk_material,False,506363.0,USD,2015
+1000806,MOCK-REFINE-040,IC3,Hydrotreater,subcontract,False,2471.0,USD,2021
+1008250,MOCK-OIL_SA-015,IC5,Tailings,bulk_material,False,26258.0,USD,2024
+1007214,MOCK-GAS_PR-022,IC3,Dehydration,contingency,False,35148.0,USD,2018
+1002174,MOCK-REFINE-103,IC5,CCR Reformer,equipment,False,7237.0,USD,2023
+1007040,MOCK-GAS_PR-010,IC3,CO2 Capture Facilities,subcontract,False,5745.0,USD,2016
+1005578,MOCK-PIPELI-007,IC5,Metering Station,owner,True,5164.0,USD,2024
+1006947,MOCK-GAS_PR-005,IC5,Injection Wells,engineering,False,23640.0,USD,2014
+1007939,MOCK-LNG_ON-022,IC3,Liquefaction Train,owner,False,84864.0,USD,2023
+1007694,MOCK-LNG_ON-009,IC4,LNG Storage,owner,False,122453.0,USD,2022
+1000377,MOCK-REFINE-019,IC4,Hydrotreater,contingency,False,1555.0,USD,2013
+1007258,MOCK-GAS_PR-025,IC5,Dehydration,labor,False,18228.0,USD,2016
+1003131,MOCK-ONSHOR-010,IC4,Utilities Package,labor,False,22715.0,USD,2014
+1009000,MOCK-ONSHOR-004,IC4,Injection,contingency,True,26100.0,USD,2013
+1006110,MOCK-PIPELI-036,IC5,Gathering Pipeline,bulk_material,False,29058.0,USD,2020
+1002851,MOCK-REFINE-134,IC3,Furnace Replacement,owner,True,16192.0,USD,2017
+1001628,MOCK-REFINE-077,IC4,CCR Reformer,engineering,True,927.0,USD,2023
+1004072,MOCK-ONSHOR-058,IC4,Infrastructure,contingency,False,14863.0,USD,2013
+1005306,MOCK-OFFSHO-039,IC3,Risers,labor,False,184888.0,USD,2017
+1005781,MOCK-PIPELI-017,IC3,HDD Crossing,contingency,False,30739.0,USD,2023
+1009790,MOCK-ONSHOR-048,IC4,Infrastructure,labor,False,12621.0,USD,2023
+1008162,MOCK-OIL_SA-010,IC5,Tailings,contingency,False,105353.0,USD,2013
+1000789,MOCK-REFINE-039,IC4,Hydrogen Plant,subcontract,False,1525.0,USD,2014
+1006137,MOCK-PIPELI-037,IC5,Metering Station,subcontract,False,4048.0,USD,2019
+1001271,MOCK-REFINE-062,IC3,Alkylation Unit,contingency,False,52413.0,USD,2018
+1008895,MOCK-REFINE-020,IC4,Utilities Package,bulk_material,True,201171.0,USD,2016
+1002716,MOCK-REFINE-126,IC3,Desalter Upgrade,equipment,False,1619.0,USD,2013
+1008105,MOCK-OIL_SA-007,IC4,Mining OPP,engineering,False,55606.0,USD,2024
+1001327,MOCK-REFINE-065,IC4,Hydrotreater,labor,False,829.0,USD,2018
+1007549,MOCK-GAS_PR-040,IC5,NGL Fractionation,engineering,True,69948.0,USD,2018
+1008450,MOCK-OIL_SA-023,IC3,Infrastructure,engineering,True,112438.0,USD,2012
+1007000,MOCK-GAS_PR-008,IC4,NGL Fractionation,subcontract,True,59792.0,USD,2016
+1006184,MOCK-PIPELI-039,IC3,Gathering Pipeline,labor,False,6951.0,USD,2020
+1006229,MOCK-PIPELI-041,IC5,Pump Station,owner,False,56739.0,USD,2021
+1005621,MOCK-PIPELI-009,IC3,Pump Station,bulk_material,False,9104.0,USD,2017
+1003521,MOCK-ONSHOR-032,IC5,MEG Unit,contingency,False,24180.0,USD,2014
+1009453,MOCK-ONSHOR-030,IC5,Storage,labor,True,136231.0,USD,2020
+1001025,MOCK-REFINE-051,IC3,Delayed Coker,engineering,False,19760.0,USD,2024
+1002106,MOCK-REFINE-100,IC3,Hydrogen Plant,labor,False,7071.0,USD,2023
+1002163,MOCK-REFINE-102,IC4,Hydrocracker Reactor,contingency,False,2253.0,USD,2023
+1002766,MOCK-REFINE-129,IC5,Desalter Upgrade,contingency,False,354.0,USD,2020
+1007162,MOCK-GAS_PR-019,IC4,NGL Fractionation,engineering,True,12401.0,USD,2021
+1007391,MOCK-GAS_PR-031,IC5,CO2 Capture Facilities,subcontract,False,3818.0,USD,2015
+1009240,MOCK-ONSHOR-016,IC4,Storage,engineering,False,11492.0,USD,2023
+1006961,MOCK-GAS_PR-006,IC3,Dehydration,engineering,False,16402.0,USD,2016
+1006420,MOCK-ONSHOR-004,IC3,Compression Station,owner,False,1480.0,USD,2015
+1000104,MOCK-REFINE-005,IC3,Hydrocracker Reactor,engineering,True,3952.0,USD,2015
+1003788,MOCK-ONSHOR-045,IC4,MEG Unit,equipment,False,7278.0,USD,2022
+1002900,MOCK-REFINE-138,IC3,Furnace Replacement,owner,False,1613.0,USD,2022
+1008626,MOCK-REFINE-007,IC5,Utilities Package,subcontract,False,224536.0,USD,2012
+1000988,MOCK-REFINE-049,IC4,Flare System,engineering,True,1233.0,USD,2013
+1009248,MOCK-ONSHOR-017,IC5,Injection,labor,False,10641.0,USD,2017
+1003883,MOCK-ONSHOR-049,IC4,Offsites,engineering,False,65784.0,USD,2024
+1008008,MOCK-LNG_ON-025,IC4,Infrastructure,subcontract,True,219506.0,USD,2020
+1005976,MOCK-PIPELI-026,IC3,Export Pipeline,contingency,False,6434.0,USD,2015
+1004693,MOCK-OFFSHO-007,IC5,FPSO Topsides,owner,True,203081.0,USD,2020
+1006862,MOCK-ONSHOR-030,IC5,Central Delivery Point,engineering,False,703.0,USD,2020
+1004702,MOCK-OFFSHO-008,IC3,Mooring System,owner,False,55708.0,USD,2014
+1007788,MOCK-LNG_ON-015,IC5,LNG Storage,subcontract,False,593526.0,USD,2012
+1000806,MOCK-REFINE-040,IC5,Desalter Upgrade,equipment,False,882.0,USD,2024
+1008250,MOCK-OIL_SA-015,IC4,Mining OPP,equipment,False,49174.0,USD,2018
+1007214,MOCK-GAS_PR-022,IC3,Compression,bulk_material,False,20627.0,USD,2017
+1002174,MOCK-REFINE-103,IC4,Utilities Package,bulk_material,False,10872.0,USD,2018
+1007040,MOCK-GAS_PR-010,IC3,Injection Wells,contingency,False,4031.0,USD,2021
+1005578,MOCK-PIPELI-007,IC5,Export Pipeline,subcontract,True,2071.0,USD,2012
+1006947,MOCK-GAS_PR-005,IC4,CO2 Capture Facilities,labor,False,28744.0,USD,2022
+1007939,MOCK-LNG_ON-022,IC5,Infrastructure,engineering,True,73870.0,USD,2024
+1007694,MOCK-LNG_ON-009,IC4,Liquefaction Train,owner,True,111966.0,USD,2023
+1000377,MOCK-REFINE-019,IC3,Alkylation Unit,equipment,False,3033.0,USD,2019
+1007258,MOCK-GAS_PR-025,IC3,CO2 Capture Facilities,owner,True,23756.0,USD,2023
+1003131,MOCK-ONSHOR-010,IC3,Offsites,subcontract,False,43356.0,USD,2014
+1009000,MOCK-ONSHOR-004,IC4,Storage,engineering,False,12876.0,USD,2023
+1006110,MOCK-PIPELI-036,IC3,Export Pipeline,labor,False,105921.0,USD,2023
+1002851,MOCK-REFINE-134,IC4,Flare System,labor,True,4282.0,USD,2020
+1001628,MOCK-REFINE-077,IC5,Alkylation Unit,bulk_material,True,965.0,USD,2021
+1004072,MOCK-ONSHOR-058,IC5,Storage Tank Farm,engineering,False,13727.0,USD,2016
+1005306,MOCK-OFFSHO-039,IC3,Drilling Wells,labor,False,19100.0,USD,2017
+1005781,MOCK-PIPELI-017,IC3,Pump Station,contingency,False,37203.0,USD,2021
+1009790,MOCK-ONSHOR-048,IC4,Onsites Process,equipment,True,9582.0,USD,2024
+1008162,MOCK-OIL_SA-010,IC4,Utilities,equipment,False,131687.0,USD,2023
+1000789,MOCK-REFINE-039,IC3,Hydrocracker Reactor,bulk_material,True,2418.0,USD,2014
+1006137,MOCK-PIPELI-037,IC4,Pump Station,bulk_material,False,8036.0,USD,2013
+1001271,MOCK-REFINE-062,IC4,Utilities Package,labor,False,39942.0,USD,2017
+1008895,MOCK-REFINE-020,IC3,Furnace Replacement,owner,True,205298.0,USD,2015
+1002716,MOCK-REFINE-126,IC5,Utilities Package,engineering,False,2178.0,USD,2014
+1008105,MOCK-OIL_SA-007,IC3,Mining OPP,bulk_material,False,30455.0,USD,2014
+1001327,MOCK-REFINE-065,IC4,Hydrocracker Reactor,contingency,False,788.0,USD,2022
+1007549,MOCK-GAS_PR-040,IC4,Dehydration,labor,True,107235.0,USD,2012
+1008450,MOCK-OIL_SA-023,IC3,Utilities,equipment,True,160031.0,USD,2022
+1007000,MOCK-GAS_PR-008,IC5,NGL Fractionation,contingency,False,50735.0,USD,2020
+1006184,MOCK-PIPELI-039,IC5,Export Pipeline,labor,False,2671.0,USD,2012
+1006229,MOCK-PIPELI-041,IC5,Export Pipeline,equipment,True,58999.0,USD,2023
+1005621,MOCK-PIPELI-009,IC4,HDD Crossing,contingency,True,11015.0,USD,2021
+1003521,MOCK-ONSHOR-032,IC3,Utilities Package,labor,False,124848.0,USD,2016
+1009453,MOCK-ONSHOR-030,IC3,Onsites Process,engineering,False,97824.0,USD,2013
+1001025,MOCK-REFINE-051,IC5,Offsites and Tank Farm,engineering,True,16556.0,USD,2013
+1002106,MOCK-REFINE-100,IC4,Desalter Upgrade,contingency,False,3393.0,USD,2013
+1002163,MOCK-REFINE-102,IC5,Crude Unit Revamp,equipment,True,4629.0,USD,2018
+1002766,MOCK-REFINE-129,IC3,FCC Modernization,engineering,True,4389.0,USD,2018
+1007162,MOCK-GAS_PR-019,IC4,Utilities,engineering,False,15693.0,USD,2017
+1007391,MOCK-GAS_PR-031,IC5,Cryogenic Gas Plant,equipment,False,18311.0,USD,2022
+1009240,MOCK-ONSHOR-016,IC4,Compression,labor,False,1667.0,USD,2015
+1006961,MOCK-GAS_PR-006,IC4,Compression,engineering,True,3822.0,USD,2024
+1006420,MOCK-ONSHOR-004,IC4,Central Delivery Point,subcontract,False,227.0,USD,2017
+1000104,MOCK-REFINE-005,IC5,Offsites and Tank Farm,engineering,True,15072.0,USD,2022
+1003788,MOCK-ONSHOR-045,IC4,MEG Unit,engineering,False,58168.0,USD,2017
+1002900,MOCK-REFINE-138,IC4,Delayed Coker,contingency,True,3012.0,USD,2018
+1008626,MOCK-REFINE-007,IC4,Furnace Replacement,bulk_material,False,202522.0,USD,2013
+1000988,MOCK-REFINE-049,IC5,Hydrotreater,equipment,False,498.0,USD,2023
+1009248,MOCK-ONSHOR-017,IC3,Injection,subcontract,False,29544.0,USD,2023
+1003883,MOCK-ONSHOR-049,IC3,Offsites,equipment,False,17014.0,USD,2023
+1008008,MOCK-LNG_ON-025,IC5,Power Plant,owner,True,150139.0,USD,2023
+1005976,MOCK-PIPELI-026,IC4,Pump Station,contingency,False,3013.0,USD,2018
+1004693,MOCK-OFFSHO-007,IC4,Mooring System,contingency,False,164650.0,USD,2015
+1006862,MOCK-ONSHOR-030,IC3,Pad Facilities,engineering,False,1902.0,USD,2024
+1004702,MOCK-OFFSHO-008,IC4,SURF Flowlines,bulk_material,False,46880.0,USD,2019
+1007788,MOCK-LNG_ON-015,IC3,Infrastructure,owner,False,309356.0,USD,2016
+1000806,MOCK-REFINE-040,IC4,Hydrotreater,bulk_material,True,4460.0,USD,2024
+1008250,MOCK-OIL_SA-015,IC5,Mining OPP,owner,False,106589.0,USD,2015
+1007214,MOCK-GAS_PR-022,IC3,Compression,contingency,True,37451.0,USD,2019
+1002174,MOCK-REFINE-103,IC5,Crude Unit Revamp,equipment,True,16315.0,USD,2018
+1007040,MOCK-GAS_PR-010,IC5,Utilities,equipment,False,3661.0,USD,2022
+1005578,MOCK-PIPELI-007,IC5,Export Pipeline,owner,True,6228.0,USD,2023
+1006947,MOCK-GAS_PR-005,IC4,Dehydration,subcontract,False,22397.0,USD,2024
+1007939,MOCK-LNG_ON-022,IC3,Infrastructure,subcontract,False,300983.0,USD,2024
+1007694,MOCK-LNG_ON-009,IC3,Power Plant,bulk_material,True,215891.0,USD,2017
+1000377,MOCK-REFINE-019,IC5,Utilities Package,engineering,True,2840.0,USD,2013
+1007258,MOCK-GAS_PR-025,IC4,Compression,subcontract,False,10780.0,USD,2020
+1003131,MOCK-ONSHOR-010,IC3,Polypropylene Unit,owner,False,29022.0,USD,2016
+1009000,MOCK-ONSHOR-004,IC4,Infrastructure,contingency,True,34683.0,USD,2023
+1006110,MOCK-PIPELI-036,IC4,Gathering Pipeline,equipment,True,62468.0,USD,2022
+1002851,MOCK-REFINE-134,IC3,Hydrogen Plant,owner,False,3211.0,USD,2016
+1001628,MOCK-REFINE-077,IC3,Hydrotreater,labor,False,325.0,USD,2020
+1004072,MOCK-ONSHOR-058,IC5,Polypropylene Unit,engineering,False,13126.0,USD,2014
+1005306,MOCK-OFFSHO-039,IC4,FPSO Hull,contingency,False,229700.0,USD,2017
+1005781,MOCK-PIPELI-017,IC3,Export Pipeline,bulk_material,True,10768.0,USD,2020
+1009790,MOCK-ONSHOR-048,IC4,Storage,bulk_material,True,83623.0,USD,2023
+1008162,MOCK-OIL_SA-010,IC5,Utilities,labor,False,84759.0,USD,2022
+1000789,MOCK-REFINE-039,IC5,Desalter Upgrade,subcontract,False,1436.0,USD,2014
+1006137,MOCK-PIPELI-037,IC3,HDD Crossing,contingency,False,10649.0,USD,2013
+1001271,MOCK-REFINE-062,IC4,Delayed Coker,labor,True,42555.0,USD,2015
+1008895,MOCK-REFINE-020,IC5,FCC Modernization,labor,False,204299.0,USD,2017
+1002716,MOCK-REFINE-126,IC4,Offsites and Tank Farm,labor,False,3001.0,USD,2014
+1008105,MOCK-OIL_SA-007,IC4,Utilities,owner,True,41239.0,USD,2018
+1001327,MOCK-REFINE-065,IC3,Alkylation Unit,subcontract,True,333.0,USD,2016
+1007549,MOCK-GAS_PR-040,IC3,CO2 Capture Facilities,labor,False,91417.0,USD,2013
+1008450,MOCK-OIL_SA-023,IC5,Extraction,engineering,True,81652.0,USD,2013
+1007000,MOCK-GAS_PR-008,IC3,Injection Wells,owner,False,78301.0,USD,2020
+1006184,MOCK-PIPELI-039,IC5,Gathering Pipeline,bulk_material,False,7827.0,USD,2021
+1006229,MOCK-PIPELI-041,IC4,Gathering Pipeline,contingency,False,62491.0,USD,2016
+1005621,MOCK-PIPELI-009,IC4,Gathering Pipeline,bulk_material,False,14146.0,USD,2013
+1003521,MOCK-ONSHOR-032,IC5,Offsites,equipment,True,102387.0,USD,2012
+1009453,MOCK-ONSHOR-030,IC4,Infrastructure,bulk_material,False,94614.0,USD,2012
+1001025,MOCK-REFINE-051,IC5,Furnace Replacement,owner,False,21947.0,USD,2013
+1002106,MOCK-REFINE-100,IC4,Delayed Coker,contingency,True,931.0,USD,2016
+1002163,MOCK-REFINE-102,IC4,Desalter Upgrade,equipment,True,5891.0,USD,2024
+1002766,MOCK-REFINE-129,IC4,Hydrocracker Reactor,contingency,False,2088.0,USD,2019
+1007162,MOCK-GAS_PR-019,IC3,NGL Fractionation,contingency,True,15866.0,USD,2020
+1007391,MOCK-GAS_PR-031,IC3,Compression,owner,False,9582.0,USD,2012
+1009240,MOCK-ONSHOR-016,IC3,Compression,bulk_material,True,6630.0,USD,2015
+1006961,MOCK-GAS_PR-006,IC5,Dehydration,equipment,False,41748.0,USD,2018
+1006420,MOCK-ONSHOR-004,IC5,Water Handling,contingency,False,1565.0,USD,2016
+1000104,MOCK-REFINE-005,IC4,Desalter Upgrade,equipment,True,4563.0,USD,2021
+1003788,MOCK-ONSHOR-045,IC5,Product Loading,equipment,False,47770.0,USD,2018
+1002900,MOCK-REFINE-138,IC3,Hydrocracker Reactor,contingency,False,446.0,USD,2017
+1008626,MOCK-REFINE-007,IC3,Utilities Package,contingency,True,87311.0,USD,2024
+1000988,MOCK-REFINE-049,IC5,Hydrogen Plant,bulk_material,False,166.0,USD,2022
+1009248,MOCK-ONSHOR-017,IC3,Onsites Process,bulk_material,False,24328.0,USD,2016
+1003883,MOCK-ONSHOR-049,IC4,Infrastructure,subcontract,False,122397.0,USD,2012
+1008008,MOCK-LNG_ON-025,IC3,Power Plant,subcontract,True,189195.0,USD,2020
+1005976,MOCK-PIPELI-026,IC3,Gathering Pipeline,contingency,False,1547.0,USD,2014
+1004693,MOCK-OFFSHO-007,IC5,SURF Flowlines,equipment,False,71904.0,USD,2020
+1006862,MOCK-ONSHOR-030,IC5,Pad Facilities,subcontract,False,2760.0,USD,2015
+1004702,MOCK-OFFSHO-008,IC3,FPSO Hull,contingency,False,85597.0,USD,2019
+1007788,MOCK-LNG_ON-015,IC5,Power Plant,bulk_material,False,698648.0,USD,2020
+1000806,MOCK-REFINE-040,IC3,Crude Unit Revamp,labor,True,3700.0,USD,2014
+1008250,MOCK-OIL_SA-015,IC3,Mining OPP,subcontract,True,98359.0,USD,2023
+1007214,MOCK-GAS_PR-022,IC5,Compression,labor,False,32455.0,USD,2018
+1002174,MOCK-REFINE-103,IC5,Alkylation Unit,owner,False,21259.0,USD,2017
+1007040,MOCK-GAS_PR-010,IC3,Injection Wells,engineering,False,11661.0,USD,2021
+1005578,MOCK-PIPELI-007,IC3,Pump Station,contingency,False,1943.0,USD,2024
+1006947,MOCK-GAS_PR-005,IC3,Cryogenic Gas Plant,bulk_material,False,24336.0,USD,2021
+1007939,MOCK-LNG_ON-022,IC5,Infrastructure,labor,False,220329.0,USD,2019
+1007694,MOCK-LNG_ON-009,IC5,Liquefaction Train,bulk_material,False,19540.0,USD,2019
+1000377,MOCK-REFINE-019,IC4,Offsites and Tank Farm,contingency,True,3247.0,USD,2022
+1007258,MOCK-GAS_PR-025,IC4,Injection Wells,equipment,True,9105.0,USD,2018
+1003131,MOCK-ONSHOR-010,IC3,Offsites,bulk_material,False,42973.0,USD,2015
+1009000,MOCK-ONSHOR-004,IC5,Infrastructure,contingency,False,3168.0,USD,2021
+1006110,MOCK-PIPELI-036,IC4,Gathering Pipeline,subcontract,False,18146.0,USD,2020
+1002851,MOCK-REFINE-134,IC3,Offsites and Tank Farm,labor,False,11636.0,USD,2012
+1001628,MOCK-REFINE-077,IC3,Furnace Replacement,contingency,True,939.0,USD,2016
+1004072,MOCK-ONSHOR-058,IC3,Product Loading,equipment,True,13360.0,USD,2018
+1005306,MOCK-OFFSHO-039,IC5,SURF Flowlines,subcontract,True,59243.0,USD,2014
+1005781,MOCK-PIPELI-017,IC4,Gathering Pipeline,contingency,False,21803.0,USD,2015
+1009790,MOCK-ONSHOR-048,IC4,Injection,subcontract,False,10801.0,USD,2013
+1008162,MOCK-OIL_SA-010,IC5,Extraction,engineering,False,128169.0,USD,2020
+1000789,MOCK-REFINE-039,IC4,CCR Reformer,labor,True,2366.0,USD,2016
+1006137,MOCK-PIPELI-037,IC3,Gathering Pipeline,engineering,True,12865.0,USD,2016
+1001271,MOCK-REFINE-062,IC5,Crude Unit Revamp,subcontract,False,43742.0,USD,2015
+1008895,MOCK-REFINE-020,IC4,Hydrogen Plant,contingency,True,177507.0,USD,2020
+1002716,MOCK-REFINE-126,IC4,FCC Modernization,contingency,True,2279.0,USD,2024
+1008105,MOCK-OIL_SA-007,IC5,Tailings,subcontract,False,44938.0,USD,2013
+1001327,MOCK-REFINE-065,IC4,Hydrocracker Reactor,contingency,True,775.0,USD,2024
+1007549,MOCK-GAS_PR-040,IC4,CO2 Capture Facilities,owner,False,83569.0,USD,2018
+1008450,MOCK-OIL_SA-023,IC3,Utilities,contingency,False,90123.0,USD,2019
+1007000,MOCK-GAS_PR-008,IC5,Cryogenic Gas Plant,owner,False,73338.0,USD,2014
+1006184,MOCK-PIPELI-039,IC3,Export Pipeline,bulk_material,True,8780.0,USD,2019
+1006229,MOCK-PIPELI-041,IC5,Metering Station,labor,False,76864.0,USD,2021
+1005621,MOCK-PIPELI-009,IC3,Export Pipeline,subcontract,True,17338.0,USD,2018
+1003521,MOCK-ONSHOR-032,IC3,Infrastructure,bulk_material,True,63217.0,USD,2013
+1009453,MOCK-ONSHOR-030,IC5,Storage,equipment,False,76586.0,USD,2013
+1001025,MOCK-REFINE-051,IC5,Furnace Replacement,bulk_material,True,18458.0,USD,2020
+1002106,MOCK-REFINE-100,IC5,Hydrotreater,contingency,True,4927.0,USD,2022
+1002163,MOCK-REFINE-102,IC4,Delayed Coker,equipment,True,3871.0,USD,2019
+1002766,MOCK-REFINE-129,IC4,Crude Unit Revamp,labor,False,2598.0,USD,2016
+1007162,MOCK-GAS_PR-019,IC3,NGL Fractionation,owner,False,13964.0,USD,2020
+1007391,MOCK-GAS_PR-031,IC5,Dehydration,owner,False,9427.0,USD,2024
+1009240,MOCK-ONSHOR-016,IC3,Compression,owner,False,5055.0,USD,2020
+1006961,MOCK-GAS_PR-006,IC4,Compression,contingency,False,34480.0,USD,2013
+1006420,MOCK-ONSHOR-004,IC5,Pad Facilities,engineering,False,1703.0,USD,2018
+1000104,MOCK-REFINE-005,IC3,Hydrocracker Reactor,owner,False,12050.0,USD,2015
+1003788,MOCK-ONSHOR-045,IC3,Polyethylene Unit,subcontract,False,36939.0,USD,2014
+1002900,MOCK-REFINE-138,IC3,Hydrocracker Reactor,labor,True,2222.0,USD,2017
+1008626,MOCK-REFINE-007,IC5,CCR Reformer,subcontract,True,244475.0,USD,2013
+1000988,MOCK-REFINE-049,IC4,Flare System,engineering,False,210.0,USD,2012
+1009248,MOCK-ONSHOR-017,IC5,Storage,equipment,False,57758.0,USD,2023
+1003883,MOCK-ONSHOR-049,IC4,MEG Unit,owner,False,24816.0,USD,2015
+1008008,MOCK-LNG_ON-025,IC5,Utilities,contingency,True,195153.0,USD,2018
+1005976,MOCK-PIPELI-026,IC5,Metering Station,owner,False,20841.0,USD,2019
+1004693,MOCK-OFFSHO-007,IC5,FPSO Topsides,subcontract,False,88135.0,USD,2020
+1006862,MOCK-ONSHOR-030,IC3,Water Handling,contingency,False,1082.0,USD,2017
+1004702,MOCK-OFFSHO-008,IC4,Umbilicals,owner,True,83086.0,USD,2023
+1007788,MOCK-LNG_ON-015,IC3,Liquefaction Train,subcontract,False,122152.0,USD,2021
+1000806,MOCK-REFINE-040,IC4,Hydrogen Plant,owner,False,518.0,USD,2023
+1008250,MOCK-OIL_SA-015,IC5,Infrastructure,equipment,False,89854.0,USD,2013
+1007214,MOCK-GAS_PR-022,IC4,Compression,labor,True,5437.0,USD,2014
+1002174,MOCK-REFINE-103,IC4,Alkylation Unit,equipment,True,16435.0,USD,2022
+1007040,MOCK-GAS_PR-010,IC4,Dehydration,labor,False,3843.0,USD,2012
+1005578,MOCK-PIPELI-007,IC4,Metering Station,labor,False,8822.0,USD,2016
+1006947,MOCK-GAS_PR-005,IC4,Compression,owner,True,4999.0,USD,2024
+1007939,MOCK-LNG_ON-022,IC5,LNG Storage,labor,False,361906.0,USD,2022
+1007694,MOCK-LNG_ON-009,IC3,Utilities,engineering,False,282052.0,USD,2017
+1000377,MOCK-REFINE-019,IC3,Offsites and Tank Farm,owner,False,874.0,USD,2019
+1007258,MOCK-GAS_PR-025,IC4,Utilities,bulk_material,False,6738.0,USD,2024
+1003131,MOCK-ONSHOR-010,IC4,Polyethylene Unit,labor,False,35125.0,USD,2024
+1009000,MOCK-ONSHOR-004,IC3,Storage,bulk_material,False,10034.0,USD,2018
+1006110,MOCK-PIPELI-036,IC4,Export Pipeline,subcontract,False,50471.0,USD,2018
+1002851,MOCK-REFINE-134,IC5,Offsites and Tank Farm,equipment,False,2865.0,USD,2012
+1001628,MOCK-REFINE-077,IC3,Flare System,equipment,False,647.0,USD,2014
+1004072,MOCK-ONSHOR-058,IC4,MEG Unit,equipment,True,8667.0,USD,2015
+1005306,MOCK-OFFSHO-039,IC4,FPSO Hull,engineering,False,67255.0,USD,2013
+1005781,MOCK-PIPELI-017,IC5,Gathering Pipeline,bulk_material,False,22517.0,USD,2016
+1009790,MOCK-ONSHOR-048,IC4,Infrastructure,subcontract,False,40950.0,USD,2019
+1008162,MOCK-OIL_SA-010,IC5,Extraction,owner,False,135321.0,USD,2021
+1000789,MOCK-REFINE-039,IC3,Hydrogen Plant,owner,False,3710.0,USD,2020
+1006137,MOCK-PIPELI-037,IC4,Pump Station,contingency,False,8512.0,USD,2017
+1001271,MOCK-REFINE-062,IC3,CCR Reformer,subcontract,True,47346.0,USD,2015
+1008895,MOCK-REFINE-020,IC5,FCC Modernization,bulk_material,True,211932.0,USD,2012
+1002716,MOCK-REFINE-126,IC5,Hydrogen Plant,owner,False,1377.0,USD,2018
+1008105,MOCK-OIL_SA-007,IC3,Utilities,owner,False,44585.0,USD,2021
+1001327,MOCK-REFINE-065,IC5,Desalter Upgrade,labor,True,992.0,USD,2014
+1007549,MOCK-GAS_PR-040,IC5,Dehydration,subcontract,True,93698.0,USD,2019
+1008450,MOCK-OIL_SA-023,IC4,Utilities,bulk_material,False,200629.0,USD,2024
+1007000,MOCK-GAS_PR-008,IC5,NGL Fractionation,bulk_material,False,41061.0,USD,2020
+1006184,MOCK-PIPELI-039,IC3,Pump Station,contingency,False,10740.0,USD,2014
+1006229,MOCK-PIPELI-041,IC3,Export Pipeline,contingency,False,30770.0,USD,2021
+1005621,MOCK-PIPELI-009,IC4,Metering Station,labor,False,18556.0,USD,2014
+1003521,MOCK-ONSHOR-032,IC3,Utilities Package,subcontract,True,102343.0,USD,2017
+1009453,MOCK-ONSHOR-030,IC4,Onsites Process,labor,False,35496.0,USD,2024
+1001025,MOCK-REFINE-051,IC4,Furnace Replacement,contingency,False,5332.0,USD,2018
+1002106,MOCK-REFINE-100,IC3,Utilities Package,engineering,False,3909.0,USD,2014
+1002163,MOCK-REFINE-102,IC3,Furnace Replacement,subcontract,False,3700.0,USD,2023
+1002766,MOCK-REFINE-129,IC3,CCR Reformer,labor,False,4968.0,USD,2018
+1007162,MOCK-GAS_PR-019,IC3,Compression,subcontract,False,6446.0,USD,2017
+1007391,MOCK-GAS_PR-031,IC4,Utilities,contingency,True,13441.0,USD,2015
+1009240,MOCK-ONSHOR-016,IC3,Injection,labor,False,4049.0,USD,2024
+1006961,MOCK-GAS_PR-006,IC4,Dehydration,bulk_material,False,15061.0,USD,2017
+1006420,MOCK-ONSHOR-004,IC5,Compression Station,contingency,False,1207.0,USD,2023
+1000104,MOCK-REFINE-005,IC5,Hydrocracker Reactor,contingency,True,11263.0,USD,2022
+1003788,MOCK-ONSHOR-045,IC3,Polypropylene Unit,bulk_material,False,16912.0,USD,2012
+1002900,MOCK-REFINE-138,IC3,Flare System,owner,False,2893.0,USD,2015
+1008626,MOCK-REFINE-007,IC5,Hydrocracker Reactor,labor,True,232121.0,USD,2017
+1000988,MOCK-REFINE-049,IC3,Hydrotreater,owner,True,481.0,USD,2023
+1009248,MOCK-ONSHOR-017,IC4,Onsites Process,owner,False,85470.0,USD,2020
+1003883,MOCK-ONSHOR-049,IC3,MEG Unit,contingency,False,80021.0,USD,2012
+1008008,MOCK-LNG_ON-025,IC4,Utilities,engineering,False,70833.0,USD,2017
+1005976,MOCK-PIPELI-026,IC4,HDD Crossing,equipment,False,6361.0,USD,2014
+1004693,MOCK-OFFSHO-007,IC5,Mooring System,owner,False,183694.0,USD,2023
+1006862,MOCK-ONSHOR-030,IC4,Compression Station,engineering,False,3158.0,USD,2022
+1004702,MOCK-OFFSHO-008,IC3,FPSO Hull,contingency,False,96167.0,USD,2017
+1007788,MOCK-LNG_ON-015,IC5,LNG Storage,subcontract,False,422992.0,USD,2017
+1000806,MOCK-REFINE-040,IC4,Flare System,bulk_material,False,2501.0,USD,2015
+1008250,MOCK-OIL_SA-015,IC3,Tailings,engineering,True,86139.0,USD,2020
+1007214,MOCK-GAS_PR-022,IC5,Cryogenic Gas Plant,equipment,False,3449.0,USD,2020
+1002174,MOCK-REFINE-103,IC4,CCR Reformer,subcontract,False,3029.0,USD,2018
+1007040,MOCK-GAS_PR-010,IC3,Dehydration,subcontract,False,9847.0,USD,2022
+1005578,MOCK-PIPELI-007,IC5,Gathering Pipeline,bulk_material,True,1413.0,USD,2023
+1006947,MOCK-GAS_PR-005,IC5,NGL Fractionation,owner,False,10761.0,USD,2018
+1007939,MOCK-LNG_ON-022,IC5,LNG Storage,engineering,True,276953.0,USD,2021
+1007694,MOCK-LNG_ON-009,IC3,Power Plant,labor,False,260415.0,USD,2013
+1000377,MOCK-REFINE-019,IC5,Offsites and Tank Farm,bulk_material,False,3484.0,USD,2012
+1007258,MOCK-GAS_PR-025,IC5,CO2 Capture Facilities,engineering,True,19290.0,USD,2015
+1003131,MOCK-ONSHOR-010,IC4,Storage Tank Farm,bulk_material,False,17488.0,USD,2023
+1009000,MOCK-ONSHOR-004,IC4,Infrastructure,bulk_material,True,6040.0,USD,2013
+1006110,MOCK-PIPELI-036,IC4,HDD Crossing,subcontract,False,50527.0,USD,2013
+1002851,MOCK-REFINE-134,IC4,Delayed Coker,contingency,True,8264.0,USD,2018
+1001628,MOCK-REFINE-077,IC3,Alkylation Unit,subcontract,False,900.0,USD,2022
+1004072,MOCK-ONSHOR-058,IC3,MEG Unit,owner,False,21246.0,USD,2013
+1005306,MOCK-OFFSHO-039,IC3,FPSO Hull,owner,False,244896.0,USD,2014
+1005781,MOCK-PIPELI-017,IC3,Export Pipeline,bulk_material,False,21683.0,USD,2022
+1009790,MOCK-ONSHOR-048,IC5,Injection,labor,True,74656.0,USD,2024
+1008162,MOCK-OIL_SA-010,IC5,Mining OPP,equipment,False,121161.0,USD,2020
+1000789,MOCK-REFINE-039,IC4,Desalter Upgrade,labor,False,1194.0,USD,2021
+1006137,MOCK-PIPELI-037,IC3,HDD Crossing,equipment,False,7206.0,USD,2018
+1001271,MOCK-REFINE-062,IC3,CCR Reformer,equipment,False,16723.0,USD,2019
+1008895,MOCK-REFINE-020,IC3,Desalter Upgrade,owner,False,208636.0,USD,2024
+1002716,MOCK-REFINE-126,IC5,CCR Reformer,bulk_material,False,2303.0,USD,2017
+1008105,MOCK-OIL_SA-007,IC5,Utilities,bulk_material,False,7948.0,USD,2017
+1001327,MOCK-REFINE-065,IC3,Desalter Upgrade,labor,False,203.0,USD,2014
+1007549,MOCK-GAS_PR-040,IC4,CO2 Capture Facilities,engineering,False,61373.0,USD,2017
+1008450,MOCK-OIL_SA-023,IC3,Mining OPP,bulk_material,True,152124.0,USD,2012
+1007000,MOCK-GAS_PR-008,IC3,Injection Wells,equipment,False,22631.0,USD,2016
+1006184,MOCK-PIPELI-039,IC5,HDD Crossing,subcontract,False,2173.0,USD,2024
+1006229,MOCK-PIPELI-041,IC3,Pump Station,engineering,True,67006.0,USD,2024
+1005621,MOCK-PIPELI-009,IC5,HDD Crossing,owner,False,10063.0,USD,2022
+1003521,MOCK-ONSHOR-032,IC3,Product Loading,labor,False,60290.0,USD,2017
+1009453,MOCK-ONSHOR-030,IC5,Infrastructure,owner,False,70690.0,USD,2023
+1001025,MOCK-REFINE-051,IC4,Crude Unit Revamp,bulk_material,False,7139.0,USD,2022
+1002106,MOCK-REFINE-100,IC4,Flare System,owner,False,5016.0,USD,2023
+1002163,MOCK-REFINE-102,IC5,Desalter Upgrade,labor,True,6381.0,USD,2023
+1002766,MOCK-REFINE-129,IC4,Hydrogen Plant,contingency,False,3503.0,USD,2023
+1007162,MOCK-GAS_PR-019,IC5,Dehydration,labor,True,11253.0,USD,2012
+1007391,MOCK-GAS_PR-031,IC5,Utilities,contingency,True,14297.0,USD,2012
+1009240,MOCK-ONSHOR-016,IC3,Compression,contingency,True,14103.0,USD,2013
+1006961,MOCK-GAS_PR-006,IC5,CO2 Capture Facilities,bulk_material,False,8978.0,USD,2023
+1006420,MOCK-ONSHOR-004,IC4,Gathering Pipeline,engineering,False,1566.0,USD,2024
+1000104,MOCK-REFINE-005,IC4,Utilities Package,subcontract,False,2926.0,USD,2023
+1003788,MOCK-ONSHOR-045,IC4,Polyethylene Unit,bulk_material,False,31778.0,USD,2021
+1002900,MOCK-REFINE-138,IC3,Crude Unit Revamp,owner,False,5099.0,USD,2012
+1008626,MOCK-REFINE-007,IC4,CCR Reformer,labor,False,246578.0,USD,2020
+1000988,MOCK-REFINE-049,IC4,Offsites and Tank Farm,subcontract,False,1200.0,USD,2014
+1009248,MOCK-ONSHOR-017,IC3,Storage,engineering,True,53091.0,USD,2019
+1003883,MOCK-ONSHOR-049,IC3,Offsites,owner,False,36656.0,USD,2015
+1008008,MOCK-LNG_ON-025,IC5,Infrastructure,subcontract,True,181738.0,USD,2017
+1005976,MOCK-PIPELI-026,IC4,Metering Station,labor,False,3665.0,USD,2023
+1004693,MOCK-OFFSHO-007,IC5,Umbilicals,engineering,True,327002.0,USD,2019
+1006862,MOCK-ONSHOR-030,IC4,Pad Facilities,subcontract,False,3174.0,USD,2013
+1004702,MOCK-OFFSHO-008,IC4,Subsea Trees,engineering,True,138853.0,USD,2024
+1007788,MOCK-LNG_ON-015,IC4,Liquefaction Train,subcontract,True,100894.0,USD,2013
+1000806,MOCK-REFINE-040,IC5,CCR Reformer,subcontract,False,3578.0,USD,2023
+1008250,MOCK-OIL_SA-015,IC5,Mining OPP,contingency,False,117333.0,USD,2023
+1007214,MOCK-GAS_PR-022,IC4,Injection Wells,bulk_material,False,39510.0,USD,2014
+1002174,MOCK-REFINE-103,IC4,FCC Modernization,contingency,False,9153.0,USD,2021
+1007040,MOCK-GAS_PR-010,IC3,Dehydration,subcontract,False,6102.0,USD,2017
+1005578,MOCK-PIPELI-007,IC5,Pump Station,contingency,False,8588.0,USD,2014
+1006947,MOCK-GAS_PR-005,IC5,CO2 Capture Facilities,owner,False,37328.0,USD,2024
+1007939,MOCK-LNG_ON-022,IC5,Liquefaction Train,labor,False,169718.0,USD,2014
+1007694,MOCK-LNG_ON-009,IC5,Jetty and Loading,contingency,False,113046.0,USD,2021
+1000377,MOCK-REFINE-019,IC5,CCR Reformer,equipment,True,1053.0,USD,2017
+1007258,MOCK-GAS_PR-025,IC3,NGL Fractionation,bulk_material,False,11550.0,USD,2022
+1003131,MOCK-ONSHOR-010,IC5,Offsites,subcontract,False,11839.0,USD,2014
+1009000,MOCK-ONSHOR-004,IC5,Infrastructure,labor,False,28983.0,USD,2013
+1006110,MOCK-PIPELI-036,IC4,HDD Crossing,subcontract,False,75481.0,USD,2021
+1002851,MOCK-REFINE-134,IC5,Delayed Coker,equipment,True,6367.0,USD,2015
+1001628,MOCK-REFINE-077,IC3,Hydrotreater,bulk_material,False,745.0,USD,2016
+1004072,MOCK-ONSHOR-058,IC5,Polypropylene Unit,equipment,True,11753.0,USD,2018
+1005306,MOCK-OFFSHO-039,IC5,Subsea Trees,subcontract,True,252039.0,USD,2015
+1005781,MOCK-PIPELI-017,IC3,Pump Station,subcontract,True,9641.0,USD,2019
+1009790,MOCK-ONSHOR-048,IC3,Compression,engineering,True,32891.0,USD,2024
+1008162,MOCK-OIL_SA-010,IC3,Infrastructure,engineering,False,103534.0,USD,2018
+1000789,MOCK-REFINE-039,IC5,Alkylation Unit,bulk_material,True,3195.0,USD,2024
+1006137,MOCK-PIPELI-037,IC3,Gathering Pipeline,labor,False,11609.0,USD,2022
+1001271,MOCK-REFINE-062,IC3,Flare System,contingency,True,6467.0,USD,2021
+1008895,MOCK-REFINE-020,IC4,Delayed Coker,contingency,False,164033.0,USD,2018
+1002716,MOCK-REFINE-126,IC3,Utilities Package,subcontract,False,2807.0,USD,2024
+1008105,MOCK-OIL_SA-007,IC3,Utilities,subcontract,False,18561.0,USD,2024
+1001327,MOCK-REFINE-065,IC5,Crude Unit Revamp,engineering,False,983.0,USD,2024
+1007549,MOCK-GAS_PR-040,IC3,Injection Wells,bulk_material,False,102740.0,USD,2021
+1008450,MOCK-OIL_SA-023,IC5,Infrastructure,bulk_material,True,20260.0,USD,2016
+1007000,MOCK-GAS_PR-008,IC5,NGL Fractionation,owner,False,34760.0,USD,2022
+1006184,MOCK-PIPELI-039,IC5,Gathering Pipeline,contingency,False,9825.0,USD,2018
+1006229,MOCK-PIPELI-041,IC4,Export Pipeline,subcontract,False,54988.0,USD,2016
+1005621,MOCK-PIPELI-009,IC3,HDD Crossing,contingency,True,5108.0,USD,2024
+1003521,MOCK-ONSHOR-032,IC3,MEG Unit,subcontract,False,13008.0,USD,2015
+1009453,MOCK-ONSHOR-030,IC4,Onsites Process,contingency,True,167221.0,USD,2022
+1001025,MOCK-REFINE-051,IC4,FCC Modernization,owner,True,1731.0,USD,2016
+1002106,MOCK-REFINE-100,IC5,Delayed Coker,equipment,False,963.0,USD,2022
+1002163,MOCK-REFINE-102,IC3,Crude Unit Revamp,equipment,False,1654.0,USD,2014
+1002766,MOCK-REFINE-129,IC4,FCC Modernization,subcontract,False,3615.0,USD,2023
+1007162,MOCK-GAS_PR-019,IC3,Compression,subcontract,True,11044.0,USD,2016
+1007391,MOCK-GAS_PR-031,IC5,Injection Wells,owner,False,10234.0,USD,2013
+1009240,MOCK-ONSHOR-016,IC3,Infrastructure,contingency,False,1630.0,USD,2012
+1006961,MOCK-GAS_PR-006,IC3,Injection Wells,owner,False,37453.0,USD,2013
+1006420,MOCK-ONSHOR-004,IC5,Gathering Pipeline,subcontract,False,1206.0,USD,2020
+1000104,MOCK-REFINE-005,IC4,Furnace Replacement,contingency,True,8859.0,USD,2016
+1003788,MOCK-ONSHOR-045,IC5,Olefins Cracker,bulk_material,False,14891.0,USD,2018
+1002900,MOCK-REFINE-138,IC5,Offsites and Tank Farm,equipment,False,5137.0,USD,2021
+1008626,MOCK-REFINE-007,IC3,FCC Modernization,engineering,True,157551.0,USD,2015
+1000988,MOCK-REFINE-049,IC5,Hydrocracker Reactor,contingency,False,732.0,USD,2023
+1009248,MOCK-ONSHOR-017,IC3,Injection,contingency,False,64463.0,USD,2015
+1003883,MOCK-ONSHOR-049,IC4,Storage Tank Farm,owner,False,63850.0,USD,2019
+1008008,MOCK-LNG_ON-025,IC4,Utilities,owner,False,68630.0,USD,2016
+1005976,MOCK-PIPELI-026,IC3,Metering Station,bulk_material,False,4796.0,USD,2013
+1004693,MOCK-OFFSHO-007,IC4,Risers,contingency,True,131786.0,USD,2015
+1006862,MOCK-ONSHOR-030,IC3,Gathering Pipeline,owner,True,771.0,USD,2014
+1004702,MOCK-OFFSHO-008,IC4,SURF Flowlines,labor,False,110883.0,USD,2024
+1007788,MOCK-LNG_ON-015,IC3,Jetty and Loading,labor,False,64497.0,USD,2017
+1000806,MOCK-REFINE-040,IC5,Flare System,labor,False,4293.0,USD,2018
+1008250,MOCK-OIL_SA-015,IC3,Extraction,subcontract,False,49177.0,USD,2024
+1007214,MOCK-GAS_PR-022,IC4,Dehydration,equipment,True,31781.0,USD,2022
+1002174,MOCK-REFINE-103,IC4,Hydrotreater,bulk_material,False,17405.0,USD,2014
+1007040,MOCK-GAS_PR-010,IC5,Injection Wells,equipment,True,5813.0,USD,2019
+1005578,MOCK-PIPELI-007,IC5,Gathering Pipeline,contingency,False,5960.0,USD,2015
+1006947,MOCK-GAS_PR-005,IC3,Compression,engineering,False,3220.0,USD,2012
+1007939,MOCK-LNG_ON-022,IC3,Infrastructure,owner,True,331820.0,USD,2016
+1007694,MOCK-LNG_ON-009,IC5,Power Plant,labor,False,115829.0,USD,2022
+1000377,MOCK-REFINE-019,IC4,Furnace Replacement,owner,False,1225.0,USD,2017
+1007258,MOCK-GAS_PR-025,IC3,Dehydration,equipment,False,10664.0,USD,2013
+1003131,MOCK-ONSHOR-010,IC3,Product Loading,subcontract,False,16034.0,USD,2015
+1009000,MOCK-ONSHOR-004,IC3,Infrastructure,contingency,False,18959.0,USD,2022
+1006110,MOCK-PIPELI-036,IC3,Metering Station,contingency,False,80915.0,USD,2014
+1002851,MOCK-REFINE-134,IC5,FCC Modernization,owner,False,3405.0,USD,2020
+1001628,MOCK-REFINE-077,IC3,Delayed Coker,equipment,False,623.0,USD,2017
+1004072,MOCK-ONSHOR-058,IC4,Utilities Package,contingency,True,1793.0,USD,2016
+1005306,MOCK-OFFSHO-039,IC5,FPSO Hull,owner,True,161260.0,USD,2013
+1005781,MOCK-PIPELI-017,IC4,Metering Station,owner,False,8244.0,USD,2012
+1009790,MOCK-ONSHOR-048,IC3,Compression,engineering,False,8966.0,USD,2024
+1008162,MOCK-OIL_SA-010,IC4,Extraction,bulk_material,True,152286.0,USD,2020
+1000789,MOCK-REFINE-039,IC4,CCR Reformer,owner,False,2769.0,USD,2012
+1006137,MOCK-PIPELI-037,IC5,Pump Station,contingency,False,2606.0,USD,2024
+1001271,MOCK-REFINE-062,IC3,Hydrotreater,bulk_material,False,36447.0,USD,2016
+1008895,MOCK-REFINE-020,IC4,FCC Modernization,engineering,False,176605.0,USD,2024
+1002716,MOCK-REFINE-126,IC4,Offsites and Tank Farm,equipment,True,928.0,USD,2013
+1008105,MOCK-OIL_SA-007,IC3,Infrastructure,owner,False,28866.0,USD,2016
+1001327,MOCK-REFINE-065,IC5,CCR Reformer,labor,False,907.0,USD,2023
+1007549,MOCK-GAS_PR-040,IC4,Dehydration,equipment,True,28354.0,USD,2013
+1008450,MOCK-OIL_SA-023,IC4,Utilities,contingency,False,32413.0,USD,2016
+1007000,MOCK-GAS_PR-008,IC3,CO2 Capture Facilities,engineering,False,77577.0,USD,2022
+1006184,MOCK-PIPELI-039,IC3,Export Pipeline,engineering,False,4654.0,USD,2012
+1006229,MOCK-PIPELI-041,IC4,Metering Station,labor,True,89446.0,USD,2022
+1005621,MOCK-PIPELI-009,IC3,Export Pipeline,labor,False,12884.0,USD,2020
+1003521,MOCK-ONSHOR-032,IC3,Olefins Cracker,owner,False,70992.0,USD,2024
+1009453,MOCK-ONSHOR-030,IC4,Injection,contingency,False,114557.0,USD,2020
+1001025,MOCK-REFINE-051,IC4,Hydrogen Plant,contingency,False,5684.0,USD,2023
+1002106,MOCK-REFINE-100,IC5,Flare System,equipment,True,7986.0,USD,2014
+1002163,MOCK-REFINE-102,IC3,Hydrocracker Reactor,contingency,False,5444.0,USD,2013
+1002766,MOCK-REFINE-129,IC3,Crude Unit Revamp,bulk_material,True,2430.0,USD,2018
+1007162,MOCK-GAS_PR-019,IC3,Dehydration,bulk_material,False,10492.0,USD,2013
+1007391,MOCK-GAS_PR-031,IC5,Injection Wells,owner,False,15748.0,USD,2023
+1009240,MOCK-ONSHOR-016,IC4,Compression,subcontract,False,6772.0,USD,2022
+1006961,MOCK-GAS_PR-006,IC4,Dehydration,subcontract,False,37435.0,USD,2015
+1006420,MOCK-ONSHOR-004,IC3,Compression Station,owner,True,1550.0,USD,2015
+1000104,MOCK-REFINE-005,IC4,CCR Reformer,owner,False,15966.0,USD,2017
+1003788,MOCK-ONSHOR-045,IC3,Utilities Package,bulk_material,True,60788.0,USD,2020
+1002900,MOCK-REFINE-138,IC3,Hydrogen Plant,owner,True,3641.0,USD,2021
+1008626,MOCK-REFINE-007,IC3,Delayed Coker,subcontract,False,222491.0,USD,2017
+1000988,MOCK-REFINE-049,IC3,Delayed Coker,equipment,True,826.0,USD,2023
+1009248,MOCK-ONSHOR-017,IC3,Onsites Process,owner,False,6646.0,USD,2015
+1003883,MOCK-ONSHOR-049,IC3,Product Loading,engineering,False,19614.0,USD,2016
+1008008,MOCK-LNG_ON-025,IC4,Power Plant,subcontract,False,127759.0,USD,2023
+1005976,MOCK-PIPELI-026,IC3,Metering Station,engineering,True,16693.0,USD,2021
+1004693,MOCK-OFFSHO-007,IC3,Drilling Wells,contingency,False,158482.0,USD,2021
+1006862,MOCK-ONSHOR-030,IC5,Water Handling,labor,False,4836.0,USD,2019
+1004702,MOCK-OFFSHO-008,IC4,FPSO Hull,engineering,False,102444.0,USD,2017
+1007788,MOCK-LNG_ON-015,IC3,Infrastructure,subcontract,False,320338.0,USD,2020
+1000806,MOCK-REFINE-040,IC5,Hydrotreater,bulk_material,True,2701.0,USD,2024
+1008250,MOCK-OIL_SA-015,IC3,Tailings,labor,True,102919.0,USD,2013
+1007214,MOCK-GAS_PR-022,IC3,Cryogenic Gas Plant,equipment,False,6020.0,USD,2024
+1002174,MOCK-REFINE-103,IC4,Flare System,equipment,True,7985.0,USD,2016
+1007040,MOCK-GAS_PR-010,IC5,Injection Wells,engineering,True,9477.0,USD,2020
+1005578,MOCK-PIPELI-007,IC3,Metering Station,owner,False,7931.0,USD,2021
+1006947,MOCK-GAS_PR-005,IC3,CO2 Capture Facilities,owner,False,14208.0,USD,2013
+1007939,MOCK-LNG_ON-022,IC3,Utilities,bulk_material,False,79654.0,USD,2020
+1007694,MOCK-LNG_ON-009,IC5,Utilities,equipment,False,190780.0,USD,2023
+1000377,MOCK-REFINE-019,IC4,Hydrocracker Reactor,bulk_material,False,1698.0,USD,2016
+1007258,MOCK-GAS_PR-025,IC5,Injection Wells,contingency,True,17200.0,USD,2016
+1003131,MOCK-ONSHOR-010,IC5,Offsites,contingency,True,37813.0,USD,2020
+1009000,MOCK-ONSHOR-004,IC4,Injection,contingency,False,21108.0,USD,2021
+1006110,MOCK-PIPELI-036,IC5,Metering Station,equipment,False,72315.0,USD,2019
+1002851,MOCK-REFINE-134,IC5,Hydrotreater,engineering,False,5389.0,USD,2023
+1001628,MOCK-REFINE-077,IC4,Offsites and Tank Farm,bulk_material,False,479.0,USD,2015
+1004072,MOCK-ONSHOR-058,IC4,Polypropylene Unit,bulk_material,True,3338.0,USD,2012
+1005306,MOCK-OFFSHO-039,IC3,FPSO Topsides,labor,False,119669.0,USD,2016
+1005781,MOCK-PIPELI-017,IC5,Gathering Pipeline,subcontract,True,9653.0,USD,2012
+1009790,MOCK-ONSHOR-048,IC3,Compression,owner,False,87917.0,USD,2013
+1008162,MOCK-OIL_SA-010,IC4,Extraction,bulk_material,False,82344.0,USD,2014
+1000789,MOCK-REFINE-039,IC4,Crude Unit Revamp,contingency,False,3891.0,USD,2022
+1006137,MOCK-PIPELI-037,IC4,HDD Crossing,contingency,False,6035.0,USD,2019
+1001271,MOCK-REFINE-062,IC5,Flare System,bulk_material,False,4154.0,USD,2019
+1008895,MOCK-REFINE-020,IC3,Hydrogen Plant,contingency,False,51443.0,USD,2018
+1002716,MOCK-REFINE-126,IC4,Offsites and Tank Farm,bulk_material,False,1526.0,USD,2012
+1008105,MOCK-OIL_SA-007,IC3,Extraction,subcontract,True,13254.0,USD,2017
+1001327,MOCK-REFINE-065,IC4,Offsites and Tank Farm,contingency,False,869.0,USD,2014
+1007549,MOCK-GAS_PR-040,IC3,Cryogenic Gas Plant,equipment,False,88982.0,USD,2023
+1008450,MOCK-OIL_SA-023,IC4,Infrastructure,equipment,False,47275.0,USD,2019
+1007000,MOCK-GAS_PR-008,IC5,Cryogenic Gas Plant,owner,True,49803.0,USD,2021
+1006184,MOCK-PIPELI-039,IC4,Gathering Pipeline,bulk_material,False,2916.0,USD,2016
+1006229,MOCK-PIPELI-041,IC3,Export Pipeline,equipment,False,81708.0,USD,2020
+1005621,MOCK-PIPELI-009,IC3,Gathering Pipeline,contingency,False,15617.0,USD,2023
+1003521,MOCK-ONSHOR-032,IC3,Olefins Cracker,bulk_material,False,77964.0,USD,2016
+1009453,MOCK-ONSHOR-030,IC5,Onsites Process,labor,False,80399.0,USD,2019
+1001025,MOCK-REFINE-051,IC3,Alkylation Unit,contingency,False,14418.0,USD,2015
+1002106,MOCK-REFINE-100,IC3,Hydrogen Plant,contingency,False,2601.0,USD,2024
+1002163,MOCK-REFINE-102,IC5,Furnace Replacement,labor,True,4222.0,USD,2024
+1002766,MOCK-REFINE-129,IC5,Hydrocracker Reactor,subcontract,False,4923.0,USD,2022
+1007162,MOCK-GAS_PR-019,IC5,CO2 Capture Facilities,contingency,False,14511.0,USD,2012
+1007391,MOCK-GAS_PR-031,IC5,Compression,contingency,False,11001.0,USD,2013
+1009240,MOCK-ONSHOR-016,IC3,Onsites Process,contingency,False,14703.0,USD,2015
+1006961,MOCK-GAS_PR-006,IC5,NGL Fractionation,subcontract,False,15234.0,USD,2018
+1006420,MOCK-ONSHOR-004,IC3,Gathering Pipeline,engineering,False,1046.0,USD,2016
+1000104,MOCK-REFINE-005,IC3,Utilities Package,contingency,True,2969.0,USD,2024
+1003788,MOCK-ONSHOR-045,IC5,MEG Unit,equipment,True,58083.0,USD,2019
+1002900,MOCK-REFINE-138,IC5,Offsites and Tank Farm,subcontract,False,556.0,USD,2018
+1008626,MOCK-REFINE-007,IC5,Alkylation Unit,subcontract,False,146377.0,USD,2019
+1000988,MOCK-REFINE-049,IC4,Hydrocracker Reactor,bulk_material,True,1319.0,USD,2014
+1009248,MOCK-ONSHOR-017,IC4,Infrastructure,labor,False,13789.0,USD,2022
+1003883,MOCK-ONSHOR-049,IC3,Storage Tank Farm,engineering,True,69020.0,USD,2021
+1008008,MOCK-LNG_ON-025,IC3,Power Plant,equipment,True,285695.0,USD,2023
+1005976,MOCK-PIPELI-026,IC5,HDD Crossing,owner,True,6557.0,USD,2024
+1004693,MOCK-OFFSHO-007,IC3,Drilling Wells,bulk_material,True,280970.0,USD,2016
+1006862,MOCK-ONSHOR-030,IC4,Pad Facilities,owner,False,2327.0,USD,2017
+1004702,MOCK-OFFSHO-008,IC4,Umbilicals,bulk_material,False,22866.0,USD,2017
+1007788,MOCK-LNG_ON-015,IC3,Jetty and Loading,owner,False,680653.0,USD,2016
+1000806,MOCK-REFINE-040,IC3,Crude Unit Revamp,contingency,False,2432.0,USD,2013
+1008250,MOCK-OIL_SA-015,IC4,Extraction,subcontract,True,87028.0,USD,2015
+1007214,MOCK-GAS_PR-022,IC4,Cryogenic Gas Plant,subcontract,False,19639.0,USD,2021
+1002174,MOCK-REFINE-103,IC3,Alkylation Unit,labor,False,16038.0,USD,2014
+1007040,MOCK-GAS_PR-010,IC3,Utilities,subcontract,False,3664.0,USD,2018
+1005578,MOCK-PIPELI-007,IC5,Pump Station,engineering,False,1899.0,USD,2019
+1006947,MOCK-GAS_PR-005,IC5,Compression,labor,False,23560.0,USD,2012
+1007939,MOCK-LNG_ON-022,IC4,Infrastructure,subcontract,True,126616.0,USD,2014
+1007694,MOCK-LNG_ON-009,IC5,Liquefaction Train,labor,True,288310.0,USD,2021
+1000377,MOCK-REFINE-019,IC4,Flare System,equipment,False,2470.0,USD,2018
+1007258,MOCK-GAS_PR-025,IC3,Utilities,labor,False,6337.0,USD,2015
+1003131,MOCK-ONSHOR-010,IC5,MEG Unit,bulk_material,False,11912.0,USD,2024
+1009000,MOCK-ONSHOR-004,IC4,Onsites Process,bulk_material,False,21333.0,USD,2013
+1006110,MOCK-PIPELI-036,IC3,Pump Station,contingency,True,91784.0,USD,2022
+1002851,MOCK-REFINE-134,IC5,Hydrogen Plant,subcontract,False,17938.0,USD,2021
+1001628,MOCK-REFINE-077,IC3,Hydrotreater,engineering,False,772.0,USD,2019
+1004072,MOCK-ONSHOR-058,IC3,Olefins Cracker,equipment,False,7047.0,USD,2019
+1005306,MOCK-OFFSHO-039,IC4,Drilling Wells,equipment,False,62840.0,USD,2022
+1005781,MOCK-PIPELI-017,IC5,Pump Station,owner,False,28954.0,USD,2019
+1009790,MOCK-ONSHOR-048,IC5,Injection,owner,False,77475.0,USD,2023
+1008162,MOCK-OIL_SA-010,IC4,Tailings,equipment,False,20025.0,USD,2014
+1000789,MOCK-REFINE-039,IC3,Alkylation Unit,labor,False,2805.0,USD,2012
+1006137,MOCK-PIPELI-037,IC5,Pump Station,contingency,True,4671.0,USD,2017

@@ -1,0 +1,188 @@
+{
+  "_note": "MOCK golden baseline. Expected values are a snapshot of engine.py output at generation time (regression guard), NOT the reference cost_bot_api.py values. Regenerate with scripts/generate_mock_data.py after an intentional model change.",
+  "generated_by": "scripts/generate_mock_data.py",
+  "seed": 42,
+  "test_cases": [
+    {
+      "name": "MOCK_PP_450KTA_USGC",
+      "calculator": "onshore",
+      "inputs": {
+        "facility_type": "polypropylene",
+        "capacity_value": 450,
+        "capacity_unit": "KTA",
+        "location": "US Gulf Coast",
+        "scope_type": "GF"
+      },
+      "tec_escalated_M": 762.3
+    },
+    {
+      "name": "MOCK_PE_800KTA_SG",
+      "calculator": "onshore",
+      "inputs": {
+        "facility_type": "polyethylene",
+        "capacity_value": 800,
+        "capacity_unit": "KTA",
+        "location": "Singapore",
+        "scope_type": "GF"
+      },
+      "tec_escalated_M": 1395.4
+    },
+    {
+      "name": "MOCK_HDT_40KBPD_MOD",
+      "calculator": "onshore",
+      "inputs": {
+        "facility_type": "hydrotreater",
+        "capacity_value": 40000,
+        "capacity_unit": "BPD",
+        "location": "US Gulf Coast",
+        "scope_type": "BF-unit-mod"
+      },
+      "tec_escalated_M": 225.9
+    },
+    {
+      "name": "MOCK_CCS_2MTPA",
+      "calculator": "onshore",
+      "inputs": {
+        "facility_type": "ccs",
+        "capacity_value": 2.0,
+        "capacity_unit": "MTPA_CO2",
+        "location": "US Gulf Coast",
+        "scope_type": "GF"
+      },
+      "tec_escalated_M": 811.6
+    },
+    {
+      "name": "MOCK_ETHYLENE_1800_EXP",
+      "calculator": "onshore",
+      "inputs": {
+        "facility_type": "ethylene_cracker",
+        "capacity_value": 1800,
+        "capacity_unit": "KTA",
+        "location": "Canada",
+        "scope_type": "BF-expansion"
+      },
+      "tec_escalated_M": 8686.4
+    },
+    {
+      "name": "MOCK_FPSO_150KBPD_GY",
+      "calculator": "offshore",
+      "inputs": {
+        "production_kboed": 150,
+        "hull_type": "FPSO_newbuild",
+        "water_depth_m": 1800,
+        "n_wells": 12,
+        "surf_km": 40,
+        "fab_location": "asian",
+        "location": "Guyana",
+        "scope_type": "GF"
+      },
+      "topsides_weight_mt": 25000,
+      "tec_escalated_M": 3122.8
+    },
+    {
+      "name": "MOCK_SEMI_80KBPD_GOM",
+      "calculator": "offshore",
+      "inputs": {
+        "production_kboed": 80,
+        "hull_type": "semi_sub",
+        "water_depth_m": 1400,
+        "n_wells": 8,
+        "surf_km": 25,
+        "fab_location": "gom",
+        "location": "US Gulf Coast",
+        "scope_type": "GF"
+      },
+      "topsides_weight_mt": 0,
+      "tec_escalated_M": 575.0
+    },
+    {
+      "name": "MOCK_JACKET_30KBPD",
+      "calculator": "offshore",
+      "inputs": {
+        "production_kboed": 30,
+        "hull_type": "jacket_shallow",
+        "water_depth_m": 90,
+        "n_wells": 6,
+        "surf_km": 5,
+        "fab_location": "gom",
+        "location": "US Gulf Coast",
+        "scope_type": "GF"
+      },
+      "topsides_weight_mt": 6000,
+      "tec_escalated_M": 519.4
+    },
+    {
+      "name": "MOCK_OIL_24IN_200KM",
+      "calculator": "pipeline_v2",
+      "inputs": {
+        "length_km": 200,
+        "od_inches": 24,
+        "service": "oil",
+        "congestion": "moderate",
+        "grade": "X70",
+        "location": "US Gulf Coast",
+        "scope_type": "GF"
+      },
+      "tec_musd": 255.4
+    },
+    {
+      "name": "MOCK_GAS_36IN_600KM_AB",
+      "calculator": "pipeline_v2",
+      "inputs": {
+        "length_km": 600,
+        "od_inches": 36,
+        "service": "gas",
+        "congestion": "low",
+        "num_hdd_crossings": 6,
+        "avg_hdd_length_m": 800,
+        "location": "Alberta",
+        "scope_type": "GF"
+      },
+      "tec_musd": 1471.6
+    },
+    {
+      "name": "MOCK_GATHER_12IN_60KM",
+      "calculator": "pipeline_v2",
+      "inputs": {
+        "length_km": 60,
+        "od_inches": 12,
+        "service": "gas",
+        "congestion": "unconventional",
+        "location": "Texas-West (Permian)",
+        "scope_type": "GF"
+      },
+      "tec_musd": 56.1
+    },
+    {
+      "name": "MOCK_LNG_10MTPA_AU",
+      "calculator": "lng",
+      "inputs": {
+        "capacity_mtpa": 10,
+        "num_trains": 2,
+        "technology": "APX",
+        "location": "Australia",
+        "scope_type": "GF"
+      },
+      "tec_M": 6337.9
+    },
+    {
+      "name": "MOCK_LNG_5MTPA_USGC",
+      "calculator": "lng",
+      "inputs": {
+        "capacity_mtpa": 5,
+        "num_trains": 1,
+        "technology": "C3MR",
+        "location": "US Gulf Coast",
+        "scope_type": "GF"
+      },
+      "tec_M": 2209.4
+    },
+    {
+      "name": "MOCK_IC_POWER_100MVA",
+      "calculator": "ic_library",
+      "inputs": {
+        "electrical_load_mva": 100
+      }
+    }
+  ]
+}

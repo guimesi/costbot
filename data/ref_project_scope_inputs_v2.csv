@@ -1,0 +1,61 @@
+planview_id,project_name,archetype,facility_type,capacity_value,capacity_unit,scope_type,location,source
+1002438,MOCK-REFINE-113,refinery_bf,reformer,45024.0,BPD,BF-unit-mod,Perth,mock
+1009039,MOCK-ONSHOR-007,onshore_conventional,compressor_station,22.0,KBPD,BF-expansion,Nigeria,mock
+1008432,MOCK-OIL_SA-022,oil_sands,oil_sands_mining,118.0,KBPD,GF,Alberta,mock
+1008202,MOCK-OIL_SA-012,oil_sands,oil_sands_pad,57.0,KBPD,BF-unit-mod,Alberta,mock
+1005690,MOCK-PIPELI-013,pipeline_mainline,pipeline,390.0,km,GF,Texas-BTN (GOM),mock
+1006862,MOCK-ONSHOR-030,onshore_unconventional,train_cryogenic,391.0,MMSCFD,BF-unit-mod,Texas-BTN (GOM),mock
+1006083,MOCK-PIPELI-035,pipeline_mainline,pipeline,64.0,km,BF,Texas-BTN (GOM),mock
+1002286,MOCK-REFINE-106,refinery_bf,fcc,53354.0,BPD,BF-expansion,Singapore,mock
+1005448,MOCK-PIPELI-002,pipeline_mainline,pipeline_gathering,778.0,km,BF-expansion,Perth,mock
+1009416,MOCK-ONSHOR-027,onshore_conventional,compressor_station,107.0,KBPD,GF,Texas-BTN (GOM),mock
+1005970,MOCK-PIPELI-025,pipeline_mainline,pipeline,735.0,km,BF-expansion,Texas-BTN (GOM),mock
+1000251,MOCK-REFINE-011,refinery_bf,hydrotreater,35733.0,BPD,BF-unit-mod,Alberta,mock
+1009430,MOCK-ONSHOR-028,onshore_conventional,onshore_process,77.0,KBPD,GF,Nigeria,mock
+1005871,MOCK-PIPELI-020,pipeline_mainline,pipeline,617.0,km,GF,Perth,mock
+1000929,MOCK-REFINE-046,refinery_bf,alkylation,42656.0,BPD,BF-unit-mod,Alberta,mock
+1002869,MOCK-REFINE-136,refinery_bf,fcc,106203.0,BPD,BF-unit-mod,Alberta,mock
+1005845,MOCK-PIPELI-019,pipeline_mainline,pipeline_gathering,568.0,km,BF-unit-mod,Alberta,mock
+1007715,MOCK-LNG_ON-010,lng_onshore,lng_train,13.9,MTPA,GF,Qatar,mock
+1006727,MOCK-ONSHOR-024,onshore_unconventional,train_cryogenic,228.0,MMSCFD,BF-expansion,Texas-BTN (GOM),mock
+1008655,MOCK-REFINE-010,refinery_grassroot,refinery,177306.0,BPD,GF,Singapore,mock
+1007903,MOCK-LNG_ON-020,lng_onshore,lng_train,7.9,MTPA,BF-expansion,Texas-BTN (GOM),mock
+1005621,MOCK-PIPELI-009,pipeline_mainline,pipeline,161.0,km,BF,Texas-BTN (GOM),mock
+1006697,MOCK-ONSHOR-023,onshore_unconventional,pad_facility,212.0,MMSCFD,BF-unit-mod,Texas-BTN (GOM),mock
+1003037,MOCK-ONSHOR-005,onshore_petchem,ethylene_cracker,1279.0,KTA,GF,Belgium,mock
+1007968,MOCK-LNG_ON-023,lng_onshore,lng_train,12.6,MTPA,GF,Papua New Guinea,mock
+1001578,MOCK-REFINE-075,refinery_bf,crude_unit,50949.0,BPD,BF-unit-mod,Texas-BTN (GOM),mock
+1002516,MOCK-REFINE-116,refinery_bf,alkylation,65802.0,BPD,BF-unit-mod,Texas-BTN (GOM),mock
+1001180,MOCK-REFINE-057,refinery_bf,reformer,59975.0,BPD,BF-unit-mod,Belgium,mock
+1003540,MOCK-ONSHOR-033,onshore_petchem,polyethylene,1075.0,KTA,GF,Texas-BTN (GOM),mock
+1006234,MOCK-PIPELI-042,pipeline_mainline,pipeline,838.0,km,BF-unit-mod,Perth,mock
+1002352,MOCK-REFINE-109,refinery_bf,hydrocracker,60685.0,BPD,BF-unit-mod,Alberta,mock
+1000104,MOCK-REFINE-005,refinery_bf,fcc,116426.0,BPD,BF-unit-mod,Texas-BTN (GOM),mock
+1008203,MOCK-OIL_SA-013,oil_sands,oil_sands_pad,121.0,KBPD,BF-unit-mod,Alberta,mock
+1008089,MOCK-OIL_SA-006,oil_sands,bitumen,104.0,KBPD,BF-unit-mod,Alberta,mock
+1007214,MOCK-GAS_PR-022,gas_processing,gas_plant_cryo,536.0,MMSCFD,GF,Alberta,mock
+1007391,MOCK-GAS_PR-031,gas_processing,gas_plant_cryo,417.0,MMSCFD,GF,Perth,mock
+1006992,MOCK-GAS_PR-007,gas_processing,ngl_fractionation,1060.0,MMSCFD,GF,Texas-BTN (GOM),mock
+1000369,MOCK-REFINE-018,refinery_bf,fcc,19289.0,BPD,BF-unit-mod,Belgium,mock
+1002796,MOCK-REFINE-132,refinery_bf,reformer,20668.0,BPD,BF-unit-mod,Texas-BTN (GOM),mock
+1005176,MOCK-OFFSHO-033,offshore_fpso,fpso,74.0,KBPD,GF,Guyana,mock
+1005447,MOCK-PIPELI-001,pipeline_mainline,pipeline,248.0,km,GF,Perth,mock
+1001289,MOCK-REFINE-063,refinery_bf,reformer,65498.0,BPD,BF-expansion,Texas-BTN (GOM),mock
+1009139,MOCK-ONSHOR-011,onshore_conventional,gas_plant,120.0,KBPD,GF,Saudi Arabia,mock
+1005781,MOCK-PIPELI-017,pipeline_mainline,pipeline_gathering,302.0,km,BF-expansion,Perth,mock
+1001713,MOCK-REFINE-082,refinery_bf,reformer,47230.0,BPD,BF-unit-mod,Texas-BTN (GOM),mock
+1006229,MOCK-PIPELI-041,pipeline_mainline,pipeline_gathering,695.0,km,GF,Mexico,mock
+1003777,MOCK-ONSHOR-044,onshore_petchem,process_plant_generic,1868.0,KTA,GF,Singapore,mock
+1007109,MOCK-GAS_PR-013,gas_processing,compressor_station,1146.0,MMSCFD,GF,Perth,mock
+1004618,MOCK-OFFSHO-003,offshore_fpso,fpso,155.0,KBPD,GF,Brazil,mock
+1001161,MOCK-REFINE-056,refinery_bf,reformer,23033.0,BPD,BF-unit-mod,Perth,mock
+1007424,MOCK-GAS_PR-032,gas_processing,ccs,571.0,MMSCFD,BF-expansion,Kazakhstan,mock
+1008383,MOCK-OIL_SA-020,oil_sands,oil_sands_mining,105.0,KBPD,BF-expansion,Alberta,mock
+1003788,MOCK-ONSHOR-045,onshore_petchem,ethylene_cracker,1386.0,KTA,GF,Singapore,mock
+1006629,MOCK-ONSHOR-019,onshore_unconventional,pipeline,194.0,MMSCFD,BF-unit-mod,Texas-BTN (GOM),mock
+1009248,MOCK-ONSHOR-017,onshore_conventional,gas_plant,96.0,KBPD,BF-expansion,Kazakhstan,mock
+1009333,MOCK-ONSHOR-022,onshore_conventional,onshore_process,147.0,KBPD,GF,Kazakhstan,mock
+1008112,MOCK-OIL_SA-008,oil_sands,bitumen,24.0,KBPD,GF,Alberta,mock
+1007917,MOCK-LNG_ON-021,lng_onshore,lng_train,6.8,MTPA,GF,Qatar,mock
+1006961,MOCK-GAS_PR-006,gas_processing,ngl_fractionation,969.0,MMSCFD,BF-expansion,Alberta,mock
+1004660,MOCK-OFFSHO-005,offshore_fpso,fpso,168.0,KBPD,GF,Nigeria,mock
