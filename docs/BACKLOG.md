@@ -5,6 +5,11 @@ the review docs when done.
 
 ## Decisions that only the manager can take (deviations from README)
 
+Evidence from the first real-data run (docs/VALIDATION_2026-09-28.md): ensemble
+54% vs 77% reported; Benchmark alone underestimates large projects by 56% to 98%;
+the pool is 76% screening forecasts; the pool TEC of truth projects equals the
+truth, so the LOOCV size hint leaks the answer. Discuss items 1 and 4 with that in hand.
+
 See `REVIEW_2026-09-26.md` section 3. Short form:
 
 1. Benchmark exclusions for `offshore_fpso` and `onshore_unconventional`: README says exclude, engine includes.

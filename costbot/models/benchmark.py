@@ -51,6 +51,17 @@ def run_benchmark(scope: Dict, data: DataStore) -> Dict:
     if target_pid:
         pool = pool[pool['planview_id'].astype(str) != target_pid]
 
+    # Evaluation switch: drop unverified screening forecasts from the analogue pool
+    # (scope['pool_exclude_forecast']=True). Off by default.
+    pool_filter_note = None
+    if scope.get('pool_exclude_forecast'):
+        before = len(pool)
+        if 'tec_source' in pool.columns:
+            pool = pool[~pool['tec_source'].astype(str).str.contains('forecast', case=False, na=False)]
+        elif 'gate_stage' in pool.columns:
+            pool = pool[~pool['gate_stage'].astype(str).str.contains('forecast', case=False, na=False)]
+        pool_filter_note = f'forecast rows excluded: {before - len(pool)} of {before}'
+
     pool = pool[pool['tec_musd_normalized_2024'].notna() & (pool['tec_musd_normalized_2024'] > 0)].copy()
     if pool.empty:
         return {'can_fire': False, 'no_fire_reason': 'no_valid_pool', 'model_id': 'Benchmark'}
@@ -159,9 +170,22 @@ def run_benchmark(scope: Dict, data: DataStore) -> Dict:
     target_scaled = scaler.transform(target_encoded.reshape(1, -1))
 
     # --- Size signal (reference L373-440, L1003-1018) ---
+    # scope['benchmark_size_mode']: 'auto' (default: explicit size, else capacity
+    # heuristic, else pool TEC when the project is in the pool), 'pool' (pool TEC
+    # first, i.e. the reference harness' LOOCV enrichment), 'none' (cosine only).
     _SIZE_TOL = 0.5
+    size_mode = scope.get('benchmark_size_mode', 'auto')
     user_size = scope.get('size_estimate_musd')
-    if user_size is None:
+    size_source = 'explicit' if user_size is not None else None
+    if size_mode == 'pool' and target_pid:
+        pool_self_rows = data.pool[data.pool['planview_id'].astype(str) == target_pid]
+        if len(pool_self_rows) > 0:
+            ptec = pool_self_rows.iloc[0].get('tec_musd_normalized_2024')
+            if pd.notna(ptec) and float(ptec) > 0:
+                user_size, size_source = float(ptec), 'pool_tec'
+    if size_mode == 'none':
+        user_size, size_source = None, 'none'
+    if user_size is None and size_mode != 'none':
         user_cap = scope.get('primary_capacity')
         cap_unit = (scope.get('capacity_unit') or '').upper()
         # For modification/debottlenecks: unit capacity doesn't predict mod cost
@@ -174,15 +198,16 @@ def run_benchmark(scope: Dict, data: DataStore) -> Dict:
             _cap_sz = {'offshore': 40, 'pipeline': 5, 'lng': 1500, 'chemicals': 2,
                        'refining': 10, 'ccs': 5, 'oil_sands': 5, 'upstream': 2}
             user_size = cap_val * _cap_sz.get(target_fac, 2.0)
+            size_source = 'capacity_heuristic'
 
     # LOOCV size enrichment: if project is in pool and no other size signal,
     # use pool TEC as size hint (reference evaluation harness.py enrich_benchmark_features)
-    if user_size is None and target_pid:
+    if user_size is None and target_pid and size_mode != 'none':
         pool_self_rows = data.pool[data.pool['planview_id'].astype(str) == target_pid]
         if len(pool_self_rows) > 0:
             ptec = pool_self_rows.iloc[0].get('tec_musd_normalized_2024')
             if pd.notna(ptec) and float(ptec) > 0:
-                user_size = float(ptec)
+                user_size, size_source = float(ptec), 'pool_tec'
 
     # Size mask
     if user_size and user_size > 0:
@@ -265,4 +290,6 @@ def run_benchmark(scope: Dict, data: DataStore) -> Dict:
         'n_analogues': n, 'confidence': confidence,
         'spread_ratio': round(spread, 2),
         'analogues': analogues[:10],
+        'size_signal': {'source': size_source or 'none', 'size_musd': round(float(user_size), 1) if user_size else None,
+                        'pool_rows': int(len(pool)), 'pool_filter': pool_filter_note},
     }

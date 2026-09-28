@@ -67,7 +67,7 @@ DEFAULT_TOL = 0.10
 XFAIL = {
     # Offshore: EMMA intentionally removed (Fix #5 - rate tables already 2024 USD)
     "Payara":              "EMMA removed for offshore (Fix #5)",
-    "Liza_Eh2":            "EMMA removed for offshore (Fix #5)",
+    "Liza_Ph2":            "EMMA removed for offshore (Fix #5)",
     "Jacket_shallow":      "EMMA removed for offshore (Fix #5)",
     # LNG: different regression implementation
     "PNG_LNG":             "LNG calculator divergence from reference",
@@ -78,7 +78,7 @@ XFAIL = {
     "PAPL_Expansion":      "Pipeline golden from older calc version (ref v2 itself -16.7%)",
     # Joliet BF-mods: reference has no EMMA for Joliet (unmapped location)
     "JO_Flare_Gas":        "Reference has no EMMA for Joliet (maps to 1.0)",
-    "JUWO":                "Reference has no EMMA for Joliet (maps to 1.0)",
+    "JUDO":                "Reference has no EMMA for Joliet (maps to 1.0)",
     "Joliet_Vac_Heater":   "Reference has no EMMA for Joliet (maps to 1.0)",
     # BRACE: BF scope uses different multiplier chain in reference
     "BRACE":               "BF (non-unit-mod) scope uses different chain in reference",
@@ -223,6 +223,9 @@ def run_one(tc: Dict, data: DataStore) -> Dict[str, Any]:
         "err_pct": err_pct,
         "status": status,
         "xfail_reason": XFAIL.get(name, ""),
+        # kept for the FAIL diagnostics printed by main()
+        "inputs": tc.get("inputs", {}),
+        "detail": result.get("detail", {}),
     }
 
 
@@ -281,6 +284,16 @@ def main():
             print(f"  ✧  {r['name']:35s}  ERROR: {r['reason']}")
         elif r["status"] == "SKIP":
             print(f"  ⊘  {r['name']:35s}  SKIP: {r['reason']}")
+
+    if failed:
+        print("\n" + "-" * 80)
+        print("  FAIL diagnostics (golden inputs and the engine's own chain):")
+        for r in failed:
+            print(f"  {r['name']}: inputs={r['inputs']}")
+            keys = ('correlation_key', 'capacity_used', 'capacity_unit', 'emma_factor', 'isbl_gom_M',
+                    'isbl_at_location_M', 'tec_multiplier', 'scope_type_key', 'tec_escalated_M',
+                    'topsides_te', 'hull_type', 'fab_factor', 'location_factor')
+            print(f"      engine={ {k: v for k, v in r['detail'].items() if k in keys} }")
 
     print("\n" + "-" * 80)
     total_runnable = len(passed) + len(failed)

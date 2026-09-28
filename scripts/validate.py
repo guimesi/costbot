@@ -20,6 +20,14 @@ STEPS = [
     ('Golden baseline report', [PY, 'tests/test_golden_baseline.py']),
     ('Engine smoke test', [PY, 'scripts/smoke_test.py']),
     ('Accuracy vs project_truth (redacted)', [PY, 'scripts/evaluate_truth.py', '--redact']),
+    ('Accuracy variant: size hint = pool TEC (reference LOOCV enrichment)',
+     [PY, 'scripts/evaluate_truth.py', '--redact', '--summary-only', '--size-hint', 'pool']),
+    ('Accuracy variant: no size hint (cosine only)',
+     [PY, 'scripts/evaluate_truth.py', '--redact', '--summary-only', '--size-hint', 'none']),
+    ('Accuracy variant: forecast rows excluded from the pool',
+     [PY, 'scripts/evaluate_truth.py', '--redact', '--summary-only', '--exclude-forecast']),
+    ('Accuracy variant: pool size hint + forecast rows excluded',
+     [PY, 'scripts/evaluate_truth.py', '--redact', '--summary-only', '--size-hint', 'pool', '--exclude-forecast']),
     ('Headless UI test', [PY, 'scripts/ui_test.py']),
 ]
 

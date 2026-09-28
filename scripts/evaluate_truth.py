@@ -149,6 +149,12 @@ def main():
     ap.add_argument('--redact', action='store_true', help='replace project names with archetype-N so the output can be shared')
     ap.add_argument('--no-normalize', action='store_true', help='compare against the raw truth amount, no CP30 to 2024')
     ap.add_argument('--col', action='append', default=[], metavar='KEY=COLUMN', help='override a detected column')
+    ap.add_argument('--size-hint', choices=['auto', 'pool', 'none'], default='auto',
+                    help="Benchmark size signal: auto (capacity heuristic, else pool TEC), pool (pool TEC first: "
+                         "the reference harness' LOOCV enrichment), none (cosine only)")
+    ap.add_argument('--exclude-forecast', action='store_true',
+                    help='drop screening-forecast rows from the Benchmark pool (tec_source/gate_stage contains "forecast")')
+    ap.add_argument('--summary-only', action='store_true', help='print the tables, not the per-project misses')
     args = ap.parse_args()
 
     data = DataStore(args.data_dir) if args.data_dir else DataStore()
@@ -224,6 +230,7 @@ def main():
             'basis_year': 2024, 'greenfield_brownfield': bfgf, 'scope_type': bfgf,
             'facility_type': (str(facility) if facility else None), 'primary_capacity': cap,
             'capacity_unit': str(unit), 'secondary_params': {},
+            'benchmark_size_mode': args.size_hint, 'pool_exclude_forecast': args.exclude_forecast,
         }
         if 'pipeline' in archetype and cap and str(unit).lower() in ('km', 'miles'):
             scope['length_km'] = cap * (1.609 if str(unit).lower() == 'miles' else 1.0); scope['od_inches'] = 36.0
@@ -241,6 +248,8 @@ def main():
                  if mr.get('can_fire') and not mr.get('excluded_by_rule')
                  and not mr.get('is_component') and not mr.get('is_indirect') and mr.get('estimate_musd')}
         model_errs = {m: v / truth_2024 - 1 for m, v in fired.items()}
+        bm = res['models'].get('Benchmark', {})
+        size_src = (bm.get('size_signal') or {}).get('source', '') if bm.get('can_fire') else ''
         best_model = min(model_errs, key=lambda m: abs(model_errs[m])) if model_errs else None
         rows.append({
             'project': scope['project_name'], 'archetype': archetype, 'in_pool': prow is not None,
@@ -252,6 +261,9 @@ def main():
             'best_model': best_model,
             'best_err_pct': round(model_errs[best_model] * 100, 1) if best_model else None,
             'confidence': ens.get('confidence'), 'models_included': ','.join(ens.get('models_included', [])),
+            'models_fired': ','.join(sorted(fired)), 'benchmark_size_source': size_src,
+            'test_type': str(_val(r, 'test_type', '') if 'test_type' in truth1.columns else ''),
+            'quality_role': str(_val(r, 'quality_role', '') if 'quality_role' in truth1.columns else ''),
             'facility_type': facility or '', 'capacity': cap, 'unit': unit,
         })
 
@@ -264,6 +276,16 @@ def main():
         q = np.percentile(ratios, [25, 50, 75])
         print(f"Truth(2024) / pool TEC(2024) for the same project: median {q[1]:.2f}, IQR {q[0]:.2f} to {q[2]:.2f} "
               f"(near 1.00 means the two agree on what the project cost)")
+    print(f"Settings: size-hint={args.size_hint}, exclude-forecast={args.exclude_forecast}, tolerance={args.tolerance}")
+    print(f"Benchmark size signal used: {df.benchmark_size_source.value_counts().to_dict()}")
+    only_bm = df[df.models_fired == 'Benchmark']
+    print(f"Projects where Benchmark was the only TEC model: {len(only_bm)} "
+          f"(hits {int(only_bm.ens_hit.sum())}); with a calculator too: {len(df) - len(only_bm)} "
+          f"(hits {int(df[df.models_fired != 'Benchmark'].ens_hit.sum())})")
+    for grp in ('test_type', 'quality_role'):
+        if df[grp].astype(bool).any():
+            parts = [f"{k}: {int(g.ens_hit.sum())}/{len(g)}" for k, g in df.groupby(grp)]
+            print(f"Ensemble hits by {grp}: " + ', '.join(parts))
     tol = int(args.tolerance * 100)
     print(f"\n{'archetype':26s} {'n':>3s} {'ensemble':>10s} {'any-model':>10s} {'med|err|':>9s}")
     for arch, g in df.groupby('archetype'):
@@ -278,7 +300,7 @@ def main():
         print(f"No ensemble estimate for {len(no_est)} project(s): "
               + '; '.join(f"{r.project} ({r.archetype}, facility={r.facility_type or '-'}, cap={r.capacity or '-'} {r.unit})" for r in no_est.itertuples()))
     misses = df[~df.ens_hit & df.p50_musd.notna()].sort_values('ens_err_pct', key=lambda s: s.abs(), ascending=False)
-    if not misses.empty:
+    if not misses.empty and not args.summary_only:
         print(f"\nEnsemble misses ({len(misses)}):")
         for m in misses.head(20).itertuples():
             best = f"best={m.best_model} ({m.best_err_pct:+.0f}%)" if m.best_model else 'no model'
