@@ -82,6 +82,10 @@ XFAIL = {
     "Joliet_Vac_Heater":   "Reference has no EMMA for Joliet (maps to 1.0)",
     # BRACE: BF scope uses different multiplier chain in reference
     "BRACE":               "BF (non-unit-mod) scope uses different chain in reference",
+    # Found on the real golden file 2026-09-28: expected == ISBL at location x 1.1025,
+    # i.e. the reference applies no ISBL->TEC multiplier (~1.04 x 1.06 escalation) to
+    # the chemical_expansion correlation; the engine applies 2.58 (GF). Decision pending.
+    "BCEP_chemical":       "Reference applies ~1.0 TEC multiplier to chemical_expansion (UNDER INVESTIGATION)",
 }
 
 

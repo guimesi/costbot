@@ -19,6 +19,17 @@ See `REVIEW_2026-09-26.md` section 3. Short form:
 5. Brownfield TEC multiplier 1.30x (docs) vs 2.61x (engine, deliberate).
 6. Calculator_LNG in the ensemble with 0% accuracy.
 
+## Modelling (needs the manager's OK before changing model behaviour)
+
+- [ ] Benchmark size prior without leakage: calibrate capacity-to-size factors per
+      archetype from verified pool rows (log TEC vs log capacity), and/or use the
+      calculators' estimate as Benchmark's size band when one fires. Measure with
+      `scripts/evaluate_truth.py`; today 54% (capacity heuristic), 77% only with the
+      truth-derived hint. See docs/VALIDATION_2026-09-28.md round 2.
+- [ ] Default `pool_exclude_forecast=True` (drops 381 planview_forecast rows; +2 hits, never hurts).
+- [ ] `chemical_expansion` correlation: reference applies ~1.0 TEC multiplier (golden
+      BCEP_chemical). Decide whether that correlation is TEC-level.
+
 ## Engineering
 
 - [x] Split `engine.py` into the `costbot/` package (one module per model,

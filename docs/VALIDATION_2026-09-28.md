@@ -79,3 +79,65 @@ size signal each project got.
   the engine does not depend on it.
 - `semantic_chips` has 377 rows (mock had 857); Composite's archetype filter
   still fires.
+
+---
+
+# Round 2 (same day): the accuracy matrix
+
+Same environment and package. Golden: 22 PASS, 12 XFAIL, 1 FAIL
+(`BCEP_chemical`, see below), 6 SKIP.
+
+## Accuracy vs truth, ensemble P50 at +/-30%, 52 projects
+
+| Benchmark size signal | pool as shipped | forecast rows excluded |
+|---|---:|---:|
+| none (cosine only) | 15 (29%) | |
+| capacity heuristic (what the app does for a typed-in project) | **28 (54%)** | 30 (58%) |
+| pool TEC of the project itself (reference harness LOOCV enrichment) | 38 (73%) | **40 (77%)** |
+
+The bottom-right cell reproduces the Sep 16 brief to the digit: 40/52, and
+40/48 on `quality_role = EVALUATION`. The 77% is therefore obtained by
+giving Benchmark the project's own pool TEC as its size band, and the pool
+TEC of a truth project equals the truth (ratio 1.00, IQR 1.00 to 1.00).
+For a project a user types into the app, that signal does not exist; the
+comparable figure is 54% (58% with forecast rows dropped from the pool).
+
+What the size signal does per archetype (pool hint, forecasts excluded, vs
+capacity heuristic): oil sands 3/3 vs 0/3, integrated petchem 2/3 vs 0/3,
+CCS 2/2 vs 0/2, renewable diesel 1/1 vs 0/1, pipeline replacement 1/1 vs
+0/1, onshore petchem 3/4 vs 2/4. Refinery brownfield (16/17) and
+unconventional (9/11) are the same either way: their models do not depend
+on the Benchmark size band.
+
+Other reads from the matrix:
+- Dropping the 381 `planview_forecast` rows from the analogue pool helps a
+  little everywhere (+2 hits) and never hurts. Worth making the default.
+- In 33 of 52 projects Benchmark was the only total-cost model; the
+  calculators fired in 19. The calculators' own hit rate is stable across
+  variants (11 to 12 of 19).
+- `INTEGRITY_CANARY` rows: 0/4 in every variant, as intended for canaries.
+- One unconventional miss is a $7M project, below the $20M screening floor.
+
+## BCEP_chemical (golden FAIL)
+
+Inputs: `chemical_expansion`, 1500 KTA, Baytown, GF. Engine: ISBL at GOM
+1175.8 (474 x (1500/330)^0.6), EMMA 2.0446, ISBL at location 2403.9, TEC
+multiplier 2.58, escalation 6%, TEC 6574.3. Expected 2650.3 = 2403.9 x
+1.1025. So the reference applied essentially no ISBL-to-TEC multiplier to
+this correlation (1.04 x 1.06 escalation = 1.1024), which suggests the
+474/330 KTA "chemical_expansion" figure is already a TEC-level number in
+the reference, not an ISBL. Marked XFAIL under investigation; decision for
+the manager together with the brownfield multiplier item.
+
+## Implications
+
+1. The accuracy the brief reports is not what a user will experience.
+   Stated honestly: 54% overall today, 88% for refinery brownfield, 82% for
+   unconventional, near zero for large greenfield projects where only the
+   analogue model fires.
+2. The size band is the lever. A legitimate size prior (not the truth)
+   would recover much of the gap: calibrate the capacity-to-size factors
+   per archetype from verified pool rows instead of the fixed table, and/or
+   feed the calculators' estimate into Benchmark as its size band when a
+   calculator fires. Both are measurable with this harness, leak-free.
+3. Default the analogue pool to verified rows (exclude forecasts).
