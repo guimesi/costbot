@@ -2,7 +2,7 @@
 PY := .venv/bin/python
 ST := .venv/bin/streamlit
 
-.PHONY: install run test unit smoke ui golden mock screenshots evaluate lint
+.PHONY: install run test unit smoke ui golden mock screenshots evaluate lint validate
 
 install:
 	[ -d .venv ] || /opt/anaconda3/bin/python3.13 -m venv .venv
@@ -36,3 +36,6 @@ screenshots:
 
 evaluate:
 	$(PY) scripts/evaluate_truth.py
+
+validate:
+	$(PY) scripts/validate.py

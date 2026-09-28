@@ -1,5 +1,9 @@
 # Validation runbook (real data package)
 
+**Short version:** install, copy the real files into `data/`, run
+`python scripts/validate.py`, send back `validation_report.txt`. Everything
+below is the same thing step by step.
+
 Goal: run this exact code against the confidential package and bring back
 numbers, without the data ever leaving the corporate environment.
 

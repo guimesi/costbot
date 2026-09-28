@@ -41,6 +41,7 @@ changing them.
 | `docs/` | `spec/` (manager's brief, email, wireframe), app documentation, demo script, review, backlog, validation runbook. |
 | `Makefile` | `make install`, `make test`, `make run`, `make mock`, `make screenshots`, `make evaluate`. |
 | `scripts/screenshot.py` | Boots the app and captures the main screens with Playwright + local Chrome. |
+| `scripts/validate.py` | Runs every check and writes `validation_report.txt` (redacted) for the real-data validation. |
 | `data/` | Mock data package (tracked). Real data goes in `data/_real/` (gitignored) or wherever `COSTBOT_DATA_DIR` points. |
 | `docs/APP_DOCUMENTATION.md`, `docs/DEMO_SCRIPT.md` | Docs from the first build, aligned on 2026-09-26; accuracy numbers in them are unverified. |
 

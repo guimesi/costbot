@@ -23,3 +23,6 @@ data/_real/
 
 # Screenshots from scripts/screenshot.py
 screenshots/
+
+# Validation output (redacted, but keep it out of the repo)
+validation_report.txt
