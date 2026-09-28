@@ -144,6 +144,12 @@ assert len(CP30_LOCATIONS) == 27
 CP30_YEARS = list(range(2014, 2026))  # 12 years -> 324 rows
 
 
+def _cp30_idx(location, year):
+    idx24 = CP30_LOCATIONS[location]
+    growth = 1.03 if year < 2021 else 1.05
+    return idx24 / (growth ** (2024 - year)) if year <= 2024 else idx24 * 1.03
+
+
 def pick(seq, n=None):
     return rng.choice(seq, size=n) if n else rng.choice(seq)
 
@@ -177,11 +183,17 @@ def gen_pool():
                 'cp30_location': COUNTRY_TO_CP30[country],
                 'greenfield_brownfield': 'greenfield' if scope == 'grassroots' else 'brownfield',
                 'on_off_shore': 'offshore' if 'offshore' in pool_arch else 'onshore',
-                'basis_year_original': year,
-                'tec_musd_original': round(tec / (1.03 ** (2024 - year)), 1),
+                'site_location': COUNTRY_TO_CP30[country],
+                'gate_stage': rng.choice(['IC3', 'IC4', 'IC5']),
+                'basis_year': year,
+                # CP30 indices at the project's location, same formula as gen_cp30
+                'cp30_idx_basis': round(_cp30_idx(COUNTRY_TO_CP30[country], year), 4),
+                'cp30_idx_2024': round(_cp30_idx(COUNTRY_TO_CP30[country], 2024), 4),
+                'tec_musd_nominal': round(tec * _cp30_idx(COUNTRY_TO_CP30[country], year)
+                                          / _cp30_idx(COUNTRY_TO_CP30[country], 2024), 1),
                 'tec_musd_normalized_2024': tec,
+                'tec_source': 'mock_generator',
                 'cost_class': rng.choice(['Class 3', 'Class 4', 'Class 5']),
-                'gate': rng.choice(['IC3', 'IC4', 'IC5']),
                 'status': 'complete',
                 'data_source': 'mock_generator',
                 'n_equipment_items': None,  # filled from vectors
@@ -192,22 +204,28 @@ def gen_pool():
 
 
 def gen_truth(pool):
-    # 52 distinct projects, one duplicated (53 rows) mirroring the real table
+    """Mirrors the real project_truth schema: 52 distinct projects, 53 rows
+    (one project also has an ISBL row), amounts in basis-year dollars, and
+    NO scope columns (those come from the pool via planview_id)."""
     sample = pool.sample(52, random_state=SEED)
     rows = []
     for _, r in sample.iterrows():
         noise = rng.normal(0, 0.18)
+        truth_2024 = r.tec_musd_normalized_2024 * (1 + noise)
+        amount_basis = truth_2024 * r.cp30_idx_basis / r.cp30_idx_2024
         rows.append({
             'planview_id': r.planview_id, 'project_name': r.project_name,
-            'archetype': r.archetype, 'process_domain': r.process_domain, 'scope_type': r.scope_type,
-            'country': r.country, 'location': r.cp30_location,
-            'facility_type': r.facility_type, 'primary_capacity': r.primary_capacity,
-            'capacity_unit': r.capacity_unit,
-            'tec_musd_actual': round(r.tec_musd_normalized_2024 * (1 + noise), 1),
-            'tec_musd_normalized_2024': round(r.tec_musd_normalized_2024 * (1 + noise), 1),
-            'basis_year': 2024, 'truth_source': 'mock', 'verified': True,
+            'gate_stage': r.gate_stage, 'cost_type': 'TEC',
+            'amount_musd': round(amount_basis, 1), 'basis_year': int(r.basis_year),
+            'currency_original': 'USD', 'amount_original': round(amount_basis, 1),
+            'source_document': 'mock', 'source_detail': 'synthetic', 'validated_by': 'generator',
+            'validated_date': '2026-09-26', 'quality_role': 'primary',
+            'archetype': r.archetype, 'notes': '', 'test_type': 'LOOCV',
+            'scope_change_flag': False, 'truth_total_dev_musd': round(amount_basis * 1.1, 1),
+            'process_domain': r.process_domain, 'scope_type': r.scope_type,
         })
-    rows.append(dict(rows[0], notes='duplicate row (phase 2)'))
+    rows.append(dict(rows[0], cost_type='ISBL', amount_musd=round(rows[0]['amount_musd'] * 0.4, 1),
+                     quality_role='secondary', notes='ISBL row for the same project'))
     return pd.DataFrame(rows)
 
 

@@ -1,54 +1,54 @@
-planview_id,project_name,archetype,process_domain,scope_type,country,location,facility_type,primary_capacity,capacity_unit,tec_musd_actual,tec_musd_normalized_2024,basis_year,truth_source,verified,notes
-1005513,MOCK-PIPELI-004,pipeline_mainline,pipeline,grassroots,Canada,Alberta,pipeline,518.0,km,514.7,514.7,2024,mock,True,
-1001542,MOCK-REFINE-074,refinery_bf,refining,expansion,Australia,Perth,crude_unit,46754.0,BPD,71.0,71.0,2024,mock,True,
-1005970,MOCK-PIPELI-025,pipeline_mainline,pipeline,expansion,United States,Texas-BTN (GOM),pipeline,735.0,km,347.3,347.3,2024,mock,True,
-1003256,MOCK-ONSHOR-016,onshore_petchem,chemicals,expansion,Belgium,Belgium,ethylene_cracker,1065.0,KTA,1930.7,1930.7,2024,mock,True,
-1002250,MOCK-REFINE-105,refinery_bf,refining,modification,United Kingdom,United Kingdom,hydrotreater,15606.0,BPD,36.8,36.8,2024,mock,True,
-1005773,MOCK-PIPELI-016,pipeline_mainline,pipeline,expansion,Mexico,Mexico,pipeline_gathering,164.0,km,621.5,621.5,2024,mock,True,
-1007692,MOCK-LNG_ON-008,lng_onshore,lng,expansion,Papua New Guinea,Papua New Guinea,lng_train,4.4,MTPA,4440.5,4440.5,2024,mock,True,
-1002679,MOCK-REFINE-125,refinery_bf,refining,expansion,United States,Texas-BTN (GOM),alkylation,12545.0,BPD,691.2,691.2,2024,mock,True,
-1001411,MOCK-REFINE-069,refinery_bf,refining,modification,United Kingdom,United Kingdom,fcc,55299.0,BPD,134.4,134.4,2024,mock,True,
-1005032,MOCK-OFFSHO-025,offshore_fpso,offshore,grassroots,United States,Texas-BTN (GOM),platform,133.0,KBPD,5538.3,5538.3,2024,mock,True,
-1000212,MOCK-REFINE-010,refinery_bf,refining,modification,Singapore,Singapore,fcc,71513.0,BPD,93.2,93.2,2024,mock,True,
-1004049,MOCK-ONSHOR-056,onshore_petchem,chemicals,grassroots,Saudi Arabia,Saudi Arabia,polyethylene,539.0,KTA,284.5,284.5,2024,mock,True,
-1006197,MOCK-PIPELI-040,pipeline_mainline,pipeline,grassroots,United States,Texas-BTN (GOM),pipeline_gathering,688.0,km,210.1,210.1,2024,mock,True,
-1001787,MOCK-REFINE-085,refinery_bf,refining,grassroots,Canada,Alberta,fcc,59303.0,BPD,1164.1,1164.1,2024,mock,True,
-1007363,MOCK-GAS_PR-029,gas_processing,gas_processing,grassroots,Kazakhstan,Kazakhstan,ccs,398.0,MMSCFD,854.5,854.5,2024,mock,True,
-1007655,MOCK-LNG_ON-006,lng_onshore,lng,grassroots,Australia,Perth,lng_train,6.3,MTPA,10807.8,10807.8,2024,mock,True,
-1009713,MOCK-ONSHOR-044,onshore_conventional,upstream_conventional,grassroots,United States,Texas-BTN (GOM),onshore_process,169.0,KBPD,816.9,816.9,2024,mock,True,
-1000613,MOCK-REFINE-031,refinery_bf,refining,modification,Singapore,Singapore,reformer,98454.0,BPD,19.4,19.4,2024,mock,True,
-1006401,MOCK-ONSHOR-003,onshore_unconventional,upstream_unconventional,expansion,United States,Texas-BTN (GOM),cold_separation_train,190.0,MMSCFD,86.3,86.3,2024,mock,True,
-1007968,MOCK-LNG_ON-023,lng_onshore,lng,grassroots,Papua New Guinea,Papua New Guinea,lng_train,12.6,MTPA,7283.6,7283.6,2024,mock,True,
-1009626,MOCK-ONSHOR-039,onshore_conventional,upstream_conventional,grassroots,Kazakhstan,Kazakhstan,onshore_process,54.0,KBPD,379.4,379.4,2024,mock,True,
-1009640,MOCK-ONSHOR-040,onshore_conventional,upstream_conventional,expansion,Chad,Nigeria,compressor_station,79.0,KBPD,1709.0,1709.0,2024,mock,True,
-1004688,MOCK-OFFSHO-006,offshore_fpso,offshore,grassroots,Brazil,Brazil,platform,249.0,KBPD,4723.4,4723.4,2024,mock,True,
-1004702,MOCK-OFFSHO-008,offshore_fpso,offshore,grassroots,Brazil,Brazil,fpso,240.0,KBPD,2212.9,2212.9,2024,mock,True,
-1001628,MOCK-REFINE-077,refinery_bf,refining,modification,United Kingdom,United Kingdom,coker,32996.0,BPD,14.3,14.3,2024,mock,True,
-1009103,MOCK-ONSHOR-010,onshore_conventional,upstream_conventional,modification,Nigeria,Nigeria,compressor_station,84.0,KBPD,147.3,147.3,2024,mock,True,
-1009296,MOCK-ONSHOR-019,onshore_conventional,upstream_conventional,grassroots,United States,Texas-BTN (GOM),onshore_process,77.0,KBPD,2413.5,2413.5,2024,mock,True,
-1007843,MOCK-LNG_ON-018,lng_onshore,lng,grassroots,Australia,Perth,lng_train,9.8,MTPA,3690.0,3690.0,2024,mock,True,
-1002163,MOCK-REFINE-102,refinery_bf,refining,modification,Singapore,Singapore,hydrocracker,119417.0,BPD,76.6,76.6,2024,mock,True,
-1006652,MOCK-ONSHOR-021,onshore_unconventional,upstream_unconventional,modification,United States,Texas-BTN (GOM),central_delivery_point,72.0,MMSCFD,88.5,88.5,2024,mock,True,
-1006044,MOCK-PIPELI-032,pipeline_mainline,pipeline,modification,Canada,Alberta,pipeline_gathering,492.0,km,106.5,106.5,2024,mock,True,
-1004618,MOCK-OFFSHO-003,offshore_fpso,offshore,grassroots,Brazil,Brazil,fpso,155.0,KBPD,9001.8,9001.8,2024,mock,True,
-1009298,MOCK-ONSHOR-020,onshore_conventional,upstream_conventional,grassroots,Iraq,Saudi Arabia,compressor_station,128.0,KBPD,263.3,263.3,2024,mock,True,
-1003545,MOCK-ONSHOR-034,onshore_petchem,chemicals,grassroots,Belgium,Belgium,ethylene_cracker,687.0,KTA,663.4,663.4,2024,mock,True,
-1000054,MOCK-REFINE-003,refinery_bf,refining,expansion,United Kingdom,United Kingdom,reformer,17020.0,BPD,261.9,261.9,2024,mock,True,
-1006651,MOCK-ONSHOR-020,onshore_unconventional,upstream_unconventional,grassroots,United States,Texas-BTN (GOM),pipeline,65.0,MMSCFD,35.8,35.8,2024,mock,True,
-1005599,MOCK-PIPELI-008,pipeline_mainline,pipeline,expansion,Mexico,Mexico,pipeline_gathering,92.0,km,415.4,415.4,2024,mock,True,
-1001458,MOCK-REFINE-071,refinery_bf,refining,modification,Singapore,Singapore,reformer,44784.0,BPD,130.4,130.4,2024,mock,True,
-1004339,MOCK-ONSHOR-071,onshore_petchem,chemicals,grassroots,Canada,Alberta,ethylene_cracker,1096.0,KTA,290.9,290.9,2024,mock,True,
-1001307,MOCK-REFINE-064,refinery_bf,refining,modification,United States,Texas-BTN (GOM),hydrocracker,39783.0,BPD,25.4,25.4,2024,mock,True,
-1006917,MOCK-GAS_PR-003,gas_processing,gas_processing,expansion,Canada,Alberta,ccs,745.0,MMSCFD,760.3,760.3,2024,mock,True,
-1002007,MOCK-REFINE-094,refinery_bf,refining,modification,Australia,Perth,fcc,103806.0,BPD,32.0,32.0,2024,mock,True,
-1009539,MOCK-ONSHOR-034,onshore_conventional,upstream_conventional,expansion,Iraq,Saudi Arabia,compressor_station,113.0,KBPD,1955.0,1955.0,2024,mock,True,
-1003791,MOCK-ONSHOR-046,onshore_petchem,chemicals,grassroots,Singapore,Singapore,polyethylene,1502.0,KTA,277.5,277.5,2024,mock,True,
-1000681,MOCK-REFINE-034,refinery_bf,refining,replacement,United Kingdom,United Kingdom,reformer,112633.0,BPD,145.3,145.3,2024,mock,True,
-1001645,MOCK-REFINE-078,refinery_bf,refining,replacement,Australia,Perth,alkylation,102298.0,BPD,111.1,111.1,2024,mock,True,
-1000004,MOCK-REFINE-001,refinery_bf,refining,modification,Singapore,Singapore,hydrotreater,86710.0,BPD,529.5,529.5,2024,mock,True,
-1000268,MOCK-REFINE-012,refinery_bf,refining,modification,Belgium,Belgium,fcc,83074.0,BPD,251.9,251.9,2024,mock,True,
-1006287,MOCK-PIPELI-046,pipeline_mainline,pipeline,grassroots,Canada,Alberta,pipeline,162.0,km,534.9,534.9,2024,mock,True,
-1000441,MOCK-REFINE-023,refinery_bf,refining,modification,United States,Texas-BTN (GOM),reformer,82536.0,BPD,57.2,57.2,2024,mock,True,
-1001508,MOCK-REFINE-073,refinery_bf,refining,modification,Belgium,Belgium,coker,102112.0,BPD,44.6,44.6,2024,mock,True,
-1003750,MOCK-ONSHOR-043,onshore_petchem,chemicals,grassroots,United States,Texas-BTN (GOM),process_plant_generic,386.0,KTA,404.8,404.8,2024,mock,True,
-1005513,MOCK-PIPELI-004,pipeline_mainline,pipeline,grassroots,Canada,Alberta,pipeline,518.0,km,514.7,514.7,2024,mock,True,duplicate row (phase 2)
+planview_id,project_name,gate_stage,cost_type,amount_musd,basis_year,currency_original,amount_original,source_document,source_detail,validated_by,validated_date,quality_role,archetype,notes,test_type,scope_change_flag,truth_total_dev_musd,process_domain,scope_type
+1005513,MOCK-PIPELI-004,IC4,TEC,361.0,2012,USD,361.0,mock,synthetic,generator,2026-09-26,primary,pipeline_mainline,,LOOCV,False,397.1,pipeline,grassroots
+1001542,MOCK-REFINE-074,IC3,TEC,56.0,2016,USD,56.0,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,61.7,refining,expansion
+1005970,MOCK-PIPELI-025,IC3,TEC,229.6,2010,USD,229.6,mock,synthetic,generator,2026-09-26,primary,pipeline_mainline,,LOOCV,False,252.6,pipeline,expansion
+1003256,MOCK-ONSHOR-016,IC4,TEC,1616.9,2018,USD,1616.9,mock,synthetic,generator,2026-09-26,primary,onshore_petchem,,LOOCV,False,1778.6,chemicals,expansion
+1002250,MOCK-REFINE-105,IC5,TEC,31.7,2021,USD,31.7,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,34.9,refining,modification
+1005773,MOCK-PIPELI-016,IC5,TEC,536.1,2019,USD,536.1,mock,synthetic,generator,2026-09-26,primary,pipeline_mainline,,LOOCV,False,589.7,pipeline,expansion
+1007692,MOCK-LNG_ON-008,IC5,TEC,3945.3,2020,USD,3945.3,mock,synthetic,generator,2026-09-26,primary,lng_onshore,,LOOCV,False,4339.8,lng,expansion
+1002679,MOCK-REFINE-125,IC5,TEC,484.8,2012,USD,484.8,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,533.3,refining,expansion
+1001411,MOCK-REFINE-069,IC5,TEC,94.2,2012,USD,94.2,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,103.7,refining,modification
+1005032,MOCK-OFFSHO-025,IC5,TEC,4638.2,2018,USD,4638.2,mock,synthetic,generator,2026-09-26,primary,offshore_fpso,,LOOCV,False,5102.0,offshore,grassroots
+1000212,MOCK-REFINE-010,IC4,TEC,80.5,2021,USD,80.5,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,88.5,refining,modification
+1004049,MOCK-ONSHOR-056,IC4,TEC,224.6,2016,USD,224.6,mock,synthetic,generator,2026-09-26,primary,onshore_petchem,,LOOCV,False,247.1,chemicals,grassroots
+1006197,MOCK-PIPELI-040,IC3,TEC,175.9,2018,USD,175.9,mock,synthetic,generator,2026-09-26,primary,pipeline_mainline,,LOOCV,False,193.5,pipeline,grassroots
+1001787,MOCK-REFINE-085,IC4,TEC,892.2,2015,USD,892.2,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,981.4,refining,grassroots
+1007363,MOCK-GAS_PR-029,IC4,TEC,581.9,2011,USD,581.9,mock,synthetic,generator,2026-09-26,primary,gas_processing,,LOOCV,False,640.1,gas_processing,grassroots
+1007655,MOCK-LNG_ON-006,IC5,TEC,8788.0,2017,USD,8788.0,mock,synthetic,generator,2026-09-26,primary,lng_onshore,,LOOCV,False,9666.8,lng,grassroots
+1009713,MOCK-ONSHOR-044,IC4,TEC,740.9,2022,USD,740.9,mock,synthetic,generator,2026-09-26,primary,onshore_conventional,,LOOCV,False,815.0,upstream_conventional,grassroots
+1000613,MOCK-REFINE-031,IC5,TEC,12.8,2010,USD,12.8,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,14.1,refining,modification
+1006401,MOCK-ONSHOR-003,IC5,TEC,64.2,2014,USD,64.2,mock,synthetic,generator,2026-09-26,primary,onshore_unconventional,,LOOCV,False,70.6,upstream_unconventional,expansion
+1007968,MOCK-LNG_ON-023,IC3,TEC,5582.2,2015,USD,5582.2,mock,synthetic,generator,2026-09-26,primary,lng_onshore,,LOOCV,False,6140.5,lng,grassroots
+1009626,MOCK-ONSHOR-039,IC5,TEC,250.8,2010,USD,250.8,mock,synthetic,generator,2026-09-26,primary,onshore_conventional,,LOOCV,False,275.9,upstream_conventional,grassroots
+1009640,MOCK-ONSHOR-040,IC4,TEC,1476.3,2021,USD,1476.3,mock,synthetic,generator,2026-09-26,primary,onshore_conventional,,LOOCV,False,1623.9,upstream_conventional,expansion
+1004688,MOCK-OFFSHO-006,IC3,TEC,4074.6,2019,USD,4074.6,mock,synthetic,generator,2026-09-26,primary,offshore_fpso,,LOOCV,False,4482.0,offshore,grassroots
+1004702,MOCK-OFFSHO-008,IC3,TEC,1966.1,2020,USD,1966.1,mock,synthetic,generator,2026-09-26,primary,offshore_fpso,,LOOCV,False,2162.7,offshore,grassroots
+1001628,MOCK-REFINE-077,IC5,TEC,12.7,2020,USD,12.7,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,14.0,refining,modification
+1009103,MOCK-ONSHOR-010,IC4,TEC,109.6,2014,USD,109.6,mock,synthetic,generator,2026-09-26,primary,onshore_conventional,,LOOCV,False,120.6,upstream_conventional,modification
+1009296,MOCK-ONSHOR-019,IC5,TEC,1743.6,2013,USD,1743.6,mock,synthetic,generator,2026-09-26,primary,onshore_conventional,,LOOCV,False,1918.0,upstream_conventional,grassroots
+1007843,MOCK-LNG_ON-018,IC5,TEC,2665.8,2013,USD,2665.8,mock,synthetic,generator,2026-09-26,primary,lng_onshore,,LOOCV,False,2932.4,lng,grassroots
+1002163,MOCK-REFINE-102,IC5,TEC,64.2,2018,USD,64.2,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,70.6,refining,modification
+1006652,MOCK-ONSHOR-021,IC4,TEC,65.8,2014,USD,65.8,mock,synthetic,generator,2026-09-26,primary,onshore_unconventional,,LOOCV,False,72.4,upstream_unconventional,modification
+1006044,MOCK-PIPELI-032,IC5,TEC,96.6,2022,USD,96.6,mock,synthetic,generator,2026-09-26,primary,pipeline_mainline,,LOOCV,False,106.3,pipeline,modification
+1004618,MOCK-OFFSHO-003,IC4,TEC,7538.8,2018,USD,7538.8,mock,synthetic,generator,2026-09-26,primary,offshore_fpso,,LOOCV,False,8292.7,offshore,grassroots
+1009298,MOCK-ONSHOR-020,IC5,TEC,179.3,2011,USD,179.3,mock,synthetic,generator,2026-09-26,primary,onshore_conventional,,LOOCV,False,197.2,upstream_conventional,grassroots
+1003545,MOCK-ONSHOR-034,IC4,TEC,451.8,2011,USD,451.8,mock,synthetic,generator,2026-09-26,primary,onshore_petchem,,LOOCV,False,496.9,chemicals,grassroots
+1000054,MOCK-REFINE-003,IC3,TEC,237.6,2022,USD,237.6,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,261.4,refining,expansion
+1006651,MOCK-ONSHOR-020,IC3,TEC,29.1,2017,USD,29.1,mock,synthetic,generator,2026-09-26,primary,onshore_unconventional,,LOOCV,False,32.0,upstream_unconventional,grassroots
+1005599,MOCK-PIPELI-008,IC3,TEC,327.9,2016,USD,327.9,mock,synthetic,generator,2026-09-26,primary,pipeline_mainline,,LOOCV,False,360.7,pipeline,expansion
+1001458,MOCK-REFINE-071,IC3,TEC,94.2,2013,USD,94.2,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,103.6,refining,modification
+1004339,MOCK-ONSHOR-071,IC5,TEC,236.5,2017,USD,236.5,mock,synthetic,generator,2026-09-26,primary,onshore_petchem,,LOOCV,False,260.2,chemicals,grassroots
+1001307,MOCK-REFINE-064,IC5,TEC,17.3,2011,USD,17.3,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,19.0,refining,modification
+1006917,MOCK-GAS_PR-003,IC3,TEC,600.2,2016,USD,600.2,mock,synthetic,generator,2026-09-26,primary,gas_processing,,LOOCV,False,660.2,gas_processing,expansion
+1002007,MOCK-REFINE-094,IC5,TEC,26.0,2017,USD,26.0,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,28.6,refining,modification
+1009539,MOCK-ONSHOR-034,IC3,TEC,1412.4,2013,USD,1412.4,mock,synthetic,generator,2026-09-26,primary,onshore_conventional,,LOOCV,False,1553.6,upstream_conventional,expansion
+1003791,MOCK-ONSHOR-046,IC5,TEC,264.3,2023,USD,264.3,mock,synthetic,generator,2026-09-26,primary,onshore_petchem,,LOOCV,False,290.7,chemicals,grassroots
+1000681,MOCK-REFINE-034,IC4,TEC,129.1,2020,USD,129.1,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,142.0,refining,replacement
+1001645,MOCK-REFINE-078,IC4,TEC,95.9,2021,USD,95.9,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,105.5,refining,replacement
+1000004,MOCK-REFINE-001,IC5,TEC,371.4,2012,USD,371.4,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,408.5,refining,modification
+1000268,MOCK-REFINE-012,IC3,TEC,193.1,2015,USD,193.1,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,212.4,refining,modification
+1006287,MOCK-PIPELI-046,IC4,TEC,475.3,2020,USD,475.3,mock,synthetic,generator,2026-09-26,primary,pipeline_mainline,,LOOCV,False,522.8,pipeline,grassroots
+1000441,MOCK-REFINE-023,IC3,TEC,50.8,2020,USD,50.8,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,55.9,refining,modification
+1001508,MOCK-REFINE-073,IC3,TEC,34.2,2015,USD,34.2,mock,synthetic,generator,2026-09-26,primary,refinery_bf,,LOOCV,False,37.6,refining,modification
+1003750,MOCK-ONSHOR-043,IC4,TEC,349.7,2021,USD,349.7,mock,synthetic,generator,2026-09-26,primary,onshore_petchem,,LOOCV,False,384.7,chemicals,grassroots
+1005513,MOCK-PIPELI-004,IC4,ISBL,144.4,2012,USD,361.0,mock,synthetic,generator,2026-09-26,secondary,pipeline_mainline,ISBL row for the same project,LOOCV,False,397.1,pipeline,grassroots

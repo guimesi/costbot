@@ -34,7 +34,20 @@ from costbot.models.calculator_offshore import run_calculator_offshore  # noqa: 
 from costbot.models.calculator_onshore import run_calculator_onshore  # noqa: E402
 from costbot.models.calculator_pipeline import run_calculator_pipeline  # noqa: E402
 
-GOLDEN_PATH = os.path.join(DATA_DIR, "extracted_files", "_golden_baseline.json")
+def _find_golden() -> str:
+    """The golden file is expected at data/extracted_files/_golden_baseline.json;
+    the real package may keep it elsewhere, so search the data dir and its parent."""
+    default = os.path.join(DATA_DIR, "extracted_files", "_golden_baseline.json")
+    if os.path.exists(default):
+        return default
+    for base in (DATA_DIR, os.path.dirname(DATA_DIR)):
+        for dirpath, _dirs, files in os.walk(base):
+            if "_golden_baseline.json" in files:
+                return os.path.join(dirpath, "_golden_baseline.json")
+    return default
+
+
+GOLDEN_PATH = _find_golden()
 
 # Windows consoles default to cp1252; keep the report symbols printable everywhere.
 try:
@@ -229,13 +242,18 @@ def test_golden_baseline():
     """pytest entry point: XFAIL is acceptable, FAIL or ERROR is a regression."""
     if not os.path.exists(GOLDEN_PATH):
         import pytest
-        pytest.skip("no golden baseline file")
+        pytest.skip(f"no golden baseline file ({GOLDEN_PATH})")
     results = run_all()
     bad = [r for r in results if r["status"] in ("FAIL", "ERROR")]
     assert not bad, [(r["name"], r["status"], r.get("reason") or f"{r.get('err_pct', 0):+.1f}%") for r in bad]
 
 
 def main():
+    if not os.path.exists(GOLDEN_PATH):
+        print(f"No _golden_baseline.json found under {DATA_DIR} or its parent; golden check skipped.")
+        print("If the real package has one, copy it to data/extracted_files/_golden_baseline.json.")
+        sys.exit(0)
+    print(f"golden file: {GOLDEN_PATH}")
     results = run_all()
 
     # Report

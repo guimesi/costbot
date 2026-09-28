@@ -45,10 +45,22 @@ def env_block():
         # Column names only (no values): needed to adapt evaluate_truth.py to the real schema
         for name, df in (('project_truth', d.truth), ('pool', pool), ('cp30', d.cp30),
                          ('equipment_vectors', d.equipment_vectors), ('frankenstein', d.frankenstein),
-                         ('semantic_chips', d.semantic_chips)):
-            lines.append(f"{name} columns: {list(df.columns)}")
+                         ('semantic_chips', d.semantic_chips), ('scope_inputs', d.scope_inputs),
+                         ('country_to_cp30', d.country_to_cp30), ('archetype_taxonomy', d.archetype_taxonomy)):
+            lines.append(f"{name} columns: {list(df.columns)} ({len(df)} rows)")
+        for cat in ('cost_type', 'test_type', 'gate_stage', 'quality_role', 'scope_change_flag'):
+            if cat in d.truth.columns:
+                lines.append(f"truth {cat}: {d.truth[cat].astype(str).value_counts().to_dict()}")
         if not d.cp30.empty and 'year' in d.cp30.columns:
             lines.append(f"cp30 years: {sorted(d.cp30['year'].dropna().unique().tolist())}")
+            gom = d.cp30[d.cp30['location'].astype(str).str.contains('GOM', case=False, na=False)]
+            if not gom.empty and 'combined_idx' in gom.columns:
+                lines.append("cp30 GOM combined_idx by year: " + ', '.join(
+                    f"{int(y)}={v:.3f}" for y, v in gom.sort_values('year')[['year', 'combined_idx']].values if y >= 2019))
+        if not pool.empty:
+            for c in ('gate_stage', 'tec_source', 'scope_type_confidence', 'capacity_confidence'):
+                if c in pool.columns:
+                    lines.append(f"pool {c}: {pool[c].astype(str).value_counts().head(8).to_dict()}")
         try:
             import json
             with open(os.path.join(d.data_dir, 'extracted_files', '_golden_baseline.json')) as f:
