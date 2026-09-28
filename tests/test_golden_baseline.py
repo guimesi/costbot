@@ -36,6 +36,13 @@ from costbot.models.calculator_pipeline import run_calculator_pipeline  # noqa: 
 
 GOLDEN_PATH = os.path.join(DATA_DIR, "extracted_files", "_golden_baseline.json")
 
+# Windows consoles default to cp1252; keep the report symbols printable everywhere.
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+except (AttributeError, ValueError):
+    pass
+
+
 # ARCH_MAP: golden archetype shorthand → engine archetype
 ARCH_MAP = {"pipeline": "pipeline_mainline"}
 

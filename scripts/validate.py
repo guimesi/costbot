@@ -42,6 +42,22 @@ def env_block():
         lines.append(f"pool rows {len(pool)} | truth rows {len(d.truth)} | equipment vectors {len(d.equipment_vectors)} "
                      f"| chips {len(d.frankenstein)} | cp30 rows {len(d.cp30)}")
         lines.append("DATA PACKAGE: " + ("MOCK (synthetic, numbers below mean nothing)" if mock else "not mock"))
+        # Column names only (no values): needed to adapt evaluate_truth.py to the real schema
+        for name, df in (('project_truth', d.truth), ('pool', pool), ('cp30', d.cp30),
+                         ('equipment_vectors', d.equipment_vectors), ('frankenstein', d.frankenstein),
+                         ('semantic_chips', d.semantic_chips)):
+            lines.append(f"{name} columns: {list(df.columns)}")
+        if not d.cp30.empty and 'year' in d.cp30.columns:
+            lines.append(f"cp30 years: {sorted(d.cp30['year'].dropna().unique().tolist())}")
+        try:
+            import json
+            with open(os.path.join(d.data_dir, 'extracted_files', '_golden_baseline.json')) as f:
+                g = json.load(f)
+            cases = g.get('test_cases', [])
+            lines.append(f"golden cases: {len(cases)} | calculators: {sorted({c.get('calculator') for c in cases})} "
+                         f"| keys of first case: {sorted(cases[0].keys()) if cases else []}")
+        except Exception as e:  # noqa: BLE001
+            lines.append(f"golden file: {e}")
     except Exception as e:  # noqa: BLE001
         lines.append(f"data check failed: {e}")
     return '\n'.join(lines)
@@ -50,7 +66,9 @@ def env_block():
 def run(label, cmd):
     t0 = time.time()
     try:
-        p = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=900)
+        env = dict(os.environ, PYTHONUTF8='1', PYTHONIOENCODING='utf-8')
+        p = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=900,
+                           encoding='utf-8', errors='replace', env=env)
         out = (p.stdout + p.stderr)
         status = 'OK' if p.returncode == 0 else f'FAILED (exit {p.returncode})'
     except subprocess.TimeoutExpired:
@@ -70,7 +88,7 @@ def main():
         summary.append(f"{status:22s} {label}")
         sections.append(f"## {label}\nstatus: {status}  ({dt:.0f}s)\ncommand: {' '.join(cmd[1:])}\n\n{out.strip()}\n")
     report = sections[0] + "\n## Summary\n" + '\n'.join(summary) + "\n\n" + '\n'.join(sections[1:])
-    with open(REPORT, 'w') as f:
+    with open(REPORT, 'w', encoding='utf-8') as f:
         f.write(report)
     print('\n'.join(summary))
     print(f"\nreport written: {REPORT}  <- send this file back")

@@ -51,10 +51,39 @@ for app_arch, pool_arch in ARCHETYPE_ALIASES_POOL.items():
     POOL_TO_APP.setdefault(pool_arch, app_arch)
 
 
-def detect(df, key):
+# Fallback tokens: a column qualifies if its lower-cased name contains every token of one tuple
+FUZZY = {
+    'tec': [('tec', 'musd'), ('tec', 'm'), ('actual', 'cost'), ('actual', 'tec'), ('truth', 'tec'), ('cost', 'musd'),
+            ('tec',), ('cost_m',), ('capex',)],
+    'archetype': [('archetype',)],
+    'name': [('project', 'name'), ('name',)],
+    'pid': [('planview',), ('project_id',)],
+    'location': [('cp30', 'loc'), ('location',), ('country',), ('region',)],
+    'country': [('country',), ('location',)],
+    'scope_type': [('scope', 'type'), ('bf', 'gf'), ('greenfield',)],
+    'facility_type': [('facility', 'type'), ('facility',), ('unit', 'type')],
+    'capacity': [('capacity', 'value'), ('primary', 'capacity'), ('capacity',)],
+    'capacity_unit': [('capacity', 'unit'), ('unit',)],
+    'process_domain': [('process', 'domain'), ('domain',)],
+}
+
+
+def detect(df, key, overrides=None):
+    if overrides and overrides.get(key):
+        return overrides[key]
     for c in CANDIDATES[key]:
         if c in df.columns:
             return c
+    numeric_needed = key in ('tec', 'capacity')
+    for tokens in FUZZY.get(key, []):
+        for c in df.columns:
+            cl = str(c).lower()
+            if all(t in cl for t in tokens):
+                if numeric_needed and not pd.api.types.is_numeric_dtype(df[c]):
+                    continue
+                if key == 'tec' and any(bad in cl for bad in ('unit', 'year', 'source', 'note', 'id', 'name')):
+                    continue
+                return c
     return None
 
 
@@ -102,6 +131,8 @@ def main():
     ap.add_argument('--data-dir', default=None)
     ap.add_argument('--csv', default=None, help='write per-project results here')
     ap.add_argument('--redact', action='store_true', help='replace project names with archetype-N so the output can be shared')
+    ap.add_argument('--col', action='append', default=[], metavar='KEY=COLUMN',
+                    help='override a detected column, e.g. --col tec=actual_tec_musd_2024 --col location=cp30_region')
     args = ap.parse_args()
 
     data = DataStore(args.data_dir) if args.data_dir else DataStore()
@@ -109,10 +140,17 @@ def main():
     if truth.empty:
         print('project_truth.csv not found or empty'); sys.exit(2)
 
-    cols = {k: detect(truth, k) for k in CANDIDATES}
+    overrides = dict(kv.split('=', 1) for kv in args.col)
+    bad = [v for v in overrides.values() if v not in truth.columns]
+    if bad:
+        print(f"--col column(s) not in the truth table: {bad}. Columns are: {list(truth.columns)}"); sys.exit(2)
+    cols = {k: detect(truth, k, overrides) for k in CANDIDATES}
     print('Detected columns:', {k: v for k, v in cols.items() if v})
-    if not cols['tec'] or not cols['archetype']:
-        print('Cannot find TEC or archetype column; edit CANDIDATES in this script.'); sys.exit(2)
+    missing = [k for k in ('tec', 'archetype') if not cols[k]]
+    if missing:
+        print(f"Cannot find column(s) for {missing}. Truth table columns are: {list(truth.columns)}")
+        print("Re-run with e.g.  --col tec=<column name> --col archetype=<column name>")
+        sys.exit(2)
 
     rows = []
     counter = {}

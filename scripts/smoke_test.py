@@ -13,6 +13,13 @@ sys.path.insert(0, ROOT)
 
 from engine import DataStore, screen_project, validate_bid, generate_html_report, resolve_country  # noqa: E402
 
+# Windows consoles default to cp1252; keep the report symbols printable everywhere.
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+except (AttributeError, ValueError):
+    pass
+
+
 
 def scope_base(**kw):
     loc = kw.get('location', 'US Gulf Coast')
