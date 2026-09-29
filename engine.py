@@ -27,7 +27,6 @@ from costbot.constants import (
     LOCATION_TO_COUNTRY,
     LOCATION_OPTIONS,
     resolve_country,
-    _ARCHETYPE_TO_2D,
     ARCHETYPE_ALIASES_POOL,
 )
 from costbot.data import (

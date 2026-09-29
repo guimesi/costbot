@@ -50,6 +50,33 @@ Aligning the ensemble to the API changes the mock-package hit rate from 42%
 (engine rules) to 44% (API rules); the real package result comes from the
 next validation run, which now also reports the engine-mode variant.
 
+## `analogue_estimator.py` (v3.0) vs `costbot/models/benchmark.py` (2026-09-29)
+
+Rewritten as a faithful port. What changed against the first build's Benchmark:
+
+| Topic | Reference | First build | Now |
+|---|---|---|---|
+| Size signal | explicit `size_estimate_musd`, or a size bucket / hint (tiny 15M ... mega 7B); nothing else | capacity x fixed factor per domain, else the project's own pool TEC (LOOCV) | **Reference behaviour**. The UI gained a "Rough size" bucket (README: "Benchmark if size provided"). Capacity heuristic and pool hint survive as evaluation switches only. |
+| Score with a size | 0.6 cosine + 0.4 size proximity | 0.5 / 0.5 | 0.6 / 0.4 |
+| Refinery modification with capacity | capacity-family peers: adaptive 0.6/0.4, 0.5/0.5, 0.45/0.55 (gated); very large targets drop scope_type | not implemented | implemented |
+| Pool region | from cp30_location: Texas/Louisiana/Canada = North America, UK = Europe, India = Asia Pacific, else North America | country -> 8 regions | reference rule |
+| Target region | API keyword map (Guyana, Brazil = North America) | country -> region map | reference rule |
+| bf/gf in the pool | from the archetype name: `_bf` / replacement = brownfield, grassroots / `_gf` = greenfield, else unknown | from scope_type | reference rule |
+| Facility class | pool: substring map on facility_type (ref, chem, pipeline ...); target: the raw facility string | archetype -> class on both sides | reference rule (a raw target string rarely matches; noted as a reference quirk) |
+| Analogue cost basis | nominal TEC x CP30(GOM, 2024) / CP30(source location, basis year); back-extrapolation by 2014-2019 CAGR; flat beyond 2025 | pool's `tec_musd_normalized_2024` | reference formula using the pool's cp30_location (the country -> location table is empty in the package) |
+| Model range | min / max of the qualifying analogues (`cost_range_low/high`) | P20 / P80 | min / max; P20/P80 still reported |
+| Gate enrichment features | has_pipeline, has_epc, n_facilities ... from gate tables | absent | constant zeros (gate tables not in the package; neutralised by the scaler) |
+| Everything else | threshold 0.3, max 20, +/-0.5 log decade band, relax to 1.0, scope_type fallback, canaries, overrides, confidence | same | same |
+
+Consequence for the numbers: with no size input the reference Benchmark is
+category-only cosine, which on the real package scored 29%. The 54% of the
+first build came from its capacity heuristic; the 77% of the brief from the
+pool-TEC hint. The honest production figure now depends on whether the user
+gives a rough size: the validation matrix reports both.
+
+Open question for `evaluation_harness.py`: cost basis of the comparison
+(the Benchmark returns GOM-2024 dollars; the calculators return at-location).
+
 ## Still open after this file
 
 1. `analogue_estimator.py`: Benchmark internals, the size band and the 77%.

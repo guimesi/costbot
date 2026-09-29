@@ -149,9 +149,11 @@ def main():
     ap.add_argument('--redact', action='store_true', help='replace project names with archetype-N so the output can be shared')
     ap.add_argument('--no-normalize', action='store_true', help='compare against the raw truth amount, no CP30 to 2024')
     ap.add_argument('--col', action='append', default=[], metavar='KEY=COLUMN', help='override a detected column')
-    ap.add_argument('--size-hint', choices=['auto', 'pool', 'none'], default='auto',
-                    help="Benchmark size signal: auto (capacity heuristic, else pool TEC), pool (pool TEC first: "
-                         "the reference harness' LOOCV enrichment), none (cosine only)")
+    ap.add_argument('--size-hint', choices=['api', 'capacity', 'bucket', 'pool', 'none'], default='api',
+                    help="Benchmark size signal: api (reference: none unless the scope carries a size), "
+                         "capacity (first build's capacity heuristic), bucket (the truth value's own size "
+                         "bucket, i.e. a user who knows the order of magnitude), pool (project's own pool "
+                         "TEC: the LOOCV enrichment), none (strip every size signal)")
     ap.add_argument('--exclude-forecast', action='store_true',
                     help='drop screening-forecast rows from the Benchmark pool (tec_source/gate_stage contains "forecast")')
     ap.add_argument('--summary-only', action='store_true', help='print the tables, not the per-project misses')
@@ -233,9 +235,13 @@ def main():
             'basis_year': 2024, 'greenfield_brownfield': bfgf, 'scope_type': bfgf,
             'facility_type': (str(facility) if facility else None), 'primary_capacity': cap,
             'capacity_unit': str(unit), 'secondary_params': {},
-            'benchmark_size_mode': args.size_hint, 'pool_exclude_forecast': args.exclude_forecast,
+            'benchmark_size_mode': ('api' if args.size_hint == 'bucket' else args.size_hint),
+            'pool_exclude_forecast': args.exclude_forecast,
             'ensemble_mode': args.ensemble_mode,
         }
+        if args.size_hint == 'bucket':
+            from costbot.models.benchmark import bucket_for_musd
+            scope['size_bucket'] = bucket_for_musd(truth_2024)
         if 'pipeline' in archetype and cap and str(unit).lower() in ('km', 'miles'):
             scope['length_km'] = cap * (1.609 if str(unit).lower() == 'miles' else 1.0); scope['od_inches'] = 36.0
         if 'lng' in archetype and cap and str(unit).upper() == 'MTPA':

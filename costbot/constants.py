@@ -313,29 +313,6 @@ def resolve_country(scope: Dict) -> str:
     return LOCATION_TO_COUNTRY.get(loc, '')
 
 
-# Archetype 2D taxonomy for analogue matching
-_ARCHETYPE_TO_2D = {
-    'offshore_fpso': ('offshore', 'grassroots'),
-    'offshore_platform': ('offshore', 'grassroots'),
-    'oil_sands': ('oil_sands', 'expansion'),
-    'ccs_gas_processing': ('ccs', 'grassroots'),
-    'ccs': ('ccs', 'grassroots'),
-    'gas_processing': ('gas_processing', 'grassroots'),
-    'lng_onshore': ('lng', 'grassroots'),
-    'lng_terminal': ('lng', 'expansion'),
-    'pipeline_mainline': ('pipeline', 'modification'),
-    'pipeline_complex': ('pipeline', 'modification'),
-    'pipeline_gathering': ('pipeline', 'modification'),
-    'onshore_petchem': ('chemicals', 'grassroots'),
-    'integrated_petchem': ('chemicals', 'grassroots'),
-    'refinery_bf': ('refining', 'modification'),
-    'refinery_gf': ('refining', 'grassroots'),
-    'onshore_unconventional': ('upstream_unconventional', 'expansion'),
-    'onshore_conventional': ('upstream_conventional', 'grassroots'),
-    'renewable_diesel': ('refining', 'grassroots'),
-    'power_generation': ('power', 'grassroots'),
-}
-
 ARCHETYPE_ALIASES_POOL = {
     'offshore_fpso': 'offshore_fpso', 'offshore_platform': 'offshore_fpso',
     'oil_sands': 'oil_sands',

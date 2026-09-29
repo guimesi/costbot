@@ -2,6 +2,7 @@
 import streamlit as st
 
 from costbot.constants import FACILITY_TYPE_OPTIONS, LOCATION_OPTIONS, resolve_country
+from costbot.models.benchmark import SIZE_BUCKETS, SIZE_BUCKET_ORDER
 from costbot.screening import model_readiness, screen_project
 from ui.cards import equipment_card, scope_items_card
 from ui.common import ARCHETYPE_LABELS, ARCHETYPE_OPTIONS, load_data, reset_session
@@ -33,6 +34,13 @@ with left:
             bf_gf = st.segmented_control("Scope type", ['greenfield', 'brownfield', 'expansion', 'modification'],
                                          key="bf_gf", format_func=str.capitalize,
                                          help="Optional. Sets the ISBL to TEC multiplier and refines analogue matching.")
+        size_bucket = st.selectbox(
+            "Rough size", SIZE_BUCKET_ORDER, index=None, key="size_bucket",
+            placeholder="Optional: order of magnitude",
+            format_func=lambda b: f"{b.replace('_', ' ').capitalize()}  ("
+                                  f"${SIZE_BUCKETS[b]['range_musd'][0]:,.0f}M to ${SIZE_BUCKETS[b]['range_musd'][1]:,.0f}M)",
+            help="Your own order-of-magnitude judgement. It narrows the benchmark's analogue pool to "
+                 "projects of similar size; without it the benchmark matches on category alone.")
         project_name = st.text_input("Project name", key="project_name", placeholder="Optional, used in the report")
         with st.expander("Optional details", icon=":material/more_horiz:"):
             process_domain = st.selectbox(
@@ -116,6 +124,7 @@ scope = {
     'location': location or '',
     'country': resolve_country({'location': location or ''}),
     'basis_year': basis_year or 2024,
+    'size_bucket': size_bucket,
     'greenfield_brownfield': bf_gf or 'greenfield',
     'scope_type': bf_gf or 'greenfield',
     'facility_type': (facility_type or '').strip() or None,
@@ -160,7 +169,7 @@ with right:
         with st.container(border=True):
             st.markdown("**:material/rocket_launch: How it unlocks**")
             st.markdown("""
-1. **Archetype + location** unlock the benchmark against 503 completed projects.
+1. **Archetype + location** unlock the benchmark against the analogue pool. A **rough size** narrows it to projects of similar magnitude.
 2. **Equipment list** unlocks the equipment vector model, the best broad model.
 3. **Facility type + capacity** unlock the calculators (onshore, offshore, pipeline, LNG).
 4. **Subsea scope** (offshore only) unlocks the SURF component estimate.

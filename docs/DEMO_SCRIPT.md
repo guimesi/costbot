@@ -63,6 +63,7 @@ The Estimator tab is split into two columns:
 | Location (CP30 Region) | **US Gulf Coast** | Required — drives location cost normalization (CP30) and EMMA factor |
 | Basis Year | **2024** | All pool data is in 2024 USD; selecting 2024 avoids escalation |
 | Scope Type | **Greenfield** | Determines TEC multiplier (greenfield = 2.58×, brownfield = 1.30×) |
+| Rough size | *Optional* (e.g. **Substantial, $500M to $1B**) | Your order-of-magnitude judgement; narrows the benchmark to similar-sized analogues. Without it the benchmark matches on category only. |
 | Project Name | **Demo Polypropylene Plant** | Optional label — appears in reports |
 
 ### Step 2 — Fill Facility & Capacity

@@ -19,8 +19,9 @@ Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api
 2. ~~OSBL trigger~~ RESOLVED: the API triggers OSBL only from a Calculator_Onshore ISBL
    (or a user ISBL); engine already did that. The README sentence was loose.
 3. ~~9 vs 10 models~~ RESOLVED: Composite is not in the API; kept as an extra, never routed.
-4. Benchmark firing on archetype alone: the API calls the estimator with whatever
-   features exist; whether it fires without size is inside `analogue_estimator.py` (pending).
+4. ~~Benchmark firing on archetype alone~~ RESOLVED by `analogue_estimator.py`: it fires
+   without a size (cosine on categories) and takes an optional size bucket / explicit size.
+   The README's "if size provided" is that bucket; the UI now offers it as "Rough size".
 5. Brownfield multiplier: the API sends `BF-expansion` for every brownfield / expansion /
    modification; the multiplier value is inside `onshore_calculator.py` (pending).
 6. Calculator_LNG in the ensemble: the API includes it (no exclusion). Engine matches.
@@ -29,11 +30,10 @@ Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api
 
 ## Modelling (needs the manager's OK before changing model behaviour)
 
-- [ ] Benchmark size prior without leakage: calibrate capacity-to-size factors per
-      archetype from verified pool rows (log TEC vs log capacity), and/or use the
-      calculators' estimate as Benchmark's size band when one fires. Measure with
-      `scripts/evaluate_truth.py`; today 54% (capacity heuristic), 77% only with the
-      truth-derived hint. See docs/VALIDATION_2026-09-28.md round 2.
+- [ ] Benchmark size prior without leakage: the reference offers a user size bucket
+      (now in the UI). Candidates beyond that: calibrate capacity-to-size per domain from
+      verified pool rows, or feed a calculator's estimate as `size_estimate_musd`.
+      Measure with `scripts/evaluate_truth.py --size-hint {api,bucket,capacity,pool}`.
 - [ ] Default `pool_exclude_forecast=True` (drops 381 planview_forecast rows; +2 hits, never hurts).
 - [ ] `chemical_expansion` correlation: reference applies ~1.0 TEC multiplier (golden
       BCEP_chemical). Decide whether that correlation is TEC-level.

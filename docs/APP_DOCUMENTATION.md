@@ -172,7 +172,7 @@ TEC = ISBL_at_location × TEC_multiplier
 
 ### 4.5 Benchmark (Analogue Estimator)
 
-**Algorithm:** 6-dimensional one-hot encoding + cosine similarity with LOOCV.
+**Algorithm:** faithful port of `analogue_estimator.py` v3.0: one-hot categorical encoding + cosine similarity, optional size band from a user size bucket or explicit size (no capacity heuristic).
 
 This is the most broadly applicable model. It works for any archetype with at least archetype + location.
 

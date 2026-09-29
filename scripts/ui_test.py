@@ -41,6 +41,7 @@ def main():
     assert 'Onshore calculator :gray-badge[Needs capacity]' in txt
     assert 'last_results' not in at.session_state
 
+    at.selectbox(key='size_bucket').select('substantial')
     at.selectbox(key='facility_type').select('polypropylene')
     at.number_input(key='capacity').set_value(450.0)
     at.selectbox(key='cap_unit').select('KTA')
@@ -79,6 +80,7 @@ def main():
     ens = results['ensemble']
     assert ens.get('best_estimate_musd'), ens
     fired = {m for m, r in results['models'].items() if r.get('can_fire')}
+    assert results['models']['Benchmark']['size_signal']['source'] == 'size_bucket', results['models']['Benchmark'].get('size_signal')
     assert {'Benchmark', 'Calculator_Onshore', 'OSBL_Estimate', 'EquipmentVector', 'Composite'} <= fired, fired
     metrics = [m.label for m in at.metric]
     assert 'Best estimate (P50)' in metrics and 'Confidence' in metrics, metrics
