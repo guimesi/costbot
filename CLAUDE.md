@@ -122,6 +122,16 @@ before `streamlit run` or any script; no code edit needed.
 - Session state keys are initialised once at the top of `app.py` with `setdefault`.
 - Use `width='stretch'`, never `use_container_width`.
 
+## Reference parity
+
+`cost_bot_api.py` (the spec's source of truth) was compared line by line on
+2026-09-29: `docs/PARITY_cost_bot_api.md`. Routing, exclusions, ensemble rules,
+calculator input handling and ranges, EquipmentVector gates, Unconventional
+interpolation and analogue scoring follow the API. First-build variations
+survive only behind `scope['ensemble_mode'] = 'engine'` for evaluation.
+Reference files live in `reference/` (gitignored). When a new reference file
+arrives, extend the parity doc and align the corresponding module.
+
 ## Known deviations from the README (need manager sign-off, do not "fix")
 
 - README excludes Benchmark for `offshore_fpso` and `onshore_unconventional`;

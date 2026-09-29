@@ -53,7 +53,7 @@ SCENARIOS = [
                             'risers': [{'id': f'R{i}', 'count': 1} for i in range(4)],
                             'manifolds': {'generic': 2}, 'umbilicals': [{'id': f'U{i}'} for i in range(3)],
                             'water_depth_m': 1800}),
-     {'Benchmark', 'Calculator_Offshore', 'EquipmentVector', 'SURF_User'}),
+     {'Calculator_Offshore', 'EquipmentVector', 'SURF_User'}),  # Benchmark excluded for offshore_fpso (API)
     ('3. Pipeline quick path',
      scope_base(archetype='pipeline_mainline', length_km=200, od_inches=24.0, diameter_inches=24.0),
      {'Benchmark', 'Calculator_Pipeline'}),
@@ -66,11 +66,11 @@ SCENARIOS = [
     ('5. Unconventional CDP',
      scope_base(archetype='onshore_unconventional', facility_type='central_delivery_point',
                 primary_capacity=150, capacity_unit='MMSCFD', location='New Mexico'),
-     {'Benchmark', 'Unconventional'}),
+     {'Unconventional', 'Calculator_Onshore'}),  # Benchmark excluded for onshore_unconventional (API)
     ('6. LNG 2026 basis year (CP30 escalation)',
      dict(scope_base(archetype='lng_onshore', location='Australia', lng_capacity_mtpa=10, primary_capacity=10,
                      capacity_unit='MTPA'), basis_year=2026),
-     {'Benchmark', 'Calculator_LNG'}),
+     {'Calculator_LNG'}),  # Benchmark excluded for lng_onshore (API)
 ]
 
 

@@ -60,6 +60,13 @@ def _build_equipment_vector(equipment_items: dict) -> tuple:
 # Model 6: EquipmentVector
 # ============================================================================
 
+def _int(v, default=0):
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return default
+
+
 def _parse_vector_table(ev_df: pd.DataFrame):
     """One-time parse of ref_equipment_vectors.csv into a (n, 52) float matrix
     plus per-row metadata. Rows with a missing TEC or an unparseable / wrong
@@ -113,6 +120,11 @@ def run_equipment_vector(scope: Dict, data: DataStore) -> Dict:
     if total == 0:
         return {'can_fire': False, 'no_fire_reason': 'no_resolved_equipment',
                 'model_id': 'EquipmentVector'}
+    if process < 2:
+        # cost_bot_api: valves/instruments alone do not discriminate
+        return {'can_fire': False, 'model_id': 'EquipmentVector',
+                'no_fire_reason': f'too_few_process_items ({process}). Need pumps/exchangers/towers/drums, not just valves/instruments.',
+                'resolved_equipment': resolved, 'unresolved_equipment': unresolved}
 
     ev_df = data.equipment_vectors
     if ev_df.empty:
@@ -124,15 +136,27 @@ def run_equipment_vector(scope: Dict, data: DataStore) -> Dict:
         return {'can_fire': False, 'no_fire_reason': 'no_parseable_equipment_vectors',
                 'model_id': 'EquipmentVector'}
 
+    # Pool gates as cost_bot_api._run_equipment_vector_user: TEC >= screening
+    # floor, at least 3 items, and the archetype's own subset when it has >= 5 rows.
+    keep = np.array([(m['tec_musd_2024'] >= 20.0) and (_int(m['total_items']) >= 3) for m in meta], dtype=bool)
+    archetype = scope.get('archetype')
+    if archetype:
+        arch_mask = keep & np.array([str(m['archetype']) == str(archetype) for m in meta], dtype=bool)
+        if arch_mask.sum() >= 5:
+            keep = arch_mask
+    if not keep.any():
+        return {'can_fire': False, 'no_fire_reason': 'empty_vector_pool', 'model_id': 'EquipmentVector'}
+
     # Cosine similarity against every stored vector in one matrix product.
     # Stored vectors are already L2-normalised but we renormalise defensively.
     norm_a = float(np.linalg.norm(user_vec))
     norms_b = np.linalg.norm(matrix, axis=1)
     with np.errstate(divide='ignore', invalid='ignore'):
         sims = np.where((norm_a > 0) & (norms_b > 0), matrix @ user_vec / (norm_a * norms_b), 0.0)
+    sims = np.where(keep, sims, 0.0)
 
     matches = []
-    for i in np.where(sims > 0.1)[0]:
+    for i in np.where(sims >= 0.30)[0]:  # API threshold for sparse user input
         m = meta[i]
         matches.append({
             'project_name': m['project_name'],
@@ -160,12 +184,17 @@ def run_equipment_vector(scope: Dict, data: DataStore) -> Dict:
     else:
         estimate = float(np.median(costs))
 
+    # Range: P20/P80 of the broader candidate set (top 15), as in the API
+    broad = np.array([m['tec_musd_2024'] for m in matches[:15]])
+    p20, p80 = float(np.percentile(broad, 20)), float(np.percentile(broad, 80))
+
     return {
         'can_fire': True,
         'model_id': 'EquipmentVector',
         'estimate_musd': round(estimate, 1),
-        'estimate_low_musd': round(estimate * 0.5, 1),
-        'estimate_high_musd': round(estimate * 1.5, 1),
+        'estimate_low_musd': round(p20, 1),
+        'estimate_high_musd': round(p80, 1),
+        'n_candidates': len(matches),
         'top_matches': top5,
         'resolved_equipment': resolved,
         'unresolved_equipment': unresolved,

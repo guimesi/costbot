@@ -155,6 +155,9 @@ def main():
     ap.add_argument('--exclude-forecast', action='store_true',
                     help='drop screening-forecast rows from the Benchmark pool (tec_source/gate_stage contains "forecast")')
     ap.add_argument('--summary-only', action='store_true', help='print the tables, not the per-project misses')
+    ap.add_argument('--ensemble-mode', choices=['api', 'engine'], default='api',
+                    help="api = cost_bot_api rules (default); engine = first build's priority gate, "
+                         "unconventional override, geometric blend, symmetric 5x cap")
     args = ap.parse_args()
 
     data = DataStore(args.data_dir) if args.data_dir else DataStore()
@@ -231,6 +234,7 @@ def main():
             'facility_type': (str(facility) if facility else None), 'primary_capacity': cap,
             'capacity_unit': str(unit), 'secondary_params': {},
             'benchmark_size_mode': args.size_hint, 'pool_exclude_forecast': args.exclude_forecast,
+            'ensemble_mode': args.ensemble_mode,
         }
         if 'pipeline' in archetype and cap and str(unit).lower() in ('km', 'miles'):
             scope['length_km'] = cap * (1.609 if str(unit).lower() == 'miles' else 1.0); scope['od_inches'] = 36.0
@@ -276,7 +280,8 @@ def main():
         q = np.percentile(ratios, [25, 50, 75])
         print(f"Truth(2024) / pool TEC(2024) for the same project: median {q[1]:.2f}, IQR {q[0]:.2f} to {q[2]:.2f} "
               f"(near 1.00 means the two agree on what the project cost)")
-    print(f"Settings: size-hint={args.size_hint}, exclude-forecast={args.exclude_forecast}, tolerance={args.tolerance}")
+    print(f"Settings: size-hint={args.size_hint}, exclude-forecast={args.exclude_forecast}, "
+          f"ensemble-mode={args.ensemble_mode}, tolerance={args.tolerance}")
     print(f"Benchmark size signal used: {df.benchmark_size_source.value_counts().to_dict()}")
     only_bm = df[df.models_fired == 'Benchmark']
     print(f"Projects where Benchmark was the only TEC model: {len(only_bm)} "

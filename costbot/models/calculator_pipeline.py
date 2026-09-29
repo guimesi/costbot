@@ -13,15 +13,28 @@ def run_calculator_pipeline(scope: Dict, data: DataStore) -> Dict:
     Sections: linepipe material, mainline construction, crossings (HDD/open cut),
     MLV stations, metering, pump/compressor stations, engineering, survey, contingency.
     """
+    # Inputs as cost_bot_api._run_calculator_pipeline reads them: OD and options
+    # from secondary_params (or top level), length from length_km or from
+    # primary_capacity in miles/km. Defaults NGL / X65 / rural / 500 m HDD.
+    sp = scope.get('secondary_params') or {}
+    if not isinstance(sp, dict):
+        sp = {}
+    def _opt(key, default=None):
+        v = sp.get(key)
+        return v if v is not None else scope.get(key, default)
     length_km = scope.get('length_km') or scope.get('pipeline_length_km')
-    od_in = scope.get('od_inches') or scope.get('diameter_inches', 36)
+    if length_km is None and scope.get('primary_capacity'):
+        unit = (scope.get('capacity_unit') or 'miles').lower()
+        if unit in ('km', 'miles', 'mile', 'mi'):
+            length_km = float(scope['primary_capacity']) * (1.0 if unit == 'km' else 1.60934)
+    od_in = _opt('od_inches') or scope.get('diameter_inches', 36)
     location = scope.get('location', '')
-    grade = scope.get('grade', 'X70')
-    service = (scope.get('service') or 'oil').lower()
-    congestion = (scope.get('congestion') or 'moderate').lower()
-    num_hdd = scope.get('num_hdd_crossings', 0)
-    avg_hdd_m = scope.get('avg_hdd_length_m', 600)
-    num_pump_stations = scope.get('num_pump_stations')
+    grade = _opt('grade', 'X65')
+    service = str(_opt('service', 'NGL')).lower()
+    congestion = str(_opt('congestion', 'rural')).lower()
+    num_hdd = _opt('num_hdd_crossings', 0)
+    avg_hdd_m = _opt('avg_hdd_length_m', 500.0)
+    num_pump_stations = _opt('num_pump_stations')
 
     if length_km is None:
         return {'can_fire': False, 'no_fire_reason': 'missing_pipeline_length',
@@ -32,7 +45,7 @@ def run_calculator_pipeline(scope: Dict, data: DataStore) -> Dict:
     length_ft = length_km * 3280.84
 
     # --- Congestion factor (CET rows 106-110) ---
-    _CONGESTION = {'low': 0.9, 'moderate': 0.95, 'medium': 0.95,
+    _CONGESTION = {'rural': 0.9, 'low': 0.9, 'moderate': 0.95, 'medium': 0.95,
                    'high': 1.0, 'severe': 1.2, 'unconventional': 1.3}
     congestion_f = _CONGESTION.get(congestion, 1.0)
 
@@ -121,9 +134,9 @@ def run_calculator_pipeline(scope: Dict, data: DataStore) -> Dict:
 
     tec_musd = tec / 1e6
 
-    # AACE range (pipeline: -25% to +60%)
-    range_low = tec_musd * 0.75
-    range_high = tec_musd * 1.60
+    # Range as cost_bot_api: -30% / +50%
+    range_low = tec_musd * 0.7
+    range_high = tec_musd * 1.5
 
     return {
         'can_fire': True,

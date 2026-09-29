@@ -28,6 +28,8 @@ STEPS = [
      [PY, 'scripts/evaluate_truth.py', '--redact', '--summary-only', '--exclude-forecast']),
     ('Accuracy variant: pool size hint + forecast rows excluded',
      [PY, 'scripts/evaluate_truth.py', '--redact', '--summary-only', '--size-hint', 'pool', '--exclude-forecast']),
+    ("Accuracy variant: first build's ensemble rules (engine mode)",
+     [PY, 'scripts/evaluate_truth.py', '--redact', '--summary-only', '--ensemble-mode', 'engine']),
     ('Headless UI test', [PY, 'scripts/ui_test.py']),
 ]
 

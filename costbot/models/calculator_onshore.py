@@ -19,14 +19,23 @@ def run_calculator_onshore(scope: Dict, data: DataStore) -> Dict:
     4. Escalation (6% default)
     5. AACE Class 5 range
     """
-    facility_type = scope.get('facility_type') or ''
+    # cost_bot_api: facility_type defaults to process_plant_generic
+    facility_type = scope.get('facility_type') or 'process_plant_generic'
     capacity = scope.get('primary_capacity') or scope.get('capacity')
     capacity_unit = scope.get('capacity_unit') or ''
     location = scope.get('location', '')
-    bf_gf = (scope.get('greenfield_brownfield') or scope.get('scope_type') or 'greenfield').lower()
+    # Scope type as the API derives it: any brownfield / expansion / modification /
+    # debottleneck -> 'BF-expansion', else 'GF'. A caller that talks to the
+    # calculator directly (golden tests) can pass calculator_scope_type verbatim.
+    if scope.get('calculator_scope_type'):
+        bf_gf = str(scope['calculator_scope_type']).lower()
+    else:
+        _bfgf = (scope.get('greenfield_brownfield') or '').lower()
+        _st = (scope.get('scope_type') or '').lower()
+        bf_gf = 'bf-expansion' if ('brown' in _bfgf or _st in ('expansion', 'modification', 'debottleneck')) else 'gf'
 
-    if not facility_type or capacity is None:
-        return {'can_fire': False, 'no_fire_reason': 'missing_facility_type_or_capacity',
+    if capacity is None:
+        return {'can_fire': False, 'no_fire_reason': 'missing_capacity',
                 'model_id': 'Calculator_Onshore'}
 
     capacity = float(capacity)
@@ -83,16 +92,9 @@ def run_calculator_onshore(scope: Dict, data: DataStore) -> Dict:
     escalation_pct = 0.06
     tec_escalated = tec_constant * (1 + escalation_pct)
 
-    # --- Step 5: AACE Class 5 range ---
-    if 'unit_mod' in stk or 'modification' in stk:
-        range_low = tec_escalated * 0.85    # BF-mod: -15% / +50%
-        range_high = tec_escalated * 1.50
-    elif 'expansion' in stk or stk.startswith('bf'):
-        range_low = tec_escalated * 0.75    # expansion: -25% / +40%
-        range_high = tec_escalated * 1.40
-    else:
-        range_low = tec_escalated * 0.70    # GF: -30% / +50%
-        range_high = tec_escalated * 1.50
+    # --- Step 5: range, +/-50% as in cost_bot_api._run_calculator_onshore ---
+    range_low = tec_escalated * 0.5
+    range_high = tec_escalated * 1.5
 
     return {
         'can_fire': True,

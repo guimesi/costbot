@@ -33,13 +33,14 @@ ARCHETYPE_MODELS = {
 }
 
 # Per-archetype model EXCLUSION rules (from cost_bot_api.py test review finding #3)
+# Verbatim from cost_bot_api.py (reference, 2026-09-10). The first build had
+# removed three of these; the real-data run of 2026-09-28 showed Benchmark
+# alone underestimating FPSO and LNG by 60-98%, so the spec stands.
 ARCHETYPE_EXCLUSIONS = {
-    # offshore_fpso: Benchmark exclusion REMOVED — cosine-similarity benchmark
-    #   now finds relevant Guyana FPSO analogues (Hammerhead, Whiptail, Uaru etc.)
-    # onshore_unconventional: Benchmark exclusion REMOVED — cosine benchmark
-    #   can find relevant upstream peers when Unconventional model fails
-    'refinery_bf':            ['Calculator_Onshore'],  # 7.0x overshoot on brownfield
-    # 'lng_onshore':          ['Benchmark'],           # REMOVED — old pool-median was bad but cosine Benchmark finds good LNG analogues (Papua -15%)
+    'offshore_fpso':          ['Benchmark'],            # ratio 0.058, returns pool median for mega-projects
+    'refinery_bf':            ['Calculator_Onshore'],   # 7.0x overshoot on BF mods
+    'onshore_unconventional': ['Benchmark'],            # anchored on wrong pool segment
+    'lng_onshore':            ['Benchmark'],            # pool median meaningless for multi-billion LNG
 }
 
 # ============================================================================
@@ -137,6 +138,10 @@ _FACILITY_ALIASES = {
     'gas_plant_fractionation': 'ngl_fractionation',
     'ngl_processing': 'ngl_fractionation',
     'cs_conversion': 'compressor_station_conversion',
+    # cost_bot_api.FACILITY_TYPE_CORRELATION_MAP
+    'cold_separation_train': 'compressor_station',
+    'train_conversion': 'compressor_station_conversion',
+    'cryo_gas_processing': 'gas_plant_cryo',
 }
 
 # Unconventional model: scope_inputs facility_type -> pool facility_type
@@ -146,6 +151,8 @@ UNCONVENTIONAL_FACILITY_ALIASES = {
     'gas_central_delivery_point': 'central_delivery_point',
     'oil_central_delivery_point': 'central_delivery_point',
     'cdp': 'central_delivery_point',
+    'gas_cdp': 'central_delivery_point',
+    'oil_cdp': 'central_delivery_point',
     'compressor_station': 'cold_separation_train',             # CS Train -> cold separation train in pool
     'compressor_station_conversion': 'train_cryogenic',        # Maverick conversions
     'gas_plant_cryo': 'cryo_gas_processing',                  # Cowboy Cryo -> cryo in pool
@@ -163,6 +170,51 @@ FACILITY_TYPE_OPTIONS = sorted(
     set(ISBL_CORRELATIONS) | set(_FACILITY_ALIASES)
     | set(UNCONVENTIONAL_FACILITY_ALIASES) | set(UNCONVENTIONAL_POOL_FACILITY_TYPES)
 )
+
+# Capacity unit harmonisation (cost_bot_api.UNIT_FAMILIES). Units in the same
+# family are comparable after scaling to the canonical unit; cross-family is not.
+UNIT_FAMILIES = {
+    'kbpd': ('oil_flow', 'KBPD', 1.0), 'kbopd': ('oil_flow', 'KBPD', 1.0), 'kbd': ('oil_flow', 'KBPD', 1.0),
+    'bpd': ('oil_flow', 'KBPD', 0.001), 'mbpd': ('oil_flow', 'KBPD', 1.0),
+    'mmscfd': ('gas_flow', 'MMSCFD', 1.0), 'mscfd': ('gas_flow', 'MMSCFD', 0.001), 'bcfd': ('gas_flow', 'MMSCFD', 1000.0),
+    'mtpa': ('lng', 'MTPA', 1.0),
+    'kta': ('mass_rate', 'KTA', 1.0), 'tpd': ('mass_rate', 'KTA', 0.365), 'ktpa': ('mass_rate', 'KTA', 1.0),
+    'miles': ('pipeline_length', 'miles', 1.0), 'km': ('pipeline_length', 'miles', 0.621371),
+    'mw': ('power', 'MW', 1.0), 'mw_h': ('power', 'MW', 1.0), 'mva': ('power', 'MW', 1.0),
+    'inches': ('pipe_od', 'inches', 1.0), 'in': ('pipe_od', 'inches', 1.0),
+    'wells': ('wells', 'wells', 1.0), 'beds': ('beds', 'beds', 1.0), 'units': ('units', 'units', 1.0),
+    'acm/h': ('acm_h', 'ACM/H', 1.0), 'gpm': ('gpm', 'GPM', 1.0), 'kbbl': ('volume_kbbl', 'kbbl', 1.0),
+    'kl': ('volume_kl', 'kL', 1.0),
+}
+
+
+def normalize_capacity(value, unit):
+    """(value in canonical unit, canonical unit, family) or None (cost_bot_api._normalize_capacity)."""
+    if value is None or unit is None:
+        return None
+    try:
+        value = float(value)
+    except (TypeError, ValueError):
+        return None
+    if value <= 0 or value != value:
+        return None
+    entry = UNIT_FAMILIES.get(str(unit).strip().lower().replace(' ', '_').replace('-', '_'))
+    if entry is None:
+        return None
+    family, canonical, factor = entry
+    return (value * factor, canonical, family)
+
+
+def capacity_match_score(user_norm, analogue_value, analogue_unit) -> float:
+    """max(0, 1 - |ln(analogue/user)|) within the same unit family, else 0 (cost_bot_api)."""
+    import math
+    if user_norm is None:
+        return 0.0
+    a = normalize_capacity(analogue_value, analogue_unit)
+    if a is None or a[2] != user_norm[2] or user_norm[0] <= 0 or a[0] <= 0:
+        return 0.0
+    return max(0.0, 1.0 - abs(math.log(a[0] / user_norm[0])))
+
 
 # TEC multipliers (ISBL -> TEC)
 TEC_MULTIPLIERS = {

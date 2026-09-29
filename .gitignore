@@ -26,3 +26,7 @@ screenshots/
 
 # Validation output (redacted, but keep it out of the repo)
 validation_report.txt
+
+# Reference implementation from the manager (confidential, never commit)
+reference/*
+!reference/README.md

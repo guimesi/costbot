@@ -91,9 +91,9 @@ def run_calculator_lng(scope: Dict, data: DataStore) -> Dict:
     loading_factor = 3.1  # base TEC/direct ratio (includes indirects, eng, contingency)
     tec_musd = total_direct * loading_factor * loc_factor / 1e6
 
-    # AACE range (LNG: -30% to +100% — high uncertainty)
+    # Range as cost_bot_api: -30% / +50%
     range_low = tec_musd * 0.70
-    range_high = tec_musd * 2.00
+    range_high = tec_musd * 1.50
 
     return {
         'can_fire': True,

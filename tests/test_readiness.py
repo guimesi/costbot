@@ -24,7 +24,12 @@ def test_empty_scope_nothing_routed():
 def test_onshore_petchem_minimal():
     r = by_id(model_readiness({'archetype': 'onshore_petchem', 'location': 'US Gulf Coast'}))
     assert r['Benchmark']['status'] == 'ready'
-    assert r['Calculator_Onshore']['status'] == 'needs' and 'facility' in r['Calculator_Onshore']['needs']
+    assert r['Calculator_Onshore']['status'] == 'needs' and r['Calculator_Onshore']['needs'] == 'capacity'
+    # API default: capacity alone fires the generic correlation when the unit is a mass rate
+    r2 = by_id(model_readiness({'archetype': 'onshore_petchem', 'primary_capacity': 500, 'capacity_unit': 'KTA'}))
+    assert r2['Calculator_Onshore']['status'] == 'ready'
+    r3 = by_id(model_readiness({'archetype': 'onshore_petchem', 'primary_capacity': 500, 'capacity_unit': 'MMSCFD'}))
+    assert r3['Calculator_Onshore']['status'] == 'needs'
     assert r['EquipmentVector']['status'] == 'needs'
     assert r['Composite']['status'] == 'needs'
     assert r['OSBL_Estimate']['status'] == 'auto'

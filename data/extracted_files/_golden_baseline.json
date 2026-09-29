@@ -138,7 +138,7 @@
         "location": "Alberta",
         "scope_type": "GF"
       },
-      "tec_musd": 1471.6
+      "tec_musd": 1460.9
     },
     {
       "name": "MOCK_GATHER_12IN_60KM",
@@ -151,7 +151,7 @@
         "location": "Texas-West (Permian)",
         "scope_type": "GF"
       },
-      "tec_musd": 56.1
+      "tec_musd": 55.8
     },
     {
       "name": "MOCK_LNG_10MTPA_AU",

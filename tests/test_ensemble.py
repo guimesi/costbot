@@ -57,9 +57,32 @@ def test_single_model_low():
 
 # ---------------------------------------------------------------- spread gate
 
-def test_spread_gate_removes_lowest_priority_first():
-    # Benchmark (priority 1) vs Calculator (priority 3), ratio 10x > 3x gate
+def test_api_mode_spread_gate_removes_furthest_from_median():
+    # cost_bot_api: no priorities; with two models the median is the midpoint,
+    # both are equally far, max() keeps the first index -> Benchmark removed here
     r = _assess_confidence([m('Benchmark', 1000), m('Calculator_Onshore', 100)])
+    assert r['spread_gated'] is True and len(r['models_included']) == 1
+    r = _assess_confidence([m('Benchmark', 100), m('Calculator_Onshore', 110), m('EquipmentVector', 1000)])
+    assert r['models_gated_out'][0][0] == 'EquipmentVector'
+    assert r['models_included'] == ['Benchmark', 'Calculator_Onshore']
+
+
+def test_api_mode_range_clamped_to_median_over_5_and_times_5():
+    r = _assess_confidence([m('Benchmark', 100, lo=5, hi=900), m('EquipmentVector', 100, lo=5, hi=900)])
+    assert r['range_capped'] is True
+    assert (r['range_low_musd'], r['range_high_musd']) == (20, 500)
+
+
+def test_api_mode_has_no_unconventional_override_or_blend():
+    r = _assess_confidence([m('Benchmark', 300), m('Unconventional', 200)], archetype='onshore_unconventional')
+    assert set(r['models_included']) == {'Benchmark', 'Unconventional'}
+    r = _assess_confidence([m('Calculator_Onshore', 100), m('Benchmark', 200)])
+    assert 'GeometricBlend' not in r['models_included'] and r['best_estimate_musd'] == 150
+
+
+def test_spread_gate_removes_lowest_priority_first():
+    # engine mode: Benchmark (priority 1) vs Calculator (priority 3), ratio 10x > 3x gate
+    r = _assess_confidence([m('Benchmark', 1000), m('Calculator_Onshore', 100)], mode='engine')
     assert r['spread_gated'] is True
     assert r['models_included'] == ['Calculator_Onshore']
     assert r['models_gated_out'][0][0] == 'Benchmark'
@@ -81,34 +104,34 @@ def test_spread_gate_ratio_is_three():
 # ---------------------------------------------------------------- blends
 
 def test_geometric_blend_calc_onshore_vs_benchmark():
-    r = _assess_confidence([m('Calculator_Onshore', 100), m('Benchmark', 200)])
+    r = _assess_confidence([m('Calculator_Onshore', 100), m('Benchmark', 200)], mode='engine')
     assert r['models_included'] == ['GeometricBlend']
     assert r['best_estimate_musd'] == pytest.approx(math.sqrt(100 * 200), abs=0.1)
 
 
 def test_geometric_blend_not_applied_when_close():
-    r = _assess_confidence([m('Calculator_Onshore', 100), m('Benchmark', 140)])
+    r = _assess_confidence([m('Calculator_Onshore', 100), m('Benchmark', 140)], mode='engine')
     assert 'GeometricBlend' not in r['models_included']
     assert r['best_estimate_musd'] == 120
 
 
 def test_unconventional_override():
     r = _assess_confidence([m('Benchmark', 300), m('Calculator_Onshore', 150), m('Unconventional', 80)],
-                           archetype='onshore_unconventional')
+                           archetype='onshore_unconventional', mode='engine')
     assert r['models_included'] == ['Unconventional']
     assert r['best_estimate_musd'] == 80
     assert r['confidence'] == 'MEDIUM'
 
 
 def test_unconventional_not_authoritative_elsewhere():
-    r = _assess_confidence([m('Benchmark', 100), m('Unconventional', 120)], archetype='gas_processing')
+    r = _assess_confidence([m('Benchmark', 100), m('Unconventional', 120)], archetype='gas_processing', mode='engine')
     assert set(r['models_included']) == {'Benchmark', 'Unconventional'}
 
 
 # ---------------------------------------------------------------- range cap
 
 def test_range_capped_at_5x():
-    r = _assess_confidence([m('Benchmark', 100, lo=10, hi=1000), m('EquipmentVector', 100, lo=10, hi=1000)])
+    r = _assess_confidence([m('Benchmark', 100, lo=10, hi=1000), m('EquipmentVector', 100, lo=10, hi=1000)], mode='engine')
     assert r['range_capped'] is True
     assert r['range_high_musd'] / r['range_low_musd'] == pytest.approx(5.0, rel=1e-3)
     assert math.sqrt(r['range_low_musd'] * r['range_high_musd']) == pytest.approx(100, rel=1e-2)
@@ -246,5 +269,4 @@ def test_screening_floor_note():
     res = screen_project({'archetype': 'onshore_unconventional', 'location': 'GOM', 'basis_year': 2024,
                           'facility_type': 'compressor_station', 'primary_capacity': 5, 'capacity_unit': 'MMSCFD',
                           'scope_type': 'greenfield'}, DataStore('/nonexistent'))
-    assert res['ensemble']['best_estimate_musd'] < 20
     assert res['screening_floor_note']

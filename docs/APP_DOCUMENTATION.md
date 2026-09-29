@@ -417,12 +417,14 @@ Some archetype + model combinations are pre-excluded based on testing:
 
 | Archetype | Excluded Model | Reason |
 |---|---|---|
-| refinery_bf | Calculator_Onshore | 7.0× overshoot on brownfield refinery projects. The ISBL scaling + TEC multiplier chain fails for modification scope within refinery_bf. |
+| offshore_fpso | Benchmark | ratio 0.058, returns pool median for mega-projects |
+| refinery_bf | Calculator_Onshore | 7.0× overshoot on brownfield refinery projects |
+| onshore_unconventional | Benchmark | anchored on the wrong pool segment |
+| lng_onshore | Benchmark | pool median meaningless for multi-billion LNG |
 
-Previously excluded combinations that were re-enabled after the Benchmark cosine-similarity rewrite:
-- `offshore_fpso` + Benchmark — re-enabled (now finds relevant Guyana FPSO analogues)
-- `onshore_unconventional` + Benchmark — re-enabled (provides backup when Unconventional model fails)
-- `lng_onshore` + Benchmark — re-enabled (finds good LNG analogues like Papua at -15%)
+Verbatim from `cost_bot_api.py`. The first build had re-enabled three of these;
+the real-data run of 2026-09-28 showed Benchmark alone under-estimating FPSO and
+LNG projects by 60 to 98%, so the reference rules were restored (2026-09-29).
 
 ---
 

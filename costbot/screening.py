@@ -4,7 +4,9 @@ from typing import Dict, List, Optional, Any
 import math
 import pandas as pd
 from costbot.constants import (ARCHETYPE_ALIASES_POOL, ARCHETYPE_EXCLUSIONS, ARCHETYPE_MODELS,
-                               SCREENING_FLOOR_MUSD, ISBL_CORRELATIONS, _FACILITY_ALIASES)
+                               SCREENING_FLOOR_MUSD, ISBL_CORRELATIONS, _FACILITY_ALIASES,
+                               normalize_capacity, capacity_match_score)
+from costbot.models.calculator_onshore import _convert_capacity
 from costbot.data import DataStore
 from costbot.ensemble import _assess_confidence
 from costbot.escalation import _POOL_BASE_YEAR, _apply_cp30_escalation, _get_cp30_escalation_factor
@@ -83,14 +85,19 @@ def model_readiness(scope: Dict, data: Optional[DataStore] = None) -> List[Dict]
     facility = (scope.get('facility_type') or '').strip()
     facility_known = _FACILITY_ALIASES.get(facility, facility) in ISBL_CORRELATIONS if facility else False
     capacity_ok = _has(scope.get('primary_capacity') or scope.get('capacity'))
+    # API default: no facility type -> process_plant_generic, which needs a mass-rate capacity
+    if not facility and capacity_ok:
+        unit = (scope.get('capacity_unit') or '').strip()
+        facility_known = _convert_capacity(1.0, unit, 'KTA') is not None or not unit
 
     gates = {
         'Benchmark': (bool(archetype), 'an archetype'),
         'EquipmentVector': (bool(scope.get('equipment_list')), 'at least one equipment item'),
         'Calculator_Onshore': (
             facility_known and capacity_ok,
-            'facility type + capacity' if not facility else
-            ('capacity' if facility_known else f"a facility type the calculator knows ('{facility}' is not one)")),
+            'capacity' if not capacity_ok else
+            (f"a facility type the calculator knows ('{facility}' is not one)" if facility
+             else 'a facility type (the generic correlation needs a KTA capacity)')),
         'Calculator_Offshore': (
             _has(scope.get('topsides_weight_te')) or _has(sp.get('topsides_weight_te')) or capacity_ok,
             'topsides weight or production (KBPD)'),
@@ -187,7 +194,8 @@ def screen_project(scope: Dict, data: DataStore) -> Dict:
         else:
             tec_viable.append(r)
 
-    ensemble = _assess_confidence(tec_viable, archetype=archetype)
+    ensemble = _assess_confidence(tec_viable, archetype=archetype,
+                                  mode=scope.get('ensemble_mode', 'api'))
 
     if component_estimates:
         comp_dict = {}
@@ -279,16 +287,29 @@ def _get_analogues(scope: Dict, data: DataStore, limit: int = 10) -> List[Dict]:
     if subset.empty:
         return []
 
+    # Scoring per cost_bot_api.get_analogues: feature match (domain, scope type,
+    # facility) + capacity proximity within the same unit family, with adaptive
+    # weights once the exact domain x scope_type slice is well populated.
     s_pd = (scope.get('process_domain') or '').lower()
     s_st = (scope.get('scope_type') or '').lower()
-    s_ft = (scope.get('facility_type') or '').lower()
-    user_cap = scope.get('primary_capacity')
+    s_ft = (scope.get('facility_type') or '').lower().replace(' ', '_').replace('-', '_')
+    user_norm = normalize_capacity(scope.get('primary_capacity'), scope.get('capacity_unit'))
+    exact_n = 0
+    if s_pd and s_st:
+        exact_n = int(((subset['process_domain'].fillna('').str.lower() == s_pd)
+                       & (subset['scope_type'].fillna('').str.lower() == s_st)).sum())
+    if user_norm is not None and exact_n > 50:
+        feature_wt, capacity_wt = 0.35, 0.65
+    elif user_norm is not None and exact_n > 10:
+        feature_wt, capacity_wt = 0.45, 0.55
+    else:
+        feature_wt, capacity_wt = 0.60, 0.40
 
     scored = []
     for _, row in subset.iterrows():
         r_pd = str(row.get('process_domain', '')).lower()
         r_st = str(row.get('scope_type', '')).lower()
-        r_ft = str(row.get('facility_type', '')).lower()
+        r_ft = str(row.get('facility_type', '')).lower().replace(' ', '_').replace('-', '_')
         tec = row.get('tec_musd_normalized_2024')
         if pd.isna(tec) or float(tec) <= 0:
             continue
@@ -298,12 +319,8 @@ def _get_analogues(scope: Dict, data: DataStore, limit: int = 10) -> List[Dict]:
         if s_st and r_st and s_st == r_st: feat += 0.33
         if s_ft and r_ft and s_ft == r_ft: feat += 0.34
 
-        cap_score = 0.0
-        a_cap = row.get('primary_capacity')
-        if user_cap and a_cap and pd.notna(a_cap) and float(user_cap) > 0 and float(a_cap) > 0:
-            cap_score = max(0, 1.0 - abs(math.log(float(a_cap) / float(user_cap))))
-
-        blended = 0.6 * feat + 0.4 * cap_score
+        cap_score = capacity_match_score(user_norm, row.get('primary_capacity'), row.get('capacity_unit'))
+        blended = feature_wt * feat + capacity_wt * cap_score
 
         scored.append({
             'project_name': row.get('project_name', ''),
@@ -317,7 +334,7 @@ def _get_analogues(scope: Dict, data: DataStore, limit: int = 10) -> List[Dict]:
             'scope_type': row.get('scope_type', ''),
         })
 
-    scored.sort(key=lambda x: -x['similarity'])
+    scored.sort(key=lambda x: (-x['similarity'], -x['tec_musd_2024']))
     return scored[:limit]
 
 

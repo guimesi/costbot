@@ -12,12 +12,20 @@ truth, so the LOOCV size hint leaks the answer. Discuss items 1 and 4 with that 
 
 See `REVIEW_2026-09-26.md` section 3. Short form:
 
-1. Benchmark exclusions for `offshore_fpso` and `onshore_unconventional`: README says exclude, engine includes.
-2. OSBL trigger: README "whenever any model fires", engine only from Calculator_Onshore ISBL.
-3. 9 vs 10 models (Composite).
-4. Benchmark firing on archetype alone vs "if size provided".
-5. Brownfield TEC multiplier 1.30x (docs) vs 2.61x (engine, deliberate).
-6. Calculator_LNG in the ensemble with 0% accuracy.
+Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api.md):
+
+1. ~~Benchmark exclusions~~ RESOLVED: the API excludes Benchmark for offshore_fpso,
+   onshore_unconventional and lng_onshore; engine now matches.
+2. ~~OSBL trigger~~ RESOLVED: the API triggers OSBL only from a Calculator_Onshore ISBL
+   (or a user ISBL); engine already did that. The README sentence was loose.
+3. ~~9 vs 10 models~~ RESOLVED: Composite is not in the API; kept as an extra, never routed.
+4. Benchmark firing on archetype alone: the API calls the estimator with whatever
+   features exist; whether it fires without size is inside `analogue_estimator.py` (pending).
+5. Brownfield multiplier: the API sends `BF-expansion` for every brownfield / expansion /
+   modification; the multiplier value is inside `onshore_calculator.py` (pending).
+6. Calculator_LNG in the ensemble: the API includes it (no exclusion). Engine matches.
+7. NEW: the API's 5x cap clamps each bound to median/5 .. median*5 (up to 25x span);
+   the brief's text says high/low <= 5x. Engine follows the API; confirm the intent.
 
 ## Modelling (needs the manager's OK before changing model behaviour)
 

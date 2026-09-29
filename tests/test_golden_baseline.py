@@ -114,6 +114,9 @@ def _base_scope(name: str, inp: Dict) -> Dict:
         "basis_year": 2024,
         "greenfield_brownfield": bf_gf,
         "scope_type": scope_type,
+        # the golden file was produced by calling the calculator directly with
+        # its own scope-type vocabulary (GF, BF-expansion, BF-unit-mod, ...)
+        "calculator_scope_type": inp.get("scope_type", "GF"),
     }
 
 

@@ -9,15 +9,19 @@ from costbot.constants import SPREAD_GATE_RATIO
 # Ensemble Confidence Assessment (from cost_bot_api.py)
 # ============================================================================
 
-def _assess_confidence(model_results: List[Dict], archetype: str = '') -> Dict:
-    """Ensemble confidence assessment with model-priority-aware gating.
+def _assess_confidence(model_results: List[Dict], archetype: str = '', mode: str = 'api') -> Dict:
+    """Spread-gated ensemble.
 
-    Key improvements over naive median:
-    1. For onshore_unconventional: Unconventional model is authoritative (purpose-built)
-    2. Spread gate with 2 models: prefer input-driven model (Calculator/Unconventional)
-       over statistical model (Benchmark) instead of arbitrary median-distance tie-break
-    3. For 3+ models: standard median (robust)
+    mode='api' (default) reproduces cost_bot_api._assess_confidence exactly:
+    remove the model furthest from the median until spread <= 3x, median of
+    survivors, range from survivors' ranges clamped to [median/5, median*5].
+
+    mode='engine' keeps the first build's variations: priority-aware removal
+    (calculators outrank analogue models), Unconventional override for its
+    archetype, geometric blend of Calculator_Onshore + Benchmark when >1.5x
+    apart, and a symmetric 5x cap (high/low <= 5). Kept for evaluation only.
     """
+    engine_mode = (mode == 'engine')
     fired = [m for m in model_results if m.get('can_fire')]
     if not fired:
         return {
@@ -62,8 +66,9 @@ def _assess_confidence(model_results: List[Dict], archetype: str = '') -> Dict:
         # Priority-aware removal: remove the LOWEST priority model first.
         # Among equal priority, remove the one furthest from median.
         med = float(np.median(vals))
-        min_prio = min(_priority(s[1]) for s in survivors)
-        low_prio_idxs = [i for i in range(len(survivors)) if _priority(survivors[i][1]) == min_prio]
+        min_prio = min(_priority(s[1]) for s in survivors) if engine_mode else 0
+        low_prio_idxs = ([i for i in range(len(survivors)) if _priority(survivors[i][1]) == min_prio]
+                         if engine_mode else list(range(len(survivors))))
         if len(low_prio_idxs) < len(survivors):
             # Remove the lowest-priority model furthest from median
             worst_idx = max(low_prio_idxs, key=lambda i: abs(survivors[i][0] - med))
@@ -76,7 +81,7 @@ def _assess_confidence(model_results: List[Dict], archetype: str = '') -> Dict:
 
     # --- For unconventional archetype, prefer the Unconventional model estimate ---
     unconv_override = False
-    if archetype == 'onshore_unconventional':
+    if engine_mode and archetype == 'onshore_unconventional':
         unconv_est = [s for s in survivors if s[1] == 'Unconventional']
         if unconv_est:
             # Use Unconventional directly - it is the authoritative model
@@ -89,7 +94,7 @@ def _assess_confidence(model_results: List[Dict], archetype: str = '') -> Dict:
     # larger. Geometric mean (log-space midpoint) is more robust - it penalizes
     # the outsized model. Validated: no regressions on GCGV, MGV, Strathcona,
     # NA PP where Calculator is correct. Fixes CRISP (311->218).
-    if len(survivors) == 2 and not unconv_override:
+    if engine_mode and len(survivors) == 2 and not unconv_override:
         s_models = {s[1] for s in survivors}
         if 'Calculator_Onshore' in s_models and 'Benchmark' in s_models:
             s_vals = [s[0] for s in survivors]
@@ -127,13 +132,19 @@ def _assess_confidence(model_results: List[Dict], archetype: str = '') -> Dict:
         range_high = median_est * 1.5
 
     range_capped = False
-    # Spec: high/low ratio must not exceed 5x. Cap symmetrically around median
-
-    if range_low > 0 and range_high / range_low > 5.0:
-        half_log = math.log(5.0) / 2.0  # symmetric in log-space
-        range_low = median_est / math.exp(half_log)  # median / sqrt(5)
-        range_high = median_est * math.exp(half_log)  # median * sqrt(5)
-        range_capped = True
+    if engine_mode:
+        # first build: high/low ratio <= 5, symmetric in log-space around the median
+        if range_low > 0 and range_high / range_low > 5.0:
+            half_log = math.log(5.0) / 2.0
+            range_low = median_est / math.exp(half_log)
+            range_high = median_est * math.exp(half_log)
+            range_capped = True
+    elif median_est > 0:
+        # cost_bot_api Fix 1: clamp each bound to median/5 .. median*5
+        if range_low < median_est / 5.0:
+            range_low, range_capped = median_est / 5.0, True
+        if range_high > median_est * 5.0:
+            range_high, range_capped = median_est * 5.0, True
 
     if unconv_override:
         tier = 'MEDIUM'

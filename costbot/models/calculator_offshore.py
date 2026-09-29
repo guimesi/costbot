@@ -24,7 +24,9 @@ def run_calculator_offshore(scope: Dict, data: DataStore) -> Dict:
         topsides_te = sp.get('topsides_weight_te')
 
     kbpd = scope.get('primary_capacity')
-    hull_type = sp.get('hull_type', 'FPSO_newbuild')
+    # cost_bot_api: hull defaults by archetype when derived from KBPD
+    _hull_default = {'offshore_platform': 'semi_sub'}.get(scope.get('archetype', ''), 'FPSO_newbuild')
+    hull_type = sp.get('hull_type') or _hull_default
     location = scope.get('location', '')
     water_depth_m = sp.get('water_depth_m', 1500)
     n_wells = sp.get('n_wells', 0)
@@ -147,9 +149,9 @@ def run_calculator_offshore(scope: Dict, data: DataStore) -> Dict:
     # escalation, inflating offshore estimates by ~2x.
     emma = 1.0  # neutral — location already reflected in fab_factor
 
-    # --- AACE range (offshore: -25% to +50%) ---
-    range_low = tec_M * 0.75
-    range_high = tec_M * 1.50
+    # Range as cost_bot_api: -30% / +50%
+    range_low = tec_M * 0.7
+    range_high = tec_M * 1.5
 
     return {
         'can_fire': True,

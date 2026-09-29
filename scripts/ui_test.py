@@ -38,7 +38,7 @@ def main():
     ok(at, 'after core inputs')
     txt = md_text(at)
     assert 'Benchmark (analogues) :green-badge[Ready]' in txt, txt[:400]
-    assert 'Onshore calculator :gray-badge[Needs facility type + capacity]' in txt
+    assert 'Onshore calculator :gray-badge[Needs capacity]' in txt
     assert 'last_results' not in at.session_state
 
     at.selectbox(key='facility_type').select('polypropylene')
