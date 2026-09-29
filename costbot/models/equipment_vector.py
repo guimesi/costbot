@@ -139,6 +139,9 @@ def run_equipment_vector(scope: Dict, data: DataStore) -> Dict:
     # Pool gates as cost_bot_api._run_equipment_vector_user: TEC >= screening
     # floor, at least 3 items, and the archetype's own subset when it has >= 5 rows.
     keep = np.array([(m['tec_musd_2024'] >= 20.0) and (_int(m['total_items']) >= 3) for m in meta], dtype=bool)
+    excl = {str(x) for x in (scope.get('exclude_planview_ids') or [])}
+    if excl:  # LOOCV: evaluation scripts drop the project's own vector
+        keep &= np.array([str(m['project_id']) not in excl for m in meta], dtype=bool)
     archetype = scope.get('archetype')
     if archetype:
         arch_mask = keep & np.array([str(m['archetype']) == str(archetype) for m in meta], dtype=bool)

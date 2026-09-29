@@ -99,11 +99,34 @@ checks 18 input combinations against the reference file to 1e-6 (skips when
 | Range | -30/+50 in the calculator, overridden to +/-50% by the API wrapper | +/-50% | Aligned (wrapper). |
 | BCEP golden | expected 2650.3 = 474 x (1500/1500)^0.6 x 2.0446 x 2.58 x 1.06: the older `(474, 1500)` tuple | 6574.3 with `(474, 330)` | Stale golden case, not a chain difference. XFAIL note corrected. |
 
+## `evaluation_harness.py` (how the 40/52 was measured), read 2026-09-29
+
+`scripts/evaluate_harness.py` reproduces its conventions with the engine's
+models; `scripts/evaluate_truth.py` stays the "what the user sees" view
+(ensemble P50). The two answer different questions.
+
+| Topic | Reference harness | What it means for the brief's number |
+|---|---|---|
+| Scoring unit | "any model passes": a project is a hit when ANY model, run on its own, lands within +/-30% of ANY of its truths; no ensemble, no archetype exclusions, no 5x clamp | 40/52 is not the accuracy of one number. Our ensemble P50 figure (54% on real data) and the harness figure are not comparable; the closest engine analogue was "best single model" 31/52. |
+| Truths per project | one per (planview_id, eval_type): FINAL row -> Type B, highest `screening_validation` gate row -> Type A. A project can carry both and hit on either | more chances per project than one truth. |
+| Denominator | unique planview_ids; CANARY and non_comparable included | 52 = 48 EVALUATION + 4 INTEGRITY_CANARY, matching the real truth table. |
+| Truth normalisation | CP30 to 2024 at the location from `ref_gate_project_location_mapping.location_free_text` (substring map), fallback Louisiana then Texas-BTN (GOM) | that mapping table is not in the package; the script uses `scope_inputs.location` when present, else the pool's site / cp30 location. |
+| Benchmark | enriched features from truth / pool / scope_inputs (domain, scope type, bf_gf, region from the CP30 location, fac_type, capacity); **no size signal** (`BENCHMARK_SIZE_BUCKET_ENABLED = False`), LOOCV | the reference Benchmark in the 40/52 is the cosine-only one (29% on its own in our matrix). |
+| Composite | `estimate_production(..., apply_oh=True, truth_musd=<truth>)`; the file's own comment: "True for oracle ceiling", "truth leakage finding" | part of the 40/52 comes from a model that reads the answer. Not reproducible and not something a user could run. The script runs the engine's Composite on the project's own chip labels, without OH. |
+| Calculator_Onshore | scope_inputs facility / capacity / free-text secondary_params; scope type from keywords (brownfield/revamp/expansion/existing -> BF-expansion; debottleneck/modification/mod_ -> BF-unit-mod; `_bf` archetype -> BF-expansion; grassroots override, negation-aware); location = free text into the EMMA lookup; unit conversion KBD/KBPD/KBD_NGL -> BPD and MTPA <-> MTPA_CO2 only, any other mismatch = no fire; fires for refinery_bf (exclusions are an API thing) | ported verbatim in the script. Note the harness DOES convert units and refuses mismatches, unlike the API path. |
+| Calculator_Pipeline | OD, service, grade, pipe type, HDD %, congestion parsed from the free text with regexes; length from primary_capacity (miles default); location via `_PIPELINE_LOC_MAP` | parsing ported; `pipe_type` and `pct_hdd` are passed but the engine's pipeline model (pending `pipeline_calculator_v2.py`) does not use them. |
+| Calculator_Offshore | topsides from a JSON `secondary_params`; scored against `truth_total_dev_musd` | ported (score against total dev when present). |
+| Calculator_LNG | trains from a "N train" regex else round(MTPA/5); location free text (default 'png') | ported. |
+| Unconventional | the project's own pool row, `exclude_self=True` | the engine's Unconventional had no self-exclusion until now: `exclude_planview_ids` added (also to EquipmentVector and Composite). Earlier evaluate_truth runs of Unconventional (9/11) may have benefited from the project's own pool row; the corp run will say. |
+| EquipmentVector | the project's own 52-dim vector, LOOCV | ported: own `vector_raw` -> equipment list, self excluded. |
+| SURF | four hard-coded projects scored against a SURF component truth | not reproduced. |
+| Metrics | unweighted counts only (David directive 2026-09-16): N within +/-30%, N within the screening band 0.70..1.60, N zero-viable | same three numbers printed, per archetype too. |
+
 ## Still open after this file
 
-1. `evaluation_harness.py`: exactly which rows and hints produced 40/52, and the
-   scope-type override it applies per archetype (the reference comments mention
-   "line 887 overrides scope_type to BF-expansion for all refinery_bf projects").
-2. `surf_estimator.py`: SURF inputs and pricing (UI card changes with it).
-3. `osbl_estimator.py` + IC Library JSON.
-4. `pipeline_calculator_v2.py`, `lng_calculator.py`, `offshore_calculator.py`: internals.
+1. `surf_estimator.py`: SURF inputs and pricing (UI card changes with it).
+2. `osbl_estimator.py` + IC Library JSON.
+3. `pipeline_calculator_v2.py`, `lng_calculator.py`, `offshore_calculator.py`: internals
+   (and the `pct_hdd` / `pipe_type` inputs the harness already passes).
+4. `composite_estimator.py` / `equipment_vector_estimator.py` / `unconventional_calculator.py`:
+   the pool-side models; the harness shows how they are called, not what they do.

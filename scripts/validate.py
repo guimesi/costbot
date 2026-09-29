@@ -20,6 +20,8 @@ STEPS = [
     ('Golden baseline report', [PY, 'tests/test_golden_baseline.py']),
     ('Engine smoke test', [PY, 'scripts/smoke_test.py']),
     ('Accuracy vs project_truth (redacted)', [PY, 'scripts/evaluate_truth.py', '--redact']),
+    ("Reference harness convention: any model within +/-30%, per-model matrix (the brief's 40/52)",
+     [PY, 'scripts/evaluate_harness.py', '--redact']),
     ('Accuracy variant: user gives the size bucket (order of magnitude)',
      [PY, 'scripts/evaluate_truth.py', '--redact', '--summary-only', '--size-hint', 'bucket']),
     ("Accuracy variant: first build's capacity heuristic",

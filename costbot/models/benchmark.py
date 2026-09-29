@@ -426,7 +426,7 @@ def _target_features_from_scope(scope: Dict) -> Dict:
     if scope.get('primary_capacity'):
         tf['primary_capacity'] = scope['primary_capacity']
         tf['capacity_unit'] = scope.get('capacity_unit')
-    region = api_region_from_location(scope.get('location'))
+    region = scope.get('region') or api_region_from_location(scope.get('location'))
     if region:
         tf['region'] = region
     for k in ('size_estimate_musd', 'size_bucket', 'size_hint', 'size_description', 'size_phrase'):

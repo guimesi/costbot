@@ -24,6 +24,9 @@ def run_unconventional(scope: Dict, data: DataStore) -> Dict:
     if pool.empty:
         return {'can_fire': False, 'no_fire_reason': 'pool_not_loaded', 'model_id': 'Unconventional'}
     uncon = pool[pool['archetype'] == 'onshore_unconventional']
+    excl = [str(x) for x in (scope.get('exclude_planview_ids') or [])]
+    if excl and 'planview_id' in uncon.columns:  # LOOCV: evaluation scripts drop the project itself
+        uncon = uncon[~uncon['planview_id'].astype(str).isin(excl)]
     if uncon.empty or 'facility_type' not in uncon.columns:
         return {'can_fire': False, 'no_fire_reason': 'no_unconventional_in_pool', 'model_id': 'Unconventional'}
 

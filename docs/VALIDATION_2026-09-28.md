@@ -150,3 +150,29 @@ key, falls back to 2.58); both are now ported and should pass.
    feed the calculators' estimate into Benchmark as its size band when a
    calculator fires. Both are measurable with this harness, leak-free.
 3. Default the analogue pool to verified rows (exclude forecasts).
+
+
+---
+
+# Addendum 2026-09-29: what the 40/52 is (from `evaluation_harness.py`)
+
+The manager's harness arrived. Its scorecard is "any model passes": a
+project is a hit when any single model, run on its own with no ensemble, no
+exclusions and no clamp, lands within +/-30% of any of the project's truths
+(a project can carry a FINAL truth and a screening-gate truth). CANARY and
+non_comparable projects count. Its Composite runner corrects with the truth
+value (`apply_oh=True`; the file calls that the "oracle ceiling"). Its
+Benchmark carries no size signal at all.
+
+So the matrix above and the brief measure different things. The row-2 cell
+that "reproduces 40/52" does so by another route (ensemble P50 with the pool
+TEC as size band), a coincidence of totals, not the same computation. The
+honest comparison for the brief's convention is `scripts/evaluate_harness.py`,
+now part of `validate.py`: it prints the per-model matrix and the three
+unweighted counts the harness prints (+/-30%, screening band, zero-viable),
+minus the oracle Composite and the SURF component runner, which no user could
+run. Expect it below 40/52 by roughly the Composite-only hits.
+
+Also new in the engine from this file: LOOCV self-exclusion for
+Unconventional, EquipmentVector and Composite (`exclude_planview_ids`). The
+earlier unconventional 9/11 may have used the project's own pool row.

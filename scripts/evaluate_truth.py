@@ -238,6 +238,7 @@ def main():
             'benchmark_size_mode': ('api' if args.size_hint == 'bucket' else args.size_hint),
             'pool_exclude_forecast': args.exclude_forecast,
             'ensemble_mode': args.ensemble_mode,
+            'exclude_planview_ids': [pid],  # LOOCV for Unconventional / EquipmentVector / Composite too
         }
         if args.size_hint == 'bucket':
             from costbot.models.benchmark import bucket_for_musd

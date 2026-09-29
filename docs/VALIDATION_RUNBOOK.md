@@ -37,7 +37,8 @@ Never commit the real files. `git status` must not list them.
 ```bash
 python scripts/smoke_test.py                       # engine on real data; a scenario may legitimately not fire
 python tests/test_golden_baseline.py               # expect the 12 documented XFAILs and zero FAIL
-python scripts/evaluate_truth.py --redact --csv results.csv
+python scripts/evaluate_truth.py --redact --csv results.csv      # ensemble P50 (what the user sees)
+python scripts/evaluate_harness.py --redact --csv harness.csv    # reference harness convention (the 40/52)
 python scripts/ui_test.py                          # headless UI
 streamlit run app.py                               # click through DEMO_SCRIPT scenarios 1 to 4
 ```

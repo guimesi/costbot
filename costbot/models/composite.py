@@ -157,6 +157,9 @@ def run_composite(scope: Dict, data: DataStore) -> Dict:
     # --- Archetype filtering ---
     # Try exact archetype first, then adjacent, then all chips
     pool_df = chips_df.copy()
+    excl = [str(x) for x in (scope.get('exclude_planview_ids') or [])]
+    if excl and 'planview_id' in pool_df.columns:  # LOOCV: evaluation scripts drop the project's own chips
+        pool_df = pool_df[~pool_df['planview_id'].astype(str).isin(excl)]
     arch_filter_used = 'none'
     if archetype:
         # frankenstein doesn't have archetype column — use semantic classifications

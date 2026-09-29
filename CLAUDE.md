@@ -38,7 +38,8 @@ silently changing them.
 | `scripts/generate_mock_data.py` | Writes the synthetic `data/` package (seed 42). |
 | `scripts/smoke_test.py` | Runs the DEMO_SCRIPT scenarios through the engine, no UI. |
 | `scripts/ui_test.py` | Headless Streamlit `AppTest`: fills scenario 1, exercises the list cards, clicks Run, renders every page. |
-| `scripts/evaluate_truth.py` | LOOCV hit rate at +/-30% per archetype from `project_truth.csv`. Meaningless on mock data. |
+| `scripts/evaluate_truth.py` | LOOCV hit rate at +/-30% per archetype from `project_truth.csv` (ensemble P50: what a user sees). Meaningless on mock data. |
+| `scripts/evaluate_harness.py` | The reference `evaluation_harness.py` convention: every model alone, any model within +/-30% counts, per-model matrix. This is what the brief's 40/52 measures. |
 | `tests/` | pytest: ensemble rules, CP30, bid validation, equipment vector, readiness, report, golden baseline. |
 | `docs/` | `spec/` (manager's brief, email, wireframe), app documentation, demo script, review, backlog, validation runbook. |
 | `Makefile` | `make install`, `make test`, `make run`, `make mock`, `make screenshots`, `make evaluate`. |

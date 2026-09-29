@@ -35,6 +35,11 @@ Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api
       verified pool rows, or feed a calculator's estimate as `size_estimate_musd`.
       Measure with `scripts/evaluate_truth.py --size-hint {api,bucket,capacity,pool}`.
 - [ ] Default `pool_exclude_forecast=True` (drops 381 planview_forecast rows; +2 hits, never hurts).
+- [ ] Composite: the reference's production path sums the project's own scope chips with subtotal
+      gap-filling and an OH correction that reads the truth (`apply_oh=True`). Decide with David what a
+      user-facing Composite may use; the engine's version matches chip labels across projects, no OH.
+- [ ] Pipeline calculator: accept `pipe_type` and `pct_hdd` (the harness passes them) once
+      `pipeline_calculator_v2.py` is available.
 - [x] `chemical_expansion` correlation: the golden BCEP value came from the older tuple
       (474 @ 1500 KTA); the reference now uses (474 @ 330 KTA) and so does the engine.
 - [ ] EMMA gaps inherited from the reference: Joliet, New Mexico, Shanghai, "Texas-BTN (GOM)"
