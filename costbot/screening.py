@@ -4,9 +4,7 @@ from typing import Dict, List, Optional, Any
 import math
 import pandas as pd
 from costbot.constants import (ARCHETYPE_ALIASES_POOL, ARCHETYPE_EXCLUSIONS, ARCHETYPE_MODELS,
-                               SCREENING_FLOOR_MUSD, ISBL_CORRELATIONS, _FACILITY_ALIASES,
-                               normalize_capacity, capacity_match_score)
-from costbot.models.calculator_onshore import _convert_capacity
+                               SCREENING_FLOOR_MUSD, normalize_capacity, capacity_match_score)
 from costbot.data import DataStore
 from costbot.ensemble import _assess_confidence
 from costbot.escalation import _POOL_BASE_YEAR, _apply_cp30_escalation, _get_cp30_escalation_factor
@@ -83,21 +81,14 @@ def model_readiness(scope: Dict, data: Optional[DataStore] = None) -> List[Dict]
     n_flowlines = len(surf.get('flowlines') or [])
 
     facility = (scope.get('facility_type') or '').strip()
-    facility_known = _FACILITY_ALIASES.get(facility, facility) in ISBL_CORRELATIONS if facility else False
     capacity_ok = _has(scope.get('primary_capacity') or scope.get('capacity'))
-    # API default: no facility type -> process_plant_generic, which needs a mass-rate capacity
-    if not facility and capacity_ok:
-        unit = (scope.get('capacity_unit') or '').strip()
-        facility_known = _convert_capacity(1.0, unit, 'KTA') is not None or not unit
+    # Reference calculator: any facility name resolves (alias, substring, else the
+    # generic fallback with a warning), so a capacity is the only hard gate.
 
     gates = {
         'Benchmark': (bool(archetype), 'an archetype'),
         'EquipmentVector': (bool(scope.get('equipment_list')), 'at least one equipment item'),
-        'Calculator_Onshore': (
-            facility_known and capacity_ok,
-            'capacity' if not capacity_ok else
-            (f"a facility type the calculator knows ('{facility}' is not one)" if facility
-             else 'a facility type (the generic correlation needs a KTA capacity)')),
+        'Calculator_Onshore': (capacity_ok, 'capacity'),
         'Calculator_Offshore': (
             _has(scope.get('topsides_weight_te')) or _has(sp.get('topsides_weight_te')) or capacity_ok,
             'topsides weight or production (KBPD)'),

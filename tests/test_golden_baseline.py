@@ -76,16 +76,17 @@ XFAIL = {
     "Woodland_36in_965km": "Pipeline golden from older calc version (ref v2 itself -4.5%)",
     "BMT3_24in_200km":     "Pipeline golden from older calc version (ref v2 itself +27.5%)",
     "PAPL_Expansion":      "Pipeline golden from older calc version (ref v2 itself -16.7%)",
-    # Joliet BF-mods: reference has no EMMA for Joliet (unmapped location)
-    "JO_Flare_Gas":        "Reference has no EMMA for Joliet (maps to 1.0)",
-    "JUDO":                "Reference has no EMMA for Joliet (maps to 1.0)",
-    "Joliet_Vac_Heater":   "Reference has no EMMA for Joliet (maps to 1.0)",
-    # BRACE: BF scope uses different multiplier chain in reference
-    "BRACE":               "BF (non-unit-mod) scope uses different chain in reference",
-    # Found on the real golden file 2026-09-28: expected == ISBL at location x 1.1025,
-    # i.e. the reference applies no ISBL->TEC multiplier (~1.04 x 1.06 escalation) to
-    # the chemical_expansion correlation; the engine applies 2.58 (GF). Decision pending.
-    "BCEP_chemical":       "Reference applies ~1.0 TEC multiplier to chemical_expansion (UNDER INVESTIGATION)",
+    # Joliet BF-mods and BRACE: the reference's EMMA lookup (Joliet -> 202) and its
+    # TEC_MULTIPLIERS.get('BF', 2.58) fallback were ported on 2026-09-29; these should
+    # now PASS on the real golden file. Kept until that run confirms it.
+    "JO_Flare_Gas":        "Expected PASS after the onshore port (Joliet EMMA = 202)",
+    "JUDO":                "Expected PASS after the onshore port (Joliet EMMA = 202)",
+    "Joliet_Vac_Heater":   "Expected PASS after the onshore port (Joliet EMMA = 202)",
+    "BRACE":               "Expected PASS after the onshore port (plain 'BF' -> 2.58)",
+    # Stale golden, not a model difference: 2650.3 = 474 x (1500/1500)^0.6 x 2.0446 x 2.58
+    # x 1.06, i.e. the older chemical_expansion tuple (474 @ 1500 KTA). The reference
+    # file now carries (474 @ 330 KTA) and so does the engine (6574.3).
+    "BCEP_chemical":       "Golden generated with the old chemical_expansion tuple (474 @ 1500 KTA)",
 }
 
 

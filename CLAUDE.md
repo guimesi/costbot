@@ -14,10 +14,12 @@ The spec is the manager's brief in `docs/spec/task_brief_2026-09-15.md` plus
 the update email in `docs/spec/requirement_update_2026-09-16.md` (Sep 16).
 `docs/spec/wireframe_v1.md` is an OLDER UX state and is superseded where they
 conflict. `README.md` at the root is the repo's own readme, not the spec. The reference
-implementation (`cost_bot_api.py` and 15 other modules) is NOT in this repo;
-it lives in a confidential zip we do not have. Treat README/email as the
-source of truth for behaviour and flag deviations instead of silently
-changing them.
+implementation (`cost_bot_api.py` and 15 other modules) is confidential and not
+tracked; the files the manager shares are dropped in `reference/` (gitignored) and
+compared module by module in `docs/PARITY_cost_bot_api.md`. Ported so far:
+`cost_bot_api.py`, `analogue_estimator.py`, `onshore_calculator.py`. Treat those
+files, then README/email, as the source of truth and flag deviations instead of
+silently changing them.
 
 ## Layout
 
@@ -139,9 +141,12 @@ arrives, extend the parity doc and align the corresponding module.
 - README says OSBL runs whenever any model fires; engine runs it only when
   Calculator_Onshore yields an ISBL.
 - README lists 9 models; the app has 10 (Composite added from the wireframe).
-- `TEC_MULTIPLIERS['brownfield']=1.30` is defined but plain brownfield scope
-  uses the expansion multiplier 2.61 on purpose (see comment in
-  `run_calculator_onshore`). Docs say 1.30.
+- Docs say brownfield uses 1.30; the API sends `BF-expansion` (2.61) for every
+  brownfield / expansion / modification scope. 1.30 (`BF-unit-mod`) is reached only
+  when the facility name says modification / conversion / debottleneck, or by a direct
+  calculator call (`calculator_scope_type`). Ported verbatim from `onshore_calculator.py`.
+- Calculator_Onshore converts the capacity unit when it can (KBPD -> BPD); the
+  reference uses the raw number whatever the unit. Unknown units: raw + warning.
 
 ## Style
 

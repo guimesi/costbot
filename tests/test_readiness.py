@@ -25,11 +25,11 @@ def test_onshore_petchem_minimal():
     r = by_id(model_readiness({'archetype': 'onshore_petchem', 'location': 'US Gulf Coast'}))
     assert r['Benchmark']['status'] == 'ready'
     assert r['Calculator_Onshore']['status'] == 'needs' and r['Calculator_Onshore']['needs'] == 'capacity'
-    # API default: capacity alone fires the generic correlation when the unit is a mass rate
+    # reference calculator: capacity alone fires (generic correlation, whatever the unit)
     r2 = by_id(model_readiness({'archetype': 'onshore_petchem', 'primary_capacity': 500, 'capacity_unit': 'KTA'}))
     assert r2['Calculator_Onshore']['status'] == 'ready'
     r3 = by_id(model_readiness({'archetype': 'onshore_petchem', 'primary_capacity': 500, 'capacity_unit': 'MMSCFD'}))
-    assert r3['Calculator_Onshore']['status'] == 'needs'
+    assert r3['Calculator_Onshore']['status'] == 'ready'
     assert r['EquipmentVector']['status'] == 'needs'
     assert r['Composite']['status'] == 'needs'
     assert r['OSBL_Estimate']['status'] == 'auto'
@@ -37,10 +37,10 @@ def test_onshore_petchem_minimal():
         assert r[mid]['status'] == 'not_routed', mid
 
 
-def test_unknown_facility_type_is_explained():
+def test_unknown_facility_type_still_fires():
+    # the reference resolves any name (alias, substring, else the generic fallback with a warning)
     r = by_id(model_readiness({'archetype': 'onshore_petchem', 'facility_type': 'flux capacitor', 'primary_capacity': 10}))
-    assert r['Calculator_Onshore']['status'] == 'needs'
-    assert 'flux capacitor' in r['Calculator_Onshore']['needs']
+    assert r['Calculator_Onshore']['status'] == 'ready'
 
 
 def test_refinery_bf_exclusion_visible():

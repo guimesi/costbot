@@ -61,8 +61,9 @@ MODEL_SPECS = [
      "L2-normalised cosine similarity against 593 project vectors, similarity-weighted top 5.",
      "66% within ±30% (N=29)", "numpy"),
     ('Calculator_Onshore', 'Six-tenths scaling', 'Calculator', 'blue',
-     "ISBL = base × (capacity / reference)^0.6 for 18+ facility types, EMMA location factor, "
-     "ISBL to TEC multiplier by scope type, 6% escalation, AACE class 5 range.",
+     "ISBL from a capacity correlation (IC Library curve for a CDU, power-law tuples for 18 facility types, "
+     "generic fallback otherwise), EMMA location index / 202, ISBL to TEC multiplier by scope type "
+     "(GF 2.58, BF-expansion 2.61, BF-unit-mod 1.30), 6% escalation, no contingency, ±50% range.",
      "79% within ±30% (N=14). Excluded for refinery brownfield (7x overshoot).", "pure Python"),
     ('Calculator_Offshore', 'Topsides weight curves', 'Calculator', 'blue',
      "Topsides weight (given or from production rate) × $/t by hull type, parametric hull, subsea and SURF "

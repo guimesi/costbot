@@ -116,10 +116,24 @@ def _resolve_location(location: str) -> str:
     return CP30_LOCATION_MAP.get(key, location)
 
 
+def _get_emma_index(location: str) -> int:
+    """EMMA location index exactly as onshore_calculator resolves it: exact key, else the
+    first table key that is a substring of the location (or vice versa), else 202
+    (= GOM 2000, factor 1.0). Unmapped places such as Joliet or New Mexico get 202."""
+    location = '' if location is None else str(location)
+    idx = EMMA_LOCATION_INDEX.get(location, 202)
+    if idx == 202 and location not in EMMA_LOCATION_INDEX:
+        loc_l = location.lower()
+        for key, val in EMMA_LOCATION_INDEX.items():
+            if key.lower() in loc_l or loc_l in key.lower():
+                idx = val
+                break
+    return idx
+
+
 def _get_emma_factor(location: str) -> float:
     """EMMA location adjustment factor (index / 202 = GOM 2000 basis)."""
-    if not location:
-        return 1.0
+    return _get_emma_index(location) / 202.0
     loc_l = location.lower().strip()
     # Exact match
     for key, idx in EMMA_LOCATION_INDEX.items():

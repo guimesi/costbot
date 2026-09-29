@@ -245,12 +245,6 @@ def test_onshore_six_tenths_scaling():
     assert a['detail']['emma_factor'] == 1.0  # GOM is the EMMA base
 
 
-def test_onshore_unit_mismatch_does_not_fire():
-    r = run_calculator_onshore({'facility_type': 'polypropylene', 'primary_capacity': 450,
-                                'capacity_unit': 'MMSCFD', 'location': 'GOM'}, DataStore('/nonexistent'))
-    assert not r['can_fire'] and 'unit_mismatch' in r['no_fire_reason']
-
-
 # ---------------------------------------------------------------- component-only (needs mock data)
 
 def test_component_only_when_only_surf_fires():

@@ -128,10 +128,10 @@ ISBL_at_location = ISBL × EMMA_factor
 TEC = ISBL_at_location × TEC_multiplier
 ```
 
-**Inputs required:** facility_type + primary_capacity + capacity_unit. The UI offers facility_type as a dropdown of every name in `ISBL_CORRELATIONS`, `_FACILITY_ALIASES` and the unconventional aliases (`FACILITY_TYPE_OPTIONS`), with an "Other" option for free text.
-**TEC Multipliers:** Greenfield 2.58×, Brownfield 1.30×, Expansion 2.61×, Modification 1.30×
-**ISBL Correlations:** 20+ facility types with tuples of (base_cost_M, reference_capacity, exponent, unit)
-**Scope-type override:** Explicit scope_type from inputs (e.g. "modification", "BF-unit-mod") takes priority over keyword inference from facility_type name
+**Inputs required:** primary_capacity (+ capacity_unit). facility_type is optional: the UI offers a dropdown of every name the models understand (`FACILITY_TYPE_OPTIONS`) with an "Other" option; an unknown or empty name falls back to the generic process-plant correlation with a warning, as the reference does.
+**TEC Multipliers:** GF 2.58×, BF-expansion 2.61×, BF-unit-mod 1.30×; any other scope-type string 2.58×. The API sends BF-expansion for every brownfield / expansion / modification scope; BF-unit-mod is forced when the facility name contains modification / conversion / debottleneck.
+**ISBL Correlations:** 18 power-law tuples (base_cost_M, reference_capacity, exponent, unit), all back-solved from one or two truth projects (`CALIBRATION_STATUS` says which), plus one independent IC Library curve: a single crude distillation unit, linear in kB/SD, valid 50 to 500.
+**Contingency:** none added. The multipliers were calibrated on TEC truth that already includes contingency (reference D.5 fix).
 **EMMA Factor:** Location cost index relative to GOM 2000 baseline (202). Factor = local_index / 202.
 **Note:** Pre-excluded for `refinery_bf` archetype (7.0× overshoot on brownfield refineries).
 

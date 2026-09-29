@@ -21,6 +21,9 @@ from costbot.constants import (
     UNCONVENTIONAL_POOL_FACILITY_TYPES,
     FACILITY_TYPE_OPTIONS,
     TEC_MULTIPLIERS,
+    FACILITY_TYPE_CORRELATION_MAP,
+    IC_LIBRARY_FORMULAS,
+    CALIBRATION_STATUS,
     EMMA_LOCATION_INDEX,
     EMMA_LOCATION_FACTORS,
     CP30_LOCATION_MAP,
@@ -42,6 +45,7 @@ from costbot.escalation import (
     _apply_cp30_escalation,
     _resolve_location,
     _get_emma_factor,
+    _get_emma_index,
 )
 from costbot.models.calculator_onshore import (
     run_calculator_onshore,

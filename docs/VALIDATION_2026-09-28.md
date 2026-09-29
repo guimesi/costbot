@@ -129,6 +129,15 @@ this correlation (1.04 x 1.06 escalation = 1.1024), which suggests the
 the reference, not an ISBL. Marked XFAIL under investigation; decision for
 the manager together with the brownfield multiplier item.
 
+Resolved 2026-09-29 with `onshore_calculator.py` in hand: the golden value is
+the OLD tuple. 474 x (1500/1500)^0.6 x 2.0446 x 2.58 x 1.06 = 2650.3 exactly.
+The reference file now carries `chemical_expansion = (474, 330, 0.60)` with the
+comment "was (474, 1500) but 1500 was wrong capacity", so the golden case is
+stale, not a different multiplier chain. The engine's 6574.3 is what the
+current reference computes. Same file also explains the Joliet cases (its EMMA
+lookup has no Joliet, factor 1.0) and BRACE (plain "BF" is not a multiplier
+key, falls back to 2.58); both are now ported and should pass.
+
 ## Implications
 
 1. The accuracy the brief reports is not what a user will experience.

@@ -111,37 +111,104 @@ ISBL_CORRELATIONS = {
     'compressor_station_conversion': (2.9, 70, 0.30, 'MMSCFD'),
 }
 
+# Facility-type override applied by cost_bot_api before the calculator
+# (FACILITY_TYPE_CORRELATION_MAP): pool / unconventional names -> correlation key.
+FACILITY_TYPE_CORRELATION_MAP = {
+    'central_delivery_point':          'gas_plant_cryo',
+    'gas_central_delivery_point':      'gas_plant_cryo',
+    'oil_central_delivery_point':      'process_plant_generic',
+    'gas_compression_dehydration':     'gas_plant_cryo',
+    'compressor_station':              'compressor_station',
+    'cold_separation_train':           'compressor_station',
+    'cryo_gas_processing':             'gas_plant_cryo',
+    'train_conversion':                'compressor_station_conversion',
+}
+
+# Alias map verbatim from onshore_calculator.py. ORDER MATTERS: the reference
+# falls back to a substring match over this dict (first hit wins), then over
+# ISBL_CORRELATIONS, then to process_plant_generic. Do not reorder or "tidy".
 _FACILITY_ALIASES = {
     'ethylene': 'ethylene_complex', 'cracker': 'ethylene_cracker',
     'pe': 'polyethylene', 'pp': 'polypropylene',
     'hdpe': 'polyethylene', 'ldpe': 'polyethylene', 'lldpe': 'polyethylene',
-    'refinery': 'refinery_bf', 'crude_distillation': 'refinery_bf',
-    'hdt': 'hydrotreater', 'carbon_capture': 'ccs',
-    'hydrogen_plant': 'process_plant_generic',
-    'crude_unit': 'refinery_bf',
-    'gas_plant': 'gas_plant_cryo', 'cryogenic_plant': 'gas_plant_cryo',
-    'central_delivery_point': 'gas_plant_cryo',
-    'gas_compression_dehydration': 'gas_plant_cryo',
-    'gas_central_delivery_point': 'gas_plant_cryo',
-    'oil_central_delivery_point': 'process_plant_generic',
-    # P4 additions: golden baseline coverage
-    'onshore_process': 'process_plant_generic',
-    'process_plant': 'process_plant_generic',
-    'atmospheric_pipestill': 'refinery_bf',  # CDU = refinery core unit
-    'fluid_cracking': 'refinery_bf',        # FCC = refinery core unit
-    'hydrocracking': 'refinery_bf',         # HCU = refinery core unit
-    'fcc': 'refinery_bf', 'fcc_cracker': 'refinery_bf',
-    'coker': 'refinery_bf', 'delayed_coker': 'refinery_bf',
-    'oil_sands_pad': 'oil_sands_mining', 'bitumen': 'oil_sands_mining',
     'meg': 'gas_to_chemical', 'mto': 'gas_to_chemical',
-    'polyolefins': 'ethylene_complex',
+    'refinery': 'refinery_bf', 'crude_distillation': 'refinery_bf',
+    'hdt': 'hydrotreater', 'fcc_cracker': 'refinery_bf', 'coker': 'refinery_bf',
+    'oil_sands_sagd': 'oil_sands_mining', 'bitumen': 'oil_sands_mining',
+    'polyolefins': 'ethylene_complex', 'carbon_capture': 'ccs',
+    'cdu': 'crude_distillation_unit',            # IC Library CDU curve (non-circular)
+    'cdu_addition': 'crude_distillation_unit',
     'gas_plant_fractionation': 'ngl_fractionation',
-    'ngl_processing': 'ngl_fractionation',
+    'ngl_processing': 'ngl_fractionation', 'debutanizer': 'ngl_fractionation',
+    'gas_plant': 'gas_plant_cryo',
+    'cryogenic_plant': 'gas_plant_cryo',
     'cs_conversion': 'compressor_station_conversion',
-    # cost_bot_api.FACILITY_TYPE_CORRELATION_MAP
-    'cold_separation_train': 'compressor_station',
-    'train_conversion': 'compressor_station_conversion',
-    'cryo_gas_processing': 'gas_plant_cryo',
+    'engine_to_motor': 'compressor_station_conversion',
+    'electricification_conversion': 'compressor_station_conversion',
+    'crude_unit': 'crude_distillation_unit',
+}
+
+# IC Library Rev 6.7 heritage curves (onshore_calculator.IC_LIBRARY_FORMULAS).
+# Linear, per PROCESS UNIT (a single CDU, not a refinery project). GOM 2000 $M.
+IC_LIBRARY_FORMULAS = {
+    'crude_distillation_unit': {
+        'a_slope': 0.0662, 'b_intercept': 3.3812, 'formula_type': 'linear',
+        'valid_min': 50, 'valid_max': 500, 'capacity_unit': 'KBSD',
+        'source': 'IC Library Rev 6.7, cell AA9 with input I8',
+        'scope_note': 'ISBL for single CDU process unit only, NOT whole-refinery project. '
+                      'CDU ISBL is typically 2-4% of total refinery project ISBL.',
+    },
+}
+
+# Workbook anchors from the reference's 2026-08-01 heritage audit (documentation only).
+_HERITAGE_CURVE_REFERENCES = {
+    'crude_distillation': 'IC Library!AA9 with input IC Library!I8: (0.0662*Q + 3.3812)*1000 for 50<=Q<=500 kB/SD',
+    'fcc_cracker': 'IC Library!AA726 and IC Library!AA728 (Fluid Cracking): separate reactor-volume and feed-rate curves; no single whole-unit tuple',
+    'coker': 'IC Library!AA548, AA553, AA556, AA560, AA562, AA567, AA574, AA577 (Delayed Coking): multi-section model; no single whole-unit tuple',
+    'hydrocracker': 'IC Library!I463/I466/I469 plus AA473/AA477/AA481 (Hydrocracking): user-entered reactor baseyear costs plus adjustments; no single whole-unit tuple',
+    'hydrotreater': 'IC Library!BD1731:BD1745 with AA1708/AA1709 (Virgin Hydrotreating): lookup/piecewise unit curves, not a single tuple',
+    'hydrogen_unit': 'IC Library!AA2451, AA2455, AA2457, AA2463, AA2465, AA2467, AA2472, AA2478, AA2479 (Hydrogen Plant): multi-section model',
+    'sulfur_recovery': 'IC Selection!A147/C147/D147 shows On-Hold; no implemented IC Library curve block found in workbook',
+    'gas_processing': 'Closest heritage match is IC Library 7-03-010 Gas Compression; no gas plant whole-facility tuple found',
+    'gas_processing_ccs': 'NOT FOUND IN IC Library Rev 6.7 or Onshore CET Rev 0.7',
+    'lng_liquefaction': 'NOT FOUND IN IC Library Rev 6.7 or Onshore CET Rev 0.7',
+    'ngl_fractionation': 'Closest heritage matches are Light ends recovery / Pumpback Reflux Fractionator / Absorber-Deethanizers; no direct NGL fractionation tuple found',
+    'ethylene_cracker': 'NOT FOUND IN IC Library Rev 6.7 or Onshore CET Rev 0.7',
+    'polyethylene': 'NOT FOUND IN IC Library Rev 6.7 or Onshore CET Rev 0.7',
+    'polypropylene': 'NOT FOUND IN IC Library Rev 6.7 or Onshore CET Rev 0.7',
+    'polyolefins': 'NOT FOUND IN IC Library Rev 6.7 or Onshore CET Rev 0.7',
+    'oil_sands_mining': 'NOT FOUND IN IC Library Rev 6.7 or Onshore CET Rev 0.7',
+    'oil_sands_sagd': 'NOT FOUND IN IC Library Rev 6.7 or Onshore CET Rev 0.7',
+    'carbon_capture': 'NOT FOUND IN IC Library Rev 6.7 or Onshore CET Rev 0.7 as a whole-facility curve; only Hydrogen Plant CO2-removal section exists',
+    'co2_pipeline': 'Closest heritage match is IC Selection row 206 Offsite Piping / row 207 Cross Country Pipelines; no CO2-specific tuple found',
+    'power_generation': 'IC Library rows 3005-3069 (Electrical Power - Generated): technology-specific multi-section model, not a single tuple',
+    'water_treatment': 'Closest heritage match is IC Library rows 4131-4142 Waste Disposal - Secondary Treatment (Biological); multivariate, not a single tuple',
+    'process_plant_generic': 'Generic screening placeholder only; not traceable to IC Library',
+    'refinery_modification': 'Generic screening placeholder only; not traceable to IC Library',
+}
+
+# Circularity metadata per correlation (onshore_calculator.CALIBRATION_STATUS).
+# Surfaced in the model detail so nobody quotes a back-solved N=1 tuple as accuracy.
+CALIBRATION_STATUS = {
+    'refinery_modification': {'N': 1, 'circular': True, 'source_project': 'Fawley FAST', 'note': 'Back-solved N=1, alias of refinery_bf'},
+    'refinery_bf': {'N': 1, 'circular': True, 'source_project': 'Fawley FAST', 'note': 'Back-solved N=1'},
+    'hydrotreater': {'N': 1, 'circular': True, 'source_project': 'SCANfiner', 'note': 'Back-solved N=1. IC Library has piecewise curves but coefficients not extracted.'},
+    'polypropylene': {'N': 1, 'circular': True, 'source_project': 'NA PP Growth', 'note': 'Back-solved N=1. NOT FOUND in IC Library.'},
+    'polyethylene': {'N': 1, 'circular': True, 'source_project': 'BPEX', 'note': 'Back-solved N=1. NOT FOUND in IC Library. Pool fit failed (all 3 ind. at 500 KTA).'},
+    'process_plant_generic': {'N': 0, 'circular': False, 'source_project': 'None', 'note': 'DEPRECATED: Hand-tuned fallback with no traceable source. Prefer EquipmentVector for unknown facility types.'},
+    'ethylene_complex': {'N': 1, 'circular': True, 'source_project': 'GCGV', 'note': 'Back-solved N=1. NOT FOUND in IC Library. Multi-product integrated complex.'},
+    'ethylene_cracker': {'N': 1, 'circular': True, 'source_project': 'GCGV', 'note': 'Alias of ethylene_complex'},
+    'chemical_expansion': {'N': 1, 'circular': True, 'source_project': 'BCEP', 'note': 'Back-solved N=1. KEEP: only model that fires well for BCEP (0.94x). EV also passes (0.87x).'},
+    'ngl_fractionation': {'N': 1, 'circular': True, 'source_project': 'LEED', 'note': 'Back-solved N=1. EV provides backup (0.95x). Closest IC Library: light ends / absorber-deethanizers.'},
+    'gas_to_chemical': {'N': 1, 'circular': True, 'source_project': 'MGV China1', 'note': 'Back-solved N=1. Calc_Onshore does not fire for MGV in eval. Composite(1.00x) and EV(0.78x) cover it.'},
+    'renewable_diesel': {'N': 1, 'circular': True, 'source_project': 'SHRED', 'note': 'Back-solved N=1. KEEP: only accurate model (1.06x). EV fails (0.64x).'},
+    'oil_sands_mining': {'N': 1, 'circular': True, 'source_project': 'Kearl ITAI', 'note': 'Back-solved N=1. NOT FOUND in IC Library. Not in current eval run.'},
+    'ccs': {'N': 2, 'circular': True, 'source_project': 'Rose + LaBarge', 'note': 'N=2 but unit mismatch (MTPA vs MMSCFD). KEEP: only model that fires for Rose CCS (1.16x).'},
+    'ccs_gas_processing': {'N': 2, 'circular': True, 'source_project': 'Rose + LaBarge', 'note': 'Alias of ccs'},
+    'compressor_station': {'N': 1, 'circular': True, 'source_project': 'Cougar CS T3', 'note': 'Back-solved N=1. Unconventional also passes (1.00x) but equally circular.'},
+    'gas_plant_cryo': {'N': 2, 'circular': True, 'source_project': 'Cowboy Cryo T1/T2', 'note': 'N=2 identical trains - effectively N=1. Unconventional (0.94x) also circular.'},
+    'compressor_station_conversion': {'N': 2, 'circular': True, 'source_project': 'Maverick T1/T2', 'note': 'N=2 at same capacity. Unconventional also passes but equally circular.'},
+    'crude_distillation_unit': {'N': 'multi-point', 'circular': False, 'source_project': 'IC Library Rev 6.7 (engineering curve)', 'note': 'INDEPENDENT. Linear formula for single CDU, not whole-refinery project.'},
 }
 
 # Unconventional model: scope_inputs facility_type -> pool facility_type
@@ -167,7 +234,8 @@ UNCONVENTIONAL_POOL_FACILITY_TYPES = [
 # Every facility_type string some model understands. The UI builds its
 # dropdown from this so a typo can no longer silently disable a calculator.
 FACILITY_TYPE_OPTIONS = sorted(
-    set(ISBL_CORRELATIONS) | set(_FACILITY_ALIASES)
+    set(ISBL_CORRELATIONS) | set(_FACILITY_ALIASES) | set(IC_LIBRARY_FORMULAS)
+    | set(FACILITY_TYPE_CORRELATION_MAP)
     | set(UNCONVENTIONAL_FACILITY_ALIASES) | set(UNCONVENTIONAL_POOL_FACILITY_TYPES)
 )
 
@@ -216,42 +284,41 @@ def capacity_match_score(user_norm, analogue_value, analogue_unit) -> float:
     return max(0.0, 1.0 - abs(math.log(a[0] / user_norm[0])))
 
 
-# TEC multipliers (ISBL -> TEC)
+# TEC multipliers (ISBL -> TEC), keys exactly as onshore_calculator.TEC_MULTIPLIERS.
+# Anything else (e.g. the golden file's plain "BF") falls back to 2.58 in the
+# reference (`TEC_MULTIPLIERS.get(scope_type, 2.58)`); the engine does the same.
+# Calibrated on truth TEC that already includes contingency: never add contingency on top.
 TEC_MULTIPLIERS = {
-    'greenfield':   2.58,
-    'brownfield':   1.30,
-    'expansion':    2.61,
-    'modification': 1.30,
+    'GF':           2.58,
+    'BF-expansion': 2.61,
+    'BF-unit-mod':  1.30,
 }
 
-# EMMA location index (from GP-10-30 4Q2025 and ref_cp30_combined_idx * 202)
-# GOM 2000 = 202 (by definition). Factor = index / 202.
-# source: onshore_calculator.py EMMA_LOCATION_INDEX (42 verified/estimated locations)
+# EMMA location index, CP-10-30 TEC composite, BASEYEAR (Baton Rouge 1977) = 100,
+# GOM 2000 = 202. Factor = index / 202. Verbatim from onshore_calculator.py
+# (VERIFIED 4Q2025 export, ESTIMATED from ref_cp30 * 202, UNVERIFIED estimates).
+# ORDER MATTERS: the reference resolves an unknown location by the first key
+# that is a substring of it (or vice versa); anything unmatched is 202 (factor 1.0),
+# e.g. "Joliet" and "New Mexico". Keep the table as the reference has it.
 EMMA_LOCATION_INDEX = {
-    # --- VERIFIED: CP-10-30 4Q2025 (EVM export) ---
-    'GOM': 202, 'GOM 2000': 202, 'Strethcona': 486, 'Canada': 486,
-    'Canada Alberta': 486, 'Strathcona': 486,
+    # --- VERIFIED: CP-10-30 4Q2025 (BVM export) ---
+    'GOM': 202, 'GOM 2000': 202,
+    'Canada Alberta': 486, 'Strathcona': 486, 'Canada': 486,
     'Illinois': 665, 'Belgium': 529, 'Antwerp': 529,
     'Singapore': 404, 'Australia': 513, 'Western Australia': 605,
     'Angola': 521, 'Qatar': 415,
-    # --- ESTIMATED: ref_cp30_combined_idx * 202 (2025) ---
+    # --- ESTIMATED: ref_cp30_combined_indices combined_idx * 202 (2025) ---
     'US Gulf Coast': 414, 'Texas': 414, 'Beaumont': 414,
     'Baytown': 413, 'Baton Rouge': 413, 'Louisiana': 418,
-    'Texas-BMT': 414, 'Texas-BTN (GOM)': 413,
-    'India': 264, 'China': 278, 'Shanghai': 278,
+    'India': 264, 'China': 278,
     'Netherlands': 415, 'Rotterdam': 415,
     'Nigeria': 389, 'Saudi Arabia': 323, 'Middle East': 323,
-    'Mozambique': 366, 'UK': 456, 'United Kingdom': 456, 'Fawley': 456,
-    # --- UNVERIFIED: estimated ---
+    'Mozambique': 366, 'UK': 456, 'Fawley': 456,
+    # --- UNVERIFIED: no primary source ---
     'North Sea': 435, 'Norway': 500,
     'US Midwest': 519, 'US West Coast': 550,
     'West Africa': 450, 'Guyana': 380,
     'Brazil': 400, 'Kazakhstan': 404,
-    'New Mexico': 412, 'Persian': 412,
-    'Equatorial Guinea': 450, 'Mexico': 380,
-    'Alberta': 486, 'Joliet': 519,  # Illinois proxy
-    'Papua New Guinea': 450,
-    'Eastern Canada': 500,
 }
 
 # Backward-compatible factor dict (index / 202)

@@ -22,8 +22,8 @@ Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api
 4. ~~Benchmark firing on archetype alone~~ RESOLVED by `analogue_estimator.py`: it fires
    without a size (cosine on categories) and takes an optional size bucket / explicit size.
    The README's "if size provided" is that bucket; the UI now offers it as "Rough size".
-5. Brownfield multiplier: the API sends `BF-expansion` for every brownfield / expansion /
-   modification; the multiplier value is inside `onshore_calculator.py` (pending).
+5. ~~Brownfield multiplier~~ RESOLVED by `onshore_calculator.py`: GF 2.58, BF-expansion 2.61,
+   BF-unit-mod 1.30, anything else 2.58. Ported verbatim (2026-09-29).
 6. Calculator_LNG in the ensemble: the API includes it (no exclusion). Engine matches.
 7. NEW: the API's 5x cap clamps each bound to median/5 .. median*5 (up to 25x span);
    the brief's text says high/low <= 5x. Engine follows the API; confirm the intent.
@@ -35,8 +35,14 @@ Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api
       verified pool rows, or feed a calculator's estimate as `size_estimate_musd`.
       Measure with `scripts/evaluate_truth.py --size-hint {api,bucket,capacity,pool}`.
 - [ ] Default `pool_exclude_forecast=True` (drops 381 planview_forecast rows; +2 hits, never hurts).
-- [ ] `chemical_expansion` correlation: reference applies ~1.0 TEC multiplier (golden
-      BCEP_chemical). Decide whether that correlation is TEC-level.
+- [x] `chemical_expansion` correlation: the golden BCEP value came from the older tuple
+      (474 @ 1500 KTA); the reference now uses (474 @ 330 KTA) and so does the engine.
+- [ ] EMMA gaps inherited from the reference: Joliet, New Mexico, Shanghai, "Texas-BTN (GOM)"
+      resolve to factor 1.0 (the lookup finds no key, or hits "GOM" first). Illinois is 665
+      in the same table. Ask David whether Joliet should map to Illinois.
+- [ ] Reference alias quirks kept for parity: any name containing "pe" (e.g.
+      atmospheric_pipestill) resolves to polyethylene, "...ethylene..." to ethylene_complex.
+      Worth a curated alias list once David agrees.
 
 ## Engineering
 

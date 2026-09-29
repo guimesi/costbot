@@ -23,7 +23,7 @@ superset" means the engine does more but the API behaviour is preserved;
 
 | Model | API behaviour | Now |
 |---|---|---|
-| Calculator_Onshore | facility_type defaults to `process_plant_generic`; scope type is `BF-expansion` for any brownfield / expansion / modification / debottleneck, else `GF`; `FACILITY_TYPE_CORRELATION_MAP`; range +/-50% | **Aligned**: default facility, API scope-type rule (calculator callers can still pass `calculator_scope_type` verbatim, the golden tests do), map entries added, range +/-50%. The 1.30x "modification" chain is therefore reached only by a direct calculator call, never through the API path. Multiplier values themselves: pending `onshore_calculator.py`. |
+| Calculator_Onshore | facility_type defaults to `process_plant_generic`; scope type is `BF-expansion` for any brownfield / expansion / modification / debottleneck, else `GF`; `FACILITY_TYPE_CORRELATION_MAP`; range +/-50% | **Aligned**, and the calculator itself is now a verbatim port of `onshore_calculator.py` (section below). |
 | Calculator_Pipeline | OD and options from `secondary_params`; length from `primary_capacity` in miles (default) or km; defaults service NGL, grade X65, congestion rural, HDD 500 m; range -30%/+50% | **Aligned** on inputs, defaults and range. Rates and the congestion table: pending `pipeline_calculator_v2.py`. |
 | Calculator_LNG | capacity from `primary_capacity`, trains = round(MTPA/5); range -30%/+50% | **Aligned** on range (was +100%). Equations: pending `lng_calculator.py`. |
 | Calculator_Offshore | topsides from `secondary_params` or derived from KBPD with hull by archetype (platform = semi_sub); range -30%/+50% | **Aligned**. Steps: pending `offshore_calculator.py`. |
@@ -77,10 +77,33 @@ gives a rough size: the validation matrix reports both.
 Open question for `evaluation_harness.py`: cost basis of the comparison
 (the Benchmark returns GOM-2024 dollars; the calculators return at-location).
 
+## `onshore_calculator.py` (Calculator_Onshore), read 2026-09-29
+
+`costbot/models/calculator_onshore.py` is a port of `estimate_onshore_tec()`
+called the way `_run_calculator_onshore()` calls it. `tests/test_calculator_onshore.py`
+checks 18 input combinations against the reference file to 1e-6 (skips when
+`reference/onshore_calculator.py` is absent).
+
+| Topic | Reference | Engine before | Now |
+|---|---|---|---|
+| TEC multipliers | `GF` 2.58, `BF-expansion` 2.61, `BF-unit-mod` 1.30; `TEC_MULTIPLIERS.get(scope_type, 2.58)` so any other string (the golden's plain `BF`) is 2.58 | keys greenfield / brownfield / expansion / modification, plain BF -> 2.61 | **Verbatim.** Explains the BRACE golden case. |
+| Modification override | facility name containing modification / conversion / debottleneck forces `BF-unit-mod` | same idea, different key names | Verbatim. |
+| Contingency | not added (`include_contingency=False`; multipliers calibrated on TEC truth that includes it) | not added | Aligned. `estimate_contingency_scsa` and the TCC / PI / EM / other-indirect CET sections exist in the reference for a user-facing breakdown; not called by the API path, not ported. |
+| Escalation | 6% flat (4Q2025 indices to expenditure midpoint) | 6% | Aligned. |
+| Facility resolution | exact IC Library key, exact tuple, alias, **substring** over aliases then over tuple keys (first hit), else `process_plant_generic` with a fallback reason; the calculator always fires | exact key or alias only, else no fire | **Verbatim**, including the quirks: `atmospheric_pipestill` hits alias `pe` (polyethylene), `polyethylene_expansion` hits `ethylene` (ethylene_complex). Readiness now needs a capacity only. The fallback reason is surfaced as the model warning. |
+| IC Library CDU curve | `crude_distillation_unit` (aliases cdu, cdu_addition, crude_unit): ISBL = 0.0662 Q + 3.3812 $M, Q in kB/SD, valid 50 to 500; out of range via an alias raises in the reference (API: no fire) | absent (crude_unit -> refinery_bf) | Ported, out-of-range reports `ic_library_out_of_range`. |
+| Tuples | 18 power-law tuples; `chemical_expansion = (474, 330)` | same 18 | Same. `CALIBRATION_STATUS` (N, circular, source project) now in the detail. |
+| EMMA | 40 keys; exact, else first key that is a substring of the location or vice versa, else 202 | table with 13 engine additions (Joliet 519, New Mexico 412, Shanghai, United Kingdom, ...) | **Verbatim table and lookup.** Joliet, New Mexico, Shanghai, "Texas-BTN (GOM)" (hits `GOM` first) are factor 1.0 as in the reference; explains the three Joliet golden cases. Additions dropped; listed in the backlog for David. |
+| Capacity unit | ignored for the tuples (raw number); BPD -> kB/SD only for the CDU curve | converted, no fire on a mismatch | **Deviation kept on purpose**: converted when a conversion is known (KBPD -> BPD, MTPA -> KTA, ...), raw number + warning otherwise. Same result as the reference whenever the unit matches the tuple's. |
+| Empty facility type | `''` substring-matches the first alias (`ethylene`) | generic | Deviation: engine uses the API's documented default `process_plant_generic`. |
+| Range | -30/+50 in the calculator, overridden to +/-50% by the API wrapper | +/-50% | Aligned (wrapper). |
+| BCEP golden | expected 2650.3 = 474 x (1500/1500)^0.6 x 2.0446 x 2.58 x 1.06: the older `(474, 1500)` tuple | 6574.3 with `(474, 330)` | Stale golden case, not a chain difference. XFAIL note corrected. |
+
 ## Still open after this file
 
-1. `analogue_estimator.py`: Benchmark internals, the size band and the 77%.
-2. `onshore_calculator.py`: multipliers per scope type, `chemical_expansion` (golden BCEP), EMMA table.
-3. `evaluation_harness.py`: exactly which rows and hints produced 40/52.
-4. `surf_estimator.py`: SURF inputs and pricing (UI card changes with it).
-5. `osbl_estimator.py` + IC Library JSON.
+1. `evaluation_harness.py`: exactly which rows and hints produced 40/52, and the
+   scope-type override it applies per archetype (the reference comments mention
+   "line 887 overrides scope_type to BF-expansion for all refinery_bf projects").
+2. `surf_estimator.py`: SURF inputs and pricing (UI card changes with it).
+3. `osbl_estimator.py` + IC Library JSON.
+4. `pipeline_calculator_v2.py`, `lng_calculator.py`, `offshore_calculator.py`: internals.
