@@ -36,8 +36,8 @@ Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api
       gives. Its silent fallback to the project's own pool TEC was removed. Round 4 (leak-free):
       29% without a size for either variant; with the user's size bucket 63% (engine) vs 44%
       (reference); harness convention 48% vs 38%. See docs/VALIDATION_2026-09-30.md.
-- [ ] Make the engine variant the default and promote "Rough size" out of the optional
-      area: it is the one input that moves accuracy (29% -> 63%). Guilherme to confirm.
+- [x] App defaults to the engine variant (2026-09-30); "Rough size" sits in the project card
+      with the accuracy figures in its help text. Evaluation scripts keep the reference as default.
 - [ ] Zero in every configuration: oil sands, LNG, integrated petchem. Needs the
       `lng_calculator.py` / `offshore_calculator.py` references and an oil-sands correlation.
 

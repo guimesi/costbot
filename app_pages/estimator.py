@@ -39,8 +39,8 @@ with left:
             placeholder="Optional: order of magnitude",
             format_func=lambda b: f"{b.replace('_', ' ').capitalize()}  ("
                                   f"${SIZE_BUCKETS[b]['range_musd'][0]:,.0f}M to ${SIZE_BUCKETS[b]['range_musd'][1]:,.0f}M)",
-            help="Your own order-of-magnitude judgement. It narrows the benchmark's analogue pool to "
-                 "projects of similar size; without it the benchmark matches on category alone.")
+            help="Your own order-of-magnitude judgement. This is the input that moves accuracy most: on the "
+                 "real data the estimate lands within 30% for 29% of projects without it and 63% with it.")
         project_name = st.text_input("Project name", key="project_name", placeholder="Optional, used in the report")
         with st.expander("Optional details", icon=":material/more_horiz:"):
             process_domain = st.selectbox(
@@ -49,7 +49,7 @@ with left:
                 index=None, key="process_domain", placeholder="Inferred from the archetype if empty",
                 format_func=lambda x: x.replace('_', ' ').capitalize())
             benchmark_mode = st.segmented_control(
-                "Analogue model", list(BENCHMARK_MODES), default='reference', key="benchmark_mode",
+                "Analogue model", list(BENCHMARK_MODES), default='engine', key="benchmark_mode",
                 format_func=lambda m: BENCHMARK_MODES[m],
                 help="Reference: the manager's analogue_estimator v3 (matches on category, size only if you "
                      "give a rough size). Engine variant: the first build's model, which also narrows the pool "
@@ -131,7 +131,7 @@ scope = {
     'country': resolve_country({'location': location or ''}),
     'basis_year': basis_year or 2024,
     'size_bucket': size_bucket,
-    'benchmark_mode': benchmark_mode or 'reference',
+    'benchmark_mode': benchmark_mode or 'engine',
     'benchmark_compare': True,
     'greenfield_brownfield': bf_gf or 'greenfield',
     'scope_type': bf_gf or 'greenfield',
