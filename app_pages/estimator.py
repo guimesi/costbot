@@ -2,7 +2,7 @@
 import streamlit as st
 
 from costbot.constants import FACILITY_TYPE_OPTIONS, LOCATION_OPTIONS, resolve_country
-from costbot.models.benchmark import SIZE_BUCKETS, SIZE_BUCKET_ORDER
+from costbot.models.benchmark import SIZE_BUCKETS, SIZE_BUCKET_ORDER, BENCHMARK_MODES
 from costbot.screening import model_readiness, screen_project
 from ui.cards import equipment_card, scope_items_card
 from ui.common import ARCHETYPE_LABELS, ARCHETYPE_OPTIONS, load_data, reset_session
@@ -48,6 +48,12 @@ with left:
                                    'gas_processing', 'upstream_unconventional', 'upstream_conventional', 'power'],
                 index=None, key="process_domain", placeholder="Inferred from the archetype if empty",
                 format_func=lambda x: x.replace('_', ' ').capitalize())
+            benchmark_mode = st.segmented_control(
+                "Analogue model", list(BENCHMARK_MODES), default='reference', key="benchmark_mode",
+                format_func=lambda m: BENCHMARK_MODES[m],
+                help="Reference: the manager's analogue_estimator v3 (matches on category, size only if you "
+                     "give a rough size). Engine variant: the first build's model, which also narrows the pool "
+                     "to a size band from the capacity. The results show what the other variant would give.")
 
     archetype = archetype or ''
     core_ready = bool(archetype and location)
@@ -125,6 +131,8 @@ scope = {
     'country': resolve_country({'location': location or ''}),
     'basis_year': basis_year or 2024,
     'size_bucket': size_bucket,
+    'benchmark_mode': benchmark_mode or 'reference',
+    'benchmark_compare': True,
     'greenfield_brownfield': bf_gf or 'greenfield',
     'scope_type': bf_gf or 'greenfield',
     'facility_type': (facility_type or '').strip() or None,

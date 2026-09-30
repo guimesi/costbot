@@ -249,10 +249,30 @@ def screen_project(scope: Dict, data: DataStore) -> Dict:
             f"(CP30 factor: {cp30_factor:.4f}; +{(cp30_factor-1)*100:.1f}%)"
         )
 
+    # The other Benchmark variant, for the UI / report comparison (scope['benchmark_compare'])
+    benchmark_alternate = None
+    if scope.get('benchmark_compare') and 'Benchmark' in model_results:
+        other = 'engine' if scope.get('benchmark_mode') == 'engine' else 'reference'
+        other = 'reference' if other == 'engine' else 'engine'
+        try:
+            alt = _MODEL_FN_MAP['Benchmark']({**scope, 'benchmark_mode': other, 'benchmark_compare': False}, data)
+        except Exception as exc:  # noqa: BLE001
+            alt = {'can_fire': False, 'no_fire_reason': f'error: {exc}'}
+        f = cp30_factor if (target_year != _POOL_BASE_YEAR) else 1.0
+        benchmark_alternate = {
+            'mode': other, 'can_fire': bool(alt.get('can_fire')), 'no_fire_reason': alt.get('no_fire_reason'),
+            'estimate_musd': round(alt['estimate_musd'] * f, 1) if alt.get('can_fire') else None,
+            'estimate_low_musd': round((alt.get('estimate_low_musd') or 0) * f, 1) if alt.get('can_fire') else None,
+            'estimate_high_musd': round((alt.get('estimate_high_musd') or 0) * f, 1) if alt.get('can_fire') else None,
+            'n_analogues': alt.get('n_analogues'), 'size_signal': alt.get('size_signal'),
+            'excluded_by_rule': 'Benchmark' in ARCHETYPE_EXCLUSIONS.get(archetype, []),
+        }
+
     return {
         'scope': scope,
         'screening_floor_note': screening_floor_note,
         'basis_year_note': basis_year_note,
+        'benchmark_alternate': benchmark_alternate,
         'cp30_escalation': {'from_year': _POOL_BASE_YEAR, 'to_year': target_year,
                             'factor': round(cp30_factor, 4)} if basis_year_note else None,
         'models': model_results,

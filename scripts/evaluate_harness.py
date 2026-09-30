@@ -54,6 +54,7 @@ except (AttributeError, ValueError):
 
 TARGET_YEAR = 2024
 GATE_PRIORITY = {'FINAL': 5, 'G3': 4, 'G2G3': 3, 'G2': 2, 'G1': 1}
+BENCHMARK_MODE = 'reference'  # set from --benchmark-mode in main()
 DEFAULT_MODELS = ['Benchmark', 'Calculator_Onshore', 'Calculator_Pipeline', 'Calculator_Offshore',
                   'Calculator_LNG', 'Unconventional', 'EquipmentVector', 'Composite']
 POOL_TO_APP = {}
@@ -302,7 +303,8 @@ def m_benchmark(t, inp, data):
              ('brownfield' if stl in ('expansion', 'modification', 'debottleneck', 'replacement') else None),
              'facility_type': fac, 'primary_capacity': cap, 'capacity_unit': unit,
              'region': region_from_cp30(cp30_loc), 'location': loc_text, 'basis_year': TARGET_YEAR,
-             'benchmark_size_mode': 'api', 'pool_exclude_forecast': False}
+             'benchmark_size_mode': 'api', 'pool_exclude_forecast': False,
+             'benchmark_mode': BENCHMARK_MODE}
     r = run_benchmark(scope, data)
     r['notes'] = f"features: domain={pd_}, scope={stl or '-'}, fac={fac or '-'}, cap={cap or '-'} {unit or ''}, region={scope['region']}"
     return r
@@ -598,7 +600,11 @@ def main():
     ap.add_argument('--csv', default=None)
     ap.add_argument('--redact', action='store_true', help='project names -> archetype-NN')
     ap.add_argument('--models', default=','.join(DEFAULT_MODELS))
+    ap.add_argument('--benchmark-mode', choices=['reference', 'engine'], default='reference',
+                    help="reference = analogue_estimator v3 port (the harness's own); engine = first build's size-band model")
     args = ap.parse_args()
+    global BENCHMARK_MODE
+    BENCHMARK_MODE = args.benchmark_mode
     models = [m.strip() for m in args.models.split(',') if m.strip()]
     unknown = [m for m in models if m not in RUNNERS]
     if unknown:
@@ -657,6 +663,7 @@ def main():
                          'notes': str(r.get('notes', ''))[:200]})
 
     df = pd.DataFrame(rows)
+    print(f"Benchmark variant: {BENCHMARK_MODE}")
     print(f"\nTruth normalisation: {df.drop_duplicates(['planview_id', 'eval_type'])['normalization'].value_counts().to_dict()}")
     print(f"\n{'model':20s} {'fired':>9s} {'+/-30% (of fired)':>18s} {'band':>6s}   top no-fire reasons")
     for model in models:

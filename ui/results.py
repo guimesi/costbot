@@ -7,6 +7,7 @@ import streamlit as st
 from costbot.labels import ROLE_COLORS
 from costbot.report import flatten_detail, generate_html_report
 from costbot.screening import model_rows, screen_project, validate_bid
+from costbot.models.benchmark import BENCHMARK_MODES
 from ui.common import DISCLAIMER, model_label, musd, musd_md
 
 _STATUS_ICON = {
@@ -79,6 +80,10 @@ def _render_model_detail(mid, mr):
         st.caption(mr['note'])
     if mr.get('detail'):
         _detail_table(mr['detail'])
+    if mid == 'Benchmark' and mr.get('model_variant'):
+        ss = mr.get('size_signal') or {}
+        st.caption(f"Variant: {BENCHMARK_MODES.get('engine' if str(mr['model_variant']).startswith('engine') else 'reference')}"
+                   f" · size signal: {ss.get('source', 'none')}" + (f" ({musd_md(ss.get('size_musd'))})" if ss.get('size_musd') else ''))
     if mr.get('analogues'):
         st.caption("Analogues used")
         df = pd.DataFrame(mr['analogues'][:10])
@@ -135,6 +140,16 @@ def render_results(results, data, stale: bool) -> None:
     for mid, mr in models.items():
         if mr.get('can_fire') and not mr.get('excluded_by_rule') and mr.get('warning'):
             st.warning(f"{model_label(mid)}: {mr['warning']}", icon=":material/warning:")
+    alt = results.get('benchmark_alternate')
+    if alt:
+        other = BENCHMARK_MODES.get(alt['mode'], alt['mode'])
+        if alt.get('can_fire'):
+            st.caption(f":material/compare: Other analogue variant, {other}: {musd_md(alt['estimate_musd'])} "
+                       f"(range {musd_md(alt['estimate_low_musd'])} to {musd_md(alt['estimate_high_musd'])}, "
+                       f"{alt.get('n_analogues') or 0} analogues, size signal {(alt.get('size_signal') or {}).get('source', 'none')})"
+                       + (". Benchmark is excluded from the ensemble for this archetype." if alt.get('excluded_by_rule') else ''))
+        else:
+            st.caption(f":material/compare: Other analogue variant, {other}: did not fire ({alt.get('no_fire_reason')})")
     if ens.get('models_gated_out'):
         st.caption("Gated out of the ensemble: " + '; '.join(f"{model_label(g[0])} at {musd_md(g[1])} ({g[2]})" for g in ens['models_gated_out']))
 

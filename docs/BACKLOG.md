@@ -30,10 +30,11 @@ Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api
 
 ## Modelling (needs the manager's OK before changing model behaviour)
 
-- [ ] DECISION (round 3, 2026-09-30): the faithful analogue_estimator port scores 29%
-      (ensemble) / 28% (harness convention) on real data; the first build's Benchmark
-      (capacity size band + 0.5/0.5 blend, commit 8f8b141) scored 54%. Restore it as
-      `benchmark_mode='engine'` next to the reference one and show both.
+- [x] DECISION (round 3, 2026-09-30, Guilherme): the first build's Benchmark is back as
+      `benchmark_mode='engine'` (`costbot/models/benchmark_engine.py`), selectable in the app,
+      the reference stays the default; the results and the report show what the other variant
+      gives. Its silent fallback to the project's own pool TEC was removed, so round 2's 54%
+      is NOT its leak-free figure; the next corp run measures it.
 
 - [ ] Benchmark size prior without leakage: the reference offers a user size bucket
       (now in the UI). Candidates beyond that: calibrate capacity-to-size per domain from

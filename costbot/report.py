@@ -215,6 +215,18 @@ def generate_html_report(results: Dict) -> str:
             flags.append(('', f"{model_label(mid)}: {mr['warning']}"))
     if results.get('basis_year_note'):
         flags.append(('blue', results['basis_year_note']))
+    bm = models.get('Benchmark') or {}
+    alt = results.get('benchmark_alternate')
+    if bm.get('can_fire') and bm.get('model_variant'):
+        from costbot.models.benchmark import BENCHMARK_MODES
+        used = BENCHMARK_MODES.get('engine' if bm['model_variant'].startswith('engine') else 'reference', bm['model_variant'])
+        line = f"Analogue model used: {used}"
+        if alt:
+            other = BENCHMARK_MODES.get(alt['mode'], alt['mode'])
+            line += (f". The other variant, {other}, gives {_musd(alt['estimate_musd'])} "
+                     f"({alt.get('n_analogues') or 0} analogues)" if alt.get('can_fire')
+                     else f". The other variant, {other}, did not fire ({alt.get('no_fire_reason')})")
+        flags.append(('blue', line))
     if ens.get('confidence') == 'COMPONENT_ONLY':
         flags.append(('blue', 'Only a component estimate (subsea) is available; this is not a total project cost.'))
     flags_html = ''.join(f'<div class="flag {c}">{_esc(t)}</div>' for c, t in flags)

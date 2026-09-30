@@ -435,7 +435,15 @@ def _target_features_from_scope(scope: Dict) -> Dict:
     return tf
 
 
+BENCHMARK_MODES = {'reference': 'Reference (analogue_estimator v3)', 'engine': 'Engine variant (size band)'}
+
+
 def run_benchmark(scope: Dict, data: DataStore) -> Dict:
+    """scope['benchmark_mode']: 'reference' (default, the faithful port below) or
+    'engine' (the first build's size-band model in benchmark_engine.py)."""
+    if scope.get('benchmark_mode') == 'engine':
+        from costbot.models.benchmark_engine import run_benchmark_engine
+        return run_benchmark_engine(scope, data)
     from sklearn.metrics.pairwise import cosine_similarity
     from costbot.constants import normalize_capacity, capacity_match_score
 
@@ -586,7 +594,7 @@ def run_benchmark(scope: Dict, data: DataStore) -> Dict:
         confidence = 'low'
 
     return {
-        'can_fire': True, 'model_id': 'Benchmark',
+        'can_fire': True, 'model_id': 'Benchmark', 'model_variant': 'reference_v3',
         'estimate_musd': round(float(np.percentile(costs, 50)), 1),
         # the API forwards cost_range_low/high (min/max of the analogues) as the model range
         'estimate_low_musd': round(lo, 1), 'estimate_high_musd': round(hi, 1),

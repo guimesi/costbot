@@ -32,7 +32,7 @@ silently changing them.
 | `ui/cards.py` | Fragment cards that edit lists in session_state (equipment, scope items) and their callbacks. |
 | `ui/results.py` | Readiness checklist, KPI row, Altair model chart, per-model tabs, analogues, bid check, what-if, download. |
 | `.streamlit/config.toml` | Theme (light, navy accent, Inter). The only place looks are defined; no CSS in code. |
-| `costbot/` | The engine as a package. `constants.py`, `data.py`, `escalation.py`, `models/<one file per model>.py`, `ensemble.py`, `screening.py`, `report.py`. |
+| `costbot/` | The engine as a package. `constants.py`, `data.py`, `escalation.py`, `models/<one file per model>.py`, `ensemble.py`, `screening.py`, `report.py`. `models/benchmark.py` is the reference analogue model; `models/benchmark_engine.py` the first build's size-band variant, chosen with `scope['benchmark_mode']` (default `reference`). |
 | `engine.py` | Compatibility facade re-exporting every `costbot` name. Tests and scripts still import from it; new code imports from `costbot.*`. |
 | `tests/test_golden_baseline.py` | Runs the 4 calculators against `data/extracted_files/_golden_baseline.json`; script and pytest. |
 | `scripts/generate_mock_data.py` | Writes the synthetic `data/` package (seed 42). |
@@ -102,6 +102,10 @@ before `streamlit run` or any script; no code edit needed.
 - UI dropdown contents (`FACILITY_TYPE_OPTIONS`, `LOCATION_OPTIONS`) are
   defined in the engine next to the tables they must match. Add there, not in app.py.
 - Models may return a `warning` string; the UI and the HTML report surface it.
+- Benchmark has two variants behind one `model_id`: `benchmark_mode='reference'` (default,
+  the analogue_estimator port) or `'engine'` (first build, size band). `benchmark_compare=True`
+  makes `screen_project` also run the other one into `results['benchmark_alternate']`. Pool
+  models take `exclude_planview_ids` for LOOCV; never read the project's own pool row otherwise.
 
 ## UI conventions
 

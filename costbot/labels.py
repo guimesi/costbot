@@ -53,9 +53,12 @@ def archetype_label(archetype: str) -> str:
 # (model_id, method, badge text, badge colour, algorithm, reported accuracy, libraries)
 MODEL_SPECS = [
     ('Benchmark', 'Analogue matching', 'Broad', 'blue',
-     "One-hot encoding of domain, scope type, region, on/offshore and facility class, cosine similarity "
-     "against the 503-project pool, blended 50/50 with a size signal. P20/P50/P80 from the top analogues.",
-     "Reported: regression under investigation in the Sep 15 brief.", "numpy, pandas, scikit-learn"),
+     "Two selectable variants. Reference: the port of analogue_estimator v3 (cosine over category features, "
+     "an optional size bucket, min/max of the analogues as range). Engine variant: the first build's model, "
+     "which filters the pool to a size band from a capacity heuristic or the size bucket and blends cosine "
+     "and size 50/50.",
+     "Real data, 2026-09-30: reference 6/50 alone, 29% in the ensemble; engine variant pending its leak-free run.",
+     "numpy, pandas, scikit-learn"),
     ('EquipmentVector', 'Equipment composition', 'Best broad model', 'green',
      "52-dimension vector of equipment counts, process equipment only (valves, instruments, electrical zeroed), "
      "L2-normalised cosine similarity against 593 project vectors, similarity-weighted top 5.",

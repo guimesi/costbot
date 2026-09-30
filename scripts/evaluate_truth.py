@@ -157,6 +157,8 @@ def main():
     ap.add_argument('--exclude-forecast', action='store_true',
                     help='drop screening-forecast rows from the Benchmark pool (tec_source/gate_stage contains "forecast")')
     ap.add_argument('--summary-only', action='store_true', help='print the tables, not the per-project misses')
+    ap.add_argument('--benchmark-mode', choices=['reference', 'engine'], default='reference',
+                    help="reference = analogue_estimator v3 port (default); engine = first build's size-band model")
     ap.add_argument('--ensemble-mode', choices=['api', 'engine'], default='api',
                     help="api = cost_bot_api rules (default); engine = first build's priority gate, "
                          "unconventional override, geometric blend, symmetric 5x cap")
@@ -238,6 +240,7 @@ def main():
             'benchmark_size_mode': ('api' if args.size_hint == 'bucket' else args.size_hint),
             'pool_exclude_forecast': args.exclude_forecast,
             'ensemble_mode': args.ensemble_mode,
+            'benchmark_mode': args.benchmark_mode,
             'exclude_planview_ids': [pid],  # LOOCV for Unconventional / EquipmentVector / Composite too
         }
         if args.size_hint == 'bucket':
@@ -287,7 +290,7 @@ def main():
         q = np.percentile(ratios, [25, 50, 75])
         print(f"Truth(2024) / pool TEC(2024) for the same project: median {q[1]:.2f}, IQR {q[0]:.2f} to {q[2]:.2f} "
               f"(near 1.00 means the two agree on what the project cost)")
-    print(f"Settings: size-hint={args.size_hint}, exclude-forecast={args.exclude_forecast}, "
+    print(f"Settings: benchmark-mode={args.benchmark_mode}, size-hint={args.size_hint}, exclude-forecast={args.exclude_forecast}, "
           f"ensemble-mode={args.ensemble_mode}, tolerance={args.tolerance}")
     print(f"Benchmark size signal used: {df.benchmark_size_source.value_counts().to_dict()}")
     only_bm = df[df.models_fired == 'Benchmark']

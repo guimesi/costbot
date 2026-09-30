@@ -582,3 +582,15 @@ costbot/
 | **SURF** | Subsea, Umbilicals, Risers, Flowlines — subsea infrastructure for offshore projects |
 | **TEC** | Total Erected Cost — full installed cost including equipment, materials, labor, and indirects |
 | **XFAIL** | Expected failure in tests — a documented intentional divergence from reference values |
+
+
+## Analogue model variants (2026-09-30)
+
+The Benchmark has two selectable variants (Project card, "Optional details", "Analogue model"):
+
+- **Reference** (default): the port of the manager's `analogue_estimator.py` v3. Cosine similarity
+  over category features; size enters only when the user gives a rough size bucket.
+- **Engine variant**: the first build's model. Narrows the pool to a size band (+/-0.5 decade) from
+  the capacity or the size bucket and blends cosine and size 50/50.
+
+The results panel and the HTML report state which one was used and what the other would give.

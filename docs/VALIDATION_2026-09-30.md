@@ -66,14 +66,24 @@ Without those, on the same convention and the same models, the number is
 14/50 (16/50 once EquipmentVector and Composite run on the real columns is
 the next thing to measure).
 
-## Decision needed (Guilherme, not David)
+## Correction on round 2's 54%
 
-Two honest numbers exist for the demo: the reference's own analogue model
-(28% any-model, 29% ensemble) or the first build's analogue variant (54%
-ensemble on round 2). Recommendation: restore the first build's Benchmark as
-a selectable variant (`benchmark_mode = reference | engine`), default to
-the reference for parity, and show both in the app and in the report. The
-first build's code is in git (commit 8f8b141, `costbot/models/benchmark.py`).
+Re-reading the first build's Benchmark (commit dbe068d) while restoring it:
+when no explicit size and no usable capacity existed (every modification,
+because the heuristic is off for mods), it fell back to the project's own
+pool TEC without saying so. Refinery brownfield is mostly modifications, so
+its 15/17 in round 2 leaned on that fallback. The restored variant keeps the
+capacity band and the 0.5/0.5 blend and drops the fallback (pool TEC only
+with `benchmark_size_mode='pool'`, evaluation only). Its honest number is
+what the next corp run prints under "Engine Benchmark variant".
+
+## Decision taken (Guilherme, 2026-09-30)
+
+Restore the first build's Benchmark as a selectable variant
+(`benchmark_mode = reference | engine`), default to the reference for
+parity, show both in the app and in the report. Done in the commit that
+carries this note; `validate.py` now runs the engine variant four ways
+(ensemble, + size bucket, + forecasts excluded, harness convention).
 
 ## Other observations
 

@@ -99,6 +99,10 @@ checks 18 input combinations against the reference file to 1e-6 (skips when
 | Range | -30/+50 in the calculator, overridden to +/-50% by the API wrapper | +/-50% | Aligned (wrapper). |
 | BCEP golden | expected 2650.3 = 474 x (1500/1500)^0.6 x 2.0446 x 2.58 x 1.06: the older `(474, 1500)` tuple | 6574.3 with `(474, 330)` | Stale golden case, not a chain difference. XFAIL note corrected. |
 
+Engine addition (2026-09-30, Guilherme's decision after the round-3 numbers): the first
+build's analogue model is kept as `benchmark_mode='engine'` next to the port. It is not
+in the reference; the app defaults to the reference and shows what the other gives.
+
 ## `evaluation_harness.py` (how the 40/52 was measured), read 2026-09-29
 
 `scripts/evaluate_harness.py` reproduces its conventions with the engine's
