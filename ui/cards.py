@@ -36,11 +36,14 @@ def _remove_scope_item(i):
 
 
 @st.fragment
-def equipment_card(core_ready: bool):
-    with st.container(border=True):
-        st.markdown("**:material/precision_manufacturing: Equipment list**")
-        st.caption("Unlocks the equipment vector model, the best broad model (66% within ±30%). "
-                   "Pumps, exchangers, towers, drums, compressors: even rough counts help.")
+def equipment_card(core_ready: bool, border: bool = True):
+    """`border=False` drops the card frame and title for hosts that already
+    frame it (an expander in Proposta A, a sidebar group in Proposta B)."""
+    with st.container(border=border):
+        if border:
+            st.markdown("**:material/precision_manufacturing: Equipment list**")
+            st.caption("Unlocks the equipment vector model, the best broad model (66% within ±30%). "
+                       "Pumps, exchangers, towers, drums, compressors: even rough counts help.")
         process_types = sorted(_PROCESS_EQUIPMENT)
         other_types = sorted(set(EQUIPMENT_TYPES_52) - _PROCESS_EQUIPMENT)
         with st.container(horizontal=True, vertical_alignment="bottom"):
@@ -62,11 +65,12 @@ def equipment_card(core_ready: bool):
 
 
 @st.fragment
-def scope_items_card(core_ready: bool):
-    with st.container(border=True):
-        st.markdown("**:material/view_list: Scope items**")
-        st.caption("Build the project from pieces (a process unit, an OSBL package, a pipeline segment). "
-                   "Each piece is matched against the chip library and summed.")
+def scope_items_card(core_ready: bool, border: bool = True):
+    with st.container(border=border):
+        if border:
+            st.markdown("**:material/view_list: Scope items**")
+            st.caption("Build the project from pieces (a process unit, an OSBL package, a pipeline segment). "
+                       "Each piece is matched against the chip library and summed.")
         with st.container(horizontal=True, vertical_alignment="bottom"):
             st.selectbox("Scope item type", SCOPE_ITEM_TYPES, key="si_type", disabled=not core_ready,
                          format_func=lambda x: x.replace('_', ' ').capitalize())

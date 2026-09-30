@@ -23,19 +23,23 @@ changing them.
 
 | Path | Role |
 |---|---|
-| `app.py` | Streamlit entry point: page config, session-state init, header, `st.navigation` (top) over `app_pages/`. |
-| `app_pages/estimator.py` | Inputs (left) + live readiness and results (right). Direct script, no `main()`. |
+| `app.py` | Streamlit entry point: page config, session-state init, header, `st.navigation` (top) over `app_pages/`. `COSTBOT_UI=current|a|b` picks the estimator layout. |
+| `app_pages/estimator.py` | Current layout: inputs (left) + live readiness and results (right). Direct script, no `main()`. |
+| `app_pages/estimator_a.py`, `ui/results_a.py` | Proposta A "Guiada" (design handoff, Sep 2026): stepper with done/active/optional expanders, readiness strip, hero estimate + evidence tabs. |
+| `app_pages/estimator_b.py`, `ui/results_b.py` | Proposta B "Console": whole scope form in the navy sidebar (`[theme.sidebar]`, no CSS), results console with inline bid check. |
+| `ui/scope.py` | `build_scope()` (widget values -> engine scope dict), `scope_from_state()`, step summaries, readiness chips. Shared by the three layouts. |
+| `design_handoff_costbot_redesign/` | The designer's README, HTML mocks and screenshots for Propostas A and B. Reference only, not code to ship. |
 | `app_pages/models.py`, `app_pages/data.py` | Reference pages: model specs / routing / reported accuracy, and the loaded data package. |
 | `ui/common.py` | `load_data()` (cached DataStore), labels, `musd`/`musd_md` formatters, mock detection. |
 | `ui/cards.py` | Fragment cards that edit lists in session_state (equipment, scope items) and their callbacks. |
-| `ui/results.py` | Readiness checklist, KPI row, Altair model chart, per-model tabs, analogues, bid check, what-if, download. |
+| `ui/results.py` | Shared building blocks: readiness checklist, `range_axis_chart` (one $ axis: P20-P80 band, P50, model dots, bid marker), `model_dot_plot`, model detail, comparables, bid check, what-if, download; `render_results` composes them for the current layout. |
 | `.streamlit/config.toml` | Theme (light, navy accent, Inter). The only place looks are defined; no CSS in code. |
 | `costbot/` | The engine as a package. `constants.py`, `data.py`, `escalation.py`, `models/<one file per model>.py`, `ensemble.py`, `screening.py`, `report.py`. |
 | `engine.py` | Compatibility facade re-exporting every `costbot` name. Tests and scripts still import from it; new code imports from `costbot.*`. |
 | `tests/test_golden_baseline.py` | Runs the 4 calculators against `data/extracted_files/_golden_baseline.json`; script and pytest. |
 | `scripts/generate_mock_data.py` | Writes the synthetic `data/` package (seed 42). |
 | `scripts/smoke_test.py` | Runs the DEMO_SCRIPT scenarios through the engine, no UI. |
-| `scripts/ui_test.py` | Headless Streamlit `AppTest`: fills scenario 1, exercises the list cards, clicks Run, renders every page. |
+| `scripts/ui_test.py` | Headless Streamlit `AppTest`: fills scenario 1, exercises the list cards, clicks Run, renders every page. `ui_test.py all` drives the three layouts (same widget keys). |
 | `scripts/evaluate_truth.py` | LOOCV hit rate at +/-30% per archetype from `project_truth.csv`. Meaningless on mock data. |
 | `tests/` | pytest: ensemble rules, CP30, bid validation, equipment vector, readiness, report, golden baseline. |
 | `docs/` | `spec/` (manager's brief, email, wireframe), app documentation, demo script, review, backlog, validation runbook. |
@@ -53,8 +57,9 @@ changing them.
 .venv/bin/python scripts/smoke_test.py           # engine end-to-end, must print SMOKE OK
 .venv/bin/python -m pytest tests -q              # unit tests + golden baseline (exit 0 required)
 .venv/bin/python tests/test_golden_baseline.py   # same golden check with a readable report
-.venv/bin/python scripts/ui_test.py              # headless UI, must print UI OK
+.venv/bin/python scripts/ui_test.py all          # headless UI, all three layouts, must print UI OK
 .venv/bin/streamlit run app.py                   # UI on http://localhost:8501
+COSTBOT_UI=a .venv/bin/streamlit run app.py      # Proposta A (b for the console)
 ```
 
 `make test` runs all of them. Run it before every commit that touches `costbot/`, `app_pages/` or `ui/`.
@@ -104,7 +109,8 @@ before `streamlit run` or any script; no code edit needed.
 - Pages are direct scripts under `app_pages/`; shared logic goes in `ui/` or `costbot/`,
   never copied between pages. Each page that needs data calls `ui.common.load_data()`.
 - Navigation is `st.navigation(..., position="top")` in `app.py`; add a page there.
-- No injected CSS or HTML for styling; theme lives in `.streamlit/config.toml`. Use native
+- No injected CSS or HTML for styling; theme lives in `.streamlit/config.toml` (IBM Plex Sans / Mono;
+  `[theme.sidebar]` is the navy console that only Proposta B writes to). Use native
   elements: `st.container(border=True)` cards, `st.metric(border=True)`, `st.badge` and
   `:green-badge[...]` inline badges, Material icons (`:material/name:`), sentence case labels.
 - Charts are Altair (or `st.bar_chart`), not Plotly.
@@ -113,7 +119,11 @@ before `streamlit run` or any script; no code edit needed.
 - The readiness checklist is `costbot.screening.model_readiness(scope)`: it predicts firing
   without computing. Keep its gates in sync with the runners; `tests/test_readiness.py`
   asserts it matches `screen_project` on the smoke scenarios.
-- `scripts/ui_test.py` drives the real widgets by `key`; keep keys stable or update the test.
+- `scripts/ui_test.py` drives the real widgets by `key`; keep keys stable or update the test. The three
+  estimator layouts share every widget key (`archetype`, `capacity`, `eq_add`, `run`, `bid_amt`, ...).
+- List cards are fragments: after an Add/Remove the surrounding page (step labels, readiness strip, group
+  chips) only refreshes on the next full rerun. Known trade-off; do not add `st.rerun` to fix it.
+- Expander labels render icons monochrome; use badges (`:green-badge[...]`) where a colour matters.
 
 - List-editing cards (equipment, scope items) are `st.fragment`s with
   `on_click` callbacks. Never call `st.rerun()` after a button click; it

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#EEF1F5;color:#1F2933;font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:#1F3A5F;text-decoration:none}a:hover{color:#16294a;text-decoration:underline}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div data-screen-label="Proposta B" style="width:1440px;min-height:100vh;display:grid;grid-template-columns:300px minmax(0,1fr);background:#EEF1F5">
+  <!-- SIDEBAR: scope -->
+  <div style="background:#1F3A5F;color:#fff;display:flex;flex-direction:column;min-height:100vh">
+    <div style="padding:18px 20px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.12)">
+      <span style="font-family:'Material Symbols Rounded';font-size:20px">calculate</span>
+      <div style="font-weight:600;letter-spacing:-.01em">GP screening estimator</div>
+      <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.25);border-radius:4px;padding:1px 5px">POC v1.1</span>
+    </div>
+    <div style="padding:16px 20px;display:flex;flex-direction:column;gap:14px;flex:1">
+      <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55)">Scope</div><div style="font-size:12px;color:rgba(255,255,255,.7);cursor:pointer">Reset</div></div>
+
+      <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:12px;color:rgba(255,255,255,.7)">Archetype</div><div style="height:34px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;font-size:13.5px">Petrochemical (onshore)<span style="font-family:'Material Symbols Rounded';font-size:18px;color:rgba(255,255,255,.6)">expand_more</span></div></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:12px;color:rgba(255,255,255,.7)">Location</div><div style="height:34px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;font-size:13.5px">US Gulf Coast<span style="font-family:'Material Symbols Rounded';font-size:18px;color:rgba(255,255,255,.6)">expand_more</span></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:12px;color:rgba(255,255,255,.7)">Basis year</div><div style="display:flex;border:1px solid rgba(255,255,255,.18);border-radius:6px;overflow:hidden;height:34px;font-size:12.5px"><div style="flex:1;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6)">24</div><div style="flex:1;display:flex;align-items:center;justify-content:center;background:#fff;color:#1F3A5F;font-weight:600">25</div><div style="flex:1;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6)">26</div></div></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:12px;color:rgba(255,255,255,.7)">Scope type</div><div style="height:34px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;font-size:13.5px">Greenfield<span style="font-family:'Material Symbols Rounded';font-size:18px;color:rgba(255,255,255,.6)">expand_more</span></div></div>
+      </div>
+
+      <div style="height:1px;background:rgba(255,255,255,.12);margin:4px 0"></div>
+
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:12px;color:rgba(255,255,255,.7)">Facility · capacity</div><span style="font-size:10.5px;color:#7FD3B5;display:inline-flex;align-items:center;gap:3px"><span style="width:6px;height:6px;border-radius:50%;background:#7FD3B5"></span>Onshore calc</span></div>
+        <div style="display:grid;grid-template-columns:1fr 80px 64px;gap:6px">
+          <div style="height:34px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:6px;display:flex;align-items:center;padding:0 10px;font-size:13.5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">Polyethylene</div>
+          <div style="height:34px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:6px;display:flex;align-items:center;padding:0 10px;font-family:'IBM Plex Mono',monospace;font-size:13px">625</div>
+          <div style="height:34px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12.5px">KTA</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:12px;color:rgba(255,255,255,.7)">Equipment · 63 items</div><span style="font-size:10.5px;color:#7FD3B5;display:inline-flex;align-items:center;gap:3px"><span style="width:6px;height:6px;border-radius:50%;background:#7FD3B5"></span>Equipment vector</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px">
+          <span style="font-size:12px;background:rgba(255,255,255,.1);border-radius:4px;padding:3px 8px;display:inline-flex;gap:5px;align-items:center">pump <b style="font-family:'IBM Plex Mono',monospace;font-weight:500">24</b></span>
+          <span style="font-size:12px;background:rgba(255,255,255,.1);border-radius:4px;padding:3px 8px;display:inline-flex;gap:5px;align-items:center">exchanger <b style="font-family:'IBM Plex Mono',monospace;font-weight:500">18</b></span>
+          <span style="font-size:12px;background:rgba(255,255,255,.1);border-radius:4px;padding:3px 8px;display:inline-flex;gap:5px;align-items:center">drum <b style="font-family:'IBM Plex Mono',monospace;font-weight:500">10</b></span>
+          <span style="font-size:12px;background:rgba(255,255,255,.1);border-radius:4px;padding:3px 8px;display:inline-flex;gap:5px;align-items:center">tower <b style="font-family:'IBM Plex Mono',monospace;font-weight:500">6</b></span>
+          <span style="font-size:12px;background:rgba(255,255,255,.1);border-radius:4px;padding:3px 8px;display:inline-flex;gap:5px;align-items:center">compressor <b style="font-family:'IBM Plex Mono',monospace;font-weight:500">3</b></span>
+          <span style="font-size:12px;background:rgba(255,255,255,.1);border-radius:4px;padding:3px 8px;display:inline-flex;gap:5px;align-items:center">reactor <b style="font-family:'IBM Plex Mono',monospace;font-weight:500">2</b></span>
+          <span style="font-size:12px;border:1px dashed rgba(255,255,255,.35);border-radius:4px;padding:3px 8px;color:rgba(255,255,255,.7);display:inline-flex;gap:3px;align-items:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:14px">add</span>Add</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:12px;color:rgba(255,255,255,.7)">Scope items</div><span style="font-size:10.5px;color:rgba(255,255,255,.5);display:inline-flex;align-items:center;gap:3px"><span style="width:6px;height:6px;border-radius:50%;border:1px solid rgba(255,255,255,.5)"></span>Composite</span></div>
+        <div style="height:34px;border:1px dashed rgba(255,255,255,.3);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12.5px;color:rgba(255,255,255,.6);gap:4px;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:15px">add</span>Add a process unit or OSBL package</div>
+      </div>
+
+      <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:rgba(255,255,255,.7);display:flex;justify-content:space-between"><span>4 of 5 models ready</span><span style="font-family:'IBM Plex Mono',monospace">Composite off</span></div>
+        <div style="height:40px;background:#fff;color:#1F3A5F;border-radius:6px;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:600;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:18px">play_arrow</span>Run estimate</div>
+      </div>
+    </div>
+    <div style="padding:12px 20px;border-top:1px solid rgba(255,255,255,.12);display:flex;gap:16px;font-size:12.5px;color:rgba(255,255,255,.7)">
+      <span style="display:inline-flex;gap:5px;align-items:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:16px">science</span>Models</span>
+      <span style="display:inline-flex;gap:5px;align-items:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:16px">database</span>Data</span>
+    </div>
+  </div>
+
+  <!-- MAIN: results console -->
+  <div style="padding:24px 28px 40px;display:flex;flex-direction:column;gap:18px;min-width:0">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:12px;color:#5F6B7A">Screening estimate · 26 Sep 2026</div>
+        <h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.01em">Baytown PE-4</h1>
+      </div>
+      <div style="display:flex;gap:6px;margin-left:8px">
+        <span style="font-size:12.5px;padding:4px 10px;border-radius:999px;background:#1F3A5F;color:#fff;font-weight:500">Base</span>
+        <span style="font-size:12.5px;padding:4px 10px;border-radius:999px;border:1px solid #D9DFE7;background:#fff;color:#5F6B7A;display:inline-flex;gap:4px;align-items:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:15px">add</span>What-if scenario</span>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <div style="height:34px;padding:0 12px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;background:#fff;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:17px">download</span>Report</div>
+      </div>
+    </div>
+
+    <!-- Estimate strip -->
+    <div style="background:#fff;border:1px solid #D9DFE7;border-radius:12px;padding:22px 26px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:2px;border-right:1px solid #EEF1F5;padding-right:32px">
+        <div style="font-size:12px;font-weight:600;color:#5F6B7A;text-transform:uppercase;letter-spacing:.06em">P50 · TEC 2025</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:52px;font-weight:600;line-height:1.05;letter-spacing:-.03em">$1.41<span style="font-size:26px;color:#5F6B7A;font-weight:500">B</span></div>
+        <div style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;color:#1B7F4C;font-weight:600;font-size:13px"><span style="width:8px;height:8px;border-radius:50%;background:#1B7F4C"></span>Medium-high confidence</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+        <div style="display:flex;justify-content:space-between;font-size:12.5px;color:#5F6B7A"><span>P20 – P80 range: <b style="color:#1F2933;font-family:'IBM Plex Mono',monospace;font-weight:500">$1,020M – $1,890M</b></span><span>3 models in ensemble · spread 1.10×</span></div>
+        <div style="position:relative;height:64px">
+          <div style="position:absolute;left:42.5%;width:36.25%;top:20px;height:24px;background:rgba(31,58,95,.14);border-radius:4px"></div>
+          <div style="position:absolute;left:58.8%;top:12px;height:40px;border-left:2px solid #1F3A5F"></div>
+          <div style="position:absolute;left:58.8%;top:-2px;transform:translateX(-50%);font-size:11px;font-weight:600;color:#1F3A5F;font-family:'IBM Plex Mono',monospace">P50 $1,412</div>
+          <div style="position:absolute;left:57.5%;top:26px;width:12px;height:12px;border-radius:50%;background:#1F3A5F;border:2px solid #fff;transform:translateX(-50%)" title="Onshore calculator $1,380M"></div>
+          <div style="position:absolute;left:58.8%;top:26px;width:12px;height:12px;border-radius:50%;background:#1F3A5F;border:2px solid #fff;transform:translateX(-50%)" title="Equipment vector $1,412M"></div>
+          <div style="position:absolute;left:63%;top:26px;width:12px;height:12px;border-radius:50%;background:#1F3A5F;border:2px solid #fff;transform:translateX(-50%)" title="Benchmark $1,512M"></div>
+          <div style="position:absolute;left:22.4%;top:26px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid #E9A23B;transform:translateX(-50%)" title="OSBL $538M indirect"></div>
+          <!-- bid marker -->
+          <sc-if value="{{ showBid }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute;left:{{ bidLeft }};top:8px;height:48px;border-left:2px dashed #B42318;transform:translateX(-1px)"></div>
+          <div style="position:absolute;left:{{ bidLeft }};top:50px;transform:translateX(-50%);font-size:11px;font-weight:600;color:#B42318;white-space:nowrap;font-family:'IBM Plex Mono',monospace">Bid {{ bidLabel }}</div>
+          </sc-if>
+        </div>
+        <div style="position:relative;height:16px;border-top:1px solid #D9DFE7;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#9AA5B1">
+          <span style="position:absolute;left:0;top:2px">$0</span><span style="position:absolute;left:25%;top:2px;transform:translateX(-50%)">$600M</span><span style="position:absolute;left:50%;top:2px;transform:translateX(-50%)">$1.2B</span><span style="position:absolute;left:75%;top:2px;transform:translateX(-50%)">$1.8B</span><span style="position:absolute;right:0;top:2px">$2.4B</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#5F6B7A;flex-wrap:wrap">
+          <span style="font-weight:600;color:#1F2933">Bid check</span>
+          <div style="height:30px;width:120px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;padding:0 8px;font-family:'IBM Plex Mono',monospace;background:#fff">{{ bidInput }}</div>
+          <div style="display:flex;border:1px solid #D9DFE7;border-radius:6px;overflow:hidden;height:30px;font-size:12px"><div style="padding:0 10px;display:flex;align-items:center;background:#1F3A5F;color:#fff">TEC</div><div style="padding:0 10px;display:flex;align-items:center;background:#fff">EPC lump sum</div></div>
+          <span style="{{ verdictStyle }}">{{ verdict }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start">
+      <!-- Models -->
+      <div style="background:#fff;border:1px solid #D9DFE7;border-radius:12px;overflow:hidden">
+        <div style="padding:14px 20px 10px;display:flex;justify-content:space-between;align-items:baseline"><div style="font-weight:600">How the models land</div><div style="font-size:12px;color:#5F6B7A">Click a row for its detail and analogues</div></div>
+        <sc-for list="{{ modelRows }}" as="m" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:150px 1fr 90px;gap:14px;padding:10px 20px;border-top:1px solid #EEF1F5;align-items:center">
+            <div><div style="font-weight:500;font-size:13px">{{ m.name }}</div><div style="font-size:11.5px;color:#5F6B7A">{{ m.role }}</div></div>
+            <div style="position:relative;height:18px">
+              <div style="position:absolute;left:42.5%;width:36.25%;top:0;height:18px;background:rgba(31,58,95,.06);border-radius:3px"></div>
+              <div style="position:absolute;left:{{ m.lo }};width:{{ m.span }};top:8px;height:2px;background:#9AA5B1"></div>
+              <div style="position:absolute;left:{{ m.pos }};top:4px;width:10px;height:10px;border-radius:50%;background:{{ m.fill }};border:2px solid {{ m.stroke }};transform:translateX(-50%)"></div>
+            </div>
+            <div style="text-align:right;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13.5px">{{ m.est }}</div>
+          </div>
+        </sc-for>
+        <div style="padding:10px 20px 14px;border-top:1px solid #EEF1F5;font-size:12.5px;color:#5F6B7A;display:flex;gap:6px"><span style="font-family:'Material Symbols Rounded';font-size:16px;color:#1F3A5F">rule</span>Median of the three total-cost survivors of the 3× spread gate. OSBL is indirect and reported separately. Pool estimates escalated 2024→2025 (CP30 US Gulf Coast, +3.4%).</div>
+      </div>
+
+      <!-- Comparable -->
+      <div style="background:#fff;border:1px solid #D9DFE7;border-radius:12px;overflow:hidden">
+        <div style="padding:14px 20px 10px;display:flex;justify-content:space-between;align-items:baseline"><div style="font-weight:600">Comparable projects</div><div style="font-size:12px;color:#1F3A5F;cursor:pointer">All 12 →</div></div>
+        <sc-for list="{{ comps }}" as="c" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:1fr 90px 64px;gap:12px;padding:9px 20px;border-top:1px solid #EEF1F5;align-items:center;font-size:13px">
+            <div style="min-width:0"><div style="font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.name }}</div><div style="font-size:11.5px;color:#5F6B7A">{{ c.meta }}</div></div>
+            <div style="text-align:right;font-family:'IBM Plex Mono',monospace">{{ c.tec }}</div>
+            <div style="display:flex;align-items:center;gap:6px;justify-content:flex-end"><span style="width:28px;height:5px;background:#EEF1F5;border-radius:3px;overflow:hidden"><span style="display:block;height:100%;background:#2A9D8F;width:{{ c.w }}"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5F6B7A">{{ c.sim }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="font-size:12px;color:#5F6B7A;display:flex;gap:6px;align-items:center"><span style="font-family:'Material Symbols Rounded';font-size:15px">info</span>Class 5 screening estimate (±50% target). Deterministic models, no AI. Not a basis of estimate.</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;bidMusd&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1650,&quot;min&quot;:0,&quot;max&quot;:2400,&quot;step&quot;:10,&quot;unit&quot;:&quot;$M&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Bid check&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const bid = Number(this.props.bidMusd ?? 1650);
+    const max = 2400, pct = v => (v / max * 100).toFixed(2) + '%';
+    const lo = 1020, hi = 1890;
+    const showBid = bid > 0;
+    let verdict = 'Enter a bid to place it on the range', vs = 'color:#5F6B7A';
+    if (showBid) {
+      if (bid < lo) { verdict = `Below range · ${((bid / 1412 - 1) * 100).toFixed(0)}% vs P50`; vs = 'color:#B42318;font-weight:600'; }
+      else if (bid > hi) { verdict = `Above range · +${((bid / 1412 - 1) * 100).toFixed(0)}% vs P50`; vs = 'color:#B86E00;font-weight:600'; }
+      else { verdict = `Within range · ${(bid / 1412 - 1) * 100 >= 0 ? '+' : ''}${((bid / 1412 - 1) * 100).toFixed(0)}% vs P50`; vs = 'color:#1B7F4C;font-weight:600'; }
+    }
+    const M = (name, role, est, l, h, indirect) => ({ name, role, est: `$${est.toLocaleString('en-US')}M`, pos: pct(est), lo: pct(l), span: pct(h - l), fill: indirect ? '#fff' : '#1F3A5F', stroke: indirect ? '#E9A23B' : '#1F3A5F' });
+    const modelRows = [
+      M('Equipment vector', 'In ensemble', 1412, 1020, 1890),
+      M('Onshore calculator', 'In ensemble', 1380, 1035, 1725),
+      M('Benchmark', 'In ensemble · 12 analogues', 1512, 890, 2140),
+      M('OSBL overlay', 'Indirect · not in total', 538, 430, 650, true),
+    ];
+    const comps = [
+      { name: 'MOCK-0217 PE complex', meta: 'United States · 700 KTA · grassroots', tec: '$1,696M', sim: '0.91', w: '91%' },
+      { name: 'MOCK-0088 Polyolefins', meta: 'United States · 550 KTA · grassroots', tec: '$1,251M', sim: '0.86', w: '86%' },
+      { name: 'MOCK-0341 Cracker expansion', meta: 'Canada · 1,200 KTA · expansion', tec: '$2,120M', sim: '0.78', w: '78%' },
+      { name: 'MOCK-0129 HDPE unit', meta: 'United States · 450 KTA · grassroots', tec: '$1,013M', sim: '0.74', w: '74%' },
+      { name: 'MOCK-0402 MEG plant', meta: 'Saudi Arabia · 750 KTA · grassroots', tec: '$1,890M', sim: '0.69', w: '69%' },
+    ];
+    return { showBid, bidLeft: pct(Math.min(bid, max)), bidLabel: `$${bid.toLocaleString('en-US')}M`, bidInput: showBid ? bid.toLocaleString('en-US') : '—', verdict, verdictStyle: vs + ';font-size:12.5px', modelRows, comps };
+  }
+}
+</script>
+</body>
+</html>

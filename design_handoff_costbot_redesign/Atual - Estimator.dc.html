@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#FFFFFF;color:#1F2933;font-family:Inter,sans-serif;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#1F3A5F;text-decoration:none}a:hover{color:#1F3A5F;text-decoration:underline}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div data-screen-label="Estimator (atual)" style="width:1440px;min-height:100vh;background:#fff">
+  <div style="height:52.5px;display:flex;align-items:center;padding:0 70px;gap:28px;background:#fff">
+    <div style="display:flex;align-items:center;gap:6px;color:#1F3A5F;font-weight:600"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">calculate</span>Estimator</div>
+    <div style="display:flex;align-items:center;gap:6px;color:#1F2933"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">science</span>Models</div>
+    <div style="display:flex;align-items:center;gap:6px;color:#1F2933"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">database</span>Data</div>
+  </div>
+  <div style="padding:28px 70px 140px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <h2 style="margin:0;font-size:20px;font-weight:600;line-height:1.2;padding:8px 0">GP screening cost estimator</h2>
+      <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(31,58,95,.1);color:#1F3A5F;font-size:12px;padding:2px 8px;border-radius:6px;font-weight:500"><span style="font-family:'Material Symbols Rounded';font-size:14px;line-height:1">science</span>POC v1.1</span>
+    </div>
+    <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Class 5 screening estimate (±50% target). Deterministic models, no AI. Not a basis of estimate.</div>
+
+    <div style="display:grid;grid-template-columns:5fr 7fr;gap:28px;margin-top:6px">
+      <!-- LEFT: inputs -->
+      <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+        <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">folder_open</span>Project</div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:12.25px;display:flex;align-items:center;gap:6px">Archetype<span style="font-family:'Material Symbols Rounded';font-size:13px;color:rgba(31,41,51,.6)">help</span></div>
+            <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 9px"><span>Petrochemical (onshore)</span><span style="font-family:'Material Symbols Rounded';font-size:20px;color:#5F6B7A">keyboard_arrow_down</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:12.25px;display:flex;align-items:center;gap:6px">Location (CP30 region)<span style="font-family:'Material Symbols Rounded';font-size:13px;color:rgba(31,41,51,.6)">help</span></div>
+            <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 9px"><span>US Gulf Coast</span><span style="font-family:'Material Symbols Rounded';font-size:20px;color:#5F6B7A">keyboard_arrow_down</span></div>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap">
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="font-size:12.25px;display:flex;align-items:center;gap:6px">Basis year<span style="font-family:'Material Symbols Rounded';font-size:13px;color:rgba(31,41,51,.6)">help</span></div>
+              <div style="display:flex;gap:5px">
+                <div style="height:35px;padding:0 11px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center">2024</div>
+                <div style="height:35px;padding:0 11px;border:1px solid #1F3A5F;color:#1F3A5F;border-radius:6px;display:flex;align-items:center">2025</div>
+                <div style="height:35px;padding:0 11px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center">2026</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="font-size:12.25px;display:flex;align-items:center;gap:6px">Scope type<span style="font-family:'Material Symbols Rounded';font-size:13px;color:rgba(31,41,51,.6)">help</span></div>
+              <div style="display:flex;gap:5px;flex-wrap:wrap">
+                <div style="height:35px;padding:0 11px;border:1px solid #1F3A5F;color:#1F3A5F;border-radius:6px;display:flex;align-items:center">Greenfield</div>
+                <div style="height:35px;padding:0 11px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center">Brownfield</div>
+                <div style="height:35px;padding:0 11px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center">Expansion</div>
+                <div style="height:35px;padding:0 11px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center">Modification</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:12.25px">Project name</div>
+            <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;padding:0 9px">Baytown PE-4</div>
+          </div>
+          <div style="border:1px solid #D9DFE7;border-radius:6px;padding:0 13px;height:42px;display:flex;align-items:center;justify-content:space-between"><span style="display:flex;align-items:center;gap:6px"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">more_horiz</span>Optional details</span><span style="font-family:'Material Symbols Rounded';font-size:20px;color:#5F6B7A">keyboard_arrow_down</span></div>
+        </div>
+
+        <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">precision_manufacturing</span>Equipment list</div>
+          <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Unlocks the equipment vector model, the best broad model (66% within ±30%). Pumps, exchangers, towers, drums, compressors: even rough counts help.</div>
+          <div style="display:flex;gap:14px;align-items:flex-end">
+            <div style="display:flex;flex-direction:column;gap:4px;flex:1;min-width:0">
+              <div style="font-size:12.25px;display:flex;align-items:center;gap:6px">Equipment type<span style="font-family:'Material Symbols Rounded';font-size:13px;color:rgba(31,41,51,.6)">help</span></div>
+              <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 9px"><span>pump</span><span style="font-family:'Material Symbols Rounded';font-size:20px;color:#5F6B7A">keyboard_arrow_down</span></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;width:110px">
+              <div style="font-size:12.25px">Count</div>
+              <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;overflow:hidden"><span style="flex:1;padding:0 9px">1</span><span style="width:30px;height:100%;display:flex;align-items:center;justify-content:center;border-left:1px solid #D9DFE7;font-family:'Material Symbols Rounded';font-size:16px;color:#5F6B7A">remove</span><span style="width:30px;height:100%;display:flex;align-items:center;justify-content:center;border-left:1px solid #D9DFE7;font-family:'Material Symbols Rounded';font-size:16px;color:#5F6B7A">add</span></div>
+            </div>
+            <div style="height:35px;padding:0 10px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;gap:5px;background:#fff"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">add</span>Add</div>
+          </div>
+          <div style="display:flex;flex-direction:column">
+            <div style="display:flex;align-items:center;justify-content:space-between"><span>pump × <b>24</b></span><span style="display:flex;align-items:center;gap:5px;height:35px;padding:0 10px;color:#1F2933"><span style="font-family:'Material Symbols Rounded';font-size:18px">close</span>Remove</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between"><span>exchanger × <b>18</b></span><span style="display:flex;align-items:center;gap:5px;height:35px;padding:0 10px"><span style="font-family:'Material Symbols Rounded';font-size:18px">close</span>Remove</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between"><span>drum × <b>10</b></span><span style="display:flex;align-items:center;gap:5px;height:35px;padding:0 10px"><span style="font-family:'Material Symbols Rounded';font-size:18px">close</span>Remove</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between"><span>tower × <b>6</b></span><span style="display:flex;align-items:center;gap:5px;height:35px;padding:0 10px"><span style="font-family:'Material Symbols Rounded';font-size:18px">close</span>Remove</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between"><span>compressor × <b>3</b></span><span style="display:flex;align-items:center;gap:5px;height:35px;padding:0 10px"><span style="font-family:'Material Symbols Rounded';font-size:18px">close</span>Remove</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between"><span>reactor × <b>2</b></span><span style="display:flex;align-items:center;gap:5px;height:35px;padding:0 10px"><span style="font-family:'Material Symbols Rounded';font-size:18px">close</span>Remove</span></div>
+          </div>
+        </div>
+
+        <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">factory</span>Facility and capacity</div>
+          <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Unlocks the calculators (onshore, offshore, pipeline, LNG) and the unconventional lookup.</div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:12.25px;display:flex;align-items:center;gap:6px">Facility type<span style="font-family:'Material Symbols Rounded';font-size:13px;color:rgba(31,41,51,.6)">help</span></div>
+            <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 9px"><span>polyethylene</span><span style="font-family:'Material Symbols Rounded';font-size:20px;color:#5F6B7A">keyboard_arrow_down</span></div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-end">
+            <div style="display:flex;flex-direction:column;gap:4px;flex:1">
+              <div style="font-size:12.25px">Primary capacity</div>
+              <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;overflow:hidden"><span style="flex:1;padding:0 9px">625.00</span><span style="width:30px;height:100%;display:flex;align-items:center;justify-content:center;border-left:1px solid #D9DFE7;font-family:'Material Symbols Rounded';font-size:16px;color:#5F6B7A">remove</span><span style="width:30px;height:100%;display:flex;align-items:center;justify-content:center;border-left:1px solid #D9DFE7;font-family:'Material Symbols Rounded';font-size:16px;color:#5F6B7A">add</span></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;width:140px">
+              <div style="font-size:12.25px">Unit</div>
+              <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 9px"><span>KTA</span><span style="font-family:'Material Symbols Rounded';font-size:20px;color:#5F6B7A">keyboard_arrow_down</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">view_list</span>Scope items</div>
+          <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Build the project from pieces (a process unit, an OSBL package, a pipeline segment). Each piece is matched against the chip library and summed.</div>
+          <div style="display:flex;gap:14px;align-items:flex-end">
+            <div style="display:flex;flex-direction:column;gap:4px;flex:1;min-width:0">
+              <div style="font-size:12.25px">Scope item type</div>
+              <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 9px"><span>Process unit</span><span style="font-family:'Material Symbols Rounded';font-size:20px;color:#5F6B7A">keyboard_arrow_down</span></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;flex:1;min-width:0">
+              <div style="font-size:12.25px">Facility name</div>
+              <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;padding:0 9px;color:rgba(31,41,51,.6)">e.g. Crude unit, Utilities</div>
+            </div>
+            <div style="height:35px;padding:0 10px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;gap:5px;background:#fff"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">add</span>Add</div>
+          </div>
+          <div style="font-size:12.25px;color:rgba(31,41,51,.6)">No scope items added yet.</div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:center">
+          <div style="flex:1;height:35px;background:#1F3A5F;color:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">play_arrow</span>Run screening estimate</div>
+          <div style="height:35px;padding:0 10px;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">restart_alt</span>Reset</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: readiness + results -->
+      <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+        <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">checklist</span>Model readiness</div>
+          <div style="font-size:12.25px;color:rgba(31,41,51,.6)">4 of 5 eligible models ready. Others light up as you add inputs.</div>
+          <div style="display:flex;flex-direction:column">
+            <div style="display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px">check_circle</span>Onshore calculator <span style="background:rgba(27,127,76,.1);color:#1B7F4C;font-size:10.5px;padding:1px 7px;border-radius:6px;font-weight:500">Ready</span></div>
+            <div style="display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px">check_circle</span>Benchmark (analogues) <span style="background:rgba(27,127,76,.1);color:#1B7F4C;font-size:10.5px;padding:1px 7px;border-radius:6px;font-weight:500">Ready</span></div>
+            <div style="display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px">check_circle</span>Equipment vector <span style="background:rgba(27,127,76,.1);color:#1B7F4C;font-size:10.5px;padding:1px 7px;border-radius:6px;font-weight:500">Ready</span></div>
+            <div style="display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px">radio_button_unchecked</span>Composite (scope chips) <span style="background:rgba(95,107,122,.1);color:#5F6B7A;font-size:10.5px;padding:1px 7px;border-radius:6px;font-weight:500">Needs scope items</span></div>
+            <div style="display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px">check_circle</span>OSBL overlay (indirect) <span style="background:rgba(27,127,76,.1);color:#1B7F4C;font-size:10.5px;padding:1px 7px;border-radius:6px;font-weight:500">Ready</span> <span style="background:rgba(31,58,95,.1);color:#1F3A5F;font-size:10.5px;padding:1px 7px;border-radius:6px;font-weight:500">automatic</span></div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px">
+          <div style="flex:1;border:1px solid #D9DFE7;border-radius:6px;padding:13px;min-width:0"><div style="font-size:12.25px;display:flex;align-items:center;gap:6px">Best estimate (P50)<span style="font-family:'Material Symbols Rounded';font-size:13px;color:rgba(31,41,51,.6)">help</span></div><div style="font-size:31.5px;line-height:1.4;padding-bottom:4px">$1,412M</div></div>
+          <div style="flex:1;border:1px solid #D9DFE7;border-radius:6px;padding:13px;min-width:0"><div style="font-size:12.25px;display:flex;align-items:center;gap:6px">Range (P20 to P80)<span style="font-family:'Material Symbols Rounded';font-size:13px;color:rgba(31,41,51,.6)">help</span></div><div style="font-size:31.5px;line-height:1.4;padding-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">$1,020M to $1,890M</div></div>
+          <div style="flex:1;border:1px solid #D9DFE7;border-radius:6px;padding:13px;min-width:0"><div style="font-size:12.25px;display:flex;align-items:center;gap:6px">Confidence<span style="font-family:'Material Symbols Rounded';font-size:13px;color:rgba(31,41,51,.6)">help</span></div><div style="font-size:31.5px;line-height:1.4;padding-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Medium High</div></div>
+        </div>
+        <div style="font-size:12.25px;color:rgba(31,41,51,.6)">3 total-cost models survived the 3x spread gate (spread 1.10x). P50 is the median of Onshore calculator, Equipment vector and Benchmark. Equipment vector present with 63 process items.</div>
+        <div style="font-size:12.25px;color:rgba(31,41,51,.6);display:flex;gap:4px;align-items:center"><span style="font-family:'Material Symbols Rounded';font-size:15px">trending_up</span>Pool-based estimates escalated from 2024 to 2025 USD with CP30 (US Gulf Coast, +3.4%).</div>
+
+        <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">bar_chart</span>Model estimates</div>
+          <!-- altair chart -->
+          <div style="padding:10px 10px 0 0;font-family:sans-serif">
+            <div style="display:grid;grid-template-columns:150px 1fr;row-gap:16px;align-items:center;font-size:10px;color:#333">
+              <div style="text-align:right;padding-right:8px">Benchmark (analogues)</div>
+              <div style="position:relative;height:18px"><div style="position:absolute;left:0;top:0;height:18px;width:65.7%;background:#1F3A5F"></div><div style="position:absolute;left:38.7%;width:54.3%;top:8px;height:1.5px;background:#5F6B7A"></div></div>
+              <div style="text-align:right;padding-right:8px">Equipment vector</div>
+              <div style="position:relative;height:18px"><div style="position:absolute;left:0;top:0;height:18px;width:61.4%;background:#1F3A5F"></div><div style="position:absolute;left:44.3%;width:37.8%;top:8px;height:1.5px;background:#5F6B7A"></div></div>
+              <div style="text-align:right;padding-right:8px">Onshore calculator</div>
+              <div style="position:relative;height:18px"><div style="position:absolute;left:0;top:0;height:18px;width:60%;background:#1F3A5F"></div><div style="position:absolute;left:45%;width:30%;top:8px;height:1.5px;background:#5F6B7A"></div></div>
+              <div style="text-align:right;padding-right:8px">OSBL overlay (indirect)</div>
+              <div style="position:relative;height:18px"><div style="position:absolute;left:0;top:0;height:18px;width:23.4%;background:#E9A23B"></div><div style="position:absolute;left:18.7%;width:9.6%;top:8px;height:1.5px;background:#5F6B7A"></div></div>
+            </div>
+            <div style="display:grid;grid-template-columns:150px 1fr;margin-top:6px">
+              <div></div>
+              <div style="position:relative;height:22px;border-top:1px solid #888;font-size:10px;color:#333">
+                <span style="position:absolute;left:0;top:4px;transform:translateX(-50%)">$0</span><span style="position:absolute;left:21.7%;top:4px;transform:translateX(-50%)">$500</span><span style="position:absolute;left:43.5%;top:4px;transform:translateX(-50%)">$1,000</span><span style="position:absolute;left:65.2%;top:4px;transform:translateX(-50%)">$1,500</span><span style="position:absolute;left:87%;top:4px;transform:translateX(-50%)">$2,000</span>
+                <div style="position:absolute;left:61.4%;top:-116px;height:116px;border-left:2px dashed #B42318"></div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:150px 1fr;margin-top:2px"><div></div><div style="text-align:center;font-size:11px;font-weight:700;color:#333">TEC ($M)</div></div>
+            <div style="display:flex;justify-content:center;gap:14px;margin-top:12px;font-size:10px;color:#333">
+              <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:#1F3A5F;display:inline-block"></span>In ensemble</span>
+              <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:#9AA5B1;display:inline-block"></span>Gated out</span>
+              <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:#2A9D8F;display:inline-block"></span>Component</span>
+              <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:#E9A23B;display:inline-block"></span>Indirect overlay</span>
+            </div>
+          </div>
+          <!-- tabs -->
+          <div style="display:flex;gap:14px;border-bottom:1px solid #D9DFE7;overflow:hidden;white-space:nowrap">
+            <div style="padding:7px 0;border-bottom:2px solid #1F3A5F;color:#1F3A5F;margin-bottom:-1px">Benchmark (analogues)</div>
+            <div style="padding:7px 0">Equipment vector</div>
+            <div style="padding:7px 0">Onshore calculator</div>
+            <div style="padding:7px 0">OSBL overlay (indirect)</div>
+          </div>
+          <div><b>$1,512M</b>  ·  range $890M to $2,140M</div>
+          <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Cosine similarity over domain, scope type, region and facility class; 12 analogues above the 0.55 threshold; size signal blended 50/50.</div>
+          <div style="border:1px solid #D9DFE7;border-radius:6px;overflow:hidden;font-size:12.25px">
+            <div style="display:grid;grid-template-columns:1fr 1.6fr;background:#F4F6F9;border-bottom:1px solid #D9DFE7;font-weight:600"><div style="padding:8px 8px;border-right:1px solid #D9DFE7">Field</div><div style="padding:8px 8px">Value</div></div>
+            <div style="display:grid;grid-template-columns:1fr 1.6fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">n_analogues</div><div style="padding:8px">12</div></div>
+            <div style="display:grid;grid-template-columns:1fr 1.6fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">similarity_threshold</div><div style="padding:8px">0.55</div></div>
+            <div style="display:grid;grid-template-columns:1fr 1.6fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">size_signal_musd</div><div style="padding:8px">1,468</div></div>
+            <div style="display:grid;grid-template-columns:1fr 1.6fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">region</div><div style="padding:8px">north_america</div></div>
+            <div style="display:grid;grid-template-columns:1fr 1.6fr"><div style="padding:8px;border-right:1px solid #D9DFE7">cp30_to_year</div><div style="padding:8px">2025</div></div>
+          </div>
+          <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Analogues used</div>
+          <div style="border:1px solid #D9DFE7;border-radius:6px;overflow:hidden;font-size:12.25px">
+            <div style="display:grid;grid-template-columns:2fr 1fr 1.2fr 1.4fr 1fr;background:#F4F6F9;border-bottom:1px solid #D9DFE7;font-weight:600"><div style="padding:8px;border-right:1px solid #D9DFE7">Project</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">TEC ($M, 2024)</div><div style="padding:8px;border-right:1px solid #D9DFE7">Similarity</div><div style="padding:8px;border-right:1px solid #D9DFE7">Archetype</div><div style="padding:8px">Scope type</div></div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1.2fr 1.4fr 1fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">MOCK-0217 PE complex</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">$1,640</div><div style="padding:8px;border-right:1px solid #D9DFE7;display:flex;align-items:center;gap:6px"><span style="flex:1;height:8px;background:#E4E8EE;border-radius:2px;overflow:hidden"><span style="display:block;width:91%;height:100%;background:#1F3A5F"></span></span>0.91</div><div style="padding:8px;border-right:1px solid #D9DFE7">onshore_petchem</div><div style="padding:8px">grassroots</div></div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1.2fr 1.4fr 1fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">MOCK-0088 Polyolefins</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">$1,210</div><div style="padding:8px;border-right:1px solid #D9DFE7;display:flex;align-items:center;gap:6px"><span style="flex:1;height:8px;background:#E4E8EE;border-radius:2px;overflow:hidden"><span style="display:block;width:86%;height:100%;background:#1F3A5F"></span></span>0.86</div><div style="padding:8px;border-right:1px solid #D9DFE7">onshore_petchem</div><div style="padding:8px">grassroots</div></div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1.2fr 1.4fr 1fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">MOCK-0341 Cracker expansion</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">$2,050</div><div style="padding:8px;border-right:1px solid #D9DFE7;display:flex;align-items:center;gap:6px"><span style="flex:1;height:8px;background:#E4E8EE;border-radius:2px;overflow:hidden"><span style="display:block;width:78%;height:100%;background:#1F3A5F"></span></span>0.78</div><div style="padding:8px;border-right:1px solid #D9DFE7">onshore_petchem</div><div style="padding:8px">expansion</div></div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1.2fr 1.4fr 1fr"><div style="padding:8px;border-right:1px solid #D9DFE7">MOCK-0129 HDPE unit</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">$980</div><div style="padding:8px;border-right:1px solid #D9DFE7;display:flex;align-items:center;gap:6px"><span style="flex:1;height:8px;background:#E4E8EE;border-radius:2px;overflow:hidden"><span style="display:block;width:74%;height:100%;background:#1F3A5F"></span></span>0.74</div><div style="padding:8px;border-right:1px solid #D9DFE7">onshore_petchem</div><div style="padding:8px">grassroots</div></div>
+          </div>
+        </div>
+
+        <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">compare_arrows</span>Comparable projects</div>
+          <div style="border:1px solid #D9DFE7;border-radius:6px;overflow:hidden;font-size:12.25px">
+            <div style="display:grid;grid-template-columns:2fr 1.1fr 1.1fr 1fr .9fr .6fr 1fr 1fr;background:#F4F6F9;border-bottom:1px solid #D9DFE7;font-weight:600"><div style="padding:8px;border-right:1px solid #D9DFE7">Project</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">TEC ($M, 2025)</div><div style="padding:8px;border-right:1px solid #D9DFE7">Match</div><div style="padding:8px;border-right:1px solid #D9DFE7">Country</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">Capacity</div><div style="padding:8px;border-right:1px solid #D9DFE7">Unit</div><div style="padding:8px;border-right:1px solid #D9DFE7">Domain</div><div style="padding:8px">Scope type</div></div>
+            <div style="display:grid;grid-template-columns:2fr 1.1fr 1.1fr 1fr .9fr .6fr 1fr 1fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">MOCK-0217 PE complex</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">$1,696</div><div style="padding:8px;border-right:1px solid #D9DFE7;display:flex;align-items:center;gap:6px"><span style="flex:1;height:8px;background:#E4E8EE;border-radius:2px;overflow:hidden"><span style="display:block;width:91%;height:100%;background:#1F3A5F"></span></span>0.91</div><div style="padding:8px;border-right:1px solid #D9DFE7">United States</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">700</div><div style="padding:8px;border-right:1px solid #D9DFE7">KTA</div><div style="padding:8px;border-right:1px solid #D9DFE7">chemicals</div><div style="padding:8px">grassroots</div></div>
+            <div style="display:grid;grid-template-columns:2fr 1.1fr 1.1fr 1fr .9fr .6fr 1fr 1fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">MOCK-0088 Polyolefins</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">$1,251</div><div style="padding:8px;border-right:1px solid #D9DFE7;display:flex;align-items:center;gap:6px"><span style="flex:1;height:8px;background:#E4E8EE;border-radius:2px;overflow:hidden"><span style="display:block;width:86%;height:100%;background:#1F3A5F"></span></span>0.86</div><div style="padding:8px;border-right:1px solid #D9DFE7">United States</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">550</div><div style="padding:8px;border-right:1px solid #D9DFE7">KTA</div><div style="padding:8px;border-right:1px solid #D9DFE7">chemicals</div><div style="padding:8px">grassroots</div></div>
+            <div style="display:grid;grid-template-columns:2fr 1.1fr 1.1fr 1fr .9fr .6fr 1fr 1fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">MOCK-0341 Cracker expansion</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">$2,120</div><div style="padding:8px;border-right:1px solid #D9DFE7;display:flex;align-items:center;gap:6px"><span style="flex:1;height:8px;background:#E4E8EE;border-radius:2px;overflow:hidden"><span style="display:block;width:78%;height:100%;background:#1F3A5F"></span></span>0.78</div><div style="padding:8px;border-right:1px solid #D9DFE7">Canada</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">1,200</div><div style="padding:8px;border-right:1px solid #D9DFE7">KTA</div><div style="padding:8px;border-right:1px solid #D9DFE7">chemicals</div><div style="padding:8px">expansion</div></div>
+            <div style="display:grid;grid-template-columns:2fr 1.1fr 1.1fr 1fr .9fr .6fr 1fr 1fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">MOCK-0129 HDPE unit</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">$1,013</div><div style="padding:8px;border-right:1px solid #D9DFE7;display:flex;align-items:center;gap:6px"><span style="flex:1;height:8px;background:#E4E8EE;border-radius:2px;overflow:hidden"><span style="display:block;width:74%;height:100%;background:#1F3A5F"></span></span>0.74</div><div style="padding:8px;border-right:1px solid #D9DFE7">United States</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">450</div><div style="padding:8px;border-right:1px solid #D9DFE7">KTA</div><div style="padding:8px;border-right:1px solid #D9DFE7">chemicals</div><div style="padding:8px">grassroots</div></div>
+            <div style="display:grid;grid-template-columns:2fr 1.1fr 1.1fr 1fr .9fr .6fr 1fr 1fr"><div style="padding:8px;border-right:1px solid #D9DFE7">MOCK-0402 MEG plant</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">$1,890</div><div style="padding:8px;border-right:1px solid #D9DFE7;display:flex;align-items:center;gap:6px"><span style="flex:1;height:8px;background:#E4E8EE;border-radius:2px;overflow:hidden"><span style="display:block;width:69%;height:100%;background:#1F3A5F"></span></span>0.69</div><div style="padding:8px;border-right:1px solid #D9DFE7">Saudi Arabia</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">750</div><div style="padding:8px;border-right:1px solid #D9DFE7">KTA</div><div style="padding:8px;border-right:1px solid #D9DFE7">chemicals</div><div style="padding:8px">grassroots</div></div>
+          </div>
+        </div>
+
+        <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">request_quote</span>Bid check</div>
+          <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Compare a contractor bid with the screening range.</div>
+          <div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap">
+            <div style="display:flex;flex-direction:column;gap:4px;width:180px">
+              <div style="font-size:12.25px">Bid amount ($M)</div>
+              <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;overflow:hidden"><span style="flex:1;padding:0 9px">0.00</span><span style="width:30px;height:100%;display:flex;align-items:center;justify-content:center;border-left:1px solid #D9DFE7;font-family:'Material Symbols Rounded';font-size:16px;color:#5F6B7A">remove</span><span style="width:30px;height:100%;display:flex;align-items:center;justify-content:center;border-left:1px solid #D9DFE7;font-family:'Material Symbols Rounded';font-size:16px;color:#5F6B7A">add</span></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="font-size:12.25px">Bid type</div>
+              <div style="display:flex;gap:5px"><div style="height:35px;padding:0 11px;border:1px solid #1F3A5F;color:#1F3A5F;border-radius:6px;display:flex;align-items:center">TEC</div><div style="height:35px;padding:0 11px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center">EPC lump sum</div></div>
+            </div>
+            <div style="height:35px;padding:0 10px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">fact_check</span>Check bid</div>
+          </div>
+        </div>
+
+        <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">tune</span>What-if</div>
+          <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Change one number and rerun every model with it.</div>
+          <div style="display:flex;gap:14px;align-items:flex-end">
+            <div style="display:flex;flex-direction:column;gap:4px;flex:1">
+              <div style="font-size:12.25px">Parameter</div>
+              <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 9px"><span>Primary capacity</span><span style="font-family:'Material Symbols Rounded';font-size:20px;color:#5F6B7A">keyboard_arrow_down</span></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;flex:1">
+              <div style="font-size:12.25px">New value (now 625.0 KTA)</div>
+              <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;overflow:hidden"><span style="flex:1;padding:0 9px">625.00</span><span style="width:30px;height:100%;display:flex;align-items:center;justify-content:center;border-left:1px solid #D9DFE7;font-family:'Material Symbols Rounded';font-size:16px;color:#5F6B7A">remove</span><span style="width:30px;height:100%;display:flex;align-items:center;justify-content:center;border-left:1px solid #D9DFE7;font-family:'Material Symbols Rounded';font-size:16px;color:#5F6B7A">add</span></div>
+            </div>
+            <div style="height:35px;padding:0 10px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;gap:5px;white-space:nowrap"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">play_arrow</span>Run what-if</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:center">
+          <div style="height:35px;padding:0 10px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;gap:5px;white-space:nowrap"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">download</span>Download HTML report</div>
+          <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Class 5 screening estimate (±50% target). Deterministic models, no AI. Not a basis of estimate.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

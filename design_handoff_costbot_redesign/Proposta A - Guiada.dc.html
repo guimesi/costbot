@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F4F6F9;color:#1F2933;font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:#1F3A5F;text-decoration:none}a:hover{color:#16294a;text-decoration:underline}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div data-screen-label="Proposta A" style="width:1440px;min-height:100vh;display:flex;flex-direction:column;background:#F4F6F9">
+  <!-- App bar -->
+  <div style="height:52px;background:#fff;border-bottom:1px solid #D9DFE7;display:flex;align-items:center;padding:0 24px;gap:24px">
+    <div style="display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.01em;white-space:nowrap"><span style="width:26px;height:26px;border-radius:6px;background:#1F3A5F;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:17px">calculate</span>GP screening estimator<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;color:#5F6B7A;border:1px solid #D9DFE7;border-radius:4px;padding:1px 6px">POC v1.1</span></div>
+    <div style="display:flex;gap:4px;margin-left:16px">
+      <div onClick="{{ goEstimator }}" style="{{ tabEstimator }}">Estimator</div>
+      <div onClick="{{ goModels }}" style="{{ tabModels }}">Models</div>
+      <div onClick="{{ goData }}" style="{{ tabData }}">Data</div>
+    </div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12px;color:#5F6B7A"><span style="font-family:'Material Symbols Rounded';font-size:16px">info</span>Class 5 · ±50% target · deterministic, no AI · not a basis of estimate</div>
+  </div>
+
+  <sc-if value="{{ isEstimator }}" hint-placeholder-val="{{ true }}">
+  <div style="display:grid;grid-template-columns:420px minmax(0,1fr);gap:24px;padding:24px;align-items:start">
+    <!-- LEFT: guided inputs -->
+    <div style="display:flex;flex-direction:column;gap:10px;position:sticky;top:24px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;padding:0 4px">
+        <div style="font-size:13px;font-weight:600;color:#5F6B7A;text-transform:uppercase;letter-spacing:.06em">Scope</div>
+        <div style="font-size:12px;color:#5F6B7A;display:flex;gap:4px;align-items:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:15px">restart_alt</span>Reset</div>
+      </div>
+
+      <!-- Step 1 done, collapsed -->
+      <div style="background:#fff;border:1px solid #D9DFE7;border-radius:8px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start">
+        <div style="width:22px;height:22px;border-radius:50%;background:#1B7F4C;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:15px;flex-shrink:0;margin-top:1px">check</div>
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-weight:600">Project</div><div style="font-size:12px;color:#1F3A5F;cursor:pointer">Edit</div></div>
+          <div style="font-size:13px;color:#5F6B7A;margin-top:2px">Petrochemical (onshore) · US Gulf Coast · 2025 USD · Greenfield</div>
+          <div style="font-size:13px;color:#5F6B7A">Baytown PE-4</div>
+        </div>
+      </div>
+
+      <!-- Step 2 done -->
+      <div style="background:#fff;border:1px solid #D9DFE7;border-radius:8px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start">
+        <div style="width:22px;height:22px;border-radius:50%;background:#1B7F4C;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Material Symbols Rounded';font-size:15px;flex-shrink:0;margin-top:1px">check</div>
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-weight:600">Equipment list</div><div style="font-size:12px;color:#1F3A5F;cursor:pointer">Edit</div></div>
+          <div style="font-size:13px;color:#5F6B7A;margin-top:2px">63 process items · pump 24, exchanger 18, drum 10, tower 6, compressor 3, reactor 2</div>
+          <div style="margin-top:6px;display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:#1B7F4C;background:rgba(27,127,76,.08);border-radius:4px;padding:2px 7px"><span style="font-family:'Material Symbols Rounded';font-size:13px">bolt</span>Unlocks Equipment vector</div>
+        </div>
+      </div>
+
+      <!-- Step 3 active, expanded -->
+      <div style="background:#fff;border:1px solid #1F3A5F;border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 0 rgba(31,58,95,.08)">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="width:22px;height:22px;border-radius:50%;background:#1F3A5F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;margin-top:1px">3</div>
+          <div style="flex:1">
+            <div style="font-weight:600">Facility and capacity</div>
+            <div style="font-size:12.5px;color:#5F6B7A;margin-top:1px">One number is enough. Unlocks the onshore calculator and the OSBL overlay.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr;gap:10px;padding-left:34px">
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:12px;font-weight:500;color:#5F6B7A">Facility type</div>
+            <div style="height:36px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;background:#fff"><span>Polyethylene</span><span style="font-family:'Material Symbols Rounded';font-size:18px;color:#5F6B7A">expand_more</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 120px;gap:8px">
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="font-size:12px;font-weight:500;color:#5F6B7A">Primary capacity</div>
+              <div style="height:36px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;padding:0 10px;background:#fff;font-family:'IBM Plex Mono',monospace">625</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="font-size:12px;font-weight:500;color:#5F6B7A">Unit</div>
+              <div style="height:36px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;background:#fff"><span>KTA</span><span style="font-family:'Material Symbols Rounded';font-size:18px;color:#5F6B7A">expand_more</span></div>
+            </div>
+          </div>
+          <div style="font-size:12px;color:#5F6B7A;display:flex;gap:5px;align-items:center"><span style="font-family:'Material Symbols Rounded';font-size:14px">info</span>Reference for polyethylene: 625 KTA. Scaling exponent 0.6.</div>
+        </div>
+      </div>
+
+      <!-- Step 4 optional, collapsed -->
+      <div style="background:#fff;border:1px solid #D9DFE7;border-radius:8px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start">
+        <div style="width:22px;height:22px;border-radius:50%;border:1.5px solid #D9DFE7;color:#5F6B7A;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;margin-top:1px">4</div>
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-weight:600">Scope items <span style="font-weight:400;color:#5F6B7A;font-size:12.5px">optional</span></div><span style="font-family:'Material Symbols Rounded';font-size:18px;color:#5F6B7A">expand_more</span></div>
+          <div style="font-size:13px;color:#5F6B7A;margin-top:2px">Add process units and OSBL packages to unlock Composite (low accuracy, 26%).</div>
+        </div>
+      </div>
+
+      <!-- Readiness compact -->
+      <div style="background:#fff;border:1px solid #D9DFE7;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:12px;font-weight:600;color:#5F6B7A;text-transform:uppercase;letter-spacing:.06em">Models ready</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5F6B7A">4 / 5</div></div>
+        <div style="display:flex;gap:4px"><div style="flex:1;height:4px;border-radius:2px;background:#1B7F4C"></div><div style="flex:1;height:4px;border-radius:2px;background:#1B7F4C"></div><div style="flex:1;height:4px;border-radius:2px;background:#1B7F4C"></div><div style="flex:1;height:4px;border-radius:2px;background:#1B7F4C"></div><div style="flex:1;height:4px;border-radius:2px;background:#D9DFE7"></div></div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;font-size:12px">
+          <span style="display:inline-flex;align-items:center;gap:4px;color:#1F2933"><span style="width:7px;height:7px;border-radius:50%;background:#1B7F4C"></span>Onshore calculator</span>
+          <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:7px;height:7px;border-radius:50%;background:#1B7F4C"></span>Benchmark</span>
+          <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:7px;height:7px;border-radius:50%;background:#1B7F4C"></span>Equipment vector</span>
+          <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:7px;height:7px;border-radius:50%;background:#1B7F4C"></span>OSBL overlay <span style="color:#5F6B7A">auto</span></span>
+          <span style="display:inline-flex;align-items:center;gap:4px;color:#5F6B7A"><span style="width:7px;height:7px;border-radius:50%;border:1.5px solid #9AA5B1"></span>Composite · needs scope items</span>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <div style="flex:1;height:40px;background:#1F3A5F;color:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:600;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:18px">play_arrow</span>Run screening estimate</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: results -->
+    <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+      <sc-if value="{{ stale }}" hint-placeholder-val="{{ false }}">
+        <div style="background:rgba(31,58,95,.08);border:1px solid rgba(31,58,95,.2);color:#1F3A5F;border-radius:8px;padding:10px 14px;display:flex;gap:8px;align-items:center;font-size:13px"><span style="font-family:'Material Symbols Rounded';font-size:18px">history</span>Inputs changed since this estimate. Run again to refresh.<span style="margin-left:auto;font-weight:600;cursor:pointer">Run now</span></div>
+      </sc-if>
+
+      <!-- Hero -->
+      <div style="background:#fff;border:1px solid #D9DFE7;border-radius:10px;padding:22px 24px 20px;display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;align-items:flex-start;gap:32px;flex-wrap:wrap">
+          <div>
+            <div style="font-size:12px;font-weight:600;color:#5F6B7A;text-transform:uppercase;letter-spacing:.06em">Best estimate · P50</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:44px;font-weight:600;line-height:1.1;letter-spacing:-.02em;color:#1F2933;margin-top:4px">$1,412<span style="font-size:22px;font-weight:500;color:#5F6B7A">M</span></div>
+            <div style="font-size:12.5px;color:#5F6B7A;margin-top:2px">TEC, 2025 USD · Baytown PE-4</div>
+          </div>
+          <div style="padding-top:2px">
+            <div style="font-size:12px;font-weight:600;color:#5F6B7A;text-transform:uppercase;letter-spacing:.06em">Range · P20 to P80</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:500;line-height:1.3;margin-top:8px">$1,020M <span style="color:#9AA5B1">–</span> $1,890M</div>
+            <div style="font-size:12.5px;color:#5F6B7A;margin-top:2px">−28% / +34% around P50</div>
+          </div>
+          <div style="padding-top:2px">
+            <div style="font-size:12px;font-weight:600;color:#5F6B7A;text-transform:uppercase;letter-spacing:.06em">Confidence</div>
+            <div style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;background:rgba(27,127,76,.1);color:#1B7F4C;border-radius:6px;padding:4px 10px;font-weight:600;font-size:14px"><span style="width:8px;height:8px;border-radius:50%;background:#1B7F4C"></span>Medium-high</div>
+            <div style="font-size:12.5px;color:#5F6B7A;margin-top:6px">3 models agree within 1.1×</div>
+          </div>
+          <div style="margin-left:auto;display:flex;gap:8px;align-self:flex-start">
+            <div style="height:34px;padding:0 12px;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;background:#fff;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:17px">download</span>HTML report</div>
+          </div>
+        </div>
+
+        <!-- Range axis with models -->
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="position:relative;height:74px">
+            <div style="position:absolute;left:42.5%;width:36.25%;top:26px;height:22px;background:rgba(31,58,95,.12);border-radius:3px"></div>
+            <div style="position:absolute;left:58.8%;top:18px;height:38px;border-left:2px solid #1F3A5F;transform:translateX(-1px)"></div>
+            <div style="position:absolute;left:58.8%;top:0;transform:translateX(-50%);font-size:11px;font-weight:600;color:#1F3A5F;white-space:nowrap">P50</div>
+            <div style="position:absolute;left:42.5%;top:52px;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5F6B7A">P20 $1,020</div>
+            <div style="position:absolute;left:78.75%;top:52px;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5F6B7A">P80 $1,890</div>
+            <!-- model whiskers + dots -->
+            <div style="position:absolute;left:43.1%;width:28.7%;top:36px;height:2px;background:#9AA5B1"></div>
+            <div style="position:absolute;left:57.5%;top:31px;width:12px;height:12px;border-radius:50%;background:#1F3A5F;border:2px solid #fff;transform:translateX(-50%);box-shadow:0 0 0 1px #1F3A5F" title="Onshore calculator $1,380M"></div>
+            <div style="position:absolute;left:58.8%;top:31px;width:12px;height:12px;border-radius:50%;background:#1F3A5F;border:2px solid #fff;transform:translateX(-50%);box-shadow:0 0 0 1px #1F3A5F" title="Equipment vector $1,412M"></div>
+            <div style="position:absolute;left:63%;top:31px;width:12px;height:12px;border-radius:50%;background:#1F3A5F;border:2px solid #fff;transform:translateX(-50%);box-shadow:0 0 0 1px #1F3A5F" title="Benchmark $1,512M"></div>
+            <div style="position:absolute;left:22.4%;top:31px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid #E9A23B;transform:translateX(-50%)" title="OSBL overlay $538M (indirect)"></div>
+            <div style="position:absolute;left:22.4%;top:8px;transform:translateX(-50%);font-size:11px;color:#B86E00;white-space:nowrap">OSBL $538 · indirect</div>
+          </div>
+          <div style="position:relative;height:18px;border-top:1px solid #D9DFE7;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#9AA5B1">
+            <span style="position:absolute;left:0;top:3px">$0</span><span style="position:absolute;left:25%;top:3px;transform:translateX(-50%)">$600</span><span style="position:absolute;left:50%;top:3px;transform:translateX(-50%)">$1,200</span><span style="position:absolute;left:75%;top:3px;transform:translateX(-50%)">$1,800</span><span style="position:absolute;right:0;top:3px">$2,400M</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#5F6B7A;border-top:1px solid #EEF1F5;padding-top:12px">
+          <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#1F3A5F"></span>In ensemble (3)</span>
+          <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;border:2px solid #E9A23B"></span>Indirect overlay, not in total</span>
+          <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#9AA5B1"></span>Gated out (0)</span>
+          <span style="margin-left:auto;display:inline-flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:15px">trending_up</span>Pool escalated 2024→2025, CP30 US Gulf Coast +3.4%</span>
+        </div>
+      </div>
+
+      <!-- Why this number -->
+      <div style="background:#fff;border:1px solid #D9DFE7;border-radius:10px;overflow:hidden">
+        <div style="display:flex;gap:2px;border-bottom:1px solid #D9DFE7;padding:0 12px;background:#FAFBFC">
+          <div style="padding:12px 12px;font-weight:600;color:#1F3A5F;border-bottom:2px solid #1F3A5F;margin-bottom:-1px;font-size:13.5px">Models</div>
+          <div style="padding:12px 12px;color:#5F6B7A;font-size:13.5px">Comparable projects <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:#EEF1F5;padding:1px 6px;border-radius:4px;margin-left:4px">12</span></div>
+          <div style="padding:12px 12px;color:#5F6B7A;font-size:13.5px">Bid check</div>
+          <div style="padding:12px 12px;color:#5F6B7A;font-size:13.5px">What-if</div>
+        </div>
+        <div style="padding:6px 0">
+          <div style="display:grid;grid-template-columns:minmax(180px,1.4fr) 110px 170px 1fr 28px;gap:12px;padding:8px 20px;font-size:11.5px;font-weight:600;color:#5F6B7A;text-transform:uppercase;letter-spacing:.05em">
+            <div>Model</div><div style="text-align:right">Estimate</div><div style="text-align:right">Range</div><div>Role · basis</div><div></div>
+          </div>
+          <sc-for list="{{ modelRows }}" as="m" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:minmax(180px,1.4fr) 110px 170px 1fr 28px;gap:12px;padding:11px 20px;border-top:1px solid #EEF1F5;align-items:center">
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:{{ m.color }};border:2px solid {{ m.ring }};flex-shrink:0"></span><span style="font-weight:500">{{ m.name }}</span></div>
+              <div style="text-align:right;font-family:'IBM Plex Mono',monospace;font-weight:500">{{ m.est }}</div>
+              <div style="text-align:right;font-family:'IBM Plex Mono',monospace;color:#5F6B7A;font-size:13px">{{ m.range }}</div>
+              <div style="font-size:12.5px;color:#5F6B7A">{{ m.basis }}</div>
+              <div style="font-family:'Material Symbols Rounded';font-size:18px;color:#9AA5B1;text-align:right">chevron_right</div>
+            </div>
+          </sc-for>
+          <div style="padding:12px 20px;border-top:1px solid #EEF1F5;font-size:12.5px;color:#5F6B7A;display:flex;gap:6px;align-items:flex-start"><span style="font-family:'Material Symbols Rounded';font-size:16px;color:#1F3A5F">rule</span><span>Ensemble: 3 total-cost models survived the 3× spread gate (spread 1.10×). P50 is their median. Range is the widest of their ranges, capped at 5×. OSBL and SURF never enter the median.</span></div>
+        </div>
+      </div>
+
+      <!-- Comparable projects preview -->
+      <div style="background:#fff;border:1px solid #D9DFE7;border-radius:10px;overflow:hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px 10px"><div style="font-weight:600">Closest comparable projects</div><div style="font-size:12.5px;color:#1F3A5F;cursor:pointer">All 12 →</div></div>
+        <div style="display:grid;grid-template-columns:minmax(160px,1.5fr) 110px 120px 1fr .7fr 1fr;gap:12px;padding:6px 20px;font-size:11.5px;font-weight:600;color:#5F6B7A;text-transform:uppercase;letter-spacing:.05em">
+          <div>Project</div><div style="text-align:right">TEC 2025</div><div>Match</div><div>Country</div><div style="text-align:right">Capacity</div><div>Scope</div>
+        </div>
+        <sc-for list="{{ comps }}" as="c" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:minmax(160px,1.5fr) 110px 120px 1fr .7fr 1fr;gap:12px;padding:9px 20px;border-top:1px solid #EEF1F5;align-items:center;font-size:13px">
+            <div style="font-weight:500">{{ c.name }}</div>
+            <div style="text-align:right;font-family:'IBM Plex Mono',monospace">{{ c.tec }}</div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="flex:1;height:6px;background:#EEF1F5;border-radius:3px;overflow:hidden"><span style="display:block;height:100%;background:#2A9D8F;width:{{ c.w }}"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5F6B7A">{{ c.sim }}</span></div>
+            <div style="color:#5F6B7A">{{ c.country }}</div>
+            <div style="text-align:right;font-family:'IBM Plex Mono',monospace;color:#5F6B7A">{{ c.cap }}</div>
+            <div style="color:#5F6B7A">{{ c.scope }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isModels }}" hint-placeholder-val="{{ false }}">
+  <div style="padding:24px;display:flex;flex-direction:column;gap:16px;max-width:1280px">
+    <div style="display:flex;align-items:baseline;gap:14px"><h1 style="margin:0;font-size:20px;font-weight:600">Ten models, one ensemble</h1><span style="font-size:13px;color:#5F6B7A">Each fires only when its inputs exist. Accuracy figures are reported, not reproduced on this engine.</span></div>
+    <div style="background:#fff;border:1px solid #D9DFE7;border-radius:10px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1.5fr 1.2fr 1.6fr 1fr 130px;gap:12px;padding:10px 20px;font-size:11.5px;font-weight:600;color:#5F6B7A;text-transform:uppercase;letter-spacing:.05em;background:#FAFBFC;border-bottom:1px solid #D9DFE7"><div>Model</div><div>Method</div><div>Needs</div><div>Role</div><div style="text-align:right">Within ±30%</div></div>
+      <sc-for list="{{ specs }}" as="s" hint-placeholder-count="10">
+        <div style="display:grid;grid-template-columns:1.5fr 1.2fr 1.6fr 1fr 130px;gap:12px;padding:12px 20px;border-top:1px solid #EEF1F5;align-items:center;font-size:13px">
+          <div><div style="font-weight:600">{{ s.name }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9AA5B1">{{ s.id }}</div></div>
+          <div style="color:#5F6B7A">{{ s.method }}</div>
+          <div style="color:#5F6B7A">{{ s.needs }}</div>
+          <div><span style="font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:4px;background:{{ s.bg }};color:{{ s.fg }}">{{ s.badge }}</span></div>
+          <div style="display:flex;align-items:center;gap:8px;justify-content:flex-end"><span style="width:56px;height:6px;background:#EEF1F5;border-radius:3px;overflow:hidden"><span style="display:block;height:100%;background:{{ s.barColor }};width:{{ s.w }}"></span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;min-width:64px;text-align:right">{{ s.acc }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-size:12.5px;color:#5F6B7A">Routing per archetype and the ensemble rules move to an expandable row under each model, instead of a separate tab.</div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isData }}" hint-placeholder-val="{{ false }}">
+  <div style="padding:24px;display:flex;flex-direction:column;gap:16px;max-width:1280px">
+    <div style="display:flex;align-items:center;gap:12px;background:rgba(184,110,0,.08);border:1px solid rgba(184,110,0,.25);border-radius:8px;padding:10px 14px;font-size:13px;color:#7A4A00"><span style="font-family:'Material Symbols Rounded';font-size:18px">science</span><span><b>Synthetic package.</b> Row counts and columns match the real data; values are random. Set <span style="font-family:'IBM Plex Mono',monospace">COSTBOT_DATA_DIR</span> to use the real one.</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px">/app/data</span></div>
+    <div style="background:#fff;border:1px solid #D9DFE7;border-radius:10px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:2fr 90px 90px 1.6fr 2.4fr 90px;gap:12px;padding:10px 20px;font-size:11.5px;font-weight:600;color:#5F6B7A;text-transform:uppercase;letter-spacing:.05em;background:#FAFBFC;border-bottom:1px solid #D9DFE7"><div>Table</div><div style="text-align:right">Rows</div><div style="text-align:right">Cols</div><div>Used by</div><div>Description</div><div></div></div>
+      <sc-for list="{{ tables }}" as="t" hint-placeholder-count="10">
+        <div style="display:grid;grid-template-columns:2fr 90px 90px 1.6fr 2.4fr 90px;gap:12px;padding:11px 20px;border-top:1px solid #EEF1F5;align-items:center;font-size:13px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px">{{ t.name }}</div>
+          <div style="text-align:right;font-family:'IBM Plex Mono',monospace">{{ t.rows }}</div>
+          <div style="text-align:right;font-family:'IBM Plex Mono',monospace;color:#5F6B7A">{{ t.cols }}</div>
+          <div><span style="font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:4px;background:{{ t.bg }};color:{{ t.fg }}">{{ t.used }}</span></div>
+          <div style="color:#5F6B7A">{{ t.desc }}</div>
+          <div style="text-align:right;font-size:12.5px;color:#1F3A5F;cursor:pointer">Preview</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;screen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;estimator&quot;,&quot;models&quot;,&quot;data&quot;],&quot;default&quot;:&quot;estimator&quot;,&quot;tsType&quot;:&quot;'estimator'|'models'|'data'&quot;,&quot;section&quot;:&quot;Navigation&quot;},&quot;stale&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;State&quot;}}">
+class Component extends DCLogic {
+  state = { screen: 'estimator' };
+  tab(active) {
+    return `height:32px;padding:0 12px;border-radius:6px;display:flex;align-items:center;font-size:13.5px;cursor:pointer;` +
+      (active ? 'background:#F4F6F9;color:#1F3A5F;font-weight:600' : 'color:#5F6B7A');
+  }
+  renderVals() {
+    const screen = this.props.screen ?? this.state.screen;
+    const go = s => () => this.setState({ screen: s });
+    const modelRows = [
+      { name: 'Equipment vector', est: '$1,412M', range: '$1,020 – $1,890M', basis: 'In ensemble · 63 process items, top-5 cosine match against 593 vectors', color: '#1F3A5F', ring: '#1F3A5F' },
+      { name: 'Onshore calculator', est: '$1,380M', range: '$1,035 – $1,725M', basis: 'In ensemble · ISBL 6/10 scaling, EMMA 2.05, TEC ×2.58 greenfield', color: '#1F3A5F', ring: '#1F3A5F' },
+      { name: 'Benchmark (analogues)', est: '$1,512M', range: '$890 – $2,140M', basis: 'In ensemble · 12 analogues above 0.55, size signal blended 50/50', color: '#1F3A5F', ring: '#1F3A5F' },
+      { name: 'OSBL overlay', est: '$538M', range: '$430 – $650M', basis: 'Indirect · derived from the onshore ISBL, reported separately', color: '#fff', ring: '#E9A23B' },
+    ];
+    const comps = [
+      { name: 'MOCK-0217 PE complex', tec: '$1,696M', sim: '0.91', w: '91%', country: 'United States', cap: '700 KTA', scope: 'grassroots' },
+      { name: 'MOCK-0088 Polyolefins', tec: '$1,251M', sim: '0.86', w: '86%', country: 'United States', cap: '550 KTA', scope: 'grassroots' },
+      { name: 'MOCK-0341 Cracker expansion', tec: '$2,120M', sim: '0.78', w: '78%', country: 'Canada', cap: '1,200 KTA', scope: 'expansion' },
+      { name: 'MOCK-0129 HDPE unit', tec: '$1,013M', sim: '0.74', w: '74%', country: 'United States', cap: '450 KTA', scope: 'grassroots' },
+    ];
+    const B = { blue: ['rgba(31,58,95,.1)', '#1F3A5F'], green: ['rgba(27,127,76,.1)', '#1B7F4C'], orange: ['rgba(184,110,0,.1)', '#B86E00'], red: ['rgba(180,35,24,.1)', '#B42318'], gray: ['rgba(95,107,122,.1)', '#5F6B7A'] };
+    const mk = (name, id, method, needs, badge, c, pct, acc) => ({ name, id, method, needs, badge, bg: B[c][0], fg: B[c][1], w: pct + '%', acc, barColor: pct >= 60 ? '#1B7F4C' : pct >= 40 ? '#B86E00' : '#B42318' });
+    const specs = [
+      mk('Benchmark (analogues)', 'Benchmark', 'Analogue matching', 'Archetype + location', 'Broad', 'blue', 0, 'n/a'),
+      mk('Equipment vector', 'EquipmentVector', 'Equipment composition', 'Equipment list', 'Best broad', 'green', 66, '66% · N=29'),
+      mk('Onshore calculator', 'Calculator_Onshore', 'Six-tenths scaling', 'Facility type + capacity', 'Calculator', 'blue', 79, '79% · N=14'),
+      mk('Offshore calculator', 'Calculator_Offshore', 'Topsides weight curves', 'Topsides weight', 'Calculator', 'blue', 50, '50% · N=2'),
+      mk('Pipeline calculator', 'Calculator_Pipeline', 'Section decomposition', 'Length + diameter', 'Unverified', 'orange', 67, '67% · N=3'),
+      mk('LNG calculator', 'Calculator_LNG', 'CET subsystem regressions', 'LNG capacity', 'Miscalibrated', 'red', 0, '0%'),
+      mk('Unconventional lookup', 'Unconventional', 'Facility-type lookup', 'Facility type', 'Archetype-specific', 'blue', 70, '70% · N=10'),
+      mk('Composite (scope chips)', 'Composite', 'Scope chip matching', 'Scope items', 'Low accuracy', 'gray', 26, '26%'),
+      mk('SURF subsea', 'SURF_User', 'Subsea bottom-up', 'Trees, flowlines, risers', 'Component', 'green', 100, '4/4'),
+      mk('OSBL overlay', 'OSBL_Estimate', 'Indirect cost overlay', 'Onshore ISBL (automatic)', 'Automatic', 'green', 92, '8% avg error'),
+    ];
+    const tb = (name, rows, cols, used, c, desc) => ({ name, rows, cols, used, bg: B[c][0], fg: B[c][1], desc });
+    const tables = [
+      tb('ref_are_analogue_pool_v3', '503', '24', 'Benchmark, unconventional', 'blue', 'Completed projects with CP30-normalised TEC and the 2D taxonomy'),
+      tb('ref_equipment_vectors', '593', '9', 'Equipment vector', 'blue', '52-dimension equipment composition per project'),
+      tb('frankenstein', '857', '18', 'Composite', 'blue', 'Scope chip library with direct costs'),
+      tb('ref_semantic_chip_classifications', '857', '7', 'Composite', 'blue', 'Chip to archetype classification'),
+      tb('project_truth', '52', '12', 'Evaluation only', 'gray', 'Verified actual costs for accuracy testing'),
+      tb('gate_costs', '1,204', '11', 'Not used at runtime', 'gray', 'Gate package cost breakdowns'),
+      tb('ref_project_scope_inputs_v2', '41', '14', 'Not used at runtime', 'gray', 'Scope inputs for key projects'),
+      tb('ref_cp30_combined_indices', '324', '5', 'All (escalation)', 'green', 'CP30 location and time indices'),
+      tb('ref_country_to_cp30_location', '67', '3', 'Reference', 'gray', 'Country to CP30 location'),
+      tb('ref_archetype_taxonomy', '19', '4', 'Reference', 'gray', 'Canonical process domain × scope type taxonomy'),
+    ];
+    return {
+      isEstimator: screen === 'estimator', isModels: screen === 'models', isData: screen === 'data',
+      goEstimator: go('estimator'), goModels: go('models'), goData: go('data'),
+      tabEstimator: this.tab(screen === 'estimator'), tabModels: this.tab(screen === 'models'), tabData: this.tab(screen === 'data'),
+      stale: this.props.stale ?? false,
+      modelRows, comps, specs, tables,
+    };
+  }
+}
+</script>
+</body>
+</html>

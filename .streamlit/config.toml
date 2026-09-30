@@ -1,5 +1,6 @@
 # Theme: light, neutral, navy accent. Matches the HTML report palette.
 # No CSS is injected anywhere in the app; change looks here.
+# Fonts: IBM Plex Sans for UI, IBM Plex Mono for numbers (design handoff, Sep 2026).
 [theme]
 base = "light"
 primaryColor = "#1F3A5F"
@@ -11,8 +12,8 @@ borderColor = "#D9DFE7"
 showWidgetBorder = true
 baseRadius = "6px"
 buttonRadius = "6px"
-font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-codeFont = "'JetBrains Mono':https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+font = "'IBM Plex Sans':https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+codeFont = "'IBM Plex Mono':https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
 baseFontSize = 14
 headingFontSizes = ["26px", "20px", "17px", "15px", "14px", "12px"]
 headingFontWeights = [600, 600, 600, 600, 600, 600]
@@ -25,6 +26,26 @@ orangeColor = "#B86E00"
 redColor = "#B42318"
 blueColor = "#1F3A5F"
 grayColor = "#5F6B7A"
+
+# Sidebar: navy console used only by the Proposta B estimator (COSTBOT_UI=b).
+# The current and Proposta A layouts never write to the sidebar, so it stays hidden there.
+# primaryColor is white so the primary Run button and selected segments render white with navy text.
+[theme.sidebar]
+backgroundColor = "#1F3A5F"
+secondaryBackgroundColor = "#2B4A72"
+textColor = "#FFFFFF"
+borderColor = "#4A6389"
+primaryColor = "#FFFFFF"
+linkColor = "#FFFFFF"
+grayColor = "#B7C3D0"
+greenColor = "#7FD3B5"
+orangeColor = "#F2C57C"
+redColor = "#F49A92"
+blueColor = "#FFFFFF"
+codeBackgroundColor = "#2B4A72"
+codeTextColor = "#FFFFFF"
+dataframeHeaderBackgroundColor = "#2B4A72"
+dataframeBorderColor = "#4A6389"
 
 [browser]
 gatherUsageStats = false

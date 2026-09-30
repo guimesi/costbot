@@ -23,7 +23,7 @@ smoke:
 	$(PY) scripts/smoke_test.py
 
 ui:
-	$(PY) scripts/ui_test.py 2>&1 | grep -v ScriptRunContext
+	$(PY) scripts/ui_test.py all
 
 lint:
 	$(PY) -m pyflakes costbot ui app_pages scripts tests app.py engine.py | grep -v 'imported but unused' || true

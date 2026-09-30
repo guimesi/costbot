@@ -1,16 +1,14 @@
 """Estimator page: inputs on the left, live readiness and results on the right."""
 import streamlit as st
 
-from costbot.constants import FACILITY_TYPE_OPTIONS, LOCATION_OPTIONS, resolve_country
+from costbot.constants import FACILITY_TYPE_OPTIONS, LOCATION_OPTIONS
 from costbot.screening import model_readiness, screen_project
 from ui.cards import equipment_card, scope_items_card
 from ui.common import ARCHETYPE_LABELS, ARCHETYPE_OPTIONS, load_data, reset_session
-from ui.results import render_readiness, render_results
+from ui.results import render_empty_state, render_readiness, render_results
+from ui.scope import CAPACITY_UNITS, HULL_TYPES, PROCESS_DOMAINS, SCOPE_TYPES, build_scope
 
 data = load_data()
-
-CAPACITY_UNITS = ['KTA', 'BPD', 'KBPD', 'KBOPD', 'MMSCFD', 'MTPA', 'MTPA_CO2', 'KBD', 'KBSD', 'KBD NGL', 'miles', 'km']
-HULL_TYPES = ['FPSO_newbuild', 'FPSO_converted', 'semi_sub', 'jacket_shallow']
 
 left, right = st.columns([5, 7], gap="large")
 
@@ -30,14 +28,13 @@ with left:
         with st.container(horizontal=True, vertical_alignment="top"):
             basis_year = st.segmented_control("Basis year", [2024, 2025, 2026], default=2024, key="basis_year",
                                               help="Pool data is 2024 USD; other years are CP30-escalated.")
-            bf_gf = st.segmented_control("Scope type", ['greenfield', 'brownfield', 'expansion', 'modification'],
+            bf_gf = st.segmented_control("Scope type", SCOPE_TYPES,
                                          key="bf_gf", format_func=str.capitalize,
                                          help="Optional. Sets the ISBL to TEC multiplier and refines analogue matching.")
         project_name = st.text_input("Project name", key="project_name", placeholder="Optional, used in the report")
         with st.expander("Optional details", icon=":material/more_horiz:"):
             process_domain = st.selectbox(
-                "Process domain", ['chemicals', 'refining', 'offshore', 'pipeline', 'lng', 'oil_sands', 'ccs',
-                                   'gas_processing', 'upstream_unconventional', 'upstream_conventional', 'power'],
+                "Process domain", PROCESS_DOMAINS,
                 index=None, key="process_domain", placeholder="Inferred from the archetype if empty",
                 format_func=lambda x: x.replace('_', ' ').capitalize())
 
@@ -96,7 +93,6 @@ with left:
                 surf_manifolds = st.number_input("Manifolds", min_value=0, value=0, key="surf_manifolds")
                 surf_umbilicals = st.number_input("Umbilicals", min_value=0, value=0, key="surf_umbilicals")
                 st.caption(f"Water depth from above: {water_depth:,.0f} m")
-    surf_has_scope = (surf_trees + surf_flowlines + surf_risers) > 0
 
     scope_items_card(core_ready)
 
@@ -109,40 +105,14 @@ with left:
 # ----------------------------------------------------------------------------
 # Scope dict (built on every rerun so the readiness panel is live)
 # ----------------------------------------------------------------------------
-scope = {
-    'project_name': project_name or (f'{archetype} screening' if archetype else 'screening'),
-    'archetype': archetype,
-    'process_domain': process_domain or None,
-    'location': location or '',
-    'country': resolve_country({'location': location or ''}),
-    'basis_year': basis_year or 2024,
-    'greenfield_brownfield': bf_gf or 'greenfield',
-    'scope_type': bf_gf or 'greenfield',
-    'facility_type': (facility_type or '').strip() or None,
-    'primary_capacity': capacity if capacity > 0 else None,
-    'capacity_unit': cap_unit or '',
-    'length_km': pipeline_length if pipeline_length > 0 else None,
-    'od_inches': pipeline_od,
-    'diameter_inches': pipeline_od,
-    'topsides_weight_te': topsides_wt if topsides_wt > 0 else None,
-    'water_depth_m': water_depth if water_depth > 0 else None,
-    'secondary_params': {
-        'hull_type': hull_type,
-        'topsides_weight_te': topsides_wt if topsides_wt > 0 else None,
-        'water_depth_m': water_depth if water_depth > 0 else None,
-    },
-    'lng_capacity_mtpa': lng_mtpa if lng_mtpa > 0 else None,
-    'equipment_list': [dict(e) for e in st.session_state.equipment_items] or None,
-    'scope_items': [dict(i) for i in st.session_state.scope_items] or None,
-    'surf_scope': {
-        'subsea_trees': {'generic': surf_trees} if surf_trees > 0 else {},
-        'flowlines': [{'id': f'FL{i+1}', 'count': 1} for i in range(surf_flowlines)],
-        'risers': [{'id': f'R{i+1}', 'count': 1} for i in range(surf_risers)],
-        'manifolds': {'generic': surf_manifolds} if surf_manifolds > 0 else {},
-        'umbilicals': [{'id': f'U{i+1}'} for i in range(surf_umbilicals)],
-        'water_depth_m': water_depth if water_depth > 0 else 1500,
-    } if surf_has_scope else None,
-}
+scope = build_scope(
+    archetype=archetype, location=location, basis_year=basis_year, bf_gf=bf_gf, project_name=project_name,
+    process_domain=process_domain, facility_type=facility_type, capacity=capacity, cap_unit=cap_unit,
+    pipeline_length=pipeline_length, pipeline_od=pipeline_od, topsides_wt=topsides_wt, water_depth=water_depth,
+    hull_type=hull_type, lng_mtpa=lng_mtpa, surf_trees=surf_trees, surf_flowlines=surf_flowlines,
+    surf_risers=surf_risers, surf_manifolds=surf_manifolds, surf_umbilicals=surf_umbilicals,
+    equipment_items=st.session_state.equipment_items, scope_items=st.session_state.scope_items,
+)
 
 if run_clicked and core_ready:
     st.session_state.last_scope = scope
@@ -157,15 +127,4 @@ with right:
         render_results(st.session_state.last_results, data,
                        stale=(scope != st.session_state.get('last_scope')))
     else:
-        with st.container(border=True):
-            st.markdown("**:material/rocket_launch: How it unlocks**")
-            st.markdown("""
-1. **Archetype + location** unlock the benchmark against 503 completed projects.
-2. **Equipment list** unlocks the equipment vector model, the best broad model.
-3. **Facility type + capacity** unlock the calculators (onshore, offshore, pipeline, LNG).
-4. **Subsea scope** (offshore only) unlocks the SURF component estimate.
-5. **Scope items** unlock the composite chip model.
-
-The OSBL overlay runs automatically whenever the onshore calculator produces an ISBL.
-Press **Run screening estimate** once the readiness list shows what you need.
-""")
+        render_empty_state()

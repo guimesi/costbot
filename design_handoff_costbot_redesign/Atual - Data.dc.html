@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#FFFFFF;color:#1F2933;font-family:Inter,sans-serif;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#1F3A5F;text-decoration:none}a:hover{color:#1F3A5F;text-decoration:underline}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div data-screen-label="Data (atual)" style="width:1440px;min-height:100vh;background:#fff">
+  <div style="height:52.5px;display:flex;align-items:center;padding:0 70px;gap:28px">
+    <div style="display:flex;align-items:center;gap:6px"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">calculate</span>Estimator</div>
+    <div style="display:flex;align-items:center;gap:6px"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">science</span>Models</div>
+    <div style="display:flex;align-items:center;gap:6px;color:#1F3A5F;font-weight:600"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">database</span>Data</div>
+  </div>
+  <div style="padding:28px 70px 140px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <h2 style="margin:0;font-size:20px;font-weight:600;line-height:1.2;padding:8px 0">GP screening cost estimator</h2>
+      <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(31,58,95,.1);color:#1F3A5F;font-size:12px;padding:2px 8px;border-radius:6px;font-weight:500"><span style="font-family:'Material Symbols Rounded';font-size:14px;line-height:1">science</span>POC v1.1</span>
+    </div>
+    <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Class 5 screening estimate (±50% target). Deterministic models, no AI. Not a basis of estimate.</div>
+
+    <div style="background:rgba(184,110,0,.1);color:#7A4A00;border-radius:6px;padding:14px;display:flex;gap:10px;margin-top:6px"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1.2">science</span><span>This is the synthetic data package shipped with the repo. Row counts and columns match the real package; values are random. Point <code style="font-family:'JetBrains Mono',monospace;font-size:12px">COSTBOT_DATA_DIR</code> at the real package to use it.</span></div>
+    <div style="font-size:12.25px;color:rgba(31,41,51,.6)">Data directory: <code style="font-family:'JetBrains Mono',monospace;font-size:11px;background:#F4F6F9;padding:1px 4px;border-radius:4px;color:#1F3A5F">/app/data</code></div>
+
+    <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px">
+      <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">inventory_2</span>Loaded tables</div>
+      <div style="border:1px solid #D9DFE7;border-radius:6px;overflow:hidden;font-size:12.25px">
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr;background:#F4F6F9;border-bottom:1px solid #D9DFE7;font-weight:600"><div style="padding:8px;border-right:1px solid #D9DFE7">Table</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">Rows</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">Columns</div><div style="padding:8px;border-right:1px solid #D9DFE7">Used by</div><div style="padding:8px">Description</div></div>
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">ref_are_analogue_pool_v3</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">503</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">24</div><div style="padding:8px;border-right:1px solid #D9DFE7">Benchmark, unconventional, analogues</div><div style="padding:8px">Completed projects with CP30-normalised TEC and the 2D taxonomy</div></div>
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">ref_equipment_vectors</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">593</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">9</div><div style="padding:8px;border-right:1px solid #D9DFE7">Equipment vector</div><div style="padding:8px">52-dimension equipment composition per project</div></div>
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">frankenstein</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">857</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">18</div><div style="padding:8px;border-right:1px solid #D9DFE7">Composite</div><div style="padding:8px">Scope chip library with direct costs</div></div>
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">ref_semantic_chip_classifications</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">857</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">7</div><div style="padding:8px;border-right:1px solid #D9DFE7">Composite</div><div style="padding:8px">Chip to archetype classification</div></div>
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">project_truth</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">52</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">12</div><div style="padding:8px;border-right:1px solid #D9DFE7">Evaluation only</div><div style="padding:8px">Verified actual costs for accuracy testing</div></div>
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">gate_costs</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">1,204</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">11</div><div style="padding:8px;border-right:1px solid #D9DFE7">Not used at runtime</div><div style="padding:8px">Gate package cost breakdowns</div></div>
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">ref_project_scope_inputs_v2</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">41</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">14</div><div style="padding:8px;border-right:1px solid #D9DFE7">Not used at runtime</div><div style="padding:8px">Scope inputs for key projects</div></div>
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">ref_cp30_combined_indices</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">324</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">5</div><div style="padding:8px;border-right:1px solid #D9DFE7">All (escalation)</div><div style="padding:8px">CP30 location and time indices</div></div>
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr;border-bottom:1px solid #D9DFE7"><div style="padding:8px;border-right:1px solid #D9DFE7">ref_country_to_cp30_location</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">67</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">3</div><div style="padding:8px;border-right:1px solid #D9DFE7">Reference</div><div style="padding:8px">Country to CP30 location</div></div>
+        <div style="display:grid;grid-template-columns:2.2fr .6fr .7fr 2fr 3fr"><div style="padding:8px;border-right:1px solid #D9DFE7">ref_archetype_taxonomy</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">19</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">4</div><div style="padding:8px;border-right:1px solid #D9DFE7">Reference</div><div style="padding:8px">Canonical process domain × scope type taxonomy</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:3fr 2fr;gap:28px">
+      <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px;min-width:0">
+        <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">table_view</span>Preview</div>
+        <div style="height:35px;background:#F4F6F9;border:1px solid #D9DFE7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 9px"><span>ref_are_analogue_pool_v3</span><span style="font-family:'Material Symbols Rounded';font-size:20px;color:#5F6B7A">keyboard_arrow_down</span></div>
+        <div style="border:1px solid #D9DFE7;border-radius:6px;overflow:hidden;font-size:12.25px;height:420px">
+          <div style="display:grid;grid-template-columns:1.6fr 1.4fr 1fr 1fr 1fr;background:#F4F6F9;border-bottom:1px solid #D9DFE7;font-weight:600;white-space:nowrap"><div style="padding:8px;border-right:1px solid #D9DFE7">project_name</div><div style="padding:8px;border-right:1px solid #D9DFE7">archetype</div><div style="padding:8px;border-right:1px solid #D9DFE7">country</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">tec_musd_2024</div><div style="padding:8px">scope_type</div></div>
+          <sc-for list="{{ poolRows }}" as="r" hint-placeholder-count="10">
+            <div style="display:grid;grid-template-columns:1.6fr 1.4fr 1fr 1fr 1fr;border-bottom:1px solid #D9DFE7;white-space:nowrap"><div style="padding:8px;border-right:1px solid #D9DFE7;overflow:hidden;text-overflow:ellipsis">{{ r.name }}</div><div style="padding:8px;border-right:1px solid #D9DFE7">{{ r.arch }}</div><div style="padding:8px;border-right:1px solid #D9DFE7">{{ r.country }}</div><div style="padding:8px;border-right:1px solid #D9DFE7;text-align:right">{{ r.tec }}</div><div style="padding:8px">{{ r.scope }}</div></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="border:1px solid #D9DFE7;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:14px;min-width:0">
+        <div style="font-weight:600;display:flex;align-items:center;gap:5px"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">donut_small</span>Analogue pool by archetype</div>
+        <div style="display:grid;grid-template-columns:140px 1fr;row-gap:9px;align-items:center;font-size:10px;color:#333;font-family:sans-serif;padding-top:8px">
+          <sc-for list="{{ bars }}" as="b" hint-placeholder-count="8">
+            <div style="text-align:right;padding-right:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ b.label }}</div>
+            <div style="height:16px;background:#1F3A5F;width:{{ b.w }}"></div>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:140px 1fr"><div></div><div style="position:relative;height:22px;border-top:1px solid #888;font-size:10px;color:#333;font-family:sans-serif"><span style="position:absolute;left:0;top:4px">0</span><span style="position:absolute;left:33%;top:4px">50</span><span style="position:absolute;left:66%;top:4px">100</span><span style="position:absolute;right:0;top:4px">150</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const archs = ['refinery_bf','onshore_petchem','offshore_fpso','onshore_unconventional','pipeline_mainline','lng_onshore','gas_processing','oil_sands','onshore_conventional','refinery_grassroot'];
+    const countries = ['United States','Canada','China','United Kingdom','Singapore','Guyana','Australia','Nigeria'];
+    const poolRows = Array.from({length: 11}, (_, i) => ({
+      name: `MOCK-${String(100 + i * 37).padStart(4, '0')}`,
+      arch: archs[i % archs.length],
+      country: countries[(i * 3) % countries.length],
+      tec: ((i * 731) % 2400 + 60).toLocaleString('en-US'),
+      scope: ['grassroots','expansion','modification'][i % 3],
+    }));
+    const counts = [['refinery_bf',142],['onshore_unconventional',88],['onshore_petchem',71],['offshore_fpso',52],['pipeline_mainline',44],['gas_processing',37],['lng_onshore',29],['oil_sands',21],['onshore_conventional',12],['refinery_grassroot',7]];
+    const bars = counts.map(([label, n]) => ({label, w: `${(n / 150 * 100).toFixed(1)}%`}));
+    return { poolRows, bars };
+  }
+}
+</script>
+</body>
+</html>
