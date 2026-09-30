@@ -30,6 +30,11 @@ Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api
 
 ## Modelling (needs the manager's OK before changing model behaviour)
 
+- [ ] DECISION (round 3, 2026-09-30): the faithful analogue_estimator port scores 29%
+      (ensemble) / 28% (harness convention) on real data; the first build's Benchmark
+      (capacity size band + 0.5/0.5 blend, commit 8f8b141) scored 54%. Restore it as
+      `benchmark_mode='engine'` next to the reference one and show both.
+
 - [ ] Benchmark size prior without leakage: the reference offers a user size bucket
       (now in the UI). Candidates beyond that: calibrate capacity-to-size per domain from
       verified pool rows, or feed a calculator's estimate as `size_estimate_musd`.

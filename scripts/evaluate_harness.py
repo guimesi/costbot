@@ -460,21 +460,54 @@ def m_unconventional(t, inp, data):
     return r
 
 
+def _own_equipment_items(row):
+    """Equipment counts from a ref_equipment_vectors row. The real package stores
+    `equipment_vector_json` (dict or 52-list) plus the L2 `vector_norm`; the mock stores
+    `vector_raw`. Returns ({type: count}, note) or (None, reason)."""
+    for col in ('equipment_vector_json', 'vector_raw'):
+        raw = _nz(row.get(col))
+        if raw is None:
+            continue
+        try:
+            obj = json.loads(raw) if isinstance(raw, str) else raw
+        except (TypeError, ValueError):
+            continue
+        if isinstance(obj, dict):
+            items = {}
+            for k, v in obj.items():
+                c = _fnum(v)
+                if c and c > 0:
+                    items[str(k)] = int(round(c))
+            if items:
+                return items, col
+        elif isinstance(obj, list) and len(obj) == len(EQUIPMENT_TYPES_52):
+            items = {EQUIPMENT_TYPES_52[i]: int(round(float(v))) for i, v in enumerate(obj) if _fnum(v) and float(v) > 0}
+            if items:
+                return items, col
+    raw = _nz(row.get('vector_norm'))
+    try:
+        vec = json.loads(raw) if isinstance(raw, str) else None
+    except (TypeError, ValueError):
+        vec = None
+    if isinstance(vec, list) and len(vec) == len(EQUIPMENT_TYPES_52):
+        total = _fnum(row.get('total_items')) or 100.0
+        ssum = sum(float(v) for v in vec if _fnum(v)) or 1.0
+        items = {EQUIPMENT_TYPES_52[i]: max(1, int(round(float(v) / ssum * total))) for i, v in enumerate(vec) if _fnum(v) and float(v) > 0}
+        if items:
+            return items, 'vector_norm (counts rescaled to total_items)'
+    return None, 'unparseable_vector (no equipment_vector_json / vector_raw / vector_norm)'
+
+
 def m_equipment_vector(t, inp, data):
     row = inp.vectors.get(t['planview_id'])
     if row is None:
         return _no('no_equipment_vector_for_project')
-    raw = _nz(row.get('vector_raw'))
-    try:
-        vec = json.loads(raw) if isinstance(raw, str) else list(raw)
-    except (TypeError, ValueError):
-        return _no('unparseable_vector')
-    if len(vec) != len(EQUIPMENT_TYPES_52):
-        return _no('vector_not_52_dim')
-    items = {EQUIPMENT_TYPES_52[i]: int(round(float(v))) for i, v in enumerate(vec) if float(v) > 0}
+    items, note = _own_equipment_items(row)
+    if not items:
+        return _no(note)
     r = run_equipment_vector({'equipment_list': items, 'archetype': t['archetype'], 'exclude_planview_ids': [t['planview_id']]}, data)
     if r.get('can_fire'):
-        r['notes'] = f"own vector, {sum(items.values())} items, {len(items)} types, self excluded"
+        r['notes'] = f"own vector from {note}: {sum(items.values())} items, {len(items)} types, self excluded"
     return r
 
 
@@ -482,10 +515,15 @@ def m_composite(t, inp, data):
     chips = inp.chips.get(t['planview_id'])
     if chips is None or chips.empty:
         return _no('no_scope_chips_for_project')
-    col = 'semantic_label' if 'semantic_label' in chips.columns else ('scope_name' if 'scope_name' in chips.columns else None)
+    # real package: category / cost_category_l1 per cost row (chip_role, is_leaf); mock: semantic_label
+    col = next((c for c in ('semantic_label', 'category', 'cost_category_l1', 'scope_name') if c in chips.columns), None)
     if col is None:
-        return _no('no_chip_label_column')
-    items = [{'type': str(v).replace('_', ' ')} for v in chips[col].dropna().unique()]
+        return _no(f'no_chip_label_column in {list(chips.columns)[:6]}')
+    if 'is_leaf' in chips.columns and chips['is_leaf'].astype(str).str.lower().eq('true').any():
+        chips = chips[chips['is_leaf'].astype(str).str.lower() == 'true']
+    items = [{'type': str(v).replace('_', ' ')} for v in chips[col].dropna().unique() if str(v).strip()]
+    if not items:
+        return _no('no_leaf_chip_labels')
     pool = inp.pool.get(t['planview_id'])
     scope_r = inp.scope_row(t['planview_id'])
     cap = (scope_r and scope_r['primary_capacity']) or (pool is not None and _fnum(pool.get('primary_capacity'))) or None

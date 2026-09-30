@@ -41,7 +41,7 @@ silently changing them.
 | `scripts/evaluate_truth.py` | LOOCV hit rate at +/-30% per archetype from `project_truth.csv` (ensemble P50: what a user sees). Meaningless on mock data. |
 | `scripts/evaluate_harness.py` | The reference `evaluation_harness.py` convention: every model alone, any model within +/-30% counts, per-model matrix. This is what the brief's 40/52 measures. |
 | `tests/` | pytest: ensemble rules, CP30, bid validation, equipment vector, readiness, report, golden baseline. |
-| `docs/` | `spec/` (manager's brief, email, wireframe), app documentation, demo script, review, backlog, validation runbook. |
+| `docs/` | `spec/` (manager's brief, email, wireframe), app documentation, demo script, review, backlog, validation runbook, validation rounds (`VALIDATION_2026-09-28.md`, `VALIDATION_2026-09-30.md`), parity notes. |
 | `Makefile` | `make install`, `make test`, `make run`, `make mock`, `make screenshots`, `make evaluate`. |
 | `scripts/screenshot.py` | Boots the app and captures the main screens with Playwright + local Chrome. |
 | `scripts/validate.py` | Runs every check and writes `validation_report.txt` (redacted) for the real-data validation. |

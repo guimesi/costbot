@@ -82,7 +82,10 @@ XFAIL = {
     "JO_Flare_Gas":        "Expected PASS after the onshore port (Joliet EMMA = 202)",
     "JUDO":                "Expected PASS after the onshore port (Joliet EMMA = 202)",
     "Joliet_Vac_Heater":   "Expected PASS after the onshore port (Joliet EMMA = 202)",
-    "BRACE":               "Expected PASS after the onshore port (plain 'BF' -> 2.58)",
+    # Real golden 2026-09-30: 716.8 vs 162.2. The reference docstring says "BRACE/Baton
+    # Rouge test: actual $162.2M ... this correlation gave $1,906-2,341M": the golden
+    # value is the project's ACTUAL cost, not a calculator output. Not reproducible.
+    "BRACE":               "Golden holds the actual TEC (162.2), not a calculator output (reference gave 1,906 to 2,341)",
     # Stale golden, not a model difference: 2650.3 = 474 x (1500/1500)^0.6 x 2.0446 x 2.58
     # x 1.06, i.e. the older chemical_expansion tuple (474 @ 1500 KTA). The reference
     # file now carries (474 @ 330 KTA) and so does the engine (6574.3).
