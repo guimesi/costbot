@@ -17,7 +17,7 @@
 |---|---|
 | App URL | Open the **cost-bot** Databricks App (Streamlit), or locally: `streamlit run app.py` (see CLAUDE.md for setup) |
 | Browser | Chrome / Edge recommended; any modern browser works |
-| Data | No setup needed — the app loads all CSV data automatically on startup. Locally this is the MOCK package in `data/`; numbers are synthetic. |
+| Data | No setup needed. The Databricks App carries the real package in `data/`. Locally the repo ships the MOCK package; numbers there are synthetic and the header says so. |
 | Credentials | Any user with workspace access can view the app |
 
 When the app opens you will see:
@@ -62,9 +62,10 @@ The Estimator tab is split into two columns:
 | Process Domain | *Leave as “— Optional —”* | Optional — helps Benchmark refine analogues |
 | Location (CP30 Region) | **US Gulf Coast** | Required — drives location cost normalization (CP30) and EMMA factor |
 | Basis Year | **2024** | All pool data is in 2024 USD; selecting 2024 avoids escalation |
-| Scope Type | **Greenfield** | Determines TEC multiplier (greenfield = 2.58×, brownfield = 1.30×) |
-| Rough size | *Optional* (e.g. **Substantial, $500M to $1B**) | Your order-of-magnitude judgement; narrows the benchmark to similar-sized analogues. Without it the benchmark matches on category only. |
+| Scope Type | **Greenfield** | Determines the ISBL to TEC multiplier (greenfield 2.58×; brownfield, expansion or modification 2.61×; 1.30× only when the facility name says modification / conversion / debottleneck) |
+| Rough size | **Substantial ($500M to $1B)** | Say this out loud: it is the input that moves accuracy most. On the real data the estimate lands within ±30% for 29% of projects without it and 63% with it. |
 | Project Name | **Demo Polypropylene Plant** | Optional label — appears in reports |
+| Analogue model (in "Optional details") | leave **Engine variant (size band)** | The manager's own analogue model is the other option; after Run a line under the results says what it would have given. |
 
 ### Step 2 — Fill Facility & Capacity
 
@@ -255,6 +256,10 @@ Click **Run Screening Estimate**.
 > projects because the ISBL + TEC multiplier chain produced a 7.0× overshoot in
 > testing. The Benchmark model handles brownfield refineries better by finding
 > real analogues. This is an intentional safety exclusion.
+>
+> Give a **Rough size** here too (e.g. **Moderate, $75M to $200M**): refinery
+> brownfield went from 3/17 to 14/17 within ±30% on the real data once the size
+> band is known.
 
 ---
 
@@ -308,7 +313,7 @@ After running any scenario, scroll to the **What-if** card.
 
 - **Model specs:** one card per model with method, algorithm, reported accuracy and a status badge (best broad model, unverified, miscalibrated, component, automatic)
 - **Routing and inputs:** which models each archetype can use and which are excluded, the input to model dependency table, and the ensemble rules in plain words
-- **Reported accuracy:** per-archetype hit rate from the reference evaluation, clearly marked as not yet reproduced on this engine
+- **Reported accuracy:** per-archetype hit rate from the reference evaluation; the measured figures on the real data are in the model cards and in `docs/VALIDATION_2026-09-30.md`
 
 ### Data page
 
@@ -343,7 +348,7 @@ The file can be opened in any browser, emailed, or attached to a gate review pac
 
 1. **10 independent models** — no single point of failure. The ensemble mediates.
 2. **Progressive unlock** — start with 2 fields, get a Benchmark estimate. Add detail, unlock more models.
-3. **Accuracy**: the reference evaluation reported **40/52 (77%)** within ±30% (Sep 16 brief). The engine's own number is produced by `scripts/evaluate_truth.py` on the real data package; do not quote a figure until that run has been done.
+3. **Accuracy, measured on the real data (52 past projects, 2026-09-30)**: the app's single estimate lands within ±30% for **29% of projects with no size given and 63% when the user gives a rough size**. The brief's 40/52 (77%) counts any model landing near the truth, including a Composite that reads the truth to correct itself; on that same convention, without it, the app scores 48%. Details in `docs/VALIDATION_2026-09-30.md`.
 4. **No AI/LLM** — fully deterministic, reproducible, auditable.
 5. **Sub-second response** — all computation is local, no API calls.
 6. **Bid validation** — instant sanity check for contractor bids.
