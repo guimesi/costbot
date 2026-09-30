@@ -98,3 +98,53 @@ carries this note; `validate.py` now runs the engine variant four ways
 - Smoke scenario 2 (offshore): the spread gate drops the offshore calculator
   (2,214) and keeps EquipmentVector (301) alone; P50 = 301 with LOW
   confidence. Worth a look once `offshore_calculator.py` arrives.
+
+
+---
+
+# Round 4 (same day, 16:36): the engine Benchmark variant, leak-free
+
+Code: `main` 2c2637a. Golden 25 / 10 / 0 again. Same package.
+
+## Ensemble P50 within +/-30%, 52 projects
+
+| Benchmark variant | no size signal | user gives a size bucket | forecasts excluded |
+|---|---:|---:|---:|
+| Reference (analogue_estimator v3) | 15 (29%) | 23 (44%) | 15 (29%) |
+| Engine (size band, leak-free) | 15 (29%) | **33 (63%)** | 14 (27%) |
+
+Any-model (best single model) for the same cells: reference 16 / 29 / 17,
+engine 19 / 36 / 16.
+
+## Reference harness convention (any model, any truth), 50 projects
+
+| Benchmark variant | +/-30% | screening band | EVALUATION only |
+|---|---:|---:|---:|
+| Reference | 19/50 (38%) | 21/50 (42%) | 18/46 (39%) |
+| Engine | **24/50 (48%)** | 27/50 (54%) | 23/46 (50%) |
+
+Benchmark alone on that convention: reference 6/50, engine 13/50. EquipmentVector
+and Composite now run on the real columns: 25 and 18 fires, 5 and 1 hits.
+
+## Reading
+
+1. Without any size information the two analogue models are equal at 29%.
+   The engine variant's capacity heuristic on its own adds nothing.
+2. The lever is the user's rough size. With it the engine variant reaches
+   63%, refinery brownfield 14/17 (82%), and the reference 44%. That is a
+   legitimate input: an estimator always knows whether a job is $50M or $500M.
+3. Excluding forecast rows now hurts the engine variant (the size band needs
+   the rows); round 2's "+2 hits, never hurts" was about the old Benchmark.
+4. Still at zero in every configuration: oil sands (3), LNG (3), integrated
+   petchem (3), offshore FPSO on the ensemble (3). Those are the calculators
+   whose reference files have not arrived (`lng_calculator.py`,
+   `offshore_calculator.py`) or the generic onshore correlation for oil sands.
+5. On the reference's own convention, engine variant, the honest number is
+   24/50 (48%) versus the brief's 40/52 (77%), the gap being the oracle
+   Composite, the SURF component scoring and the models above.
+
+## Honest numbers for David (leak-free, 2026-09-30)
+
+- No size given: 29% of 52 projects within +/-30% (either analogue model).
+- Rough size given by the user: 63% with the engine variant, 44% with the reference.
+- His own "any model passes" convention, without the oracle Composite: 48%.

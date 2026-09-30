@@ -33,8 +33,13 @@ Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api
 - [x] DECISION (round 3, 2026-09-30, Guilherme): the first build's Benchmark is back as
       `benchmark_mode='engine'` (`costbot/models/benchmark_engine.py`), selectable in the app,
       the reference stays the default; the results and the report show what the other variant
-      gives. Its silent fallback to the project's own pool TEC was removed, so round 2's 54%
-      is NOT its leak-free figure; the next corp run measures it.
+      gives. Its silent fallback to the project's own pool TEC was removed. Round 4 (leak-free):
+      29% without a size for either variant; with the user's size bucket 63% (engine) vs 44%
+      (reference); harness convention 48% vs 38%. See docs/VALIDATION_2026-09-30.md.
+- [ ] Make the engine variant the default and promote "Rough size" out of the optional
+      area: it is the one input that moves accuracy (29% -> 63%). Guilherme to confirm.
+- [ ] Zero in every configuration: oil sands, LNG, integrated petchem. Needs the
+      `lng_calculator.py` / `offshore_calculator.py` references and an oil-sands correlation.
 
 - [ ] Benchmark size prior without leakage: the reference offers a user size bucket
       (now in the UI). Candidates beyond that: calibrate capacity-to-size per domain from

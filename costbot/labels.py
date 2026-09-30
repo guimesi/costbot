@@ -57,7 +57,8 @@ MODEL_SPECS = [
      "an optional size bucket, min/max of the analogues as range). Engine variant: the first build's model, "
      "which filters the pool to a size band from a capacity heuristic or the size bucket and blends cosine "
      "and size 50/50.",
-     "Real data, 2026-09-30: reference 6/50 alone, 29% in the ensemble; engine variant pending its leak-free run.",
+     "Real data, 2026-09-30 (52 projects, ensemble within ±30%): 29% with no size given, either variant; "
+     "with the user's rough size 63% (engine variant) or 44% (reference).",
      "numpy, pandas, scikit-learn"),
     ('EquipmentVector', 'Equipment composition', 'Best broad model', 'green',
      "52-dimension vector of equipment counts, process equipment only (valves, instruments, electrical zeroed), "
