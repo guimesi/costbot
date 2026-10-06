@@ -7,7 +7,7 @@ fire progressively as the user adds scope detail; an ensemble combines them
 into a P50, a P20 to P80 range and a confidence tier. No LLM, no database:
 everything runs from flat files.
 
-The specification is the manager's task brief and its update email, kept
+The specification is the tdave's task brief and its update email, kept
 verbatim in [`docs/spec/`](docs/spec/). Where the code deliberately deviates
 from it, [`docs/BACKLOG.md`](docs/BACKLOG.md) says so.
 

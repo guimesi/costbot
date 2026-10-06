@@ -51,7 +51,7 @@ with left:
             benchmark_mode = st.segmented_control(
                 "Analogue model", list(BENCHMARK_MODES), default='engine', key="benchmark_mode",
                 format_func=lambda m: BENCHMARK_MODES[m],
-                help="Reference: the manager's analogue_estimator v3 (matches on category, size only if you "
+                help="Reference: tdave's analogue_estimator v3 (matches on category, size only if you "
                      "give a rough size). Engine variant: the first build's model, which also narrows the pool "
                      "to a size band from the capacity. The results show what the other variant would give.")
 

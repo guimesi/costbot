@@ -1,6 +1,6 @@
 # reference/ (not tracked)
 
-Reference implementation files from the manager's package, used only to
+Reference implementation files from the tdave's package, used only to
 check the engine against the spec. Confidential: the folder is gitignored.
 Drop the `.py` files here (cost_bot_api.py, analogue_estimator.py, onshore_calculator.py, evaluation_harness.py, ...).
 `tests/test_calculator_onshore.py` runs a numeric parity check against
