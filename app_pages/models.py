@@ -60,10 +60,11 @@ with tab_routing:
 with tab_accuracy:
     st.markdown("**Measured on this engine** (real package, 52 truth projects, leave-one-out, 2026-09-30)")
     with st.container(horizontal=True):
-        st.metric("App estimate, no size given", "29%", border=True,
-                  help="Ensemble P50 within ±30% of the actual cost, 15 of 52 projects.")
         st.metric("App estimate, user gives a rough size", "63%", border=True,
-                  help="Ensemble P50 within ±30%, 33 of 52 projects. Refinery brownfield 14 of 17.")
+                  help="Ensemble P50 within ±30%, 33 of 52 projects. Refinery brownfield 14 of 17. "
+                       "The intended use: the user always knows the order of magnitude.")
+        st.metric("App estimate, no size given at all", "29%", border=True,
+                  help="Ensemble P50 within ±30% of the actual cost, 15 of 52 projects.")
         st.metric("Reference harness convention", "48%", border=True,
                   help="Any single model within ±30% of any truth, 24 of 50 projects, without the "
                        "harness's truth-corrected Composite. The brief's 40/52 (77%) uses this convention with it.")
