@@ -100,12 +100,14 @@ MODEL_SPECS = [
 ]
 
 ENSEMBLE_RULES = [
-    "Component (SURF) and indirect (OSBL) estimates never enter the median.",
-    "If the surviving models disagree by more than 3x, the lowest-priority model furthest from the median is "
-    "removed. Calculators outrank analogue models; the unconventional lookup outranks everything for its archetype.",
-    "Two survivors that are the onshore calculator and the benchmark, more than 1.5x apart, are blended with a "
-    "geometric mean.",
-    "The final range is the widest span of the survivors' ranges, capped at 5x around the median.",
+    "Only total-cost models enter the ensemble: component (SURF) and indirect (OSBL) estimates are shown "
+    "beside it, never in the median.",
+    "Spread gate: while the highest and lowest surviving estimates differ by more than 3x, the one furthest "
+    "from the median is dropped (cost_bot_api rule; no model outranks another).",
+    "Best estimate = median of the survivors. Range = lowest low to highest high of the survivors' own ranges, "
+    "each bound clamped to within 5x of the median.",
+    "Confidence: HIGH when 3 or more survivors sit within +/-30% of the median; MEDIUM-HIGH when 2 do; MEDIUM "
+    "when 2 or more survive but disagree; LOW with a single model; COMPONENT_ONLY when only SURF fired.",
     "Projects below $20M are flagged as outside the screening floor.",
 ]
 
