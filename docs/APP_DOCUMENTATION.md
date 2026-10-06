@@ -588,7 +588,7 @@ costbot/
 
 The Benchmark has two selectable variants (Project card, "Optional details", "Analogue model"):
 
-- **Reference** (default): the port of the manager's `analogue_estimator.py` v3. Cosine similarity
+- **Reference** (default): the port of the tdave's `analogue_estimator.py` v3. Cosine similarity
   over category features; size enters only when the user gives a rough size bucket.
 - **Engine variant**: the first build's model. Narrows the pool to a size band (+/-0.5 decade) from
   the capacity or the size bucket and blends cosine and size 50/50.

@@ -10,12 +10,12 @@ deterministic models fire progressively as the user adds inputs; an ensemble
 combines them into P50, a P20 to P80 range and a confidence tier.
 No LLM, no database, no Spark. Everything runs from flat files in `data/`.
 
-The spec is the manager's brief in `docs/spec/task_brief_2026-09-15.md` plus
+The spec is the tdave's brief in `docs/spec/task_brief_2026-09-15.md` plus
 the update email in `docs/spec/requirement_update_2026-09-16.md` (Sep 16).
 `docs/spec/wireframe_v1.md` is an OLDER UX state and is superseded where they
 conflict. `README.md` at the root is the repo's own readme, not the spec. The reference
 implementation (`cost_bot_api.py` and 15 other modules) is confidential and not
-tracked; the files the manager shares are dropped in `reference/` (gitignored) and
+tracked; the files the tdave shares are dropped in `reference/` (gitignored) and
 compared module by module in `docs/PARITY_cost_bot_api.md`. Ported so far:
 `cost_bot_api.py`, `analogue_estimator.py`, `onshore_calculator.py`. Treat those
 files, then README/email, as the source of truth and flag deviations instead of
@@ -41,12 +41,12 @@ silently changing them.
 | `scripts/evaluate_truth.py` | LOOCV hit rate at +/-30% per archetype from `project_truth.csv` (ensemble P50: what a user sees). Meaningless on mock data. |
 | `scripts/evaluate_harness.py` | The reference `evaluation_harness.py` convention: every model alone, any model within +/-30% counts, per-model matrix. This is what the brief's 40/52 measures. |
 | `tests/` | pytest: ensemble rules, CP30, bid validation, equipment vector, readiness, report, golden baseline. |
-| `docs/` | `spec/` (manager's brief, email, wireframe), app documentation, demo script, review, backlog, validation runbook, validation rounds (`VALIDATION_2026-09-28.md`, `VALIDATION_2026-09-30.md`), parity notes. |
+| `docs/` | `spec/` (tdave's brief, email, wireframe), app documentation, demo script, review, backlog, validation runbook, validation rounds (`VALIDATION_2026-09-28.md`, `VALIDATION_2026-09-30.md`), parity notes. |
 | `Makefile` | `make install`, `make test`, `make run`, `make mock`, `make screenshots`, `make evaluate`. |
 | `scripts/screenshot.py` | Boots the app and captures the main screens with Playwright + local Chrome. |
 | `scripts/validate.py` | Runs every check and writes `validation_report.txt` (redacted) for the real-data validation. |
 | `data/` | Mock data package (tracked). Real data goes in `data/_real/` (gitignored) or wherever `COSTBOT_DATA_DIR` points. |
-| `docs/APP_DOCUMENTATION.md`, `docs/DEMO_SCRIPT.md` | Docs from the first build, aligned on 2026-09-26; accuracy numbers in them are unverified. |
+| `docs/DEMO_SCRIPT.md`, `docs/DEMO_BACKGROUND.md` | Spoken demo text (PT + EN, no accuracy figures) and the presenter's background on models and terms. `docs/APP_DOCUMENTATION.md` is the first build's app documentation. |
 
 ## Run and test
 
@@ -139,7 +139,7 @@ survive only behind `scope['ensemble_mode'] = 'engine'` for evaluation.
 Reference files live in `reference/` (gitignored). When a new reference file
 arrives, extend the parity doc and align the corresponding module.
 
-## Known deviations from the README (need manager sign-off, do not "fix")
+## Known deviations from the README (need tdave sign-off, do not "fix")
 
 - README excludes Benchmark for `offshore_fpso` and `onshore_unconventional`;
   engine removed those exclusions.

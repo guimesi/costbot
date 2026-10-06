@@ -3,7 +3,7 @@
 Working list. Order inside each section is rough priority. Move items to
 the review docs when done.
 
-## Decisions that only the manager can take (deviations from README)
+## Decisions that only the tdave can take (deviations from README)
 
 Evidence from the first real-data run (docs/VALIDATION_2026-09-28.md): ensemble
 54% vs 77% reported; Benchmark alone underestimates large projects by 56% to 98%;
@@ -28,7 +28,7 @@ Status after reading `cost_bot_api.py` (2026-09-29, see docs/PARITY_cost_bot_api
 7. NEW: the API's 5x cap clamps each bound to median/5 .. median*5 (up to 25x span);
    the brief's text says high/low <= 5x. Engine follows the API; confirm the intent.
 
-## Modelling (needs the manager's OK before changing model behaviour)
+## Modelling (needs the tdave's OK before changing model behaviour)
 
 - [x] DECISION (round 3, 2026-09-30, Guilherme): the first build's Benchmark is back as
       `benchmark_mode='engine'` (`costbot/models/benchmark_engine.py`), selectable in the app,

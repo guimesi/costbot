@@ -127,7 +127,7 @@ multiplier 2.58, escalation 6%, TEC 6574.3. Expected 2650.3 = 2403.9 x
 this correlation (1.04 x 1.06 escalation = 1.1024), which suggests the
 474/330 KTA "chemical_expansion" figure is already a TEC-level number in
 the reference, not an ISBL. Marked XFAIL under investigation; decision for
-the manager together with the brownfield multiplier item.
+the tdave together with the brownfield multiplier item.
 
 Resolved 2026-09-29 with `onshore_calculator.py` in hand: the golden value is
 the OLD tuple. 474 x (1500/1500)^0.6 x 2.0446 x 2.58 x 1.06 = 2650.3 exactly.
@@ -156,7 +156,7 @@ key, falls back to 2.58); both are now ported and should pass.
 
 # Addendum 2026-09-29: what the 40/52 is (from `evaluation_harness.py`)
 
-The manager's harness arrived. Its scorecard is "any model passes": a
+The tdave's harness arrived. Its scorecard is "any model passes": a
 project is a hit when any single model, run on its own with no ensemble, no
 exclusions and no clamp, lands within +/-30% of any of the project's truths
 (a project can carry a FINAL truth and a screening-gate truth). CANARY and
