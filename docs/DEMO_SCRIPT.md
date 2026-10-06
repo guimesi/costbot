@@ -1,379 +1,392 @@
-# GP Screening Cost Estimator — Live Demo Script
+# GP Screening Cost Estimator — Demo script
 
-> **Purpose:** Step-by-step guide to walk through a live demonstration of the
-> cost-bot application. Each section tells you exactly what to enter, what you
-> should see on screen, and what it means.
->
-> **Audience:** Stakeholders, reviewers, or anyone evaluating the POC.
->
-> **Time required:** ~20 minutes for the full walkthrough; ~8 minutes for the
-> highlights-only path (Scenarios 1 + 3).
+**Who this is for:** Guilherme presenting the POC to David and the team, live, from the
+Databricks App. Read it once end to end, then keep it open on a second screen.
+
+**How to use it.** Every case has four blocks: *Say* (what you say, in your own words),
+*Do* (exactly what to click, with the labels as they appear on screen), *See* (what the
+screen shows) and *Wireframe check* (what matches David's wireframe and brief, what does
+not, and why). Numbers in *See* are the ones from the real package on 2026-09-30; they
+will match what you see unless the data package changes.
+
+**Time.** Full run: 25 minutes. Short run: cases 1, 2 and the accuracy conversation, 12 minutes.
 
 ---
 
-## 0. Prerequisites
+## 0. Before the demo
 
-| Item | Detail |
+- Open the Databricks App. The header reads **GP screening cost estimator** with a blue
+  **POC v1.1** badge and the line *Class 5 screening estimate (±50% target). Deterministic
+  models, no AI. Not a basis of estimate.*
+- Three pages in the top navigation: **Estimator**, **Models**, **Data**.
+- The header must **not** show a warning about synthetic data. If it does, the app is
+  reading the mock package; stop and fix the deployment first (`docs/DEPLOY_DATABRICKS.md`).
+- Press **Reset** (bottom of the input column) so the form is empty.
+
+**Say (30 seconds).** "This is the screening estimator from the September 16 package. It
+runs your nine deterministic models, ten with the composite from the wireframe, from flat
+files, no LLM, no database. I will walk through one case per model family, then show the
+accuracy we measured on the 52 truth projects, with the same conventions your harness uses."
+
+---
+
+## 1. The screen
+
+**Say.** "Left side is the scope, right side is what the models make of it. Nothing runs
+until I press the button, but the readiness list on the right updates as I type."
+
+**See.**
+
+| Left column, top to bottom | What it unlocks |
 |---|---|
-| App URL | Open the **cost-bot** Databricks App (Streamlit), or locally: `streamlit run app.py` (see CLAUDE.md for setup) |
-| Browser | Chrome / Edge recommended; any modern browser works |
-| Data | No setup needed. The Databricks App carries the real package in `data/`. Locally the repo ships the MOCK package; numbers there are synthetic and the header says so. |
-| Credentials | Any user with workspace access can view the app |
+| **Project** card: Archetype, Location (CP30 region), Basis year (2024 / 2025 / 2026), Scope type (Greenfield / Brownfield / Expansion / Modification), Rough size, Project name, and an **Optional details** expander (Process domain, Analogue model) | Benchmark (analogues) |
+| **Equipment list** card: Equipment type, Count, **Add** | Equipment vector |
+| **Facility and capacity** card: Facility type, Primary capacity, Unit; extra fields appear for pipeline, offshore and LNG archetypes | Onshore / offshore / pipeline / LNG calculators, unconventional lookup |
+| **Subsea scope (SURF)** card, offshore archetypes only | SURF subsea component |
+| **Scope items** card: Scope item type, Facility name, **Add** | Composite (scope chips) |
+| **Run screening estimate** and **Reset** | |
 
-When the app opens you will see:
-- **Header:** "GP screening cost estimator" with a "POC v1.1" badge and the disclaimer line
-- **3 pages** in the top navigation: Estimator · Models · Data
-- The **Estimator** page is active by default: input cards on the left, and on the right a **Model readiness** card plus a short "How it unlocks" guide
+Right column: **Model readiness** (each eligible model with a badge: *Ready*, *Needs …*,
+*Excluded for this archetype*, *automatic*), then, after a run, the results.
 
----
+**Wireframe check.**
 
-## 1. Understanding the Layout (Estimator Tab)
-
-The Estimator tab is split into two columns:
-
-**Left column, input cards (top to bottom):**
-
-| Card | What it does |
-|---|---|
-| **Project** | Archetype, location, basis year (2024/2025/2026 buttons), scope type buttons, project name. *Required*: archetype + location. "Optional details" holds process domain. |
-| **Equipment list** | Type + count + Add. Same type added twice merges the counts. Unlocks the equipment vector model (best broad model). |
-| **Facility and capacity** | Facility type (dropdown you can also type into), capacity + unit. Pipeline / offshore / LNG fields appear for those archetypes. |
-| **Subsea scope (SURF)** | Offshore archetypes only. Trees, flowlines, risers, manifolds, umbilicals. |
-| **Scope items** | Type + facility name + Add. Unlocks the composite chip model. |
-| **Run screening estimate** | Primary button at the bottom. |
-
-**Right column:**
-- **Model readiness** updates live as you type, before any Run: each eligible model shows *Ready*, *Needs …*, or *Excluded for this archetype*. This is the "progressive disclosure" from the task brief.
-- After Run: three KPI cards (P50, range, confidence), warnings, the **Model estimates** chart (bars = estimates, whiskers = each model's range, dashed line = ensemble P50, colour = role in the ensemble), one tab per model with its detail, **Comparable projects**, **Bid check**, **What-if**, and **Download HTML report**.
-- If you change any input after a Run, a notice says the results are stale until you Run again.
-
----
-
-## Scenario 1: Onshore Petrochemical — Minimal (Simple)
-
-> **Goal:** Show the simplest path — just Core Inputs + Facility & Capacity
-> Demonstrates Benchmark + Calculator_Onshore firing together.
-
-### Step 1 — Fill Core Inputs
-
-| Field | Value to Enter | Why |
+| Wireframe | App | Why |
 |---|---|---|
-| Project Archetype | **Petrochemical (Onshore)** | Tells the engine which models are eligible |
-| Process Domain | *Leave as “— Optional —”* | Optional — helps Benchmark refine analogues |
-| Location (CP30 Region) | **US Gulf Coast** | Required — drives location cost normalization (CP30) and EMMA factor |
-| Basis Year | **2024** | All pool data is in 2024 USD; selecting 2024 avoids escalation |
-| Scope Type | **Greenfield** | Determines the ISBL to TEC multiplier (greenfield 2.58×; brownfield, expansion or modification 2.61×; 1.30× only when the facility name says modification / conversion / debottleneck) |
-| Rough size | **Substantial ($500M to $1B)** | Say this out loud: it is the input that moves accuracy most. On the real data the estimate lands within ±30% for 29% of projects without it and 63% with it. |
-| Project Name | **Demo Polypropylene Plant** | Optional label — appears in reports |
-| Analogue model (in "Optional details") | leave **Engine variant (size band)** | The manager's own analogue model is the other option; after Run a line under the results says what it would have given. |
+| Five pages: Estimator, Data Package, Code Inventory, Dependencies, Model Specs | Three pages: Estimator, Models (specs + routing + dependencies + accuracy), Data | Code Inventory described files the Sep 16 package removed (parametric navigators, overlay stack); Dependencies and Model Specs merged into one page. |
+| Four input sections: Core, Benchmark, Composite, Parametric / ADR | Five cards, one per model family | Same idea, re-cut by model family so each card says what it unlocks. |
+| Model names A, A.1, B, B.1, Bottom-Up | The nine canonical names of the Sep 15 brief (Benchmark, EquipmentVector, Calculator_Onshore …) plus Composite | The brief renamed them; A.1 Calculator Plus (ADR) is not in the Sep 16 package, so it is not in the app. |
+| "Model Readiness" table with the inputs each model needs | Same, live, with badges | Same. |
 
-### Step 2 — Fill Facility & Capacity
+---
 
-| Field | Value to Enter |
+## Case 1 — Petrochemical plant, the two-model baseline
+
+**Say.** "The simplest path. Archetype, location, a rough size and a capacity. Two
+independent models fire, the analogue one and the onshore calculator, and the ensemble
+sits between them."
+
+**Do.**
+
+| Field | Select / type |
 |---|---|
-| Facility Type | select **polypropylene** from the dropdown (the list is every facility type the calculators understand; pick "Other" to type a custom name) |
-| Primary Capacity | **450** |
+| Archetype | **Petrochemical (onshore)** |
+| Location (CP30 region) | **US Gulf Coast** |
+| Basis year | **2024** (already selected) |
+| Scope type | **Greenfield** |
+| Rough size | **Substantial ($500M to $1,000M)** |
+| Project name | `Demo polypropylene` |
+| Facility type | **polypropylene** |
+| Primary capacity | `450` |
 | Unit | **KTA** |
 
-> **What this means:** You're describing a 450 KTA (kilotonnes per annum)
-> polypropylene plant on the US Gulf Coast. The engine will look up the
-> polypropylene ISBL correlation (base cost $136M at 450 KTA reference capacity)
-> and apply the six-tenths scaling rule.
+Before pressing Run, point at **Model readiness**: Benchmark (analogues) *Ready*, Onshore
+calculator *Ready*, OSBL overlay (indirect) *Ready automatic*, Equipment vector *Needs at
+least one equipment item*, Composite (scope chips) *Needs at least one scope item*.
 
-### Step 3 — Click "Run Screening Estimate"
+Press **Run screening estimate**.
 
-### What You Should See
+**See.**
 
-**Model readiness (right side, top), already visible before you press Run:**
-- Benchmark (analogues) **Ready**
-- Onshore calculator **Ready**, OSBL overlay **Ready** (automatic)
-- Equipment vector *Needs at least one equipment item*
-- Composite *Needs at least one scope item*
+- Three KPI cards: **Best estimate (P50)**, **Range (P20 to P80)**, **Confidence**
+  (MEDIUM-HIGH or HIGH), with the ensemble reasoning in a caption under them.
+- A caption *Other analogue variant, Reference (analogue_estimator v3): $…* telling what
+  David's own analogue model would have given for the same inputs.
+- **Model estimates**: a bar per model with its own range as whiskers, the ensemble P50 as
+  a dashed line, one tab per model. Open the **Onshore calculator** tab: the ISBL
+  correlation used (polypropylene, 136 $M at 450 KTA), the EMMA index (414 for US Gulf
+  Coast, factor 2.05), the TEC multiplier 2.58 for greenfield, 6% escalation, the
+  calibration note (back-solved from one project, "circular"). Open **Benchmark
+  (analogues)**: the variant, the size signal used (*size_bucket*, $700M), the ten
+  analogues with their similarity.
+- **Comparable projects**: the ten nearest pool projects with cost, match, country, capacity.
+- **Bid check**, **What-if**, **Download HTML report** below.
 
-**KPI cards:**
+**Say.** "Note the OSBL overlay: it ran automatically because the onshore calculator
+produced an ISBL, and it is shown as an indirect line, not added to the median."
 
-| Card | What It Shows | What It Means |
+**Wireframe check.**
+
+| Wireframe / brief | App | Why |
 |---|---|---|
-| **Best estimate (P50)** | e.g. ~$500M | The median of surviving model estimates after spread gating. This is the single-number screening estimate. |
-| **Range (P20-P80)** | e.g. $300M — $800M | The uncertainty band. P20 = "there's a 20% chance it's below this." P80 = "80% chance it's below this." |
-| **Confidence** | MEDIUM or MEDIUM-HIGH | How many models agree. HIGH = 3+ models within ±30%. MEDIUM = 2 models, some disagreement. LOW = 1 model only. |
-
-**Model estimates chart:**
-- One horizontal bar per model that fired, whiskers show each model's own range
-- Colour = role: in ensemble, gated out, component (SURF), indirect overlay (OSBL)
-- Dashed red vertical line = the ensemble P50; hover for exact values
-- Below the chart, one tab per model with the calculation detail and the analogues or equipment matches it used
-
-**Analogues Table:**
-- Shows the top 10 most similar projects from the 503-project pool
-- Columns: project name, archetype, TEC, location, capacity, similarity score
-- These are the projects the Benchmark model used to form its estimate
-
-> **Talking Point:** "With just 6 fields filled in, two independent models
-> produced estimates. The Calculator used engineering correlations (ISBL scaling),
-> while the Benchmark found similar real projects from our 503-project pool.
-> The ensemble mediates between them."
+| Benchmark needs archetype + location + year; "size provided" improves it | Benchmark fires from archetype + location; **Rough size** is the size input | The reference analogue model takes a size bucket, not a cost. Year defaults to 2024, the pool's basis. |
+| "No user-entered cost input" | Kept. Rough size is an order of magnitude, never a number | Same rule. |
+| Brief, step 1: Benchmark "if size provided" | Benchmark fires without a size, better with one | The reference code fires without a size (cosine on categories). We measured why the size matters: see the accuracy section. |
+| OSBL "runs automatically when any model fires" | Runs when there is an ISBL, i.e. when the onshore calculator fires | That is what `cost_bot_api` does; the brief's sentence is looser than the code. |
+| One analogue model | Two selectable variants: David's port (Reference) and the first build's size-band variant (Engine), default Engine | Measured on the real data: equal without a size, the Engine variant ahead with one (63% vs 44%). The other variant's number is always shown. |
 
 ---
 
-## Scenario 2: Offshore FPSO (Full Feature Walkthrough)
+## Case 2 — Refinery brownfield, the exclusion and David's "scope is the equipment list"
 
-> **Goal:** Show all input cards including Equipment List and SURF scope.
-> Demonstrates 4 models firing simultaneously.
+**Say.** "Brownfield refinery work is where the onshore calculator overshoots, so the API
+excludes it for this archetype. Your directive was that for brownfield the scope *is* the
+equipment list, so let's give it one."
 
-### Step 1 — Core Inputs
+**Do.** Press **Reset**, then:
 
-| Field | Value |
+| Field | Select / type |
 |---|---|
-| Project Archetype | **Offshore FPSO** |
-| Process Domain | *Leave optional* |
-| Location | **Guyana** |
-| Basis Year | **2024** |
-| Scope Type | **Greenfield** |
-| Project Name | **Demo Deepwater FPSO** |
-
-> **Note:** When you select "Offshore FPSO", two things happen:
-> 1. Card 3 shows **Offshore Parameters** (Topsides Weight, Water Depth, Hull Type)
-> 2. Card 4 (SURF Subsea Scope) appears
-
-### Step 2 — Equipment list card
-
-Add the following equipment items one at a time (select type → set count → click "+ Add Equipment"). Only the card refreshes; the rest of the page stays put.
-
-| Equipment Type | Count | What It Represents |
-|---|---|---|
-| separator | 4 | Production separators (oil/gas/water) |
-| compressor | 3 | Gas compression trains |
-| pump | 8 | Process and export pumps |
-| exchanger | 6 | Heat exchangers |
-| vessel | 4 | Pressure vessels |
-| swivel | 1 | FPSO turret swivel |
-
-> **What this does:** Builds a 52-dimensional equipment "fingerprint" vector,
-> then finds the most similar projects in the pool using cosine similarity.
-> Only the 17 process equipment types count — valves, instruments, etc. are
-> zeroed out to prevent inflation by ancillary counts.
-
-### Step 3 — Facility and capacity card
-
-| Field | Value |
-|---|---|
-| Topsides Weight (tonnes) | **25000** |
-| Water Depth (m) | **1800** |
-| Hull Type | **FPSO newbuild** |
-
-> **What this means:** 25,000 tonnes topsides is a large FPSO (Liza Unity class).
-> 1,800m water depth puts us in the deepwater regime. The Calculator_Offshore
-> model uses topsides weight as its primary cost driver.
-
-### Step 4 — Subsea scope (SURF) card
-
-The card appears only for offshore archetypes. Enter:
-
-| Field | Value | What It Means |
-|---|---|---|
-| Subsea Trees | **12** | 12 subsea wells connected |
-| Flowlines | **6** | 6 flowline segments |
-| Risers | **4** | 4 steel catenary risers to FPSO |
-| Manifolds | **2** | 2 subsea manifolds |
-| Umbilicals | **3** | 3 control/power umbilicals |
-
-> **Water depth** is inherited from the facility card (shown as a caption at the bottom).
-
-### Step 5 — Click "Run Screening Estimate"
-
-### What You Should See
-
-**Model readiness:**
-- Benchmark (analogues) **Ready**
-- Offshore calculator **Ready**
-- Equipment vector **Ready**
-- SURF subsea (component) **Ready**
-
-**Key Result Distinctions:**
-- The **KPI cards** show the TEC ensemble (from Benchmark + Calculator_Offshore + EquipmentVector)
-- **SURF** appears in the chart in the *Component* colour and in its own tab; it is an *additive* component (subsea scope only), not a total project TEC
-- The ensemble does NOT include SURF in the P50 median — it's a breakout line item
-
-> **Talking Point:** "For offshore, we get three independent TEC estimates plus
-> a subsea breakout. The SURF estimate is bottom-up from equipment counts —
-> calibrated against 4 Guyana deepwater projects. It's additive to TEC."
-
----
-
-## Scenario 3: Pipeline (Quick Path)
-
-> **Goal:** Show the pipeline-specific input fields and fast turnaround.
-
-### Inputs
-
-| Field | Value |
-|---|---|
-| Project Archetype | **Pipeline (Mainline)** |
-| Location | **US Gulf Coast** |
-| Basis Year | **2024** |
-| Scope Type | **Greenfield** |
-| Pipeline Length (km) | **200** |
-| Pipeline Diameter (inches) | **24** |
-
-Click **Run Screening Estimate**.
-
-### What You Should See
-
-- Pipeline calculator **Ready** and Benchmark **Ready** before you press Run
-- After Run, a yellow **warning banner**: the pipeline calculator is flagged UNVERIFIED because pipeline truth values differ between sources (per the task brief). Say so out loud; it is a feature, not a bug.
-- 🟢 **Benchmark** — analogue matching against pool pipelines
-- P50 estimate in the ~$250–350M range for a 200km / 24" oil pipeline on the Gulf Coast
-
-> **Talking Point:** "Pipeline estimates decompose into linepipe material,
-> mainline construction, stations, crossings, and indirects. The bar chart
-> detail panel shows this breakdown."
-
----
-
-## Scenario 4: Refinery Brownfield Modification
-
-> **Goal:** Show the brownfield/modification flow and the ARCHETYPE_EXCLUSIONS
-> feature (Calculator_Onshore is pre-excluded for refinery_bf).
-
-### Inputs
-
-| Field | Value |
-|---|---|
-| Project Archetype | **Refinery Brownfield** |
-| Location | **US Gulf Coast** |
-| Scope Type | **Modification** |
-| Facility Type | select **hydrotreater** |
-| Primary Capacity | **40000** |
+| Archetype | **Refinery brownfield** |
+| Location (CP30 region) | **US Gulf Coast** |
+| Scope type | **Modification** |
+| Rough size | **Moderate ($75M to $200M)** |
+| Facility type | **hydrotreater** |
+| Primary capacity | `40000` |
 | Unit | **BPD** |
 
-### What You Should See
+Point at **Model readiness**: Onshore calculator shows the red badge **Excluded for this
+archetype**. Press **Run screening estimate** once, show the result (Benchmark only).
 
-- Benchmark (analogues) **Ready**
-- Onshore calculator **Excluded for this archetype** (red badge, visible before Run)
+Then, in **Equipment list**, add one at a time (type, count, **Add**; the card refreshes
+alone, the page does not reload):
 
-> **What this means:** Calculator_Onshore is pre-excluded for refinery brownfield
-> projects because the ISBL + TEC multiplier chain produced a 7.0× overshoot in
-> testing. The Benchmark model handles brownfield refineries better by finding
-> real analogues. This is an intentional safety exclusion.
->
-> Give a **Rough size** here too (e.g. **Moderate, $75M to $200M**): refinery
-> brownfield went from 3/17 to 14/17 within ±30% on the real data once the size
-> band is known.
+| Equipment type | Count |
+|---|---:|
+| exchanger | 6 |
+| pump | 8 |
+| tower | 1 |
+| drum | 3 |
+| compressor | 1 |
 
----
+Readiness now shows Equipment vector *Ready*. Press **Run screening estimate** again.
 
-## 5. Bid Validation (Post-Estimate Feature)
+Optional: in **Scope items** add Scope item type **process_unit**, Facility name
+`Hydrotreater revamp`, **Add**; run again to light up Composite (scope chips).
 
-After running any scenario, scroll down in the results panel to the
-**Bid check** card.
+**See.**
 
-| Field | Value |
-|---|---|
-| Bid amount ($M) | Enter a number (e.g. **500**) |
-| Bid type | **TEC** |
-| Click | **Check bid** |
+- First run: Benchmark alone, confidence LOW, the exclusion listed in the model
+  status.
+- Second run: Equipment vector appears with the five closest equipment profiles in its tab;
+  the ensemble now combines two models; confidence goes up a tier.
+- Third run (optional): Composite appears with the chips it matched per scope item.
 
-### Possible Verdicts
+**Wireframe check.**
 
-| Verdict | Color | Meaning |
+| Wireframe / brief | App | Why |
 |---|---|---|
-| **WITHIN_RANGE** | Green | Bid falls within the P20–P80 ensemble range |
-| **ABOVE_RANGE** | Yellow | Bid exceeds P80 — potentially overpriced |
-| **BELOW_RANGE** | Red | Bid is below P20 — suspiciously low, risk of underbid |
-
-> **Talking Point:** "This is designed for gate reviews — when a contractor
-> submits a bid, the team can instantly sanity-check it against the screening
-> model range."
+| Brief: `refinery_bf` excludes Calculator_Onshore (7x overshoot) | Same, visible before the run as a red badge | Rule copied from `cost_bot_api`. |
+| Brief: EquipmentVector is the best broad model, needs equipment list + archetype | Same card, same gate (at least two process items; valves and instruments are zeroed) | Same rule. |
+| Wireframe: Composite builds the project from scope items (Process Unit, OSBL, Pipeline Segment) | Same card and item types | Kept from the wireframe. The reference Composite in the harness sums the project's own cost rows; the app matches scope items against the chip library, which is what a new project allows. |
+| Wireframe: Bottom-Up "Class 2", A.1 Calculator Plus (ADR) | Not present | ADR data and `generative_estimator.py` were removed from the Sep 16 package. |
 
 ---
 
-## 6. What-If Sensitivity (Post-Estimate Feature)
+## Case 3 — Offshore FPSO, the calculator plus the subsea component
 
-After running any scenario, scroll to the **What-if** card.
+**Say.** "Offshore: the benchmark is excluded for FPSOs, the offshore calculator works from
+topsides weight, and the SURF model prices the subsea scope as a separate component."
 
-1. **Parameter:** select a numeric input that was filled (e.g. Primary capacity)
-2. **New value:** enter a different number (e.g. change 450 KTA to 600 KTA)
-3. Click **Run what-if**
+**Do.** Press **Reset**, then:
 
-### What You Should See
+| Field | Select / type |
+|---|---|
+| Archetype | **Offshore FPSO** |
+| Location (CP30 region) | **Guyana** |
+| Scope type | **Greenfield** |
+| Rough size | **Very large ($2,500M to $5,000M)** |
+| Topsides weight (t) | `25000` |
+| Water depth (m) | `1800` |
+| Hull type | **Fpso newbuild** |
 
-- **3 delta metric cards:** Base P50, What-If P50, and the parameter change
-- **Per-model comparison table:** shows each model's base vs. what-if estimate, with dollar and percentage deltas
+In **Subsea scope (SURF)**: Subsea trees `12`, Flowlines `6`, Risers `4`, Manifolds `2`,
+Umbilicals `3`. Press **Run screening estimate**.
 
-> **Talking Point:** "This lets the team explore capacity trade-offs. What if we
-> upsize from 450 KTA to 600 KTA? — the model shows the cost impact instantly,
-> broken out by each independent model."
+**See.**
 
----
+- Readiness: Benchmark **Excluded for this archetype**, Offshore calculator *Ready*, SURF
+  subsea (component) *Ready*.
+- Results: Offshore calculator as the TEC estimate; SURF in the *Component* colour with its
+  own tab (flowlines, risers, umbilicals, trees, installation); the SURF value is **not** in
+  the P50.
+- If you clear the topsides weight and run again, the confidence becomes
+  **COMPONENT_ONLY**: a subsea cost exists, a total does not. Say that out loud; it is the
+  rule from the brief.
 
-## 7. Exploring the Other Tabs
+**Wireframe check.**
 
-### Models page
-
-- **Model specs:** one card per model with method, algorithm, reported accuracy and a status badge (best broad model, unverified, miscalibrated, component, automatic)
-- **Routing and inputs:** which models each archetype can use and which are excluded, the input to model dependency table, and the ensemble rules in plain words
-- **Reported accuracy:** per-archetype hit rate from the reference evaluation; the measured figures on the real data are in the model cards and in `docs/VALIDATION_2026-09-30.md`
-
-### Data page
-
-- Warning banner when the loaded package is the synthetic one, and the data directory in use
-- **Loaded tables:** every CSV with live row and column counts and which model uses it
-- **Preview** of any table and the analogue pool distribution by archetype
-
-> **Talking Point:** "Full data provenance. Every table is traceable, every row
-> count is live from the loaded CSVs."
-
-> **Talking Point:** "Full transparency on how each model works, how it was
-> tested, and where it's strong or weak."
-
----
-
-## 8. Downloading the Report
-
-At the bottom of the results panel, click **Download HTML report**.
-
-This generates a standalone HTML file containing:
-- Project scope summary
-- Ensemble results (P50, range, confidence)
-- All individual model estimates
-- Analogues table
-- Disclaimer
-
-The file can be opened in any browser, emailed, or attached to a gate review package.
+| Wireframe / brief | App | Why |
+|---|---|---|
+| Brief: SURF_User needs well count + water depth + topsides weight | App asks for trees, flowlines, risers, manifolds, umbilicals and reads water depth from the facility card | The SURF reference file (`surf_estimator.py`) has not been shared yet; the card follows the Sep 15 brief's description. Will be aligned when the file arrives. |
+| Brief: COMPONENT_ONLY when SURF fires alone | Same | Same rule. |
+| Brief: `offshore_fpso` excludes Benchmark | Same | Same rule. The ensemble leans on the calculator and, with an equipment list, on the equipment vector. |
+| Offshore calculator with EMMA location factor | EMMA disabled for offshore | The rate tables are already in 2024 USD; applying EMMA again double-counted (golden cases Payara, Liza, Jacket). Documented divergence. |
 
 ---
 
-## Key Talking Points Summary
+## Case 4 — Pipeline, the unverified calculator
 
-1. **10 independent models** — no single point of failure. The ensemble mediates.
-2. **Progressive unlock** — start with 2 fields, get a Benchmark estimate. Add detail, unlock more models.
-3. **Accuracy, measured on the real data (52 past projects, 2026-09-30)**: the app's single estimate lands within ±30% for **29% of projects with no size given and 63% when the user gives a rough size**. The brief's 40/52 (77%) counts any model landing near the truth, including a Composite that reads the truth to correct itself; on that same convention, without it, the app scores 48%. Details in `docs/VALIDATION_2026-09-30.md`.
-4. **No AI/LLM** — fully deterministic, reproducible, auditable.
-5. **Sub-second response** — all computation is local, no API calls.
-6. **Bid validation** — instant sanity check for contractor bids.
-7. **What-if analysis** — explore capacity/location/scope trade-offs in real time.
-8. **Full data provenance** — every table, every model, every correlation is documented in-app.
+**Say.** "Pipelines are the weak spot in the brief itself: the calculator is marked
+unverified because the truth values disagree between sources. The app says so on screen."
+
+**Do.** Press **Reset**, then:
+
+| Field | Select / type |
+|---|---|
+| Archetype | **Pipeline (mainline)** |
+| Location (CP30 region) | **US Gulf Coast** |
+| Scope type | **Greenfield** |
+| Rough size | **Medium ($200M to $500M)** |
+| Length (km) | `200` |
+| Diameter (in) | `24` |
+
+Press **Run screening estimate**.
+
+**See.**
+
+- Readiness: Pipeline calculator *Ready*, Benchmark *Ready*.
+- A yellow warning from the pipeline calculator that it is unverified.
+- Pipeline calculator tab: linepipe material, mainline construction, crossings, stations,
+  engineering, contingency.
+
+**Wireframe check.**
+
+| Brief | App | Why |
+|---|---|---|
+| Pipeline: 67% ±30% (N=3), UNVERIFIED | Same warning, shown as a flag | Carried over as is. `pipeline_calculator_v2.py` not yet shared, so the internals are the first build's; the input mapping follows the API. |
 
 ---
 
-## Glossary of Terms (for non-technical audience)
+## Case 5 — Onshore unconventional, the lookup model
+
+**Say.** "For short-cycle unconventional work there is a dedicated lookup by facility type,
+and it was the most accurate family on the real data."
+
+**Do.** Press **Reset**, then:
+
+| Field | Select / type |
+|---|---|
+| Archetype | **Onshore unconventional** |
+| Location (CP30 region) | **New Mexico** |
+| Scope type | **Expansion** |
+| Facility type | **compressor_station** |
+| Primary capacity | `70` |
+| Unit | **MMSCFD** |
+
+Press **Run screening estimate**.
+
+**See.**
+
+- Readiness: Benchmark **Excluded**, Onshore calculator *Ready*, Unconventional lookup
+  *Ready*, OSBL overlay *Ready*.
+- Unconventional lookup tab: the peers used and the capacity interpolation between them.
+- Onshore calculator tab: the correlation `compressor_station` (back-solved from one
+  project; the calibration note says so).
+
+**Wireframe check.**
+
+| Brief | App | Why |
+|---|---|---|
+| Unconventional: facility-type lookup, 70% ±30% (N=10); `onshore_unconventional` excludes Benchmark | Same routing and exclusion; capacity-aware interpolation as in `cost_bot_api` | Same. Measured on the real data: 7 of 11 within ±30%, 8 of 11 with the ensemble. |
+
+---
+
+## Case 6 — Basis year, bid check, what-if, report (any case)
+
+**Do.** On the last result, change **Basis year** to **2026** and run again.
+
+**See.** A caption *Pool-based estimates escalated from 2024 to 2026 USD (CP30 factor
+1.2019; +20.2%)*. Say: "Pool numbers are 2024 dollars; other years use the CP30 index at
+the Gulf Coast. 2025 is the last index in the table, 2026 is extrapolated."
+
+**Do.** In **Bid check** enter a bid amount (for case 1, `700`), keep **TEC**, press
+**Check bid**. Then in **What-if** pick **Primary capacity**, type a new value (for case 1,
+`600`), press **Run what-if**.
+
+**See.** Bid check: *Within range*, *Above range* or *Below range* with the distance to the
+bound. What-if: three cards (base P50, what-if P50 with the delta, the parameter) and a
+per-model table of base vs what-if.
+
+**Do.** Press **Download HTML report**; open the file.
+
+**See.** One page: the scope, the three KPIs, flags (including which analogue variant was
+used and what the other gives), the model chart, status table, analogues, disclaimer.
+
+**Wireframe check.**
+
+| Wireframe / brief | App | Why |
+|---|---|---|
+| Not in the wireframe | Bid check, What-if, HTML report | Added in the first build for gate-review use. Bid check applies the API's EPC lump-sum adjustment. |
+| Basis year as a core input | Buttons 2024 / 2025 / 2026, default 2024 | Same input; CP30 to 2026 is an extrapolation, flagged on screen. |
+
+---
+
+## 7. Models and Data pages (2 minutes)
+
+**Do.** Open **Models**. Three tabs: **Model specs** (one card per model: method, badge,
+algorithm, measured accuracy, libraries), **Routing and inputs** (which models each
+archetype can use, the exclusions, the input to model table, the ensemble rules in plain
+words), **Reported accuracy** (the brief's per-archetype table next to the figures measured
+on this engine).
+
+**Do.** Open **Data**: the loaded tables with live row counts and which model reads each
+one, a preview, and the pool by archetype.
+
+**Say.** "Everything is traceable: the table, the row, the correlation, the rule."
+
+**Wireframe check.**
+
+| Wireframe | App | Why |
+|---|---|---|
+| Data Package page with the manifest (CET rate CSVs, 74-row pool, gate tables) | Data page with the tables actually in the Sep 16 package (503-row pool, 593 equipment vectors, 857 chips, 377 semantic chips, 41 scope inputs) | The Sep 16 package replaced the manifest. |
+| Model Specs with LOOCV figures per model | Same, with the figures measured on this engine added | See the next section. |
+
+---
+
+## 8. The accuracy conversation
+
+This is the question that will come. Have the numbers ready; they are measured on the real
+package, 52 truth projects, leave-one-out, and published in `docs/VALIDATION_2026-09-30.md`.
+
+**Say.** "Your package reports 40 of 52 within ±30%. We reproduced your harness's
+convention on this engine and measured the app's own number. They are different questions."
+
+| What is measured | Result |
+|---|---:|
+| The app's single estimate (ensemble P50), no size given | 29% of 52 projects within ±30% |
+| The app's single estimate, user gives a rough size | **63%** (refinery brownfield 14 of 17) |
+| Your harness's convention (any single model within ±30% of any truth), without the oracle Composite | 48% of 50 projects |
+| Your package's figure | 77% (40 of 52) |
+
+**Why the gap, in three sentences.** Your harness counts a project as a hit when any one
+model lands near the truth, with no ensemble. One of those models, the Composite with
+`apply_oh=True`, corrects itself with the truth value; your own file calls that the oracle
+ceiling. And the harness scores SURF against a subsea-only truth for four projects. None of
+that exists for a project a user types in.
+
+**What moves the number.** The user's rough size. It is a legitimate input and it takes
+the app from 29% to 63%. Your own analogue model goes from 29% to 44% with it; the size
+band variant we kept from the first build does better, which is why it is the default and
+the other one is one click away.
+
+**Where it is still zero.** Oil sands, LNG and integrated petchem: those depend on the
+LNG and offshore calculator files and an oil-sands correlation that are not in the package
+yet.
+
+---
+
+## 9. Questions you may get
+
+| Question | Answer |
+|---|---|
+| "Is this calling my code?" | No. The app is a port, module by module, checked against your files: `cost_bot_api.py`, `analogue_estimator.py`, `onshore_calculator.py`, `evaluation_harness.py`. The golden cases match to the digit. Four files are still to come: SURF, OSBL, pipeline, LNG, offshore. |
+| "Why two analogue models?" | Yours is the reference and is always shown. The variant adds a size band; measured on the real data it is ahead when a size is given. Your choice which stays. |
+| "Why does brownfield show 2.61 and not 1.30?" | Because `cost_bot_api` sends BF-expansion for every brownfield scope; 1.30 is reached only when the facility name says modification or conversion. We ported it as is and flagged it. |
+| "Why 10 models, not 9?" | The composite from the wireframe was kept; it is never routed by archetype, only when the user adds scope items. |
+| "Can it run on Databricks?" | It is running on Databricks now, as an App, from flat files. |
+
+---
+
+## Glossary
 
 | Term | Plain English |
 |---|---|
-| **TEC** | Total Erected Cost — the full installed cost of a facility, including equipment, materials, labor, and indirect costs |
-| **ISBL** | Inside Battery Limits — the core process equipment cost before indirect multipliers |
-| **OSBL** | Outside Battery Limits — utilities, infrastructure, and offsite costs (auto-calculated) |
-| **EMMA** | Equipment, Materials, Methods, Approach — a location cost adjustment factor |
-| **CP30** | Cost Performance 30 — an industry cost index for normalizing costs across locations and time periods |
-| **P50** | The median estimate — 50% probability the actual cost is above, 50% below |
-| **P20 / P80** | The 20th and 80th percentile of the cost range |
-| **Six-tenths rule** | Engineering rule of thumb: cost scales as (capacity ratio)^0.6 |
-| **LOOCV** | Leave-One-Out Cross-Validation — testing each project by hiding it and predicting from the rest |
-| **Spread gate** | If models disagree by more than 3×, the outlier is removed from the ensemble |
-| **Archetype** | Project category (e.g. offshore FPSO, pipeline, refinery brownfield) |
-| **Screening** | Class 5 estimate (±50% accuracy target) — used for early-stage decision-making, not budgeting |
-| **KTA** | Kilotonnes per annum |
-| **BPD** | Barrels per day |
-| **MTPA** | Million tonnes per annum |
-| **SURF** | Subsea, Umbilicals, Risers, Flowlines — the subsea infrastructure for offshore projects |
+| TEC | Total erected cost, the full installed cost |
+| ISBL / OSBL | Inside / outside battery limits: process units versus utilities and offsites |
+| EMMA | Location cost index (GOM 2000 = 202); factor = index / 202 |
+| CP30 | Cost index by location and year used to bring every cost to 2024 USD |
+| P50, P20, P80 | Median and the 20th / 80th percentile of the range |
+| Spread gate | If the surviving models disagree by more than 3x, the furthest one is dropped |
+| COMPONENT_ONLY | A subsea component cost exists but no total project cost |
+| Class 5 | Screening estimate, ±50% target; not a basis of estimate |

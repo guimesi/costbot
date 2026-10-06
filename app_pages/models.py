@@ -58,17 +58,25 @@ with tab_routing:
     st.markdown('\n'.join(f"- {r}" for r in ENSEMBLE_RULES).replace('$', '\\$'))
 
 with tab_accuracy:
-    st.warning("These figures come from the reference evaluation in the Sep 16 brief and the first build. "
-               "They have not been reproduced on this engine yet; run `scripts/evaluate_truth.py` on the real "
-               "data package to refresh them.", icon=":material/science:")
+    st.markdown("**Measured on this engine** (real package, 52 truth projects, leave-one-out, 2026-09-30)")
+    with st.container(horizontal=True):
+        st.metric("App estimate, no size given", "29%", border=True,
+                  help="Ensemble P50 within ±30% of the actual cost, 15 of 52 projects.")
+        st.metric("App estimate, user gives a rough size", "63%", border=True,
+                  help="Ensemble P50 within ±30%, 33 of 52 projects. Refinery brownfield 14 of 17.")
+        st.metric("Reference harness convention", "48%", border=True,
+                  help="Any single model within ±30% of any truth, 24 of 50 projects, without the "
+                       "harness's truth-corrected Composite. The brief's 40/52 (77%) uses this convention with it.")
+    st.caption("Details and per-archetype tables: docs/VALIDATION_2026-09-30.md. The table below is the "
+               "per-archetype figure reported in the Sep 16 brief, for comparison.")
     df = pd.DataFrame([{'Archetype': a, 'Within ±30%': f"{h}/{n}", 'Hit rate': h / n} for a, h, n in ACCURACY])
     c1, c2 = st.columns([2, 3], gap="large")
     with c1:
         st.dataframe(df, hide_index=True, column_config={
             'Hit rate': st.column_config.ProgressColumn('Hit rate', min_value=0, max_value=1, format='%.0f%%')})
         total_h, total_n = sum(h for _, h, _ in ACCURACY), sum(n for _, _, n in ACCURACY)
-        st.metric("Reference overall", f"{total_h}/{total_n} ({total_h / total_n * 100:.0f}%)", border=True,
-                  help="Sep 16 brief: 40/52 (77%) at ±30%.")
+        st.metric("Reported in the brief", f"{total_h}/{total_n} ({total_h / total_n * 100:.0f}%)", border=True,
+                  help="Sep 16 brief: 40/52 (77%) at ±30%, any model counting, including the truth-corrected Composite.")
     with c2:
         chart_df = df.set_index('Archetype')[['Hit rate']] * 100
         st.bar_chart(chart_df, horizontal=True, x_label="", y_label="")
