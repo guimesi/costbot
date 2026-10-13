@@ -24,7 +24,7 @@ someone needs a first cost number. Today that takes an estimator, a few days, an
 judgment. This tool gives you a first screening number in a couple of minutes, from a
 handful of inputs, and shows you where the number came from.
 
-It's built on the cost models David's team developed over the last months, rewritten as a
+It's built on the cost models we've been developing over the last months, now as a
 standalone app. It runs here on Databricks, reading flat files. No AI involved, no
 database. Same inputs, same answer, every time.
 
@@ -159,9 +159,9 @@ exclusions. And a tab called Reported accuracy.
 
 [Open the **Reported accuracy** tab. Don't read the numbers out.]
 
-That tab has the figures we measured on the fifty-two projects with known cost, next to the
-figures David's team reported, with notes on how the two compare. I'd rather not go through
-them live; how you count makes a real difference, and I'd like David's read on it first.
+That tab has the figures we measured on the fifty-two projects with known cost, with notes
+on how they were counted. I'd rather not go through them live; how you count makes a real
+difference, and I'd like to review them with the team first.
 It's all there for anyone who wants to look.
 
 [Open **Data**.]
@@ -176,9 +176,8 @@ Everything is traceable back to a file.
 So, what you've seen is the team's cost models running as an app: a few inputs, models
 waking up as you add detail, a number with a range, and the evidence behind it.
 
-What's next is finishing the parity with David's code. A few of his files haven't reached
-me yet, the SURF, OSBL, pipeline, LNG and offshore calculators. Once they do, those parts
-match his code too.
+What's next is finishing the last model families: the SURF, OSBL, pipeline, LNG and
+offshore calculators are still on the earlier version and will be brought up to date.
 
 That's it. Questions?
 
@@ -186,9 +185,10 @@ That's it. Questions?
 
 ## If someone asks
 
-**"Is this David's code running?"**
-It's a rewrite of his models in our code, checked module by module against the files he
-shared. The onshore test cases match to the digit. A few files are still to come.
+**"Is this the same code as the original models?"**
+It's a rewrite as a standalone app, checked module by module against the original. The
+onshore test cases match to the digit. A few model families are still being brought up
+to date.
 
 **"Can I use it today?"**
 You can open it with the link in the invite. It's a POC: a screening number, Class 5, not a
@@ -204,13 +204,13 @@ Rules that come with the models: where one is known to overshoot for a project t
 stays out, and the app says so before you run.
 
 **"How accurate is it?"**
-The measured figures are on the Models page, Reported accuracy tab, next to the ones
-David's team reported. I'd like David's read on how we count before we quote a single number. Happy to
-walk anyone through that tab afterwards.
+The measured figures are on the Models page, Reported accuracy tab. How you count makes a
+real difference, so I'd rather review them with the team before quoting a single number.
+Happy to walk anyone through that tab afterwards.
 
 **"Can it estimate X?"** (a project type not in the list)
 The archetypes in the dropdown are the ones the models cover. Anything else, not yet.
 
 **"Where did the data come from?"**
-From David's team: 503 past projects, about 600 equipment profiles, 857 cost chips, and
-the cost indices. The Data page lists every table.
+Our own project history: 503 past projects, about 600 equipment profiles, 857 cost
+chips, and the cost indices. The Data page lists every table.
