@@ -9,7 +9,7 @@ figures are spoken; they live in the app, on the Models page, and you point ther
 
 **Before you start:** app open on the **Estimator** page, form empty (press **Reset**),
 this page on a second screen. Rehearse once with the app so the numbers you see are
-familiar; they don't change unless the data package changes.
+familiar; they don't change unless the data changes.
 
 ---
 
@@ -24,8 +24,8 @@ someone needs a first cost number. Today that takes an estimator, a few days, an
 judgment. This tool gives you a first screening number in a couple of minutes, from a
 handful of inputs, and shows you where the number came from.
 
-It's built on David's September package: the cost models his team developed, rewritten
-as a standalone app. It runs here on Databricks, reading flat files. No AI involved, no
+It's built on the cost models David's team developed over the last months, rewritten as a
+standalone app. It runs here on Databricks, reading flat files. No AI involved, no
 database. Same inputs, same answer, every time.
 
 ## 2. The screen (45 s)
@@ -36,8 +36,7 @@ The layout is simple. On the left, I describe the project. On the right, the app
 which models can give an opinion with what I've filled in so far.
 
 Nothing runs until I press the button at the bottom. But watch the list on the right: it
-updates as I type. The more I say about the project, the more models wake up. That's the
-"progressive disclosure" idea from the brief.
+updates as I type. The more I say about the project, the more models wake up.
 
 ## 3. Case one — a petrochemical plant (3 min)
 
@@ -89,18 +88,18 @@ the comparable projects table. In my experience that's the first thing an estima
 type: **Modification**. Rough size: **Moderate ($75M to $200M)**. Facility type:
 **hydrotreater**. Capacity: **40000**, unit **BPD**.]
 
-Second case, and this one shows two things the brief asked for.
+Second case, and this one shows two things worth knowing.
 
 First, look at the right. The onshore calculator is marked "excluded for this archetype".
-That's a rule from the package: on refinery modifications it overshoots badly, so it stays
-out. The app tells you that before you run, instead of hiding it.
+That's a rule that comes with the models: on refinery modifications it overshoots badly, so
+it stays out. The app tells you that before you run, instead of hiding it.
 
 [Press **Run screening estimate**.]
 
 With one model only, confidence is low, and it says so.
 
-Second thing. The brief says that for brownfield work, the scope *is* the equipment list.
-So let's give it one.
+Second thing. For brownfield work, the scope really is the equipment list: what gets
+replaced or added. So let's give it one.
 
 [In **Equipment list**: exchanger **6**, Add. pump **8**, Add. tower **1**, Add. drum **3**,
 Add. compressor **1**, Add.]
@@ -120,7 +119,7 @@ closest equipment profiles it found.
 large ($2,500M to $5,000M)**. Topsides weight: **25000**. Water depth: **1800**. Hull
 type: **Fpso newbuild**.]
 
-Offshore, quickly. For an FPSO the package excludes the Benchmark, and the list shows it.
+Offshore, quickly. For an FPSO the Benchmark is excluded, and the list shows it.
 The offshore calculator works from the topsides weight. And a new card appeared, for the
 subsea scope.
 
@@ -161,7 +160,7 @@ exclusions. And a tab called Reported accuracy.
 [Open the **Reported accuracy** tab. Don't read the numbers out.]
 
 That tab has the figures we measured on the fifty-two projects with known cost, next to the
-figures from David's brief, with notes on how the two compare. I'd rather not go through
+figures David's team reported, with notes on how the two compare. I'd rather not go through
 them live; how you count makes a real difference, and I'd like David's read on it first.
 It's all there for anyone who wants to look.
 
@@ -174,7 +173,7 @@ Everything is traceable back to a file.
 
 [Back to the **Estimator** page.]
 
-So, what you've seen is the September package running as an app: a few inputs, models
+So, what you've seen is the team's cost models running as an app: a few inputs, models
 waking up as you add detail, a number with a range, and the evidence behind it.
 
 What's next is finishing the parity with David's code. A few of his files haven't reached
@@ -201,17 +200,17 @@ Low means only one model could run. "Component only" means we have a subsea cost
 total.
 
 **"Why was a model excluded?"**
-Rules from the package: where a model is known to overshoot for a project type, it stays
-out, and the app says so before you run.
+Rules that come with the models: where one is known to overshoot for a project type, it
+stays out, and the app says so before you run.
 
 **"How accurate is it?"**
-The measured figures are on the Models page, Reported accuracy tab, next to the ones in
-the brief. I'd like David's read on how we count before we quote a single number. Happy to
+The measured figures are on the Models page, Reported accuracy tab, next to the ones
+David's team reported. I'd like David's read on how we count before we quote a single number. Happy to
 walk anyone through that tab afterwards.
 
 **"Can it estimate X?"** (a project type not in the list)
-The archetypes in the dropdown are the ones the package covers. Anything else, not yet.
+The archetypes in the dropdown are the ones the models cover. Anything else, not yet.
 
 **"Where did the data come from?"**
-The September package: 503 past projects, about 600 equipment profiles, 857 cost chips,
-and the cost indices. The Data page lists every table.
+From David's team: 503 past projects, about 600 equipment profiles, 857 cost chips, and
+the cost indices. The Data page lists every table.
