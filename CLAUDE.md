@@ -46,7 +46,7 @@ silently changing them.
 | `scripts/screenshot.py` | Boots the app and captures the main screens with Playwright + local Chrome. |
 | `scripts/validate.py` | Runs every check and writes `validation_report.txt` (redacted) for the real-data validation. |
 | `data/` | Mock data package (tracked). Real data goes in `data/_real/` (gitignored) or wherever `COSTBOT_DATA_DIR` points. |
-| `docs/DEMO_SCRIPT.md`, `docs/DEMO_BACKGROUND.md` | Demo script for all stakeholders (English, beats of click + words, no accuracy figures) and the presenter's background on models and terms (Portuguese). `docs/APP_DOCUMENTATION.md` is the first build's app documentation. |
+| `docs/DEMO_SCRIPT.md`, `docs/DEMO_BACKGROUND.md`, `docs/DEMO_BACKGROUND_EN.md` | Demo script for all stakeholders (English, beats of click + words, no accuracy figures) and the presenter's background on models and terms (Portuguese and English). `docs/APP_DOCUMENTATION.md` is the first build's app documentation. |
 
 ## Run and test
 

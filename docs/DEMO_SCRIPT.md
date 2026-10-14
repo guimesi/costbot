@@ -1,117 +1,109 @@
 # Costbot POC — demo script
 
-**Audience:** the stakeholders on the thread (David, Pedro, Giovanni, Lokesh, Prasanth and
-his team, Caroline). Most of them have not seen the tool. Some know the models, most don't.
-
-**Format:** numbered beats. Each beat starts with what you click, in brackets, then the
-words. Short sentences, your voice. Total about 12 minutes plus questions. No accuracy
-figures are spoken; they live in the app, on the Models page, and you point there.
-
-**Before you start:** app open on the **Estimator** page, form empty (press **Reset**),
-this page on a second screen. Rehearse once with the app so the numbers you see are
-familiar; they don't change unless the data changes.
-
 ---
 
 ## 1. Open — why we're here (45 s)
 
 [Share the screen with the app open. Don't click anything yet.]
 
-Thanks for joining. I'll keep this to about twelve minutes and then take questions.
+Thanks for joining. I'll give a brief demo of Costbot, our new cost estimation tool.
 
-Here's the problem we're working on. Early in a project, before there's any engineering,
-someone needs a first cost number. Today that takes an estimator, a few days, and a lot of
-judgment. This tool gives you a first screening number in a couple of minutes, from a
-handful of inputs, and shows you where the number came from.
+Basically, this tool gives you a first screening number in a couple of minutes, from a few inputs, 
+and shows you where the number came from.
 
 It's built on the cost models we've been developing over the last months, now as a
-standalone app. It runs here on Databricks, reading flat files. No AI involved, no
-database. Same inputs, same answer, every time.
+standalone app. It runs here on Databricks, reading flat files. So, its a deterministic model, meaning same inputs, same answer, every time.
 
 ## 2. The screen (45 s)
 
 [Hover over the left column, then the right.]
 
-The layout is simple. On the left, I describe the project. On the right, the app tells me
+The layout is very simple. On the left, I describe the project. On the right, the app tells me
 which models can give an opinion with what I've filled in so far.
 
-Nothing runs until I press the button at the bottom. But watch the list on the right: it
+Nothing runs until I press the "Run" button at the bottom. But watch the list on the right: it
 updates as I type. The more I say about the project, the more models wake up.
 
 ## 3. Case one — a petrochemical plant (3 min)
 
+Let me start with simple examples to show how it works. 
+I'll start with a petrochemical plant on the Gulf Coast.
+Two fields selected. And already, on the right, the Benchmark model says it's ready. That's the
+model that looks for similar past projects. And the others are telling me what they still need to be ready.
+
 [Archetype: **Petrochemical (onshore)**. Location: **US Gulf Coast**.]
 
-Let me start with the simplest thing you can do. A petrochemical plant on the Gulf Coast.
-Two fields. And already, on the right, the Benchmark model says it's ready. That's the
-model that looks for similar past projects. The others are telling me what they still need.
+Now, for the Rough Size, this one is the order of magnitude. Its not a cost, its a band. 
+Basically I'm saying "this is a half-billion to one-billion kind of project", 
+and the Benchmark uses it to look for projects of similar size.
 
 [Rough size: **Substantial ($500M to $1,000M)**.]
 
-This one is the order of magnitude. Not a cost, a band. I'm saying "this is a half-billion
-to one-billion kind of project". The Benchmark uses it to look for projects of similar size.
-Whoever does screening usually knows this much.
-
-[Facility type: **polypropylene**. Primary capacity: **450**. Unit: **KTA**.]
-
-Now I've said what the plant is: polypropylene, 450 thousand tonnes a year. That wakes up
-the onshore calculator, the engineering-formula model. And see the OSBL line, utilities and
-offsites: it's marked automatic, because it runs on its own whenever the calculator gives
+Well. we selected archetype, location. size....
+Now I add what the plant is: for example a polyethylene plant, 450 thousand tonnes a year. 
+That wakes up the onshore calculator, which is the engineering-formula model. And see the OSBL line here, marked automatic, because it runs on its own whenever the calculator gives
 it a process cost to work from.
+
+[Facility type: **polyethylene**. Primary capacity: **450**. Unit: **KTA**.]
 
 [Press **Run screening estimate**.]
 
-There it is. Three numbers at the top. The best estimate, which is the median of the
-models. The range, P20 to P80. And the confidence, which is really "how many models agreed".
-The line under them explains the confidence in words.
+There it is. We have three numbers at the top. First, the best estimate, which is the median of the
+models. Second, the range, from P20 to P80. And the confidence, which is really "how many models agreed".
+This line under them explains the confidence in words.
 
 [Point at the **Model estimates** chart.]
 
-Each bar is one model. The length of the bar is that model's own range. The dashed line is
+We have this chart with each model's estimate. Each bar is one model. The length of the bar is that model's own range. The dashed line is
 the median, which becomes the number at the top. So you can always see who said what.
 
 [Open the **Onshore calculator** tab.]
 
-Every model has a tab with the math open. For the calculator: the correlation it used, the
+We have for each model a tab with the math open. For example, for the calculator we can see the correlation it used, the
 location index, the multiplier up to total cost. There's even a note on how many projects
-that correlation was calibrated on, because some are thin.
+that correlation was calibrated on.
 
 [Open the **Benchmark (analogues)** tab, then scroll to **Comparable projects**.]
 
-And for the Benchmark, the projects it matched on, with a similarity score. Further down,
-the comparable projects table. In my experience that's the first thing an estimator wants:
-"similar to what?"
+And for the Benchmark, we have the projects it matched on, with a similarity score. And further down,
+the comparable projects table, which helps answer the question "similar to what?"
+
+Ok, let's reset and run a few more cases, with different characteristics to show different situations.
 
 ## 4. Case two — a refinery modification (3 min)
+
+Second case, and with this one I want to show two things.
 
 [Press **Reset**. Archetype: **Refinery brownfield**. Location: **US Gulf Coast**. Scope
 type: **Modification**. Rough size: **Moderate ($75M to $200M)**. Facility type:
 **hydrotreater**. Capacity: **40000**, unit **BPD**.]
 
-Second case, and this one shows two things worth knowing.
-
-First, look at the right. The onshore calculator is marked "excluded for this archetype".
+First, look at the right. The onshore calculator is now marked "excluded for this archetype".
 That's a rule that comes with the models: on refinery modifications it overshoots badly, so
-it stays out. The app tells you that before you run, instead of hiding it.
+it stays out. And the app tells you that before you run.
 
 [Press **Run screening estimate**.]
 
-With one model only, confidence is low, and it says so.
+Well, and with only one model running, confidence is low, and it says so.
 
-Second thing. For brownfield work, the scope really is the equipment list: what gets
-replaced or added. So let's give it one.
+Second thing. For brownfield work, the scope really is the equipment list, meaning what gets
+replaced or added. 
+
+Let's give it one.
 
 [In **Equipment list**: exchanger **6**, Add. pump **8**, Add. tower **1**, Add. drum **3**,
 Add. compressor **1**, Add.]
 
-Notice only this card refreshes; the page doesn't reload. And now the Equipment vector is
-ready. It compares this list with almost six hundred past projects and finds the ones with
-the same mix of equipment, whatever the unit was called.
+And now the Equipment vector is
+ready. Basically it compares this list with almost six hundred past projects and finds the ones with
+the same mix of equipment.
 
 [Press **Run screening estimate**.]
 
-Two models now. Confidence went up. And in the Equipment vector tab you can see the five
+Now we have two models running now. Confidence went up. And in the Equipment vector tab you can see the five
 closest equipment profiles it found.
+
+Cool, now lets run one more case, offshore.
 
 ## 5. Case three — an FPSO (2 min)
 
@@ -119,67 +111,61 @@ closest equipment profiles it found.
 large ($2,500M to $5,000M)**. Topsides weight: **25000**. Water depth: **1800**. Hull
 type: **Fpso newbuild**.]
 
-Offshore, quickly. For an FPSO the Benchmark is excluded, and the list shows it.
-The offshore calculator works from the topsides weight. And a new card appeared, for the
-subsea scope.
+For an FPSO the Benchmark is excluded, and the list shows it.
+The offshore calculator works from the topsides weight. And what I wanna show is that with this selection of inputs, we have a new card appeared down here, for the
+subsea scope. We can add here the number of subsea trees, flowlines, risers, umbilicals, etc. basically anything related to the SURF package.
 
 [**Subsea scope (SURF)**: Subsea trees **12**, Flowlines **6**, Risers **4**, Manifolds
 **2**, Umbilicals **3**. Press **Run screening estimate**.]
 
-SURF prices the subsea system separately. It shows in the chart in the component colour
-and it is *not* added into the total. If SURF were the only model that ran, the app would
-not invent a total; the confidence would read "component only". Honest by design.
+And heres the result...
 
 ## 6. Under every result (1.5 min)
 
 [Scroll to the bottom of the results.]
 
-Three things sit under any result.
+What else,
 
 Basis year. Everything in the pool is in 2024 dollars. If I pick 2025 or 2026, the app
 applies the CP30 index and tells me the factor it used.
 
-Bid check. A bid comes in, I type the amount, and it tells me whether it falls inside,
+We have a Bid check. A bid comes in, I type the amount, and it tells me whether it falls inside,
 above or below the range.
 
-What-if. I change one number, say the capacity, and it reruns every model and shows the
+We have a What-if. I change one number, say the capacity, and it reruns every model and shows the
 difference model by model.
 
 [Press **Download HTML report**.]
 
-And all of this comes out as a one-page report you can drop into a gate package.
+And we have a one-page report that you can download here.
 
 ## 7. Models and Data pages (1.5 min)
 
+I think thats it, one last thing actually.
+
 [Open **Models**.]
 
-Two reference pages to finish. On Models: one card per model, with the method and what it
-needs. A routing tab, which says which models each project type can use, and the
+Two reference pages to finish. On Models: we have the card models, with the method and what it
+needs in it. Then there's a routing tab, which tells which models each project type can use, and the
 exclusions. And a tab called Reported accuracy.
 
 [Open the **Reported accuracy** tab. Don't read the numbers out.]
 
 That tab has the figures we measured on the fifty-two projects with known cost, with notes
-on how they were counted. I'd rather not go through them live; how you count makes a real
-difference, and I'd like to review them with the team first.
-It's all there for anyone who wants to look.
+on how they were counted. 
 
 [Open **Data**.]
 
-And Data: every table the app loaded, with live row counts and which model reads it.
-Everything is traceable back to a file.
+And Data: we have all tables the app loaded, with live row counts and which model reads it.
 
 ## 8. Close (30 s)
 
 [Back to the **Estimator** page.]
 
-So, what you've seen is the team's cost models running as an app: a few inputs, models
-waking up as you add detail, a number with a range, and the evidence behind it.
+So, this is our cost estimator, with a few inputs, models
+wake up as you add more detail, we always give you a number with a range, and the evidence behind it.
 
-What's next is finishing the last model families: the SURF, OSBL, pipeline, LNG and
-offshore calculators are still on the earlier version and will be brought up to date.
-
-That's it. Questions?
+That's it. Now, any questions? Any thing else I can show you?
 
 ---
 
